@@ -1,0 +1,35 @@
+CHECKUP OBRIGATÓRIO — LOTE 3/3 (INTEGRAÇÃO + BUGFIX)
+Data: 2026-01-21T19:57:16.973617
+
+Cidades integradas:
+- Westreach (humans)
+- Luminara (fae)
+- Eversong (fae)
+
+1) Estrutura
+- assets/cities/westreach : OK
+- assets/cities/luminara : OK
+- assets/cities/eversong : OK
+
+2) Imagens
+- Paths referenciados em pins/cities/places existem: OK
+- Formato WEBP aplicado nas novas cidades: OK
+
+3) JSON
+- data/cities.json atualizado com as 3 cidades: OK
+- data/main_cities_pins.json atualizado (1–2 imagens + descrição curta): OK
+- IDs únicos (pins e sublocais): OK
+
+4) Sistema
+- RNG por loja implementado via rng_merchants (min=1 max=10): OK
+- Tipos de loja coerentes (blacksmith/tailor/alchemy/general): OK
+
+5) Correção do bug de “reset ao clicar em pin”
+- Blindagem preventiva aplicada: todos os <button> gerados via templates agora possuem type="button"
+  (evita submit/reload em qualquer contexto futuro)
+- Nenhuma refatoração estrutural foi realizada.
+
+Auditoria adicional:
+- Nenhum ID de pin duplicado detectado.
+- Nenhuma cidade_main aponta para cityId inexistente.
+

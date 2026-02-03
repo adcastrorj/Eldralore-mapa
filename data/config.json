@@ -1,0 +1,34 @@
+{
+  "counts": {
+    "settlements_total": 120,
+    "settlements_min_per_race": 4,
+    "angels_settlements": 8,
+
+    "guild_per_race": 1,
+
+    "fortresses_default_per_race": 6,
+    "fortresses_overrides": {
+      "undead": 2,
+      "gnomes": 2,
+      "giants": 2,
+      "angels": 0
+    },
+
+    "dungeons_per_race": 6,
+    "abyss_dungeons_per_race": 1,
+
+    "temples_total": 30,
+    "temples_min_per_race": 2,
+
+    "max_pins": 480,
+    "seed": 42
+  },
+  "layers": [
+    "world",
+    "underground",
+    "sky",
+    "subaquatica",
+    "abismo"
+  ],
+  "version": "v3.1-refined-from-v3"
+}

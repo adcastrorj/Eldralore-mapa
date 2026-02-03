@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas de Eldralore</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="top-actions">
+      <div class="brand">Atlas de Eldralore</div>
+      <button id="uiCollapseBtn" class="ui-toggle" type="button" title="Minimizar/expandir barra superior">Minimizar</button>
+    </div>
+
+    <div class="controls">
+      <label class="ctrl">
+        Camada
+        <select id="layerSelect">
+          <option value="world">Superfície</option>
+          <option value="underground">Subterrâneo</option>
+          <option value="sky">Aéreo</option>
+          <option value="subaquatica">Subaquática</option>
+          <option value="abismo">Abismo</option>
+        </select>
+      </label>
+
+      <label class="ctrl">
+        Raça
+        <select id="raceSelect">
+          <option value="all">Todas</option>
+          <option value="humans">Humanos</option>
+          <option value="elves">Elfos</option>
+          <option value="dwarves">Anões</option>
+          <option value="vampires">Vampiros</option>
+          <option value="orcs">Orcs</option>
+          <option value="nagas">Nagas</option>
+          <option value="centaurs">Centauros</option>
+          <option value="dragons">Dragões</option>
+          <option value="demons">Demônios</option>
+          <option value="fae">Feéricos</option>
+          <option value="giants">Gigantes</option>
+          <option value="gnomes">Gnomos</option>
+          <option value="undead">Mortos-vivos</option>
+          <option value="angels">Anjos</option>
+        </select>
+      </label>
+
+      <label class="ctrl">
+        Tipo
+        <select id="typeSelect">
+          <option value="all">Todos</option>
+          <option value="city_main">Cidades Principais</option>
+          <option value="settlement">Assentamentos</option>
+          <option value="fortress">Fortalezas</option>
+          <option value="dungeon">Masmorras</option>
+          <option value="guild_hq">Guilda</option>
+          <option value="temple">Templos</option>
+        </select>
+      </label>
+
+      <label class="ctrl">
+        Busca
+        <input id="searchInput" type="text" placeholder="nome do local..." />
+      </label>
+
+      <label class="toggle">
+        <input id="debugToggle" type="checkbox" />
+        Debug (x,y)
+      </label>
+
+      <label class="toggle">
+        <input id="measureToggle" type="checkbox" />
+        Régua (40km/dia)
+      </label>
+
+      <div class="zoombox" title="Zoom: roda do mouse. Arrasto: segure Shift e arraste">
+        <button id="zoomOutBtn" class="btn btn-sm" type="button">−</button>
+        <div id="zoomLabel" class="zoom-label">100%</div>
+        <button id="zoomInBtn" class="btn btn-sm" type="button">+</button>
+        <button id="zoomResetBtn" class="btn btn-sm" type="button" title="Reset zoom">Reset</button>
+      </div>
+
+      <label class="toggle">
+        <input id="climateToggle" type="checkbox" checked />
+        Overlay climático
+      </label>
+
+      <label class="toggle">
+        <input id="hideNoImageToggle" type="checkbox" />
+        Ocultar sem imagem
+      </label>
+
+      <div class="timebox">
+        <div class="time-label">Calendário</div>
+        <div class="time-row">
+          <div id="worldTimeLabel" class="time-value">Dia 1 • Mês 1 • Ano 1</div>
+          <button id="advanceDayBtn" class="btn btn-sm" type="button" title="Avança 1 dia (GM)">+1 dia</button>
+        </div>
+        <div class="time-row time-edit">
+          <label class="time-field">D <input id="dayInput" type="number" min="1" max="40" value="1" /></label>
+          <label class="time-field">M <input id="monthInput" type="number" min="1" max="12" value="1" /></label>
+          <label class="time-field">A <input id="yearInput" type="number" min="1" max="9999" value="1" /></label>
+          <button id="applyDateBtn" class="btn btn-sm" type="button" title="Aplicar data (GM)">Aplicar</button>
+          <label class="toggle lock">
+            <input id="dateLockToggle" type="checkbox" checked />
+            Lock
+          </label>
+        </div>
+        <div class="time-row gm-row">
+          <button id="gmLoginBtn" class="btn btn-sm" type="button">Modo GM</button>
+          <button id="gmLogoutBtn" class="btn btn-sm" type="button" disabled>Sair</button>
+          <button id="gmEditorBtn" class="btn btn-sm" type="button" disabled>Editor</button>
+          <label class="toggle" title="Mostra NPCs importantes (somente GM)">
+            <input id="importantNpcToggle" type="checkbox" disabled />
+            NPCs importantes
+          </label>
+
+          <label class="toggle" title="Mostra informações secretas (somente GM)">
+            <input id="expandAllInfoToggle" type="checkbox" disabled />
+            Expandir toda info
+          </label>
+        </div>
+        <div id="gmHint" class="gm-hint">Controles de calendário e NPCs importantes exigem Modo GM.</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-title">Locais</div>
+      <div id="list" class="list"></div>
+      <div class="hint">
+        Dica: use o Debug (x,y) para obter coordenadas precisas clicando no mapa.
+      </div>
+    </aside>
+
+    <section class="map-wrap">
+      <div id="mapContainer" class="map-container">
+        <div id="mapStage" class="map-stage">
+          <div id="mapZoomLayer" class="map-zoom">
+            <img id="worldMap" src="assets/map/world-map.jpg" alt="Mapa-múndi" />
+            <img id="bordersOverlay" src="assets/map/world-borders.png" alt="Overlay" />
+
+            <canvas id="climateCanvas" class="climate-canvas" aria-hidden="true"></canvas>
+
+            <svg id="measureSvg" class="measure-svg" aria-hidden="true"></svg>
+
+            <div id="pins" class="pins-layer"></div>
+            <div id="tooltip" class="tooltip hidden"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Local -->
+  <div id="locBackdrop" class="backdrop hidden">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button type="button" id="closeLoc" class="close" aria-label="Fechar">✕</button>
+      <div id="modalTitle" class="modal-title"></div>
+      <div id="modalMeta" class="modal-meta"></div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Modal Cidade (City View) -->
+  <div id="cityBackdrop" class="backdrop hidden">
+    <div class="modal modal-xl" role="dialog" aria-modal="true">
+      <button type="button" id="closeCity" class="close" aria-label="Fechar">✕</button>
+      <div class="modal-title" id="cityTitle"></div>
+      <div class="modal-meta" id="cityMeta"></div>
+      <div class="city-grid">
+        <div class="city-left">
+          <div id="cityHero" class="city-hero"></div>
+          <div id="cityDesc" class="city-desc"></div>
+          <div class="city-section-title">Sublocais</div>
+          <div id="cityPlaces" class="city-places"></div>
+        </div>
+        <div class="city-right">
+          <div class="city-section-title">Interações</div>
+          <div class="city-box">
+            <div class="city-box-title">Local selecionado</div>
+            <div id="placePanel" class="city-box-body">Selecione um sublocal para ver detalhes e comerciantes.</div>
+          </div>
+          <div class="city-box">
+            <div class="city-box-title">Inventário do comerciante</div>
+            <div id="merchantPanel" class="city-box-body">Selecione um comerciante.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Debug -->
+  <div id="debugBackdrop" class="backdrop hidden">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button type="button" id="closeDebug" class="close" aria-label="Fechar">✕</button>
+      <div class="modal-title">Debug</div>
+      <div class="modal-meta">Coordenadas percentuais (x,y) no mapa</div>
+      <div id="debugBody" class="modal-body"></div>
+    </div>
+  </div>
+
+
+
+  <!-- Modal Editor GM -->
+  <div id="gmEditorBackdrop" class="backdrop hidden">
+    <div class="modal modal-xl" role="dialog" aria-modal="true">
+      <button type="button" id="closeGmEditor" class="close" aria-label="Fechar">✕</button>
+      <button id="minimizeGmEditor" class="btn btn-sm gm-min" type="button" title="Minimizar/Expandir o editor">Minimizar</button>
+      <div class="modal-title">Editor GM</div>
+      <div class="modal-meta">Crie novos pins (sem alterar os existentes) e aplique conversões por zona racial. Alterações são salvas no navegador (GM).</div>
+
+      <div class="gm-grid">
+        <div class="gm-col">
+          <div class="city-section-title">Criar novo pin</div>
+          <div class="gm-form">
+            <label class="ctrl">Tipo
+              <select id="gmPinType">
+                <option value="city_main">Cidade Principal</option>
+                <option value="settlement">Assentamento</option>
+                <option value="fortress">Fortaleza</option>
+                <option value="dungeon">Masmorra</option>
+                <option value="temple">Templo</option>
+                <option value="guild_hq">Guilda</option>
+                <option value="underground_entry">Passagem Subterrânea</option>
+              </select>
+            </label>
+
+            <label class="ctrl">Nome
+              <input id="gmPinName" type="text" placeholder="ex.: Eldrath" />
+            </label>
+
+            <div class="gm-row">
+              <label class="ctrl">X (%)
+                <input id="gmPinX" type="number" min="0" max="100" step="0.01" />
+              </label>
+              <label class="ctrl">Y (%)
+                <input id="gmPinY" type="number" min="0" max="100" step="0.01" />
+              </label>
+              <button id="gmCaptureBtn" class="btn" type="button" title="Clique no mapa para capturar X/Y">Capturar no mapa</button>
+            </div>
+
+            <div class="gm-row">
+              <label class="ctrl">Camada
+                <select id="gmPinLayer">
+                  <option value="world">Superfície</option>
+                  <option value="underground">Subterrâneo</option>
+                  <option value="sky">Aéreo</option>
+                  <option value="subaquatica">Subaquática</option>
+                  <option value="abismo">Abismo</option>
+                </select>
+              </label>
+              <label class="ctrl">Território/Raça
+                <select id="gmPinTerritory">
+                  <option value="">(auto por polígono)</option>
+                  <option value="humans">Humanos</option>
+                  <option value="elves">Elfos</option>
+                  <option value="dwarves">Anões</option>
+                  <option value="vampires">Vampiros</option>
+                  <option value="orcs">Orcs</option>
+                  <option value="nagas">Nagas</option>
+                  <option value="centaurs">Centauros</option>
+                  <option value="dragons">Dragões</option>
+                  <option value="demons">Demônios</option>
+                  <option value="fae">Feéricos</option>
+                  <option value="giants">Gigantes</option>
+                  <option value="gnomes">Gnomos</option>
+                  <option value="undead">Mortos-vivos</option>
+                  <option value="angels">Anjos</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="ctrl">cityId (somente para Cidade Principal)
+              <input id="gmPinCityId" type="text" placeholder="ex.: eldrath" />
+            </label>
+
+            <label class="ctrl" style="display:flex;gap:10px;align-items:center;">
+              <input id="gmAlwaysLabel" type="checkbox" />
+              <span>Mostrar nome sempre (opcional)</span>
+            </label>
+
+            <div class="gm-row">
+              <button id="gmCreatePinBtn" class="btn primary" type="button">Criar pin</button>
+              <button id="gmExportBtn" class="btn" type="button" title="Exporta as mudanças GM (pins/cidades/overrides)">Exportar JSON</button>
+            </div>
+            <div id="gmCreateHint" class="gm-hint">Dica: use Capturar no mapa, defina Nome e Tipo, e clique em Criar pin.</div>
+          </div>
+        </div>
+
+        <div class="gm-col">
+          <div class="city-section-title">Configurar cidade principal (pin selecionado)</div>
+          <div class="gm-form">
+            <div id="gmSelectedPin" class="gm-hint">Selecione um pin no mapa (com o Editor aberto) para configurar a cidade.</div>
+
+            <div class="gm-row">
+              <button id="gmSelectPinBtn" class="btn btn-sm" type="button" title="Minimiza o editor para você clicar em um pin no mapa">Selecionar pin no mapa</button>
+            </div>
+
+            <div class="gm-row">
+              <button id="gmMakeCityMainBtn" class="btn warn" type="button" title="Define este pin como Cidade Principal">Marcar como Cidade Principal</button>
+              <button id="gmMakeSettlementBtn" class="btn danger" type="button" title="Define este pin como Assentamento">Marcar como Assentamento</button>
+            </div>
+
+            <div class="gm-row">
+              <label class="ctrl">Tabernas
+                <input id="gmCountTavern" type="number" min="0" max="50" value="1" />
+              </label>
+              <label class="ctrl">Pousadas
+                <input id="gmCountInn" type="number" min="0" max="50" value="1" />
+              </label>
+            </div>
+            <div class="gm-row">
+              <label class="ctrl">Ferreiros
+                <input id="gmCountBlacksmith" type="number" min="0" max="50" value="1" />
+              </label>
+              <label class="ctrl">Alfaiatarias
+                <input id="gmCountTailor" type="number" min="0" max="50" value="0" />
+              </label>
+            </div>
+            <div class="gm-row">
+              <label class="ctrl">Alquimias
+                <input id="gmCountAlchemy" type="number" min="0" max="50" value="1" />
+              </label>
+              <label class="ctrl">Materiais diversos
+                <input id="gmCountGeneral" type="number" min="0" max="50" value="1" />
+              </label>
+            </div>
+
+            <label class="ctrl">Mercadores por local (além do fixo)
+              <input id="gmMerchantsPerPlace" type="number" min="0" max="10" value="0" />
+            </label>
+
+            <div class="gm-row">
+              <button id="gmApplyCityConfigBtn" class="btn primary" type="button">Aplicar configuração na cidade</button>
+            </div>
+            <div class="gm-hint">Isso cria/atualiza a entrada da cidade (City View) e salva no navegador (GM). Depois use Exportar JSON para me enviar.</div>
+          </div>
+
+          <div class="city-section-title">Conversões por zona (opcional)</div>
+          <div class="gm-form">
+            <label class="ctrl">Zona (polígono racial)
+              <select id="gmZoneSelect"></select>
+            </label>
+
+            <label class="ctrl">Quantidade (0 = tudo na zona)
+              <input id="gmCountInput" type="number" min="0" max="9999" value="0" />
+            </label>
+
+            <div class="gm-row">
+              <button id="gmPromoteBtn" class="btn warn" type="button" title="Converte assentamentos em cidades principais (aplica override)">Assent. → Cidade Principal</button>
+              <button id="gmDemoteBtn" class="btn danger" type="button" title="Converte cidades principais em assentamentos (aplica override)">Cidade Principal → Assent.</button>
+            </div>
+            <div class="gm-hint">Estas conversões não apagam pins; apenas alteram o tipo via override GM (salvo no navegador).</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

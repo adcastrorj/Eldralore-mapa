@@ -1,0 +1,1228 @@
+[
+  {
+    "id": "gm_1768672142768_3322",
+    "name": "Equinalis",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "centaurs",
+    "x": 35.42,
+    "y": 64.01,
+    "images": [
+      "assets/cities/equinalis/equinalis_preview_1.webp",
+      "assets/cities/equinalis/equinalis_preview_2.webp"
+    ],
+    "description": "Capital nômade dos centauros nas Planícies dos Ventos Livres — Windstep, rituais sagrados e honra acima de tudo.",
+    "alwaysLabel": false,
+    "cityId": "Equinalis"
+  },
+  {
+    "id": "gm_1768672231480_8251",
+    "name": "Galehoof",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "centaurs",
+    "x": 31.26,
+    "y": 61.36,
+    "images": [
+      "assets/cities/galehoof/galehoof_preview_1.webp",
+      "assets/cities/galehoof/galehoof_preview_2.webp"
+    ],
+    "description": "Cidade fixa e fértil dos centauros, coração agrícola e espiritual. Campos em círculos concêntricos e velários gigantes regulam o vento e protegem as colheitas.",
+    "alwaysLabel": false,
+    "cityId": "Galehoof"
+  },
+  {
+    "id": "gm_1768672203415_5002",
+    "name": "Hoofcrest",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "centaurs",
+    "x": 39.7,
+    "y": 66.22,
+    "images": [
+      "assets/cities/hoofcrest/hoofcrest_preview_1.webp",
+      "assets/cities/hoofcrest/hoofcrest_preview_2.webp"
+    ],
+    "description": "Hub comercial nômade dos centauros: caravanas, tratados e o Grande Pavilhão Dourado.",
+    "alwaysLabel": false,
+    "cityId": "Hoofcrest"
+  },
+  {
+    "id": "gm_1768672220312_7409",
+    "name": "Plainswatch",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "centaurs",
+    "x": 33.64,
+    "y": 57.41,
+    "images": [
+      "assets/cities/plainswatch/plainswatch_preview_1.webp",
+      "assets/cities/plainswatch/plainswatch_preview_2.webp"
+    ],
+    "description": "Fortificação fixa dos centauros, erguida sobre cristas rochosas para vigiar as rotas das planícies. Disciplina, patrulhas e sinais de fogo mantêm o território seguro.",
+    "alwaysLabel": false,
+    "cityId": "Plainswatch"
+  },
+  {
+    "id": "gm_1768672186159_9882",
+    "name": "Stormstride",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "centaurs",
+    "x": 35.67,
+    "y": 67.8,
+    "images": [
+      "assets/cities/stormstride/stormstride_preview_1.webp",
+      "assets/cities/stormstride/stormstride_preview_2.webp"
+    ],
+    "description": "Cidade xamânica dos centauros onde as tempestades falam: presságios, totens e o Círculo das Tempestades.",
+    "alwaysLabel": false,
+    "cityId": "Stormstride"
+  },
+  {
+    "id": "gm_1768672244815_4078",
+    "name": "Thunderpath",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "centaurs",
+    "x": 36.54,
+    "y": 57.86,
+    "images": [
+      "assets/cities/thunderpath/thunderpath_preview_1.webp",
+      "assets/cities/thunderpath/thunderpath_preview_2.webp"
+    ],
+    "description": "Cidade nômade que segue os corredores de tempestade: chuva constante, relâmpagos e presságios. Mastros condutores e ritos do trovão guiam cada deslocamento.",
+    "alwaysLabel": false,
+    "cityId": "Thunderpath"
+  },
+  {
+    "id": "gm_1768671357317_8534",
+    "name": "Abyssara — Capital dos Demônios",
+    "type": "city_main",
+    "layer": "abismo",
+    "territory": "demons",
+    "x": 96.19,
+    "y": 86.09,
+    "images": [
+      "assets/cities/abyssara/abyssara_preview_1.webp",
+      "assets/cities/abyssara/abyssara_preview_2.webp"
+    ],
+    "description": "Torres góticas, ferro maldito e pactos: um mecanismo de dominação no Deserto das Sombras.",
+    "alwaysLabel": false,
+    "cityId": "Abyssara"
+  },
+  {
+    "id": "gm_1768671486380_2362",
+    "name": "Bloodthorn",
+    "type": "city_main",
+    "layer": "abismo",
+    "territory": "demons",
+    "x": 96.42,
+    "y": 89.92,
+    "images": [
+      "assets/cities/bloodthorn/bloodthorn_preview_1.webp",
+      "assets/cities/bloodthorn/bloodthorn_preview_2.webp"
+    ],
+    "description": "Cidade de arenas na planície de espinhos; violência como ritual e espetáculo.",
+    "alwaysLabel": false,
+    "cityId": "Bloodthorn"
+  },
+  {
+    "id": "gm_1768671420757_1844",
+    "name": "Doomspire",
+    "type": "city_main",
+    "layer": "abismo",
+    "territory": "demons",
+    "x": 94.02,
+    "y": 80.61,
+    "images": [
+      "assets/cities/doomspire/doomspire_preview_1.webp",
+      "assets/cities/doomspire/doomspire_preview_2.webp"
+    ],
+    "description": "Cidade vertical do Eixo Supremo: pontes suspensas, intriga política e quedas fatais.",
+    "alwaysLabel": false,
+    "cityId": "Doomspire"
+  },
+  {
+    "id": "gm_1768671468140_330",
+    "name": "Hell's Maw",
+    "type": "city_main",
+    "layer": "abismo",
+    "territory": "demons",
+    "x": 92.07,
+    "y": 82.86,
+    "images": [
+      "assets/cities/hells_maw/hells_maw_preview_1.webp",
+      "assets/cities/hells_maw/hells_maw_preview_2.webp"
+    ],
+    "description": "Cidade construída ao redor de uma fenda congelada; forja dual de frio e fogo.",
+    "alwaysLabel": false,
+    "cityId": "Hell's Maw"
+  },
+  {
+    "id": "gm_1768671382957_5727",
+    "name": "Malgorath",
+    "type": "city_main",
+    "layer": "abismo",
+    "territory": "demons",
+    "x": 89.7,
+    "y": 92.72,
+    "images": [
+      "assets/cities/malgorath/malgorath_preview_1.webp",
+      "assets/cities/malgorath/malgorath_preview_2.webp"
+    ],
+    "description": "Bastião militar no cânion: disciplina rígida, forjas infernais e prontidão constante.",
+    "alwaysLabel": false,
+    "cityId": "Malgorath"
+  },
+  {
+    "id": "gm_1768671446813_2662",
+    "name": "Nightshade",
+    "type": "city_main",
+    "layer": "abismo",
+    "territory": "demons",
+    "x": 86.92,
+    "y": 87.55,
+    "images": [
+      "assets/cities/nightshade/nightshade_preview_1.webp",
+      "assets/cities/nightshade/nightshade_preview_2.webp"
+    ],
+    "description": "Cidade oculta em floresta morta; jardins venenosos e alquimia sombria.",
+    "alwaysLabel": false,
+    "cityId": "Nightshade"
+  },
+  {
+    "id": "gm_1768671402893_9798",
+    "name": "Shadewrath",
+    "type": "city_main",
+    "layer": "abismo",
+    "territory": "demons",
+    "x": 92.28,
+    "y": 94.2,
+    "images": [
+      "assets/cities/shadewrath/shadewrath_preview_1.webp",
+      "assets/cities/shadewrath/shadewrath_preview_2.webp"
+    ],
+    "description": "Sombras eternas sob um sol negro: necromancia, chamas espectrais e terror silencioso.",
+    "alwaysLabel": false,
+    "cityId": "Shadewrath"
+  },
+  {
+    "id": "gm_1768671118391_5214",
+    "name": "Embercliff O Trono dos Céus",
+    "type": "city_main",
+    "layer": "sky",
+    "territory": "dragons",
+    "x": 32.14,
+    "y": 34.36,
+    "images": [
+      "assets/cities/embercliff/embercliff_preview_1.webp",
+      "assets/cities/embercliff/embercliff_preview_2.webp"
+    ],
+    "description": "Cidade dracônica celestial sobre picos que tocam as nuvens: platina, vidro encantado e pontes de energia arcana sob tempestades controladas.",
+    "alwaysLabel": false,
+    "cityId": "Embercliff O Trono dos Céus"
+  },
+  {
+    "id": "gm_1768671231846_2774",
+    "name": "Ashenrock",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dragons",
+    "x": 42.29,
+    "y": 19.16,
+    "images": [
+      "assets/cities/ashenrock/ashenrock_preview_1.webp",
+      "assets/cities/ashenrock/ashenrock_preview_2.webp"
+    ],
+    "description": "Centro espiritual sobre rocha vulcânica cinza; rituais e festivais religiosos.",
+    "alwaysLabel": false,
+    "cityId": "Ashenrock"
+  },
+  {
+    "id": "gm_1768671260454_4087",
+    "name": "Cinderfall — A Cidade das Cataratas de Gelo",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dragons",
+    "x": 58.14,
+    "y": 13.19,
+    "images": [
+      "assets/cities/cinderfall/cinderfall_preview_1.webp",
+      "assets/cities/cinderfall/cinderfall_preview_2.webp"
+    ],
+    "description": "Acima das Montanhas de Glaciar-Névoa, rios e quedas d’água correm sobre gelo moldado por dragões.",
+    "alwaysLabel": false,
+    "cityId": "Cinderfall"
+  },
+  {
+    "id": "gm_1768671065583_3023",
+    "name": "Drakara",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dragons",
+    "x": 36.84,
+    "y": 27.13,
+    "images": [
+      "assets/cities/drakara/drakara_preview_1.webp",
+      "assets/cities/drakara/drakara_preview_2.webp"
+    ],
+    "description": "Capital dracônica nas Terras Escaldantes: fendas vulcânicas, magma vivo e um poder hierárquico regido por rituais de combate e sabedoria ancestral.",
+    "alwaysLabel": false,
+    "cityId": "Drakara"
+  },
+  {
+    "id": "gm_1768671290902_524",
+    "name": "Pyrestorm — A Cidade das Águas Termais",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dragons",
+    "x": 58.14,
+    "y": 13.19,
+    "images": [
+      "assets/cities/pyrestorm/pyrestorm_preview_1.webp",
+      "assets/cities/pyrestorm/pyrestorm_preview_2.webp"
+    ],
+    "description": "Uma metrópole de vapor e águas termais domadas por engenharia e magia dracônica.",
+    "alwaysLabel": false,
+    "cityId": "Pyrestorm"
+  },
+  {
+    "id": "gm_1768671157654_2237",
+    "name": "Scorchpeak",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dragons",
+    "x": 50.38,
+    "y": 8.6,
+    "images": [
+      "assets/cities/scorchpeak/scorchpeak_preview_1.webp",
+      "assets/cities/scorchpeak/scorchpeak_preview_2.webp"
+    ],
+    "description": "Bastião militar no pico mais alto; plataformas de lançamento e vigia dracônica.",
+    "alwaysLabel": false,
+    "cityId": "Scorchpeak"
+  },
+  {
+    "id": "gm_1768671193950_6632",
+    "name": "Volcaryx  O Pináculo das chamas Eternas",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dragons",
+    "x": 33.46,
+    "y": 47.7,
+    "images": [
+      "assets/cities/volcaryx/volcaryx_preview_1.webp",
+      "assets/cities/volcaryx/volcaryx_preview_2.webp"
+    ],
+    "description": "Cidade no cume do vulcão perene; Pira dos Ancestrais e Anfiteatro de Lava.",
+    "alwaysLabel": false,
+    "cityId": "Volcaryx"
+  },
+  {
+    "id": "gm_1768670731193_3441",
+    "name": "Dungrim's Hold",
+    "type": "city_main",
+    "layer": "underground",
+    "territory": "dwarves",
+    "x": 61.88,
+    "y": 16.99,
+    "images": [
+      "assets/cities/dungrims_hold/dungrims_hold_preview_1.webp",
+      "assets/cities/dungrims_hold/dungrims_hold_preview_2.webp"
+    ],
+    "description": "Cidadela anã isolada sob gelo eterno, iluminada por cristais arcanos e marcada por conhecimento proibido e segredos antigos.",
+    "alwaysLabel": false,
+    "cityId": "Dungrim's Hold"
+  },
+  {
+    "id": "gm_1768670781545_9354",
+    "name": "Ironforge",
+    "type": "city_main",
+    "layer": "underground",
+    "territory": "dwarves",
+    "x": 58.2,
+    "y": 25.37,
+    "images": [
+      "assets/cities/ironforge/ironforge_preview_1.webp",
+      "assets/cities/ironforge/ironforge_preview_2.webp"
+    ],
+    "description": "Capital anã esculpida na montanha, com a Grande Forja alimentada por lava e produção lendária.",
+    "alwaysLabel": false,
+    "cityId": "Ironforge"
+  },
+  {
+    "id": "gm_1768670818633_1113",
+    "name": "Karnak-Dûm",
+    "type": "city_main",
+    "layer": "underground",
+    "territory": "dwarves",
+    "x": 59.85,
+    "y": 24.41,
+    "images": [
+      "assets/cities/karnak_dum/karnak_dum_preview_1.webp",
+      "assets/cities/karnak_dum/karnak_dum_preview_2.webp"
+    ],
+    "description": "Fortaleza subterrânea anã nas Montanhas de Ferro, movida por magma controlado e forjas lendárias.",
+    "alwaysLabel": false,
+    "cityId": "Karnak-Dûm"
+  },
+  {
+    "id": "gm_1768670761289_9147",
+    "name": "Khazâd-Thrûl",
+    "type": "city_main",
+    "layer": "underground",
+    "territory": "dwarves",
+    "x": 59.85,
+    "y": 23.17,
+    "images": [
+      "assets/cities/khazad_thrul/khazad_thrul_preview_1.webp",
+      "assets/cities/khazad_thrul/khazad_thrul_preview_2.webp"
+    ],
+    "description": "Cidade-mina anã nas Montanhas Cinzentas, construída ao redor de uma vasta jazida de mythril.",
+    "alwaysLabel": false,
+    "cityId": "Khazâd-Thrûl"
+  },
+  {
+    "id": "gm_1768670674794_15",
+    "name": "Borgrim",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dwarves",
+    "x": 59.06,
+    "y": 23.45,
+    "images": [
+      "assets/cities/borgrim/borgrim_preview_1.webp",
+      "assets/cities/borgrim/borgrim_preview_2.webp"
+    ],
+    "description": "Cidade mineira anã, um labirinto de túneis e trilhos que levam minério precioso às forjas. Vapor, martelos e contratos rígidos definem a vida sob a montanha.",
+    "alwaysLabel": false,
+    "cityId": "Borgrim"
+  },
+  {
+    "id": "gm_1768670633554_332",
+    "name": "Mithrilgate",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dwarves",
+    "x": 60.94,
+    "y": 26.61,
+    "images": [
+      "assets/cities/mithrilgate/mithrilgate_preview_1.webp",
+      "assets/cities/mithrilgate/mithrilgate_preview_2.webp"
+    ],
+    "description": "Centro próspero de comércio e mineração de mithril e adamantina. Mercados vibrantes, oficinas de elite e casas de câmbio fazem a riqueza circular sem parar.",
+    "alwaysLabel": false,
+    "cityId": "Mithrilgate"
+  },
+  {
+    "id": "gm_1769050304643_7577",
+    "name": "Eldaraen — Capital dos Elfos",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "elves",
+    "x": 52.29,
+    "y": 60.33,
+    "images": [
+      "assets/cities/eldaraen/eldaraen_preview_1.webp",
+      "assets/cities/eldaraen/eldaraen_preview_2.webp"
+    ],
+    "description": "Capital élfica flutuante sobre um lago ancestral, erguida por raízes colossais, regida pela Rainha Aelindra e pelo Conselho dos Anciãos.",
+    "alwaysLabel": false,
+    "cityId": "Eldaraen"
+  },
+  {
+    "id": "gm_1768665341069_2578",
+    "name": "Eledhel — O Reino da Magia Celestial",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "elves",
+    "x": 49.27,
+    "y": 66.44,
+    "images": [
+      "assets/cities/eledhel/eledhel_preview_1.webp",
+      "assets/cities/eledhel/eledhel_preview_2.webp"
+    ],
+    "description": "Erguida entre árvores de prata e riachos cintilantes, Eledhel é o santuário élfico onde astronomia arcana e magia antiga se unem sob o Oráculo das Três Luas.",
+    "alwaysLabel": false,
+    "cityId": "Eledhel"
+  },
+  {
+    "id": "gm_1768665293989_8918",
+    "name": "Fëanoril — O Reino dos Guardiões das Estrelas",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "elves",
+    "x": 60.47,
+    "y": 63.14,
+    "images": [
+      "assets/cities/feanoril/feanoril_preview_1.webp",
+      "assets/cities/feanoril/feanoril_preview_2.webp"
+    ],
+    "description": "A mais elevada cidade élfica, móvel e difícil de encontrar: copas flutuantes, passagens luminosas e a Torre das Estrelas formam a escola viva dos Guardiões Celestiais.",
+    "alwaysLabel": false,
+    "cityId": "Fëanoril"
+  },
+  {
+    "id": "gm_1768665141918_1067",
+    "name": "Galadorn — A Fortaleza Verde do Crepúsculo",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "elves",
+    "x": 53.27,
+    "y": 74.81,
+    "images": [
+      "assets/cities/galadorn/galadorn_preview_1.webp",
+      "assets/cities/galadorn/galadorn_preview_2.webp"
+    ],
+    "description": "Fortaleza élfica de arquitetura humana tomada pela floresta — muralhas vivas e rituais mantêm a Barreira Crepuscular, travando a expansão vampírica.",
+    "alwaysLabel": false,
+    "cityId": "Galadorn"
+  },
+  {
+    "id": "gm_1768665222742_2360",
+    "name": "Lórienor — A Cidade Dourada dos Poetas e Sábios",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "elves",
+    "x": 48.17,
+    "y": 61.63,
+    "images": [
+      "assets/cities/lorienor/lorienor_preview_1.webp",
+      "assets/cities/lorienor/lorienor_preview_2.webp"
+    ],
+    "description": "Entre bosques imortais, Lórienor é a cidade da cultura e do conhecimento. Árvores douradas abrigam bardos, eruditos e magos.\n\nNo coração está o Grande Salão das Estrelas, onde canções preservam feitos antigos e luzes flutuantes mudam de cor conforme a música.\n\nAqui, arte e sabedoria são defesa contra o esquecimento.",
+    "alwaysLabel": false,
+    "cityId": "Lórienor"
+  },
+  {
+    "id": "gm_1768602147442_1587",
+    "name": "Sylvandar — O Reino das Copas Celestes",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "elves",
+    "group": null,
+    "x": 57.57,
+    "y": 69.49,
+    "description": "Escondida entre as copas das árvores colossais da Floresta de Lúthiren, Sylvandar é um reino suspenso onde os elfos vivem nas alturas. Passarelas de raízes conectam distritos e folhas encantadas brilham sob as estrelas.\n\nNo centro ergue-se a Árvore dos Sussurros, que guarda memórias das eras. Ao redor dela, rituais de comunhão buscam conhecimento e proteção.\n\nPatrulheiros das Sombras Verdes protegem a cidade com rastreamento e combate silencioso.",
+    "cityId": "Sylvandar",
+    "images": [
+      "assets/cities/sylvandar/sylvandar_preview_1.webp",
+      "assets/cities/sylvandar/sylvandar_preview_2.webp"
+    ]
+  },
+  {
+    "id": "gm_1768665516540_6918",
+    "name": "Thalindra — O Santuário da Vida",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "elves",
+    "x": 50.68,
+    "y": 69.32,
+    "images": [
+      "assets/cities/thalindra/thalindra_preview_1.webp",
+      "assets/cities/thalindra/thalindra_preview_2.webp"
+    ],
+    "description": "Thalindra é lar de druidas e curandeiros, esculpida em troncos ocos e vinhas sagradas. Os Caminhos Vivos conduzem pelos distritos moldados pela floresta.\n\nNo centro, a Fonte da Eternidade cura corpo e espírito. A cidade é sede dos Druidas da Canção Verde.",
+    "alwaysLabel": false,
+    "cityId": "Thalindra"
+  },
+  {
+    "id": "gm_1768672410958_1621",
+    "name": "Eversong O Reino da canção perpétua",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "fae",
+    "x": 62.08,
+    "y": 53.55,
+    "images": [
+      "assets/cities/eversong/eversong_preview_1.webp",
+      "assets/cities/eversong/eversong_preview_2.webp"
+    ],
+    "description": "Cidade vibrante onde palavras viram música e a realidade dança. Lar da Orquestra Celestial e do Festival das Mil Harmonias.",
+    "alwaysLabel": false,
+    "cityId": "Eversong"
+  },
+  {
+    "id": "gm_1768672536173_3291",
+    "name": "Faelight Hollow",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "fae",
+    "x": 62.02,
+    "y": 56.67,
+    "images": [
+      "assets/cities/faelight_hollow/faelight_hollow_preview_1.webp",
+      "assets/cities/faelight_hollow/faelight_hollow_preview_2.webp"
+    ],
+    "description": "Cidade feérica em ilhas flutuantes sob a lua eterna, com torres de cristal, cascatas suspensas e presságios celestiais.",
+    "alwaysLabel": false,
+    "cityId": "Faelight Hollow"
+  },
+  {
+    "id": "gm_1768672515333_169",
+    "name": "Glimmerwood — A Floresta Brilhante",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "fae",
+    "x": 59.92,
+    "y": 53.22,
+    "images": [
+      "assets/cities/glimmerwood/glimmerwood_preview_1.webp",
+      "assets/cities/glimmerwood/glimmerwood_preview_2.webp"
+    ],
+    "description": "Cidade oculta entre árvores que brilham como ouro líquido; passarelas de luz e oráculos feéricos governam sob sonhos e estrelas.",
+    "alwaysLabel": false,
+    "cityId": "Glimmerwood"
+  },
+  {
+    "id": "gm_1768672387686_2062",
+    "name": "Luminara",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "fae",
+    "x": 65.38,
+    "y": 50.77,
+    "images": [
+      "assets/cities/luminara/luminara_preview_1.webp",
+      "assets/cities/luminara/luminara_preview_2.webp"
+    ],
+    "description": "Cidade encantada no coração da floresta mágica, erguida em torno da Árvore da Vida Eterna. Protegida por encantamentos e pelos Guardas das Estrelas.",
+    "alwaysLabel": false,
+    "cityId": "Luminara"
+  },
+  {
+    "id": "gm_1768672468982_682",
+    "name": "Moonbloom O Jardim Lunar",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "fae",
+    "x": 65.44,
+    "y": 56.11,
+    "images": [
+      "assets/cities/moonbloom/moonbloom_preview_1.webp",
+      "assets/cities/moonbloom/moonbloom_scene_10.webp"
+    ],
+    "description": "Jardins lunares sob noite perpétua, lagos suspensos e videntes do Templo de Selunara. No Solstício da Lua Cheia, caminhos secretos surgem à luz das estrelas.",
+    "alwaysLabel": false,
+    "cityId": "Moonbloom"
+  },
+  {
+    "id": "gm_1768672450182_7670",
+    "name": "Thistledell O Vale das sombras encantadas",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "fae",
+    "x": 66.97,
+    "y": 45.1,
+    "images": [
+      "assets/cities/thistledell/thistledell_preview_1.webp",
+      "assets/cities/thistledell/thistledell_scene_10.webp"
+    ],
+    "description": "Cidade feérica de crepúsculo e névoa: torres finas, passarelas flutuantes e ilhas de flores venenosas. O Santuário da Lua Negra guarda portais para planos desconhecidos.",
+    "alwaysLabel": false,
+    "cityId": "Thistledell"
+  },
+  {
+    "id": "gm_1768672496565_451",
+    "name": "Verdant Glade O Reino da Vida Eterna",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "fae",
+    "x": 72.29,
+    "y": 44.99,
+    "images": [
+      "assets/cities/verdant_glade/verdant_preview_1.webp",
+      "assets/cities/verdant_glade/verdant_scene_10.webp"
+    ],
+    "description": "Cidade-viva fundida à natureza: casas de árvores e flores colossais. No Grande Círculo Verdejante, armas viram pétalas e o ciclo da vida nunca se quebra.",
+    "alwaysLabel": false,
+    "cityId": "Verdant"
+  },
+  {
+    "id": "gm_1768653939960_6918",
+    "name": "Darkheart — A Cidade dos Segredos",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "humans",
+    "group": null,
+    "x": 45.64,
+    "y": 38.17,
+    "description": "Labirinto humano de sombras e sussurros. A Irmandade da Noite dita regras invisíveis e a Feira Sombria negocia artefatos proibidos sob lanternas encantadas.",
+    "cityId": "Darkheart",
+    "images": [
+      "assets/cities/darkheart/darkheart_preview_1.webp",
+      "assets/cities/darkheart/darkheart_preview_2.webp"
+    ]
+  },
+  {
+    "id": "gm_1768654126310_9646",
+    "name": "Goldshire — O Reino da Riqueza",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "humans",
+    "group": null,
+    "x": 43.43,
+    "y": 18.87,
+    "description": "Cidade opulenta erguida sobre veios de ouro e gemas, onde Senhores de Ouro controlam bancos, cofres e tratados.",
+    "cityId": "Goldshire",
+    "images": [
+      "assets/cities/goldshire/goldshire_preview_1.webp",
+      "assets/cities/goldshire/goldshire_preview_2.webp"
+    ]
+  },
+  {
+    "id": "gm_1768653618682_2430",
+    "name": "Highvale — O Bastião Celestial",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "humans",
+    "group": null,
+    "x": 41.17,
+    "y": 22.21,
+    "description": "Fortaleza humana erguida no alto das Montanhas de Eredrion. Torretas douradas, fé inabalável e ordens cavaleirescas protegem a humanidade acima das nuvens.",
+    "cityId": "Highvale",
+    "images": [
+      "assets/cities/highvale/highvale_preview_1.webp",
+      "assets/cities/highvale/highvale_preview_2.webp"
+    ]
+  },
+  {
+    "id": "gm_1768654035024_1048",
+    "name": "Rivermark — O Coração Comercial",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "humans",
+    "group": null,
+    "x": 56.91,
+    "y": 41.97,
+    "description": "Construída às margens do Grande Rio Eldoria, Rivermark é o maior centro comercial humano, governada por um Conselho Mercantil.",
+    "cityId": "Rivermark",
+    "images": [
+      "assets/cities/rivermark/rivermark_preview_1.webp",
+      "assets/cities/rivermark/rivermark_preview_2.webp"
+    ]
+  },
+  {
+    "id": "gm_1768653848321_8085",
+    "name": "Stonebridge — A Fortaleza dos Construtores",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "humans",
+    "group": null,
+    "x": 44.27,
+    "y": 34.84,
+    "description": "Cidade industrial erguida sobre um desfiladeiro, famosa por pontes colossais, grandes forjas e a impenetrável Cidadela de Ferro.",
+    "cityId": "Stonebridge",
+    "images": [
+      "assets/cities/stonebridge/stonebridge_preview_1.webp",
+      "assets/cities/stonebridge/stonebridge_preview_2.webp"
+    ]
+  },
+  {
+    "id": "gm_1768653434803_1951",
+    "name": "Thaloria  A Cidade da Coroa",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "humans",
+    "group": null,
+    "x": 49.16,
+    "y": 33.11,
+    "description": "Erguida em mármore branco nas Planícies de Valandor, Thaloria é o coração político e arcano dos humanos, protegida pela Égide ancestral.",
+    "cityId": "Thaloria",
+    "images": [
+      "assets/cities/thaloria/thaloria_preview_1.webp",
+      "assets/cities/thaloria/thaloria_preview_2.webp"
+    ]
+  },
+  {
+    "id": "gm_1768672341311_3043",
+    "name": "Westreach A Última Muralha",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "humans",
+    "x": 40.74,
+    "y": 30.1,
+    "images": [
+      "assets/cities/westreach/westreach_preview_1.webp",
+      "assets/cities/westreach/westreach_preview_2.webp"
+    ],
+    "description": "Fortaleza colossal no extremo oeste humano, última defesa contra invasões e monstros. Muralhas triplas, legião de elite e o Salão dos Heróis.",
+    "alwaysLabel": false,
+    "cityId": "Westreach"
+  },
+  {
+    "id": "gm_1768672015625_3700",
+    "name": "Abyssal Coil — A Espiral Abissal",
+    "type": "city_main",
+    "layer": "subaquatica",
+    "territory": "nagas",
+    "x": 81.68,
+    "y": 81.15,
+    "images": [
+      "assets/cities/abyssal_coil/abyssal_coil_preview_1.webp",
+      "assets/cities/abyssal_coil/abyssal_coil_preview_2.webp"
+    ],
+    "description": "Cidade naga submersa erguida em espirais concêntricas ao redor do Espiral Primordial — um núcleo arcano que regula correntes, marés e o poder mágico das profundezas.",
+    "alwaysLabel": false,
+    "cityId": "Abyssal Coil"
+  },
+  {
+    "id": "gm_1768672074856_920",
+    "name": "Deepmarsh",
+    "type": "city_main",
+    "layer": "subaquatica",
+    "territory": "nagas",
+    "x": 95.54,
+    "y": 37.66,
+    "images": [
+      "assets/cities/deepmarsh/deepmarsh_preview_1.webp",
+      "assets/cities/deepmarsh/deepmarsh_preview_2.webp"
+    ],
+    "description": "Fortaleza tritã submersa: disciplina, patrulhas abissais e comando das marés.",
+    "alwaysLabel": false,
+    "cityId": "Deepmarsh"
+  },
+  {
+    "id": "gm_1768672039432_3228",
+    "name": "Murkwater — Nó Comercial Submerso",
+    "type": "city_main",
+    "layer": "subaquatica",
+    "territory": "nagas",
+    "x": 58.91,
+    "y": 94.45,
+    "images": [
+      "assets/cities/murkwater/murkwater_preview_1.webp",
+      "assets/cities/murkwater/murkwater_preview_2.webp"
+    ],
+    "description": "Cidade comercial submersa multirracial, onde contratos, rotas oceânicas e câmaras de arbitragem definem poder mais do que sangue ou tradição.",
+    "alwaysLabel": false,
+    "cityId": "Murkwater"
+  },
+  {
+    "id": "gm_1768672058648_230",
+    "name": "Scaleborn — Fortaleza Militar Naga",
+    "type": "city_main",
+    "layer": "subaquatica",
+    "territory": "nagas",
+    "x": 69.86,
+    "y": 93.43,
+    "images": [
+      "assets/cities/scaleborn/scaleborn_preview_1.webp",
+      "assets/cities/scaleborn/scaleborn_preview_2.webp"
+    ],
+    "description": "Fortaleza naga submersa dedicada à disciplina marcial, produção bélica e comando das legiões oceânicas.",
+    "alwaysLabel": false,
+    "cityId": "Scaleborn"
+  },
+  {
+    "id": "gm_1768672108960_7133",
+    "name": "Serpent's Reach",
+    "type": "city_main",
+    "layer": "subaquatica",
+    "territory": "nagas",
+    "x": 95.54,
+    "y": 56.08,
+    "images": [
+      "assets/cities/serpents_reach/serpents_reach_preview_1.webp",
+      "assets/cities/serpents_reach/serpents_reach_preview_2.webp"
+    ],
+    "description": "Bastião naga de guerra: disciplina extrema, arsenais profundos e cidadela abissal.",
+    "alwaysLabel": false,
+    "cityId": "Serpent's Reach"
+  },
+  {
+    "id": "gm_1768671990681_432",
+    "name": "Serpenthra",
+    "type": "city_main",
+    "layer": "subaquatica",
+    "territory": "nagas",
+    "x": 90.87,
+    "y": 57.87,
+    "images": [
+      "assets/cities/serpenthra/serpenthra_preview_1.webp",
+      "assets/cities/serpenthra/serpenthra_preview_2.webp"
+    ],
+    "description": "Capital naga no Abismo das Marés: corais e gemas bioluminescentes, túneis submersos e câmaras ocultas protegidas por correntes traiçoeiras. Governada pela Rainha Xilara sob Ssynara e Nalak.",
+    "alwaysLabel": false,
+    "cityId": "Serpenthra"
+  },
+  {
+    "id": "gm_1768672089864_153",
+    "name": "Tidecall",
+    "type": "city_main",
+    "layer": "subaquatica",
+    "territory": "nagas",
+    "x": 85.32,
+    "y": 65.8,
+    "images": [
+      "assets/cities/tidecall/tidecall_preview_1.webp",
+      "assets/cities/tidecall/tidecall_preview_2.webp"
+    ],
+    "description": "Cidade neutra de pesquisa: institutos arcanos, bibliotecas vivas e arquivos selados.",
+    "alwaysLabel": false,
+    "cityId": "Tidecall"
+  },
+  {
+    "id": "gm_1768671819162_7446",
+    "name": "Bloodfang A Cidade da Carnificina",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "orcs",
+    "x": 72.94,
+    "y": 33.53,
+    "images": [
+      "assets/cities/bloodfang/bloodfang_preview_1.webp",
+      "assets/cities/bloodfang/bloodfang_preview_2.webp"
+    ],
+    "description": "Cidade orc de arenas e carnificina: combate ritual, treinamento militar e apostas brutais. Em Bloodfang, prestígio é conquistado em sangue — e só os mais fortes prosperam.",
+    "alwaysLabel": false,
+    "cityId": "Bloodfang"
+  },
+  {
+    "id": "gm_1768671798946_8601",
+    "name": "Grumak's Hold O Bastião do Conquistador",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "orcs",
+    "x": 63.65,
+    "y": 25.82,
+    "images": [
+      "assets/cities/grumaks_hold/grumaks_hold_preview_1.webp",
+      "assets/cities/grumaks_hold/grumaks_hold_preview_2.webp"
+    ],
+    "description": "",
+    "alwaysLabel": false,
+    "cityId": "Grumak's Hold"
+  },
+  {
+    "id": "gm_1768671836698_492",
+    "name": "Ironclaw A Forja da Destruição",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "orcs",
+    "x": 69.52,
+    "y": 27.62,
+    "images": [
+      "assets/cities/ironclaw/ironclaw_preview_1.webp",
+      "assets/cities/ironclaw/ironclaw_preview_2.webp"
+    ],
+    "description": "Coração industrial de Morgothar: fornos, chaminés e produção militar em escala. Ironclaw fabrica armas, armaduras e máquinas de cerco sem descanso.",
+    "alwaysLabel": false,
+    "cityId": "Ironclaw A Forja da Destruição"
+  },
+  {
+    "id": "gm_1768671760434_310",
+    "name": "Morgothar",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "orcs",
+    "x": 64.29,
+    "y": 32.5,
+    "images": [
+      "assets/cities/morgothar/morgothar_preview_1.webp",
+      "assets/cities/morgothar/morgothar_preview_2.webp"
+    ],
+    "description": "",
+    "alwaysLabel": false,
+    "cityId": "Morgothar"
+  },
+  {
+    "id": "gm_1768671863418_4424",
+    "name": "Scarhold A Marca dos Sobreviventes",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "orcs",
+    "x": 71.96,
+    "y": 26.85,
+    "images": [
+      "assets/cities/scarhold/scarhold_preview_1.webp",
+      "assets/cities/scarhold/scarhold_preview_2.webp"
+    ],
+    "description": "Bastião no desfiladeiro gelado: muralhas espinhadas, torres de vigia e túneis secretos. Scarhold é a marca viva dos sobreviventes e a última linha contra o cerco.",
+    "alwaysLabel": false,
+    "cityId": "Scarhold"
+  },
+  {
+    "id": "gm_1768671898362_9015",
+    "name": "Thornridge",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "orcs",
+    "x": 75.56,
+    "y": 36.44,
+    "images": [
+      "assets/cities/thornridge/thornridge_preview_1.webp",
+      "assets/cities/thornridge/thornridge_preview_2.webp"
+    ],
+    "description": "Cidade tribal nas colinas rochosas das Planícies de Guerra, famosa por armadilhas, passagens estreitas e defesa por emboscadas. Porto corsário onde astúcia e força decidem o poder.",
+    "alwaysLabel": false,
+    "cityId": "Thornridge"
+  },
+  {
+    "id": "gm_1768671928905_4869",
+    "name": "Viletooth",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "orcs",
+    "x": 76.28,
+    "y": 39.39,
+    "images": [
+      "assets/cities/viletooth/viletooth_preview_1.webp",
+      "assets/cities/viletooth/viletooth_preview_2.webp"
+    ],
+    "description": "Cidade tribal erguida sobre um grande pântano, onde os orcs dominam guerrilha e sobrevivência em águas escuras. Emboscadas silenciosas e perigo constante.",
+    "alwaysLabel": false,
+    "cityId": "Viletooth"
+  },
+  {
+    "id": "gate_necrothar_descent",
+    "name": "Descida de Necrothar",
+    "type": "dungeon",
+    "layer": "underground",
+    "territory": "undead",
+    "group": "Necrothar",
+    "x": 46.3,
+    "y": 62.8,
+    "description": "Fenda selada por runas antigas; passagens para túneis e enclaves mortos-vivos.",
+    "cityId": "necrothar",
+    "images": []
+  },
+  {
+    "id": "gm_1768671668907_4532",
+    "name": "Nightshade Hollow",
+    "type": "city_main",
+    "layer": "underground",
+    "territory": "vampires",
+    "x": 40.25,
+    "y": 84.9,
+    "images": [],
+    "description": "",
+    "alwaysLabel": false,
+    "cityId": "Nightshade Hollow"
+  },
+  {
+    "id": "gm_1768671594404_4417",
+    "name": "Bloodhaven",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "vampires",
+    "x": 35.48,
+    "y": 91.73,
+    "images": [
+      "assets/cities/bloodhaven/bloodhaven_preview_1.webp",
+      "assets/cities/bloodhaven/bloodhaven_preview_2.webp"
+    ],
+    "description": "Cidade fortificada ao redor de um castelo de pedra negra. Guardas vampíricos patrulham muralhas e torres; arenas de combate definem prestígio e ascensão. Em Bloodhaven, a lei do mais forte prevalece.",
+    "alwaysLabel": false,
+    "cityId": "Bloodhaven"
+  },
+  {
+    "id": "gm_1768671579308_164",
+    "name": "Duskmire",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "vampires",
+    "x": 32.74,
+    "y": 88.34,
+    "images": [
+      "assets/cities/duskmire/duskmire_preview_1.webp",
+      "assets/cities/duskmire/duskmire_preview_2.webp"
+    ],
+    "description": "Duskmire é uma cidade à beira de um lago sombrio, coberta por névoa constante. Mansões góticas e ruas de paralelepípedos abrigam vampiros antigos e poderosos, tornando-a um núcleo de intrigas políticas e conspirações silenciosas.",
+    "alwaysLabel": false,
+    "cityId": "Duskmire"
+  },
+  {
+    "id": "gm_1768671628819_3810",
+    "name": "Ebonwood",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "vampires",
+    "x": 31.58,
+    "y": 90.66,
+    "images": [
+      "assets/cities/ebonwood/ebonwood_preview_1.webp",
+      "assets/cities/ebonwood/ebonwood_preview_2.webp"
+    ],
+    "description": "Cidade vampírica urbana de arquitetura medieval europeia: ruas de pedra, casas de madeira escurecida e lanternas a óleo. Ordem rígida por pactos de sangue e vigilância discreta.",
+    "alwaysLabel": false,
+    "cityId": "Ebonwood"
+  },
+  {
+    "id": "gm_1768671553444_4879",
+    "name": "Noctara",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "vampires",
+    "x": 40.54,
+    "y": 82.81,
+    "images": [
+      "assets/cities/noctara/noctara_preview_1.webp",
+      "assets/cities/noctara/noctara_preview_2.webp"
+    ],
+    "description": "Envolta em eterna escuridão, Noctara jaz nas profundezas da Floresta Sombria, onde a luz do sol raramente penetra. Castelos góticos e ruas estreitas se perdem em névoa sinistra, enquanto a aristocracia vampírica tece intrigas sob a noite permanente.\n\nGovernada pela Rainha Morgana Sombrafúria e devota a Nocturna e Sangrius, a cidade é um centro de poder feudal, manipulação e medo ritual.",
+    "alwaysLabel": false,
+    "cityId": "Noctara"
+  },
+  {
+    "id": "gm_1768671646443_6675",
+    "name": "Ravenspire",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "vampires",
+    "x": 31.58,
+    "y": 94.5,
+    "images": [
+      "assets/cities/ravenspire/ravenspire_preview_1.webp",
+      "assets/cities/ravenspire/ravenspire_preview_2.webp"
+    ],
+    "description": "",
+    "alwaysLabel": false,
+    "cityId": "Ravenspire"
+  },
+  {
+    "id": "gm_1768671611371_6424",
+    "name": "Shadowmoor",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "vampires",
+    "x": 36.51,
+    "y": 93.26,
+    "images": [
+      "assets/cities/shadowmoor/shadowmoor_preview_1.webp",
+      "assets/cities/shadowmoor/shadowmoor_preview_2.webp"
+    ],
+    "description": "Cidade oculta na Floresta Sombria, um labirinto de vegetação retorcida. Refúgio de vampiros eruditos, com jardins sombrios e bibliotecas ocultas dedicadas a magias e rituais antigos.",
+    "alwaysLabel": false,
+    "cityId": "Shadowmoor"
+  },
+  {
+    "id": "gm_1768670598442_4093",
+    "name": "Stonehelm",
+    "type": "city_main",
+    "layer": "world",
+    "territory": "dwarves",
+    "x": 55.07,
+    "y": 22.08,
+    "images": [
+      "assets/cities/stonehelm/stonehelm_preview_1.webp",
+      "assets/cities/stonehelm/stonehelm_preview_2.webp"
+    ],
+    "description": "Fortaleza militar anã de muralhas impenetráveis. Quartéis, torres e pedreiras de mármore sustentam o bastião que protege as rotas das montanhas.",
+    "alwaysLabel": false,
+    "cityId": "Stonehelm"
+  },
+  {
+    "id": "gm_angels_main_celestia",
+    "name": "Celestia",
+    "type": "city_main",
+    "layer": "sky",
+    "territory": "angels",
+    "x": 89.54,
+    "y": 72.84,
+    "images": [
+      "assets/cities/celestia/celestia_preview_1.webp",
+      "assets/cities/celestia/celestia_preview_2.webp"
+    ],
+    "description": "Capital dos Anjos — Cidade de Luz",
+    "alwaysLabel": false,
+    "cityId": "Celestia"
+  },
+  {
+    "id": "gm_angels_main_seraphis",
+    "name": "Seraphis",
+    "type": "city_main",
+    "layer": "sky",
+    "territory": "angels",
+    "x": 23.53,
+    "y": 9.21,
+    "images": [
+      "assets/cities/seraphis/seraphis_preview_1.webp",
+      "assets/cities/seraphis/seraphis_preview_2.webp"
+    ],
+    "description": "Centro Espiritual — Cristal Puro",
+    "alwaysLabel": false,
+    "cityId": "Seraphis"
+  },
+  {
+    "id": "gm_angels_main_luminael",
+    "name": "Luminael",
+    "type": "city_main",
+    "layer": "sky",
+    "territory": "angels",
+    "x": 83.46,
+    "y": 70.44,
+    "images": [
+      "assets/cities/luminael/luminael_preview_1.webp",
+      "assets/cities/luminael/luminael_preview_2.webp"
+    ],
+    "description": "Cidade da Sabedoria — Bibliotecas e Cura",
+    "alwaysLabel": false,
+    "cityId": "Luminael"
+  },
+  {
+    "id": "gm_angels_main_etheria",
+    "name": "Etheria",
+    "type": "city_main",
+    "layer": "sky",
+    "territory": "angels",
+    "x": 28.69,
+    "y": 10.11,
+    "images": [
+      "assets/cities/etheria/etheria_preview_1.webp",
+      "assets/cities/etheria/etheria_preview_2.webp"
+    ],
+    "description": "Etheria é uma cidade flutuante sustentada por correntes de energia celestial. Suas construções de mármore branco e ouro refletem a luz e criam um brilho etéreo. Centro da magia celestial, Etheria é onde os anjos treinam para dominar poderes divinos — um lugar de beleza, mistério e disciplina sagrada.",
+    "alwaysLabel": false,
+    "cityId": "Etheria"
+  },
+  {
+    "id": "gm_angels_main_sanctoria",
+    "name": "Sanctoria",
+    "type": "city_main",
+    "layer": "sky",
+    "territory": "angels",
+    "x": 72.85,
+    "y": 28.87,
+    "images": [
+      "assets/cities/sanctoria/sanctoria_preview_1.webp",
+      "assets/cities/sanctoria/sanctoria_preview_2.webp"
+    ],
+    "description": "Sanctoria é a fortaleza de Celestia, construída para a defesa contra as forças do mal. Cercada por muralhas de luz impenetráveis, é o lar dos guerreiros celestiais.\n\nBastião de força e justiça, onde anjos treinam incessantemente para proteger inocentes e combater o mal.",
+    "alwaysLabel": false,
+    "cityId": "Sanctoria"
+  },
+  {
+    "id": "gm_angels_main_aurelia",
+    "name": "Aurelia",
+    "type": "city_main",
+    "layer": "sky",
+    "territory": "angels",
+    "x": 24.51,
+    "y": 16.23,
+    "images": [
+      "assets/cities/aurelia/aurelia_preview_1.webp",
+      "assets/cities/aurelia/aurelia_preview_2.webp"
+    ],
+    "description": "Aurelia é a cidade da música e das artes. Esculturas e mosaicos narram heroísmo e sacrifício.\n\nA música celestial ressoa pelas ruas, inspirando alegria e devoção através da arte.",
+    "alwaysLabel": false,
+    "cityId": "Aurelia"
+  },
+  {
+    "id": "gm_angels_main_halcyon",
+    "name": "Halcyon",
+    "type": "city_main",
+    "layer": "sky",
+    "territory": "angels",
+    "x": 28.78,
+    "y": 51.61,
+    "images": [
+      "assets/cities/halcyon/halcyon_preview_1.webp",
+      "assets/cities/halcyon/halcyon_preview_2.webp"
+    ],
+    "description": "Halcyon é a cidade de guerra e artes marciais angelicais nas montanhas mais altas. Refúgio dos combatentes e centro de treinamento da tropa de elite.\n\nLagos cristalinos e florestas douradas cercam os campos de provação e disciplina.",
+    "alwaysLabel": false,
+    "cityId": "Halcyon"
+  }
+]

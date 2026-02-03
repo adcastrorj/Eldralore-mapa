@@ -1,0 +1,19 @@
+CHECKUP PRÉ-ZIP — LOTE ÉLFICO (3/3)
+Cidades integradas neste lote: Eledhel, Fëanoril, Galadorn
+
+1) Estrutura
+- assets/cities/eledhel/ presente (11 webp) ✓
+- assets/cities/feanoril/ presente (11 webp) ✓
+- assets/cities/galadorn/ presente (11 webp) ✓
+- data/cities.json contém as 3 cidades com descrição longa + places (19 sublocais/distritos cada) ✓
+- data/main_cities_pins.json contém pins com 1–2 imagens e descrição curta (popup) ✓
+- IDs de places únicos (prefixados por slug da cidade) ✓
+
+2) Sistema
+- Fluxo: Mapa → Pin → Popup (imagens+descrição curta) → City View (descrição longa + sublocais) ✓
+- Imagens referenciadas existem e carregam via paths em assets/cities/<slug>/ ✓
+- Tipos de sublocais utilizados: blacksmith, tailor, alchemy, general, tavern, inn, district ✓
+- RNG 1–10: permanece conforme lógica atual do projeto (base congelada; sem alterações de código) ✓
+
+Observação:
+- Base técnica não foi refatorada nem alterada além de assets e data JSON necessários à integração.
