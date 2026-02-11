@@ -24933,5 +24933,629 @@
         ]
       }
     ]
+  },
+  "Voltagrinn": {
+    "id": "Voltagrinn",
+    "name": "Voltagrinn a energia e fluxo",
+    "tagline": "",
+    "culture": "gnomes",
+    "mapImage": "",
+    "images": [],
+    "description": "Descricao pendente (GM).",
+    "places": [
+      {
+        "id": "inn",
+        "type": "inn",
+        "name": "Pousada",
+        "description": "",
+        "npc": {
+          "role": "estalajadeiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "tavern",
+        "type": "tavern",
+        "name": "Taberna",
+        "description": "",
+        "npc": {
+          "role": "taberneiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "blacksmith",
+        "type": "blacksmith",
+        "name": "Ferreiro",
+        "description": "",
+        "npc": {
+          "role": "ferreiro"
+        },
+        "merchants": [
+          {
+            "id": "m_blacksmith",
+            "type": "blacksmith",
+            "fixedName": "Mestre Ferreiro"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "type": "general",
+        "name": "Materiais Diversos",
+        "description": "",
+        "npc": {
+          "role": "comerciante"
+        },
+        "merchants": [
+          {
+            "id": "m_general",
+            "type": "general",
+            "fixedName": "Mercador Fixo"
+          }
+        ]
+      },
+      {
+        "id": "alchemy",
+        "type": "alchemy",
+        "name": "Loja de Alquimia",
+        "description": "",
+        "npc": {
+          "role": "alquimista"
+        },
+        "merchants": [
+          {
+            "id": "m_alchemy",
+            "type": "alchemy"
+          }
+        ]
+      }
+    ]
+  },
+  "Kryx": {
+    "id": "Kryx",
+    "name": "Kryx-Helion",
+    "tagline": "",
+    "culture": "gnomes",
+    "mapImage": "",
+    "images": [],
+    "description": "Descricao pendente (GM).",
+    "places": [
+      {
+        "id": "inn",
+        "type": "inn",
+        "name": "Pousada",
+        "description": "",
+        "npc": {
+          "role": "estalajadeiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "tavern",
+        "type": "tavern",
+        "name": "Taberna",
+        "description": "",
+        "npc": {
+          "role": "taberneiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "blacksmith",
+        "type": "blacksmith",
+        "name": "Ferreiro",
+        "description": "",
+        "npc": {
+          "role": "ferreiro"
+        },
+        "merchants": [
+          {
+            "id": "m_blacksmith",
+            "type": "blacksmith",
+            "fixedName": "Mestre Ferreiro"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "type": "general",
+        "name": "Materiais Diversos",
+        "description": "",
+        "npc": {
+          "role": "comerciante"
+        },
+        "merchants": [
+          {
+            "id": "m_general",
+            "type": "general",
+            "fixedName": "Mercador Fixo"
+          }
+        ]
+      },
+      {
+        "id": "alchemy",
+        "type": "alchemy",
+        "name": "Loja de Alquimia",
+        "description": "",
+        "npc": {
+          "role": "alquimista"
+        },
+        "merchants": [
+          {
+            "id": "m_alchemy",
+            "type": "alchemy"
+          }
+        ]
+      }
+    ]
+  },
+  "Nimbarix": {
+    "id": "Nimbarix",
+    "name": "Nimbarix central autônomos",
+    "tagline": "",
+    "culture": "gnomes",
+    "mapImage": "",
+    "images": [],
+    "description": "Descricao pendente (GM).",
+    "places": [
+      {
+        "id": "inn",
+        "type": "inn",
+        "name": "Pousada",
+        "description": "",
+        "npc": {
+          "role": "estalajadeiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "tavern",
+        "type": "tavern",
+        "name": "Taberna",
+        "description": "",
+        "npc": {
+          "role": "taberneiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "blacksmith",
+        "type": "blacksmith",
+        "name": "Ferreiro",
+        "description": "",
+        "npc": {
+          "role": "ferreiro"
+        },
+        "merchants": [
+          {
+            "id": "m_blacksmith",
+            "type": "blacksmith",
+            "fixedName": "Mestre Ferreiro"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "type": "general",
+        "name": "Materiais Diversos",
+        "description": "",
+        "npc": {
+          "role": "comerciante"
+        },
+        "merchants": [
+          {
+            "id": "m_general",
+            "type": "general",
+            "fixedName": "Mercador Fixo"
+          }
+        ]
+      },
+      {
+        "id": "alchemy",
+        "type": "alchemy",
+        "name": "Loja de Alquimia",
+        "description": "",
+        "npc": {
+          "role": "alquimista"
+        },
+        "merchants": [
+          {
+            "id": "m_alchemy",
+            "type": "alchemy"
+          }
+        ]
+      }
+    ]
+  },
+  "Velkarith": {
+    "id": "Velkarith",
+    "name": "Velkarith, a Cidade dos Silenciosos",
+    "tagline": "",
+    "culture": "undead",
+    "mapImage": "",
+    "images": [],
+    "description": "Descricao pendente (GM).",
+    "places": [
+      {
+        "id": "inn",
+        "type": "inn",
+        "name": "Pousada",
+        "description": "",
+        "npc": {
+          "role": "estalajadeiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "tavern",
+        "type": "tavern",
+        "name": "Taberna",
+        "description": "",
+        "npc": {
+          "role": "taberneiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "blacksmith",
+        "type": "blacksmith",
+        "name": "Ferreiro",
+        "description": "",
+        "npc": {
+          "role": "ferreiro"
+        },
+        "merchants": [
+          {
+            "id": "m_blacksmith",
+            "type": "blacksmith",
+            "fixedName": "Mestre Ferreiro"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "type": "general",
+        "name": "Materiais Diversos",
+        "description": "",
+        "npc": {
+          "role": "comerciante"
+        },
+        "merchants": [
+          {
+            "id": "m_general",
+            "type": "general",
+            "fixedName": "Mercador Fixo"
+          }
+        ]
+      },
+      {
+        "id": "alchemy",
+        "type": "alchemy",
+        "name": "Loja de Alquimia",
+        "description": "",
+        "npc": {
+          "role": "alquimista"
+        },
+        "merchants": [
+          {
+            "id": "m_alchemy",
+            "type": "alchemy"
+          }
+        ]
+      }
+    ]
+  },
+  "Nhar’Velis": {
+    "id": "Nhar’Velis",
+    "name": "Nhar’Velis, a Cidade do Último Sussurro",
+    "tagline": "",
+    "culture": "undead",
+    "mapImage": "",
+    "images": [],
+    "description": "Descricao pendente (GM).",
+    "places": [
+      {
+        "id": "inn",
+        "type": "inn",
+        "name": "Pousada",
+        "description": "",
+        "npc": {
+          "role": "estalajadeiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "tavern",
+        "type": "tavern",
+        "name": "Taberna",
+        "description": "",
+        "npc": {
+          "role": "taberneiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "blacksmith",
+        "type": "blacksmith",
+        "name": "Ferreiro",
+        "description": "",
+        "npc": {
+          "role": "ferreiro"
+        },
+        "merchants": [
+          {
+            "id": "m_blacksmith",
+            "type": "blacksmith",
+            "fixedName": "Mestre Ferreiro"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "type": "general",
+        "name": "Materiais Diversos",
+        "description": "",
+        "npc": {
+          "role": "comerciante"
+        },
+        "merchants": [
+          {
+            "id": "m_general",
+            "type": "general",
+            "fixedName": "Mercador Fixo"
+          }
+        ]
+      },
+      {
+        "id": "alchemy",
+        "type": "alchemy",
+        "name": "Loja de Alquimia",
+        "description": "",
+        "npc": {
+          "role": "alquimista"
+        },
+        "merchants": [
+          {
+            "id": "m_alchemy",
+            "type": "alchemy"
+          }
+        ]
+      }
+    ]
+  },
+  "Thorgar-Dû": {
+    "id": "Thorgar-Dû",
+    "name": "Thorgar-Dûl, a Cidade dos Pilares Eternos",
+    "tagline": "",
+    "culture": "giants",
+    "mapImage": "",
+    "images": [],
+    "description": "Descricao pendente (GM).",
+    "places": [
+      {
+        "id": "inn",
+        "type": "inn",
+        "name": "Pousada",
+        "description": "",
+        "npc": {
+          "role": "estalajadeiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "tavern",
+        "type": "tavern",
+        "name": "Taberna",
+        "description": "",
+        "npc": {
+          "role": "taberneiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "blacksmith",
+        "type": "blacksmith",
+        "name": "Ferreiro",
+        "description": "",
+        "npc": {
+          "role": "ferreiro"
+        },
+        "merchants": [
+          {
+            "id": "m_blacksmith",
+            "type": "blacksmith",
+            "fixedName": "Mestre Ferreiro"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "type": "general",
+        "name": "Materiais Diversos",
+        "description": "",
+        "npc": {
+          "role": "comerciante"
+        },
+        "merchants": [
+          {
+            "id": "m_general",
+            "type": "general",
+            "fixedName": "Mercador Fixo"
+          }
+        ]
+      },
+      {
+        "id": "alchemy",
+        "type": "alchemy",
+        "name": "Loja de Alquimia",
+        "description": "",
+        "npc": {
+          "role": "alquimista"
+        },
+        "merchants": [
+          {
+            "id": "m_alchemy",
+            "type": "alchemy"
+          }
+        ]
+      }
+    ]
+  },
+  "Valmorynth": {
+    "id": "Valmorynth",
+    "name": "Valmorynth, o Trono das Tempestades",
+    "tagline": "",
+    "culture": "giants",
+    "mapImage": "",
+    "images": [],
+    "description": "Descricao pendente (GM).",
+    "places": [
+      {
+        "id": "inn",
+        "type": "inn",
+        "name": "Pousada",
+        "description": "",
+        "npc": {
+          "role": "estalajadeiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "tavern",
+        "type": "tavern",
+        "name": "Taberna",
+        "description": "",
+        "npc": {
+          "role": "taberneiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "blacksmith",
+        "type": "blacksmith",
+        "name": "Ferreiro",
+        "description": "",
+        "npc": {
+          "role": "ferreiro"
+        },
+        "merchants": [
+          {
+            "id": "m_blacksmith",
+            "type": "blacksmith",
+            "fixedName": "Mestre Ferreiro"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "type": "general",
+        "name": "Materiais Diversos",
+        "description": "",
+        "npc": {
+          "role": "comerciante"
+        },
+        "merchants": [
+          {
+            "id": "m_general",
+            "type": "general",
+            "fixedName": "Mercador Fixo"
+          }
+        ]
+      },
+      {
+        "id": "alchemy",
+        "type": "alchemy",
+        "name": "Loja de Alquimia",
+        "description": "",
+        "npc": {
+          "role": "alquimista"
+        },
+        "merchants": [
+          {
+            "id": "m_alchemy",
+            "type": "alchemy"
+          }
+        ]
+      }
+    ]
+  },
+  "Khaelorin": {
+    "id": "Khaelorin",
+    "name": "Khaelorin, o Vale dos Primeiros Passos",
+    "tagline": "",
+    "culture": "giants",
+    "mapImage": "",
+    "images": [],
+    "description": "Descricao pendente (GM).",
+    "places": [
+      {
+        "id": "inn",
+        "type": "inn",
+        "name": "Pousada",
+        "description": "",
+        "npc": {
+          "role": "estalajadeiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "tavern",
+        "type": "tavern",
+        "name": "Taberna",
+        "description": "",
+        "npc": {
+          "role": "taberneiro"
+        },
+        "merchants": []
+      },
+      {
+        "id": "blacksmith",
+        "type": "blacksmith",
+        "name": "Ferreiro",
+        "description": "",
+        "npc": {
+          "role": "ferreiro"
+        },
+        "merchants": [
+          {
+            "id": "m_blacksmith",
+            "type": "blacksmith",
+            "fixedName": "Mestre Ferreiro"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "type": "general",
+        "name": "Materiais Diversos",
+        "description": "",
+        "npc": {
+          "role": "comerciante"
+        },
+        "merchants": [
+          {
+            "id": "m_general",
+            "type": "general",
+            "fixedName": "Mercador Fixo"
+          }
+        ]
+      },
+      {
+        "id": "alchemy",
+        "type": "alchemy",
+        "name": "Loja de Alquimia",
+        "description": "",
+        "npc": {
+          "role": "alquimista"
+        },
+        "merchants": [
+          {
+            "id": "m_alchemy",
+            "type": "alchemy"
+          }
+        ]
+      }
+    ]
   }
 }

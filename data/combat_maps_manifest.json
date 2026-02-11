@@ -1,0 +1,52 @@
+{
+  "floresta": {
+    "pequeno": [
+     "floresta_p_1.webp" , "floresta_p_2.webp" , "floresta_p_3.webp" , "floresta_p_4.webp" , "floresta_p_5.webp" , "floresta_p_6.webp" , "floresta_p_7.webp" , "floresta_p_8.webp" , "floresta_p_9.webp" , "floresta_p_10.webp"
+    ],
+    "medio": [],
+    "grande": [],
+    "guerra": []
+  },
+  "deserto": {
+    "pequeno": ["desertop (1).webp" , "desertop (2).webp" , "desertop (3).webp" , "desertop (4).webp" , "desertop (5).webp"],
+    "medio": [],
+    "grande": [],
+    "guerra": []
+  },
+  "planicie": {
+    "pequeno": [],
+    "medio": [],
+    "grande": [],
+    "guerra": []
+  },
+  "montanha": {
+    "pequeno": [ "montanhap1.webp" , "montanhap2.webp" , "montanhap3.webp" , "montanhap4.webp" , "montanhap5.webp" , "montanhap6.webp" ],
+    "medio": [],
+    "grande": [],
+    "guerra": []
+  },
+  "cidade": {
+    "pequeno": [],
+    "medio": [],
+    "grande": [],
+    "guerra": []
+  },
+  "campo_aberto": {
+    "pequeno": [],
+    "medio": [],
+    "grande": [],
+    "guerra": []
+  },
+  "regiao_vulcanica": {
+    "pequeno": ["vulcanicap1.webp" , "vulcanicap2.webp" , "vulcanicap3.webp" , "vulcanicap4.webp" ],
+    "medio": [],
+    "grande": [],
+    "guerra": []
+  },
+  "submerso": {
+    "pequeno": ["submersop (1).webp" , "submersop (2).webp" , "submersop (3).webp" , "submersop (4).webp" , "submersop (5).webp" , "submersop (6).webp" , "submersop (7).webp" ],
+    "medio": [],
+    "grande": [],
+    "guerra": []
+  }
+}

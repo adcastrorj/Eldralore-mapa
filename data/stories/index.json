@@ -1,0 +1,9 @@
+{
+  "stories": [
+    {
+      "id": "example_story",
+      "title": "Exemplo (Story Mode)",
+      "desc": "Demonstração de capítulos e filtros."
+    }
+  ]
+}

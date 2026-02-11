@@ -1,20 +1,53 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Atlas de Eldralore</title>
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Senha fixa do Modo GM (barreira de UI; não é segurança real)
+    window.ELDRALORE_GM_PASSWORD = "eldralore2026";
+  </script>
+
+  <style>
+    .sync-status {
+      margin-left: 10px;
+      font-size: 12px;
+      opacity: .85;
+      padding: 2px 6px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, .18);
+    }
+
+    .sync-status.is-live {
+      opacity: 1;
+    }
+
+    .sync-status.is-err {
+      background: rgba(255, 0, 0, .18);
+      opacity: 1;
+    }
+  </style>
+
 </head>
+
 <body>
   <header class="topbar">
     <div class="top-actions">
       <div class="brand">Atlas de Eldralore</div>
-      <button id="uiCollapseBtn" class="ui-toggle" type="button" title="Minimizar/expandir barra superior">Minimizar</button>
+      <button id="uiCollapseBtn" class="ui-toggle" type="button"
+        title="Minimizar/expandir barra superior">Minimizar</button>
+      <button id="presentBtn" class="btn btn-sm" type="button"
+        title="Modo apresentação (oculta UI)">Apresentação</button>
+      <button id="mobileFiltersBtn" class="btn btn-sm mobile-only" type="button">Filtros</button>
+      <button id="mobileLocationsBtn" class="btn btn-sm mobile-only" type="button">Locais</button>
     </div>
 
-    <div class="controls">
-      <label class="ctrl">
+    <div id="controlsPanel" class="controls">
+      <label data-present-hide="1" data-present-hide="1" data-present-hide="1" data-present-hide="1"
+        data-present-hide="1" class="ctrl">
         Camada
         <select id="layerSelect">
           <option value="world">Superfície</option>
@@ -64,7 +97,39 @@
         <input id="searchInput" type="text" placeholder="nome do local..." />
       </label>
 
-      <label class="toggle">
+      <label class="ctrl">
+        Visão
+        <select id="presetSelect">
+          <option value="default">Padrão</option>
+          <option value="political">Político</option>
+          <option value="religion">Religião</option>
+          <option value="danger">Perigo</option>
+          <option value="commerce">Comércio</option>
+        </select>
+      </label>
+
+      <label class="ctrl">
+        Era
+        <select id="eraSelect">
+          <option value="current">Atual</option>
+          <option value="divine_age">Era das Divindades</option>
+          <option value="dragon_age">Era dos Dragões</option>
+          <option value="civilizations_age">Era das Civilizações</option>
+          <option value="guild_age">Era da Guilda</option>
+        </select>
+      </label>
+
+      <button id="routesToggleBtn" class="btn btn-sm" type="button" title="Ativar/desativar rotas">Rotas</button>
+      <button id="focusRoutesBtn" class="btn btn-sm" type="button"
+        title="Focar em rotas (esconde outros pins)">Focar</button>
+      <button id="economyBtn" class="btn btn-sm" type="button" title="Modificadores de Economia">Econ</button>
+      <button id="routeFiltersBtn" class="btn btn-sm" type="button" title="Filtros avançados de rotas">Filtros
+        Rotas</button>
+      <button id="advancedFiltersBtn" class="btn btn-sm" type="button" title="Abrir filtros avançados"
+        data-present-hide="1">Avançado</button>
+
+      <label data-present-hide="1" data-present-hide="1" data-present-hide="1" data-present-hide="1"
+        data-present-hide="1" data-present-hide="1" data-present-hide="1" class="toggle">
         <input id="debugToggle" type="checkbox" />
         Debug (x,y)
       </label>
@@ -95,22 +160,24 @@
         <div class="time-label">Calendário</div>
         <div class="time-row">
           <div id="worldTimeLabel" class="time-value">Dia 1 • Mês 1 • Ano 1</div>
-          <button id="advanceDayBtn" class="btn btn-sm" type="button" title="Avança 1 dia (GM)">+1 dia</button>
+          <button id="advanceDayBtn" class="btn btn-sm" type="button" title="Avança 1 dia (GM)" data-present-hide="1">+1
+            dia</button>
         </div>
         <div class="time-row time-edit">
           <label class="time-field">D <input id="dayInput" type="number" min="1" max="40" value="1" /></label>
           <label class="time-field">M <input id="monthInput" type="number" min="1" max="12" value="1" /></label>
           <label class="time-field">A <input id="yearInput" type="number" min="1" max="9999" value="1" /></label>
-          <button id="applyDateBtn" class="btn btn-sm" type="button" title="Aplicar data (GM)">Aplicar</button>
+          <button id="applyDateBtn" class="btn btn-sm" type="button" title="Aplicar data (GM)"
+            data-present-hide="1">Aplicar</button>
           <label class="toggle lock">
             <input id="dateLockToggle" type="checkbox" checked />
             Lock
           </label>
         </div>
         <div class="time-row gm-row">
-          <button id="gmLoginBtn" class="btn btn-sm" type="button">Modo GM</button>
-          <button id="gmLogoutBtn" class="btn btn-sm" type="button" disabled>Sair</button>
-          <button id="gmEditorBtn" class="btn btn-sm" type="button" disabled>Editor</button>
+          <button id="gmLoginBtn" class="btn btn-sm" type="button" data-present-hide="1">Modo GM</button>
+          <button id="gmLogoutBtn" class="btn btn-sm" type="button" disabled data-present-hide="1">Sair</button>
+          <button id="gmEditorBtn" class="btn btn-sm" type="button" disabled data-present-hide="1">Editor</button>
           <label class="toggle" title="Mostra NPCs importantes (somente GM)">
             <input id="importantNpcToggle" type="checkbox" disabled />
             NPCs importantes
@@ -125,11 +192,62 @@
       </div>
     </div>
   </header>
+  <div id="mobileBackdrop" class="mobile-backdrop" hidden></div>
 
   <main class="layout">
-    <aside class="sidebar">
+    <aside id="sidebarPanel" class="sidebar">
       <div class="sidebar-title">Locais</div>
-      <div id="list" class="list"></div>
+      <div id="list" class="list">
+        <div id="advancedPanel" class="advanced-panel hidden">
+          <div class="adv-head">
+            <div class="adv-title">Filtros avançados</div>
+            <button id="advancedCloseBtn" class="btn btn-sm" type="button">Fechar</button>
+          </div>
+
+          <div class="adv-section">
+            <div class="adv-section-title">Grupos</div>
+            <div id="groupFilters" class="adv-grid"></div>
+          </div>
+
+          <div class="adv-section">
+            <div class="adv-section-title">Tags</div>
+            <div class="adv-row">
+              <select id="tagModeSelect" class="small-select">
+                <option value="OR">OU</option>
+                <option value="AND">E</option>
+              </select>
+              <input id="tagSearchInput" class="small-input" type="text" placeholder="filtrar tags..." />
+              <button id="clearTagsBtn" class="btn btn-sm" type="button">Limpar</button>
+            </div>
+            <div id="tagFilters" class="adv-grid"></div>
+          </div>
+
+          <div class="adv-section">
+            <div class="adv-section-title">Geopolítica</div>
+            <div id="geoToggles" class="adv-grid"></div>
+
+            <div class="adv-section-title">Rotas</div>
+            <div id="routeTypeFiltersAdv" class="adv-grid"></div>
+            <div class="adv-subtitle">Participantes</div>
+            <div id="routePartyFiltersAdv" class="adv-grid"></div>
+          </div>
+
+          <div class="adv-section">
+            <div class="adv-section-title">Story Mode</div>
+            <div class="adv-row">
+              <select id="storySelect" class="small-select"></select>
+              <button id="storyStartBtn" class="btn btn-sm" type="button">Iniciar</button>
+              <button id="storyStopBtn" class="btn btn-sm" type="button">Parar</button>
+            </div>
+            <div class="adv-row">
+              <button id="storyPrevBtn" class="btn btn-sm" type="button">◀</button>
+              <button id="storyNextBtn" class="btn btn-sm" type="button">▶</button>
+              <div id="storyChapterLabel" class="adv-muted"></div>
+            </div>
+            <div id="storyText" class="adv-story-text"></div>
+          </div>
+        </div>
+      </div>
       <div class="hint">
         Dica: use o Debug (x,y) para obter coordenadas precisas clicando no mapa.
       </div>
@@ -144,10 +262,18 @@
 
             <canvas id="climateCanvas" class="climate-canvas" aria-hidden="true"></canvas>
 
+            <svg id="zonesSvg" class="zones-svg" aria-hidden="true"></svg>
+
+            <svg id="routesSvg" class="routes-svg" aria-hidden="true"></svg>
+
             <svg id="measureSvg" class="measure-svg" aria-hidden="true"></svg>
 
             <div id="pins" class="pins-layer"></div>
             <div id="tooltip" class="tooltip hidden"></div>
+            <div id="routeLegend" class="route-legend hidden"></div>
+            <div id="routeTooltip" class="route-tooltip hidden"></div>
+            <div id="routeInfo" class="route-info hidden"></div>
+
           </div>
         </div>
       </div>
@@ -204,13 +330,95 @@
 
 
 
+  <!-- Modal Economia -->
+  <div id="economyBackdrop" class="backdrop hidden">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button type="button" id="closeEconomy" class="close" aria-label="Fechar">✕</button>
+      <div class="modal-title">Economia & Situações</div>
+      <div class="modal-meta">Marque situações ativas para afetar preços e quantidades no mercado.</div>
+      <div class="modal-body">
+        <div class="econ-section">
+          <div class="econ-title negative">Situações Negativas (↑ Preço, ↓ Qtd)</div>
+          <div id="econNegatives" class="econ-grid">
+            <label><input type="checkbox" value="war"> Guerra</label>
+            <label><input type="checkbox" value="bandits"> Bandidos</label>
+            <label><input type="checkbox" value="guild_thieves"> Guilda de Ladrões</label>
+            <label><input type="checkbox" value="disaster"> Desastre Natural</label>
+            <label><input type="checkbox" value="plague"> Praga / Doença</label>
+            <label><input type="checkbox" value="blockade"> Bloqueio Comercial</label>
+            <label><input type="checkbox" value="famine"> Fome / Escassez</label>
+            <label><input type="checkbox" value="monster_surge"> Ataque de Monstros</label>
+            <label><input type="checkbox" value="corruption"> Corrupção Alta</label>
+            <label><input type="checkbox" value="high_taxes"> Impostos Abusivos</label>
+          </div>
+        </div>
+        <div class="econ-section">
+          <div class="econ-title positive">Situações Positivas (↓ Preço, ↑ Qtd)</div>
+          <div id="econPositives" class="econ-grid">
+            <label><input type="checkbox" value="peace"> Paz Duradoura</label>
+            <label><input type="checkbox" value="bumper_crop"> Colheita Farta</label>
+            <label><input type="checkbox" value="trade_agreement"> Acordo Comercial</label>
+            <label><input type="checkbox" value="festival"> Festival / Promoção</label>
+            <label><input type="checkbox" value="new_mine"> Nova Mina</label>
+            <label><input type="checkbox" value="magic_abundance"> Abundância Mágica</label>
+            <label><input type="checkbox" value="guild_support"> Apoio da Guilda</label>
+            <label><input type="checkbox" value="road_safety"> Estradas Seguras</label>
+            <label><input type="checkbox" value="innovation"> Inovação Tecnológica</label>
+            <label><input type="checkbox" value="low_taxes"> Isenção Fiscal</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px;">
+        <button id="econApplyBtn" class="btn btn-sm" type="button">Aplicar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Filtros de Rotas -->
+  <div id="routeFiltersBackdrop" class="backdrop hidden">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button type="button" id="closeRouteFilters" class="close" aria-label="Fechar">✕</button>
+      <div class="modal-title">Filtros de Rotas</div>
+      <div class="modal-meta">Selecione quais rotas devem ser exibidas no mapa.</div>
+      <div class="modal-body">
+        <div class="econ-section">
+          <div class="econ-title">Tipo de Conexão</div>
+          <div id="routeTypeFilters" class="econ-grid">
+            <label><input type="radio" name="routeConnType" value="all" checked> Todas</label>
+            <label><input type="radio" name="routeConnType" value="internal"> Internas (Assentamento ↔ Assentamento, mesma raça)</label>
+            <label><input type="radio" name="routeConnType" value="settlement-interracial"> Assentamento ↔ Assentamento (Inter-racial)</label>
+            <label><input type="radio" name="routeConnType" value="main-settlement"> Cidade Principal ↔ Assentamento</label>
+            <label><input type="radio" name="routeConnType" value="main-main"> Cidade Principal ↔ Cidade Principal</label>
+</div>
+        </div>
+        <div class="econ-section">
+          <div class="econ-title">Raças (Participantes)</div>
+          <div class="gm-row" style="margin-bottom:8px;">
+            <button id="routeFilterAllBtn" class="btn btn-sm" type="button">Marcar Todas</button>
+            <button id="routeFilterNoneBtn" class="btn btn-sm" type="button">Desmarcar Todas</button>
+          </div>
+          <div id="routeRaceFilters" class="econ-grid">
+            <!-- Gerado via JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px;">
+        <button id="routesApplyBtn" class="btn btn-sm" type="button">Aplicar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal Editor GM -->
   <div id="gmEditorBackdrop" class="backdrop hidden">
     <div class="modal modal-xl" role="dialog" aria-modal="true">
       <button type="button" id="closeGmEditor" class="close" aria-label="Fechar">✕</button>
-      <button id="minimizeGmEditor" class="btn btn-sm gm-min" type="button" title="Minimizar/Expandir o editor">Minimizar</button>
+      <button id="minimizeGmEditor" class="btn btn-sm gm-min" type="button"
+        title="Minimizar/Expandir o editor">Minimizar</button>
       <div class="modal-title">Editor GM</div>
-      <div class="modal-meta">Crie novos pins (sem alterar os existentes) e aplique conversões por zona racial. Alterações são salvas no navegador (GM).</div>
+      <div class="modal-meta">Crie novos pins (sem alterar os existentes) e aplique conversões por zona racial.
+        Alterações são salvas no navegador (GM).</div>
 
       <div class="gm-grid">
         <div class="gm-col">
@@ -233,13 +441,50 @@
             </label>
 
             <div class="gm-row">
+              <label class="ctrl">Grupo
+                <input id="gmPinGroup" type="text" placeholder="ex.: humans / elves / fortresses" />
+              </label>
+              <label class="ctrl">Tags (separe por vírgula)
+                <input id="gmPinTags" type="text" placeholder="ex.: trade, political, undead" />
+              </label>
+            </div>
+
+            <div class="gm-row">
+              <label class="ctrl">Eras (separe por vírgula)
+                <input id="gmPinEras" type="text" placeholder="ex.: current, dragon_age" />
+              </label>
+              <label class="ctrl">Perigo (0–5)
+                <input id="gmPinDanger" type="number" min="0" max="5" step="1" placeholder="0" />
+              </label>
+            </div>
+
+            <div class="gm-row">
+              <label class="ctrl">Zoom mín.
+                <input id="gmPinZoomMin" type="number" step="0.01" placeholder="auto" />
+              </label>
+              <label class="ctrl">Zoom máx.
+                <input id="gmPinZoomMax" type="number" step="0.01" placeholder="auto" />
+              </label>
+            </div>
+
+            <div class="gm-row">
+              <label class="ctrl">Facção
+                <input id="gmPinFaction" type="text" placeholder="ex.: Aldoria / Kharak-Dûm" />
+              </label>
+              <label class="ctrl">Religião
+                <input id="gmPinReligion" type="text" placeholder="ex.: Noctus / Grumm" />
+              </label>
+            </div>
+
+            <div class="gm-row">
               <label class="ctrl">X (%)
                 <input id="gmPinX" type="number" min="0" max="100" step="0.01" />
               </label>
               <label class="ctrl">Y (%)
                 <input id="gmPinY" type="number" min="0" max="100" step="0.01" />
               </label>
-              <button id="gmCaptureBtn" class="btn" type="button" title="Clique no mapa para capturar X/Y">Capturar no mapa</button>
+              <button id="gmCaptureBtn" class="btn" type="button" title="Clique no mapa para capturar X/Y">Capturar no
+                mapa</button>
             </div>
 
             <div class="gm-row">
@@ -284,24 +529,30 @@
 
             <div class="gm-row">
               <button id="gmCreatePinBtn" class="btn primary" type="button">Criar pin</button>
-              <button id="gmExportBtn" class="btn" type="button" title="Exporta as mudanças GM (pins/cidades/overrides)">Exportar JSON</button>
+              <button id="gmExportBtn" class="btn" type="button"
+                title="Exporta as mudanças GM (pins/cidades/overrides)">Exportar JSON</button>
             </div>
-            <div id="gmCreateHint" class="gm-hint">Dica: use Capturar no mapa, defina Nome e Tipo, e clique em Criar pin.</div>
+            <div id="gmCreateHint" class="gm-hint">Dica: use Capturar no mapa, defina Nome e Tipo, e clique em Criar
+              pin.</div>
           </div>
         </div>
 
         <div class="gm-col">
           <div class="city-section-title">Configurar cidade principal (pin selecionado)</div>
           <div class="gm-form">
-            <div id="gmSelectedPin" class="gm-hint">Selecione um pin no mapa (com o Editor aberto) para configurar a cidade.</div>
+            <div id="gmSelectedPin" class="gm-hint">Selecione um pin no mapa (com o Editor aberto) para configurar a
+              cidade.</div>
 
             <div class="gm-row">
-              <button id="gmSelectPinBtn" class="btn btn-sm" type="button" title="Minimiza o editor para você clicar em um pin no mapa">Selecionar pin no mapa</button>
+              <button id="gmSelectPinBtn" class="btn btn-sm" type="button"
+                title="Minimiza o editor para você clicar em um pin no mapa">Selecionar pin no mapa</button>
             </div>
 
             <div class="gm-row">
-              <button id="gmMakeCityMainBtn" class="btn warn" type="button" title="Define este pin como Cidade Principal">Marcar como Cidade Principal</button>
-              <button id="gmMakeSettlementBtn" class="btn danger" type="button" title="Define este pin como Assentamento">Marcar como Assentamento</button>
+              <button id="gmMakeCityMainBtn" class="btn warn" type="button"
+                title="Define este pin como Cidade Principal">Marcar como Cidade Principal</button>
+              <button id="gmMakeSettlementBtn" class="btn danger" type="button"
+                title="Define este pin como Assentamento">Marcar como Assentamento</button>
             </div>
 
             <div class="gm-row">
@@ -334,9 +585,11 @@
             </label>
 
             <div class="gm-row">
-              <button id="gmApplyCityConfigBtn" class="btn primary" type="button">Aplicar configuração na cidade</button>
+              <button id="gmApplyCityConfigBtn" class="btn primary" type="button">Aplicar configuração na
+                cidade</button>
             </div>
-            <div class="gm-hint">Isso cria/atualiza a entrada da cidade (City View) e salva no navegador (GM). Depois use Exportar JSON para me enviar.</div>
+            <div class="gm-hint">Isso cria/atualiza a entrada da cidade (City View) e salva no navegador (GM). Depois
+              use Exportar JSON para me enviar.</div>
           </div>
 
           <div class="city-section-title">Conversões por zona (opcional)</div>
@@ -350,10 +603,15 @@
             </label>
 
             <div class="gm-row">
-              <button id="gmPromoteBtn" class="btn warn" type="button" title="Converte assentamentos em cidades principais (aplica override)">Assent. → Cidade Principal</button>
-              <button id="gmDemoteBtn" class="btn danger" type="button" title="Converte cidades principais em assentamentos (aplica override)">Cidade Principal → Assent.</button>
+              <button id="gmPromoteBtn" class="btn warn" type="button"
+                title="Converte assentamentos em cidades principais (aplica override)">Assent. → Cidade
+                Principal</button>
+              <button id="gmDemoteBtn" class="btn danger" type="button"
+                title="Converte cidades principais em assentamentos (aplica override)">Cidade Principal →
+                Assent.</button>
             </div>
-            <div class="gm-hint">Estas conversões não apagam pins; apenas alteram o tipo via override GM (salvo no navegador).</div>
+            <div class="gm-hint">Estas conversões não apagam pins; apenas alteram o tipo via override GM (salvo no
+              navegador).</div>
           </div>
         </div>
 
@@ -362,6 +620,18 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
-</body>
+  <button id="presentExitBtn" class="present-exit" type="button" hidden>Sair da apresentação</button>
+
+  <script src="src/core.js"></script>
+  <script src="src/worldSync.js"></script>
+  <script src="src/map.js"></script>
+  <script src="src/gm.js"></script>
+  <script src="src/items.js"></script>
+  <script src="src/cityView.js"></script>
+  <script src="src/climate.js"></script>
+  <script src="src/app.js"></script>
+
+  <script src="src/combatViewer.js"></script>
+  <script src="src/ui/combat.js"></script></body>
+
 </html>

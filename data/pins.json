@@ -2918,7 +2918,7 @@
   {
     "id": "humans_world_dun_001",
     "name": "🕳 Fortaleza Submersa de Goldmere",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "humans",
     "territory": "humans",
@@ -2960,7 +2960,7 @@
   {
     "id": "humans_world_dun_002",
     "name": "🕳 Catacumbas de Rivermark",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "humans",
     "territory": "humans",
@@ -3002,7 +3002,7 @@
   {
     "id": "humans_world_dun_003",
     "name": "🕳 Ruínas de Rivermark",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "humans",
     "territory": "humans",
@@ -3044,7 +3044,7 @@
   {
     "id": "humans_world_dun_004",
     "name": "🕳 Ruínas de Goldmere",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "humans",
     "territory": "humans",
@@ -3086,7 +3086,7 @@
   {
     "id": "humans_world_dun_005",
     "name": "🕳 Catacumbas de Branthos",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "humans",
     "territory": "humans",
@@ -3128,7 +3128,7 @@
   {
     "id": "humans_world_dun_006",
     "name": "🕳 Fortaleza Submersa de Rivermark",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "humans",
     "territory": "humans",
@@ -3170,7 +3170,7 @@
   {
     "id": "elves_world_dun_001",
     "name": "🕳 Câmara de Névoa Lóren",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "elves",
     "territory": "elves",
@@ -3212,7 +3212,7 @@
   {
     "id": "elves_world_dun_002",
     "name": "🕳 Santuário Raiz de Whisperleaf",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "elves",
     "territory": "elves",
@@ -3254,7 +3254,7 @@
   {
     "id": "elves_world_dun_003",
     "name": "🕳 Gruta de Luar de Faelwyn",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "elves",
     "territory": "elves",
@@ -3296,7 +3296,7 @@
   {
     "id": "elves_world_dun_004",
     "name": "🕳 Santuário Raiz de Silvanor",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "elves",
     "territory": "elves",
@@ -3422,7 +3422,7 @@
   {
     "id": "dwarves_world_dun_001",
     "name": "🕳 Galerias de Stonehelm",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "dwarves",
     "territory": "dwarves",
@@ -3464,7 +3464,7 @@
   {
     "id": "dwarves_world_dun_002",
     "name": "🕳 Túnel Perdido de Khar",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "dwarves",
     "territory": "dwarves",
@@ -3506,7 +3506,7 @@
   {
     "id": "dwarves_world_dun_003",
     "name": "🕳 Salões de Thar",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "dwarves",
     "territory": "dwarves",
@@ -3674,7 +3674,7 @@
   {
     "id": "vampires_world_dun_001",
     "name": "🕳 Sepulcro de Bloodhaven",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "vampires",
     "territory": "vampires",
@@ -3716,7 +3716,7 @@
   {
     "id": "vampires_world_dun_002",
     "name": "🕳 Túnel de Sangue Sable",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "vampires",
     "territory": "vampires",
@@ -3758,7 +3758,7 @@
   {
     "id": "vampires_world_dun_003",
     "name": "🕳 Cripta Carmesim de Ashen",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "vampires",
     "territory": "vampires",
@@ -3800,7 +3800,7 @@
   {
     "id": "vampires_world_dun_004",
     "name": "🕳 Sepulcro de Crimson",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "vampires",
     "territory": "vampires",
@@ -3926,7 +3926,7 @@
   {
     "id": "orcs_world_dun_001",
     "name": "🕳 Covil de Gorewatch",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "orcs",
     "territory": "orcs",
@@ -3968,7 +3968,7 @@
   {
     "id": "orcs_world_dun_002",
     "name": "🕳 Covil de Grumak",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "orcs",
     "territory": "orcs",
@@ -4010,7 +4010,7 @@
   {
     "id": "orcs_world_dun_003",
     "name": "🕳 Covil de Blacktusk",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "orcs",
     "territory": "orcs",
@@ -4094,7 +4094,7 @@
   {
     "id": "orcs_world_dun_005",
     "name": "🕳 Fornalha de Bone",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "orcs",
     "territory": "orcs",
@@ -4472,7 +4472,7 @@
   {
     "id": "centaurs_world_dun_002",
     "name": "🕳 Caverna de Passo Crest",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "centaurs",
     "territory": "centaurs",
@@ -4514,7 +4514,7 @@
   {
     "id": "centaurs_world_dun_003",
     "name": "🕳 Gruta da Tempestade Galehoof",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "centaurs",
     "territory": "centaurs",
@@ -4598,7 +4598,7 @@
   {
     "id": "centaurs_world_dun_005",
     "name": "🕳 Caverna de Passo Equinalis",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "centaurs",
     "territory": "centaurs",
@@ -4640,7 +4640,7 @@
   {
     "id": "centaurs_world_dun_006",
     "name": "🕳 Toca do Vento Windstep",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "centaurs",
     "territory": "centaurs",
@@ -4682,7 +4682,7 @@
   {
     "id": "dragons_world_dun_001",
     "name": "🕳 Fortaleza Submersa de Valandor",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "dragons",
     "territory": "dragons",
@@ -4724,7 +4724,7 @@
   {
     "id": "dragons_world_dun_002",
     "name": "🕳 Fortaleza Submersa de Oakheart",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "dragons",
     "territory": "dragons",
@@ -4766,7 +4766,7 @@
   {
     "id": "dragons_world_dun_003",
     "name": "🕳 Fortaleza Submersa de Branthos",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "dragons",
     "territory": "dragons",
@@ -4808,7 +4808,7 @@
   {
     "id": "dragons_world_dun_004",
     "name": "🕳 Fortaleza Submersa de Branthos — Selo 10",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "dragons",
     "territory": "dragons",
@@ -5228,7 +5228,7 @@
   {
     "id": "fae_world_dun_002",
     "name": "🕳 Jardim Subterrâneo Moonbloom",
-    "layer": "world",
+    "layer": "sky",
     "type": "dungeon",
     "group": "fae",
     "territory": "fae",
@@ -5270,7 +5270,7 @@
   {
     "id": "fae_world_dun_003",
     "name": "🕳 Ninho de Fada Sombria Star",
-    "layer": "world",
+    "layer": "sky",
     "type": "dungeon",
     "group": "fae",
     "territory": "fae",
@@ -5354,7 +5354,7 @@
   {
     "id": "fae_world_dun_005",
     "name": "🕳 Jardim Subterrâneo Lumen",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "fae",
     "territory": "fae",
@@ -5396,7 +5396,7 @@
   {
     "id": "fae_world_dun_006",
     "name": "🕳 Jardim Subterrâneo Star",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "fae",
     "territory": "fae",
@@ -5522,7 +5522,7 @@
   {
     "id": "giants_world_dun_003",
     "name": "🕳 Cripta de Rivermark — Selo 21",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "giants",
     "territory": "giants",
@@ -5606,7 +5606,7 @@
   {
     "id": "giants_world_dun_005",
     "name": "🕳 Catacumbas de Eastreach — Selo 23",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "giants",
     "territory": "giants",
@@ -5732,7 +5732,7 @@
   {
     "id": "gnomes_world_dun_002",
     "name": "🕳 Oficina Perdida de Gearspike",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "gnomes",
     "territory": "gnomes",
@@ -5774,7 +5774,7 @@
   {
     "id": "gnomes_world_dun_003",
     "name": "🕳 Oficina Perdida de Nutcrank",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "gnomes",
     "territory": "gnomes",
@@ -5816,7 +5816,7 @@
   {
     "id": "gnomes_world_dun_004",
     "name": "🕳 Túnel de Engrenagens Gearheart",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "gnomes",
     "territory": "gnomes",
@@ -6194,7 +6194,7 @@
   {
     "id": "angels_world_dun_001",
     "name": "🕳 Ruínas de Lys",
-    "layer": "world",
+    "layer": "subaquatica",
     "type": "dungeon",
     "group": "angels",
     "territory": "angels",
@@ -6362,7 +6362,7 @@
   {
     "id": "angels_world_dun_005",
     "name": "🕳 Cripta de Valandor",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "angels",
     "territory": "angels",
@@ -6404,7 +6404,7 @@
   {
     "id": "angels_world_dun_006",
     "name": "🕳 Ruínas de Valandor",
-    "layer": "world",
+    "layer": "underground",
     "type": "dungeon",
     "group": "angels",
     "territory": "angels",
@@ -6780,7 +6780,7 @@
     ]
   },
   {
-    "id": "demons_abismo_dun_001",
+    "id": "demons_abismo_dun_039",
     "name": "🕳 Fortaleza Submersa de Goldmere — Selo 39",
     "layer": "abismo",
     "type": "dungeon",
@@ -9250,5 +9250,165 @@
         "role": "protetor do templo"
       }
     ]
+  },
+  {
+    "id": "gm_1770692222106_6722",
+    "name": "Voltagrinn a energia e fluxo",
+    "layer": "world",
+    "type": "city_main",
+    "group": "gnomes",
+    "territory": "gnomes",
+    "x": 66.28,
+    "y": 78.41,
+    "description": "",
+    "images": [],
+    "videos": [],
+    "details": "",
+    "alwaysLabel": false,
+    "tags": [],
+    "eras": [
+      "current"
+    ],
+    "cityId": "Voltagrinn"
+  },
+  {
+    "id": "gm_1770692259718_8627",
+    "name": "Kryx-Helion",
+    "layer": "world",
+    "type": "city_main",
+    "group": "gnomes",
+    "territory": "gnomes",
+    "x": 69.67,
+    "y": 74.1,
+    "description": "",
+    "images": [],
+    "videos": [],
+    "details": "",
+    "alwaysLabel": false,
+    "tags": [],
+    "eras": [
+      "current"
+    ],
+    "cityId": "Kryx"
+  },
+  {
+    "id": "gm_1770692305447_8942",
+    "name": "Nimbarix central autônomos",
+    "layer": "world",
+    "type": "city_main",
+    "group": "gnomes",
+    "territory": "gnomes",
+    "x": 74.79,
+    "y": 73.65,
+    "description": "",
+    "images": [],
+    "videos": [],
+    "details": "",
+    "alwaysLabel": false,
+    "tags": [],
+    "eras": [
+      "current"
+    ],
+    "cityId": "Nimbarix"
+  },
+  {
+    "id": "gm_1770692567957_666",
+    "name": "Velkarith, a Cidade dos Silenciosos",
+    "layer": "underground",
+    "type": "city_main",
+    "group": "undead",
+    "territory": "undead",
+    "x": 38.8,
+    "y": 25.2,
+    "description": "",
+    "images": [],
+    "videos": [],
+    "details": "",
+    "alwaysLabel": false,
+    "tags": [],
+    "eras": [
+      "current"
+    ],
+    "cityId": "Velkarith"
+  },
+  {
+    "id": "gm_1770692636953_867",
+    "name": "Nhar’Velis, a Cidade do Último Sussurro",
+    "layer": "underground",
+    "type": "city_main",
+    "group": "undead",
+    "territory": "undead",
+    "x": 59,
+    "y": 23.13,
+    "description": "",
+    "images": [],
+    "videos": [],
+    "details": "",
+    "alwaysLabel": false,
+    "tags": [],
+    "eras": [
+      "current"
+    ],
+    "cityId": "Nhar’Velis"
+  },
+  {
+    "id": "gm_1770692708916_9808",
+    "name": "Thorgar-Dûl, a Cidade dos Pilares Eternos",
+    "layer": "world",
+    "type": "city_main",
+    "group": "giants",
+    "territory": "giants",
+    "x": 80.17,
+    "y": 19.63,
+    "description": "",
+    "images": [],
+    "videos": [],
+    "details": "",
+    "alwaysLabel": false,
+    "tags": [],
+    "eras": [
+      "current"
+    ],
+    "cityId": "Thorgar-Dû"
+  },
+  {
+    "id": "gm_1770692757042_1882",
+    "name": "Valmorynth, o Trono das Tempestades",
+    "layer": "world",
+    "type": "city_main",
+    "group": "giants",
+    "territory": "giants",
+    "x": 88.12,
+    "y": 14.5,
+    "description": "",
+    "images": [],
+    "videos": [],
+    "details": "",
+    "alwaysLabel": false,
+    "tags": [],
+    "eras": [
+      "current"
+    ],
+    "cityId": "Valmorynth"
+  },
+  {
+    "id": "gm_1770692783409_6670",
+    "name": "Khaelorin, o Vale dos Primeiros Passos",
+    "layer": "world",
+    "type": "city_main",
+    "group": "giants",
+    "territory": "giants",
+    "x": 74.18,
+    "y": 15.22,
+    "description": "",
+    "images": [],
+    "videos": [],
+    "details": "",
+    "alwaysLabel": false,
+    "tags": [],
+    "eras": [
+      "current"
+    ],
+    "cityId": "Khaelorin"
   }
 ]

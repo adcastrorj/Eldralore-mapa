@@ -1,0 +1,20 @@
+{
+  "id": "example_story",
+  "title": "Exemplo (Story Mode)",
+  "chapters": [
+    {
+      "title": "Visão geral",
+      "text": "Use capítulos para guiar os jogadores por regiões/temas. Este é um exemplo editável em data/stories/example_story.json.",
+      "preset": "default",
+      "era": "current",
+      "routes": false
+    },
+    {
+      "title": "Política",
+      "text": "Exemplo de capítulo que liga a visão política.",
+      "preset": "political",
+      "era": "current",
+      "routes": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "rev": 1,
+  "updatedAt": 0,
+  "worldTime": {
+    "day": 1,
+    "month": 1,
+    "year": 1
+  },
+  "climate": {
+    "regions": {}
+  }
+}

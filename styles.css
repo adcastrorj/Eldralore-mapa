@@ -19,6 +19,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-appl
 .topbar.collapsed .controls{display:flex;align-items:flex-end;gap:10px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}
 .topbar.collapsed .timebox{display:none}
 .topbar.collapsed .toggle{display:none}
+.topbar.collapsed .toggle.compact-keep{display:flex}
 .topbar.collapsed .ctrl select,.topbar.collapsed .ctrl input{min-width:150px;padding:6px 8px}
 .topbar.collapsed .ctrl{gap:3px}
 .topbar.collapsed .brand{font-size:14px}
@@ -56,7 +57,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-appl
 #bordersOverlay{object-fit:contain;pointer-events:none;opacity:.65}
 
 .pins-layer{pointer-events:none}
-.pin{position:absolute;transform:translate(-50%,-100%);pointer-events:auto}
+.pin{position:absolute;transform:translate(-50%,-100%) scale(var(--pinInvScale,1));pointer-events:auto}
 .pin .dot{width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,.55);background:rgba(255,255,255,.90);box-shadow:0 2px 8px rgba(0,0,0,.40)}
 .pin.temple .dot{background:rgba(255,200,90,.95)}
 .pin.guild_hq .dot{background:rgba(160,220,255,.95)}
@@ -65,6 +66,19 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-appl
 
 .pin .label{display:none !important;margin-top:6px;padding:5px 8px;font-size:12px;border-radius:10px;background:rgba(20,24,36,.92);border:1px solid rgba(255,255,255,.10);color:var(--text);white-space:nowrap}
 .pin:hover .label{display:inline-block !important}
+
+/* Labels de "regiões" (territórios) quando zoom muito afastado */
+.pin.region-label{transform:translate(-50%,-50%) scale(var(--pinInvScale,1));}
+.pin.region-label .dot{width:0;height:0;border:0;box-shadow:none;background:transparent;}
+.pin.region-label .label{
+  background:rgba(10,12,18,.35);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:18px;
+  padding:6px 10px;
+  border-radius:14px;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+}
 .pin.always-label .label{display:inline-block !important}
 
 .tooltip{pointer-events:none;display:flex;align-items:flex-start;justify-content:flex-start}
@@ -330,3 +344,260 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-appl
 .btn.btn-gm{border:1px solid rgba(255,180,180,.35);background:rgba(120,20,20,.18)}
 .btn.btn-gm:hover{background:rgba(120,20,20,.26)}
 .gm-secret{margin-top:8px}
+
+
+/* ===== Mobile drawers (Filtros/Locais) ===== */
+.mobile-only{ display:none; }
+
+.mobile-backdrop{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.45);
+  z-index: 50;
+}
+
+body.mobile-controls-open #mobileBackdrop,
+body.mobile-sidebar-open #mobileBackdrop{ display:block; }
+
+@media (max-width: 980px){
+  .mobile-only{ display:inline-flex; }
+
+  /* Painéis viram drawers */
+  #controlsPanel{
+    position:fixed;
+    top:0; left:0; bottom:0;
+    width:min(92vw, 420px);
+    overflow:auto;
+    background:rgba(16,18,22,.98);
+    border-right:1px solid rgba(255,255,255,.08);
+    padding:12px;
+    transform:translateX(-105%);
+    transition:transform .18s ease;
+    z-index: 60;
+  }
+  body.mobile-controls-open #controlsPanel{ transform:translateX(0); }
+
+  #sidebarPanel{
+    position:fixed;
+    top:0; right:0; bottom:0;
+    width:min(92vw, 420px);
+    overflow:auto;
+    background:rgba(16,18,22,.98);
+    border-left:1px solid rgba(255,255,255,.08);
+    transform:translateX(105%);
+    transition:transform .18s ease;
+    z-index: 60;
+  }
+  body.mobile-sidebar-open #sidebarPanel{ transform:translateX(0); }
+
+  /* Layout principal fica full-map; sidebar não ocupa grid */
+  .layout{ grid-template-columns:1fr !important; }
+  .sidebar{ max-height:none; }
+
+  /* Modais como bottom-sheet */
+  .modal{
+    align-self:flex-end;
+    width:100% !important;
+    max-width:100% !important;
+    max-height: 85vh;
+    border-radius: 14px 14px 0 0;
+  }
+  .modal-xl{ width:100% !important; max-width:100% !important; }
+}
+
+
+/* ---- Rotas (flow lines) ---- */
+.routes-svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:12; /* abaixo dos pins (pins: 15), acima do mapa */
+  overflow:visible;
+}
+
+/* ---- Filtros avançados ---- */
+.advanced-panel{
+  margin-top:10px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  padding:10px;
+}
+.advanced-panel.hidden{display:none}
+.adv-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.adv-title{font-weight:800;font-size:13px;color:var(--text)}
+.adv-section{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(255,255,255,.12)}
+.adv-section-title{font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:700}
+.adv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+@media (min-width:1200px){
+  .adv-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.adv-chip{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 8px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(0,0,0,.12);
+  cursor:pointer;
+  user-select:none;
+  font-size:12px;
+  color:var(--text);
+}
+.adv-chip:hover{border-color:rgba(122,167,255,.35)}
+.adv-chip.is-on{
+  border-color:rgba(122,167,255,.55);
+  background:rgba(122,167,255,.12);
+}
+.adv-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.small-select,.small-input{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--text);
+  padding:6px 8px;
+  font-size:12px;
+}
+.small-input{flex:1;min-width:140px}
+.adv-muted{font-size:12px;color:var(--muted)}
+.adv-story-text{
+  margin-top:8px;
+  padding:8px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:12px;
+  background:rgba(0,0,0,.12);
+  font-size:12px;
+  color:var(--text);
+  max-height:180px;
+  overflow:auto;
+}
+
+/* Buttons in top controls */
+.controls .btn.btn-sm{
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  cursor:pointer;
+  font-size:12px;
+}
+.controls .btn.btn-sm:hover{border-color:rgba(122,167,255,.35)}
+
+
+.zones-svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.routes-svg{z-index:6}
+.measure-svg{z-index:7}
+.pins-layer{z-index:8}
+.tooltip{z-index:12}
+
+.adv-subtitle{margin:6px 0 4px;color:rgba(255,255,255,.65);font-size:12px}
+
+/* --- Rotas: legenda flutuante --- */
+.route-legend{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  max-width:320px;
+  background:rgba(10,12,16,.82);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:12px;
+  padding:10px 10px;
+  backdrop-filter: blur(6px);
+  color:rgba(255,255,255,.92);
+  font-size:12px;
+  line-height:1.25;
+  z-index: 50;
+  pointer-events:auto;
+}
+.route-legend.hidden{ display:none; }
+.route-legend .title{ font-weight:700; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+.route-legend .items{ display:flex; flex-direction:column; gap:6px; }
+.route-legend .item{ display:flex; align-items:flex-start; gap:8px; }
+.route-legend .swatch{
+  width:34px; height:10px; border-radius:6px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.10);
+  display:flex; align-items:center; justify-content:center;
+}
+.route-legend .swatch svg{ width:34px; height:10px; }
+.route-legend .label{ font-weight:600; }
+.route-legend .desc{ opacity:.85; margin-top:1px; }
+
+
+/* Route tooltip / info */
+.route-tooltip{
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  background: rgba(0,0,0,.78);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 12px;
+  max-width: 320px;
+  line-height: 1.25;
+  backdrop-filter: blur(6px);
+}
+.route-info{
+  position: fixed;
+  z-index: 51;
+  right: 14px;
+  bottom: 14px;
+  width: 320px;
+  max-width: calc(100vw - 28px);
+  background: rgba(0,0,0,.82);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.3;
+  backdrop-filter: blur(6px);
+}
+.route-info .ri-title{ font-weight: 700; margin-bottom: 6px; }
+.route-info .ri-row{ display:flex; justify-content: space-between; gap: 10px; margin: 4px 0; opacity: .95; }
+.route-info .ri-badge{ display:inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); font-size: 11px; opacity: .95; }
+.route-info .ri-close{ position:absolute; right: 10px; top: 8px; }
+
+
+
+/* --- Modo Apresentação --- */
+.present-exit{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 99999;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(10,12,18,.85);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+}
+.present-exit:hover{ background: rgba(10,12,18,.95); }
+
+body.present-mode #sidebarPanel{ display:none !important; }
+body.present-mode [data-present-hide="1"]{ display:none !important; }
+body.present-mode header.topbar{ padding: 8px 12px !important; }
+
+
+/* ===== Presentation mode layout fixes ===== */
+body.present-mode main.layout{
+  grid-template-columns: 1fr !important;
+}
+body.present-mode main.layout > aside#sidebarPanel{
+  display:none !important;
+}
+body.present-mode main.layout{
+  gap:12px !important;
+}
+body.present-mode .map-wrap{
+  grid-column: 1 / -1 !important;
+}
+
+
+
+/* UI Collapsed (topbar) */
+/* (FIX) não esconder o painel de controles no modo compacto; usamos .topbar.collapsed para reduzir */
+body.ui-collapsed #controlsPanel{display:flex !important;}
+body.ui-collapsed .topbar{padding-bottom:6px;}

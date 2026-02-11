@@ -1,0 +1,29 @@
+{
+  "presets": [
+    {
+      "id": "default",
+      "label": "Padrão",
+      "desc": "Pins por território/tipo (como hoje)."
+    },
+    {
+      "id": "political",
+      "label": "Político",
+      "desc": "Exibe território/controle (cores por facção/raça)."
+    },
+    {
+      "id": "religion",
+      "label": "Religião",
+      "desc": "Exibe influência religiosa (cores por divindade/ordem)."
+    },
+    {
+      "id": "danger",
+      "label": "Perigo",
+      "desc": "Exibe nível de ameaça (0-5)."
+    },
+    {
+      "id": "commerce",
+      "label": "Comércio",
+      "desc": "Exibe relevância comercial/rotas."
+    }
+  ]
+}

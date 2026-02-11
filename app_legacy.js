@@ -89,6 +89,11 @@ const els = {
   zoomLabel: document.getElementById('zoomLabel'),
 
   uiCollapseBtn: document.getElementById('uiCollapseBtn'),
+  mobileFiltersBtn: document.getElementById('mobileFiltersBtn'),
+  mobileLocationsBtn: document.getElementById('mobileLocationsBtn'),
+  mobileBackdrop: document.getElementById('mobileBackdrop'),
+  controlsPanel: document.getElementById('controlsPanel'),
+  sidebarPanel: document.getElementById('sidebarPanel'),
   topbar: document.querySelector('.topbar'),
 
   // calendario / GM
@@ -2082,40 +2087,22 @@ function applyDateFromInputs(){
 }
 
 function gmLogin(){
-  // Observação: isto é uma barreira de UI (não segurança criptográfica).
-  // Em hospedagem pública, qualquer pessoa com DevTools pode manipular o JS.
-  // Para segurança real: servidor com autenticação e regras no backend.
-  try{
-    const existing = localStorage.getItem(GM_PIN_STORAGE_KEY);
-    if(!existing){
-      const pin1 = prompt('Defina um PIN do Modo GM (mín. 4 caracteres). Guarde este PIN.');
-      if(!pin1 || pin1.length < 4) return;
-      const pin2 = prompt('Confirme o PIN do Modo GM.');
-      if(pin1 !== pin2){
-        alert('PIN não confere.');
-        return;
-      }
-      const h = hashStringToUint32(pin1).toString(16);
-      localStorage.setItem(GM_PIN_STORAGE_KEY, h);
-      alert('PIN GM definido neste navegador. Use “Modo GM” novamente para entrar.');
-      return;
-    }
-
-    const pin = prompt('Informe o PIN do Modo GM.');
-    if(!pin) return;
-    const h = hashStringToUint32(pin).toString(16);
-    if(h !== existing){
-      alert('PIN incorreto.');
-      return;
-    }
-
-    state.gm.unlocked = true;
-    updateTimeUI();
-    if(state.ui.cityOpenId) openCity(state.ui.cityOpenId);
-  }catch{
-    // se localStorage estiver bloqueado
-    alert('Não foi possível ativar Modo GM (localStorage indisponível).');
+  // Barreira de UI (não segurança real). Sem backend, qualquer pessoa com DevTools pode burlar.
+  // Neste projeto: senha fixa embutida no build, para evitar que cada usuário "crie" seu próprio PIN.
+  const configured = (typeof window !== 'undefined' && window.ELDRALORE_GM_PASSWORD) ? String(window.ELDRALORE_GM_PASSWORD) : "";
+  if(!configured){
+    alert('Senha GM não configurada no projeto. Defina window.ELDRALORE_GM_PASSWORD no index.html.');
+    return;
   }
+  const pass = prompt('Senha do Modo GM:');
+  if(pass === null) return;
+  if(String(pass) !== configured){
+    alert('Senha incorreta.');
+    return;
+  }
+  state.gm.unlocked = true;
+  updateTimeUI();
+  if(state.ui.cityOpenId) openCity(state.ui.cityOpenId);
 }
 
 function gmLogout(){
@@ -2144,6 +2131,20 @@ function scheduleViewportRecalc(){
   setTimeout(run, 220);
 }
 
+
+function closeMobilePanels(){
+  document.body.classList.remove('mobile-controls-open','mobile-sidebar-open');
+  if(els.mobileBackdrop) els.mobileBackdrop.hidden = true;
+}
+function toggleMobilePanel(kind){
+  const cls = kind === 'controls' ? 'mobile-controls-open' : 'mobile-sidebar-open';
+  const other = kind === 'controls' ? 'mobile-sidebar-open' : 'mobile-controls-open';
+  const willOpen = !document.body.classList.contains(cls);
+  document.body.classList.remove(other);
+  document.body.classList.toggle(cls, willOpen);
+  if(els.mobileBackdrop) els.mobileBackdrop.hidden = !willOpen;
+}
+
 function applyUiCollapsed(){
   if(!els.topbar) return;
   els.topbar.classList.toggle("collapsed", !!state.uiCollapsed);
@@ -2160,6 +2161,20 @@ function bindUI(){
       // Clima depende do viewport real do mapa
       drawClimateOverlay();
     });
+
+  if(els.mobileFiltersBtn){
+    els.mobileFiltersBtn.addEventListener('click', () => toggleMobilePanel('controls'));
+  }
+  if(els.mobileLocationsBtn){
+    els.mobileLocationsBtn.addEventListener('click', () => toggleMobilePanel('sidebar'));
+  }
+  if(els.mobileBackdrop){
+    els.mobileBackdrop.addEventListener('click', closeMobilePanels);
+  }
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeMobilePanels();
+  });
+
   }
 
   els.layerSelect.addEventListener('change', () => {

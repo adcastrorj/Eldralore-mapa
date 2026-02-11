@@ -1,0 +1,1559 @@
+[
+  {
+    "id": "trade_internal__gm_angels_main_celestia__gm_angels_main_luminael",
+    "from": "gm_angels_main_celestia",
+    "to": "gm_angels_main_luminael",
+    "type": "trade_internal",
+    "participants": [
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#74b9ff"
+  },
+  {
+    "id": "trade_internal__gm_angels_main_celestia__gm_angels_main_etheria",
+    "from": "gm_angels_main_celestia",
+    "to": "gm_angels_main_etheria",
+    "type": "trade_internal",
+    "participants": [
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#74b9ff"
+  },
+  {
+    "id": "trade_internal__gm_angels_main_celestia__gm_angels_main_sanctoria",
+    "from": "gm_angels_main_celestia",
+    "to": "gm_angels_main_sanctoria",
+    "type": "trade_internal",
+    "participants": [
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#74b9ff"
+  },
+  {
+    "id": "trade_internal__gm_angels_main_celestia__gm_angels_main_halcyon",
+    "from": "gm_angels_main_celestia",
+    "to": "gm_angels_main_halcyon",
+    "type": "trade_internal",
+    "participants": [
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#74b9ff"
+  },
+  {
+    "id": "trade_internal__gm_angels_main_celestia__angels_sky_guild_001",
+    "from": "gm_angels_main_celestia",
+    "to": "angels_sky_guild_001",
+    "type": "trade_internal",
+    "participants": [
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#74b9ff"
+  },
+  {
+    "id": "trade_internal__gm_angels_main_celestia__angels_world_dun_001",
+    "from": "gm_angels_main_celestia",
+    "to": "angels_world_dun_001",
+    "type": "trade_internal",
+    "participants": [
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#74b9ff"
+  },
+  {
+    "id": "trade_internal__gm_1768672142768_3322__gm_1768672231480_8251",
+    "from": "gm_1768672142768_3322",
+    "to": "gm_1768672231480_8251",
+    "type": "trade_internal",
+    "participants": [
+      "centaurs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#a3e635"
+  },
+  {
+    "id": "trade_internal__gm_1768672142768_3322__gm_1768672203415_5002",
+    "from": "gm_1768672142768_3322",
+    "to": "gm_1768672203415_5002",
+    "type": "trade_internal",
+    "participants": [
+      "centaurs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#a3e635"
+  },
+  {
+    "id": "trade_internal__gm_1768672142768_3322__gm_1768672186159_9882",
+    "from": "gm_1768672142768_3322",
+    "to": "gm_1768672186159_9882",
+    "type": "trade_internal",
+    "participants": [
+      "centaurs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#a3e635"
+  },
+  {
+    "id": "trade_internal__gm_1768672142768_3322__centaurs_world_set_002",
+    "from": "gm_1768672142768_3322",
+    "to": "centaurs_world_set_002",
+    "type": "trade_internal",
+    "participants": [
+      "centaurs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#a3e635"
+  },
+  {
+    "id": "trade_internal__gm_1768672142768_3322__centaurs_world_set_003",
+    "from": "gm_1768672142768_3322",
+    "to": "centaurs_world_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "centaurs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#a3e635"
+  },
+  {
+    "id": "trade_internal__gm_1768671357317_8534__gm_1768671420757_1844",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671420757_1844",
+    "type": "trade_internal",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_internal__gm_1768671357317_8534__gm_1768671468140_330",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671468140_330",
+    "type": "trade_internal",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_internal__gm_1768671357317_8534__gm_1768671382957_5727",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671382957_5727",
+    "type": "trade_internal",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_internal__gm_1768671357317_8534__gm_1768671446813_2662",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671446813_2662",
+    "type": "trade_internal",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_internal__gm_1768671357317_8534__gm_1768671402893_9798",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671402893_9798",
+    "type": "trade_internal",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_internal__gm_1768671357317_8534__demons_abismo_set_001",
+    "from": "gm_1768671357317_8534",
+    "to": "demons_abismo_set_001",
+    "type": "trade_internal",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_internal__gm_1768671357317_8534__demons_abismo_set_003",
+    "from": "gm_1768671357317_8534",
+    "to": "demons_abismo_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_shadow__gm_1768671357317_8534__gm_1768671468140_330",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671468140_330",
+    "type": "trade_shadow",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_shadow__gm_1768671357317_8534__gm_1768671382957_5727",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671382957_5727",
+    "type": "trade_shadow",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_shadow__gm_1768671357317_8534__gm_1768671402893_9798",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671402893_9798",
+    "type": "trade_shadow",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_shadow__gm_1768671357317_8534__demons_abismo_set_001",
+    "from": "gm_1768671357317_8534",
+    "to": "demons_abismo_set_001",
+    "type": "trade_shadow",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_shadow__gm_1768671357317_8534__demons_abismo_set_003",
+    "from": "gm_1768671357317_8534",
+    "to": "demons_abismo_set_003",
+    "type": "trade_shadow",
+    "participants": [
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_internal__gm_1768671118391_5214__gm_1768671260454_4087",
+    "from": "gm_1768671118391_5214",
+    "to": "gm_1768671260454_4087",
+    "type": "trade_internal",
+    "participants": [
+      "dragons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#d35400"
+  },
+  {
+    "id": "trade_internal__gm_1768671118391_5214__gm_1768671193950_6632",
+    "from": "gm_1768671118391_5214",
+    "to": "gm_1768671193950_6632",
+    "type": "trade_internal",
+    "participants": [
+      "dragons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#d35400"
+  },
+  {
+    "id": "trade_internal__gm_1768671118391_5214__dragons_world_set_002",
+    "from": "gm_1768671118391_5214",
+    "to": "dragons_world_set_002",
+    "type": "trade_internal",
+    "participants": [
+      "dragons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#d35400"
+  },
+  {
+    "id": "trade_internal__gm_1768671118391_5214__dragons_world_set_003",
+    "from": "gm_1768671118391_5214",
+    "to": "dragons_world_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "dragons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#d35400"
+  },
+  {
+    "id": "trade_internal__gm_1768670731193_3441__gm_1768670781545_9354",
+    "from": "gm_1768670731193_3441",
+    "to": "gm_1768670781545_9354",
+    "type": "trade_internal",
+    "participants": [
+      "dwarves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e67e22"
+  },
+  {
+    "id": "trade_internal__gm_1768670731193_3441__gm_1768670818633_1113",
+    "from": "gm_1768670731193_3441",
+    "to": "gm_1768670818633_1113",
+    "type": "trade_internal",
+    "participants": [
+      "dwarves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e67e22"
+  },
+  {
+    "id": "trade_internal__gm_1768670731193_3441__gm_1768670674794_15",
+    "from": "gm_1768670731193_3441",
+    "to": "gm_1768670674794_15",
+    "type": "trade_internal",
+    "participants": [
+      "dwarves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e67e22"
+  },
+  {
+    "id": "trade_internal__gm_1768670731193_3441__gm_1768670633554_332",
+    "from": "gm_1768670731193_3441",
+    "to": "gm_1768670633554_332",
+    "type": "trade_internal",
+    "participants": [
+      "dwarves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e67e22"
+  },
+  {
+    "id": "trade_internal__gm_1768670731193_3441__gm_1768670598442_4093",
+    "from": "gm_1768670731193_3441",
+    "to": "gm_1768670598442_4093",
+    "type": "trade_internal",
+    "participants": [
+      "dwarves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e67e22"
+  },
+  {
+    "id": "trade_internal__gm_1769050304643_7577__gm_1768665293989_8918",
+    "from": "gm_1769050304643_7577",
+    "to": "gm_1768665293989_8918",
+    "type": "trade_internal",
+    "participants": [
+      "elves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#2ecc71"
+  },
+  {
+    "id": "trade_internal__gm_1769050304643_7577__gm_1768665141918_1067",
+    "from": "gm_1769050304643_7577",
+    "to": "gm_1768665141918_1067",
+    "type": "trade_internal",
+    "participants": [
+      "elves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#2ecc71"
+  },
+  {
+    "id": "trade_internal__gm_1769050304643_7577__gm_1768665222742_2360",
+    "from": "gm_1769050304643_7577",
+    "to": "gm_1768665222742_2360",
+    "type": "trade_internal",
+    "participants": [
+      "elves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#2ecc71"
+  },
+  {
+    "id": "trade_internal__gm_1769050304643_7577__gm_1768665516540_6918",
+    "from": "gm_1769050304643_7577",
+    "to": "gm_1768665516540_6918",
+    "type": "trade_internal",
+    "participants": [
+      "elves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#2ecc71"
+  },
+  {
+    "id": "trade_internal__gm_1769050304643_7577__elves_world_set_002",
+    "from": "gm_1769050304643_7577",
+    "to": "elves_world_set_002",
+    "type": "trade_internal",
+    "participants": [
+      "elves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#2ecc71"
+  },
+  {
+    "id": "trade_internal__gm_1769050304643_7577__elves_world_set_003",
+    "from": "gm_1769050304643_7577",
+    "to": "elves_world_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "elves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#2ecc71"
+  },
+  {
+    "id": "trade_internal__gm_1768672410958_1621__gm_1768672515333_169",
+    "from": "gm_1768672410958_1621",
+    "to": "gm_1768672515333_169",
+    "type": "trade_internal",
+    "participants": [
+      "fae"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#00d2d3"
+  },
+  {
+    "id": "trade_internal__gm_1768672410958_1621__gm_1768672387686_2062",
+    "from": "gm_1768672410958_1621",
+    "to": "gm_1768672387686_2062",
+    "type": "trade_internal",
+    "participants": [
+      "fae"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#00d2d3"
+  },
+  {
+    "id": "trade_internal__gm_1768672410958_1621__gm_1768672468982_682",
+    "from": "gm_1768672410958_1621",
+    "to": "gm_1768672468982_682",
+    "type": "trade_internal",
+    "participants": [
+      "fae"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#00d2d3"
+  },
+  {
+    "id": "trade_internal__gm_1768672410958_1621__gm_1768672496565_451",
+    "from": "gm_1768672410958_1621",
+    "to": "gm_1768672496565_451",
+    "type": "trade_internal",
+    "participants": [
+      "fae"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#00d2d3"
+  },
+  {
+    "id": "trade_internal__gm_1768672410958_1621__fae_world_set_003",
+    "from": "gm_1768672410958_1621",
+    "to": "fae_world_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "fae"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#00d2d3"
+  },
+  {
+    "id": "trade_internal__giants_world_set_001__giants_world_set_002",
+    "from": "giants_world_set_001",
+    "to": "giants_world_set_002",
+    "type": "trade_internal",
+    "participants": [
+      "giants"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#95a5a6"
+  },
+  {
+    "id": "trade_internal__giants_world_set_001__giants_world_set_003",
+    "from": "giants_world_set_001",
+    "to": "giants_world_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "giants"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#95a5a6"
+  },
+  {
+    "id": "trade_internal__gnomes_world_set_001__gnomes_world_set_002",
+    "from": "gnomes_world_set_001",
+    "to": "gnomes_world_set_002",
+    "type": "trade_internal",
+    "participants": [
+      "gnomes"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#f1c40f"
+  },
+  {
+    "id": "trade_internal__gnomes_world_set_001__gnomes_world_set_003",
+    "from": "gnomes_world_set_001",
+    "to": "gnomes_world_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "gnomes"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#f1c40f"
+  },
+  {
+    "id": "trade_internal__gm_1768653939960_6918__gm_1768654126310_9646",
+    "from": "gm_1768653939960_6918",
+    "to": "gm_1768654126310_9646",
+    "type": "trade_internal",
+    "participants": [
+      "humans"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e74c3c"
+  },
+  {
+    "id": "trade_internal__gm_1768653939960_6918__gm_1768653848321_8085",
+    "from": "gm_1768653939960_6918",
+    "to": "gm_1768653848321_8085",
+    "type": "trade_internal",
+    "participants": [
+      "humans"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e74c3c"
+  },
+  {
+    "id": "trade_internal__gm_1768653939960_6918__gm_1768653434803_1951",
+    "from": "gm_1768653939960_6918",
+    "to": "gm_1768653434803_1951",
+    "type": "trade_internal",
+    "participants": [
+      "humans"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e74c3c"
+  },
+  {
+    "id": "trade_internal__gm_1768653939960_6918__gm_1768672341311_3043",
+    "from": "gm_1768653939960_6918",
+    "to": "gm_1768672341311_3043",
+    "type": "trade_internal",
+    "participants": [
+      "humans"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e74c3c"
+  },
+  {
+    "id": "trade_internal__gm_1768653939960_6918__humans_world_set_001",
+    "from": "gm_1768653939960_6918",
+    "to": "humans_world_set_001",
+    "type": "trade_internal",
+    "participants": [
+      "humans"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e74c3c"
+  },
+  {
+    "id": "trade_internal__gm_1768653939960_6918__humans_world_set_003",
+    "from": "gm_1768653939960_6918",
+    "to": "humans_world_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "humans"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#e74c3c"
+  },
+  {
+    "id": "trade_internal__gm_1768672015625_3700__gm_1768672039432_3228",
+    "from": "gm_1768672015625_3700",
+    "to": "gm_1768672039432_3228",
+    "type": "trade_internal",
+    "participants": [
+      "nagas"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "subaquatica",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#16a085"
+  },
+  {
+    "id": "trade_internal__gm_1768672015625_3700__gm_1768672108960_7133",
+    "from": "gm_1768672015625_3700",
+    "to": "gm_1768672108960_7133",
+    "type": "trade_internal",
+    "participants": [
+      "nagas"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "subaquatica",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#16a085"
+  },
+  {
+    "id": "trade_internal__gm_1768672015625_3700__gm_1768671990681_432",
+    "from": "gm_1768672015625_3700",
+    "to": "gm_1768671990681_432",
+    "type": "trade_internal",
+    "participants": [
+      "nagas"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "subaquatica",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#16a085"
+  },
+  {
+    "id": "trade_internal__gm_1768672015625_3700__nagas_subaquatica_set_001",
+    "from": "gm_1768672015625_3700",
+    "to": "nagas_subaquatica_set_001",
+    "type": "trade_internal",
+    "participants": [
+      "nagas"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "subaquatica",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#16a085"
+  },
+  {
+    "id": "trade_internal__gm_1768672015625_3700__nagas_subaquatica_set_002",
+    "from": "gm_1768672015625_3700",
+    "to": "nagas_subaquatica_set_002",
+    "type": "trade_internal",
+    "participants": [
+      "nagas"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "subaquatica",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#16a085"
+  },
+  {
+    "id": "trade_internal__gm_1768671819162_7446__gm_1768671798946_8601",
+    "from": "gm_1768671819162_7446",
+    "to": "gm_1768671798946_8601",
+    "type": "trade_internal",
+    "participants": [
+      "orcs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#8e6b3a"
+  },
+  {
+    "id": "trade_internal__gm_1768671819162_7446__gm_1768671836698_492",
+    "from": "gm_1768671819162_7446",
+    "to": "gm_1768671836698_492",
+    "type": "trade_internal",
+    "participants": [
+      "orcs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#8e6b3a"
+  },
+  {
+    "id": "trade_internal__gm_1768671819162_7446__gm_1768671928905_4869",
+    "from": "gm_1768671819162_7446",
+    "to": "gm_1768671928905_4869",
+    "type": "trade_internal",
+    "participants": [
+      "orcs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#8e6b3a"
+  },
+  {
+    "id": "trade_internal__gm_1768671819162_7446__orcs_world_set_001",
+    "from": "gm_1768671819162_7446",
+    "to": "orcs_world_set_001",
+    "type": "trade_internal",
+    "participants": [
+      "orcs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#8e6b3a"
+  },
+  {
+    "id": "trade_internal__gm_1768671819162_7446__orcs_world_set_003",
+    "from": "gm_1768671819162_7446",
+    "to": "orcs_world_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "orcs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#8e6b3a"
+  },
+  {
+    "id": "trade_internal__gate_necrothar_descent__undead_underground_set_001",
+    "from": "gate_necrothar_descent",
+    "to": "undead_underground_set_001",
+    "type": "trade_internal",
+    "participants": [
+      "undead"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#14532d"
+  },
+  {
+    "id": "trade_internal__gate_necrothar_descent__undead_underground_set_003",
+    "from": "gate_necrothar_descent",
+    "to": "undead_underground_set_003",
+    "type": "trade_internal",
+    "participants": [
+      "undead"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#14532d"
+  },
+  {
+    "id": "trade_shadow__gate_necrothar_descent__undead_underground_set_001",
+    "from": "gate_necrothar_descent",
+    "to": "undead_underground_set_001",
+    "type": "trade_shadow",
+    "participants": [
+      "undead"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#14532d"
+  },
+  {
+    "id": "trade_shadow__gate_necrothar_descent__undead_underground_set_002",
+    "from": "gate_necrothar_descent",
+    "to": "undead_underground_set_002",
+    "type": "trade_shadow",
+    "participants": [
+      "undead"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#14532d"
+  },
+  {
+    "id": "trade_shadow__gate_necrothar_descent__undead_underground_set_003",
+    "from": "gate_necrothar_descent",
+    "to": "undead_underground_set_003",
+    "type": "trade_shadow",
+    "participants": [
+      "undead"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#14532d"
+  },
+  {
+    "id": "trade_internal__gm_1768671668907_4532__gm_1768671579308_164",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_1768671579308_164",
+    "type": "trade_internal",
+    "participants": [
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_internal__gm_1768671668907_4532__gm_1768671628819_3810",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_1768671628819_3810",
+    "type": "trade_internal",
+    "participants": [
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_internal__gm_1768671668907_4532__gm_1768671553444_4879",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_1768671553444_4879",
+    "type": "trade_internal",
+    "participants": [
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_internal__gm_1768671668907_4532__gm_1768671646443_6675",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_1768671646443_6675",
+    "type": "trade_internal",
+    "participants": [
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_internal__gm_1768671668907_4532__vampires_world_set_002",
+    "from": "gm_1768671668907_4532",
+    "to": "vampires_world_set_002",
+    "type": "trade_internal",
+    "participants": [
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.45,
+    "opacity": 0.6,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_shadow__gm_1768671668907_4532__gm_1768671594404_4417",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_1768671594404_4417",
+    "type": "trade_shadow",
+    "participants": [
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_shadow__gm_1768671668907_4532__vampires_world_set_002",
+    "from": "gm_1768671668907_4532",
+    "to": "vampires_world_set_002",
+    "type": "trade_shadow",
+    "participants": [
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_official__gm_1768672142768_3322__gm_1768671118391_5214",
+    "from": "gm_1768672142768_3322",
+    "to": "gm_1768671118391_5214",
+    "type": "trade_official",
+    "participants": [
+      "centaurs",
+      "dragons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#a3e635"
+  },
+  {
+    "id": "trade_official__gm_1768671357317_8534__gm_1768671118391_5214",
+    "from": "gm_1768671357317_8534",
+    "to": "gm_1768671118391_5214",
+    "type": "trade_official",
+    "participants": [
+      "demons",
+      "dragons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "abismo",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#e84393"
+  },
+  {
+    "id": "trade_official__gm_1768671118391_5214__gm_1768670731193_3441",
+    "from": "gm_1768671118391_5214",
+    "to": "gm_1768670731193_3441",
+    "type": "trade_official",
+    "participants": [
+      "dragons",
+      "dwarves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#d35400"
+  },
+  {
+    "id": "trade_official__gm_1768671118391_5214__gm_1768672410958_1621",
+    "from": "gm_1768671118391_5214",
+    "to": "gm_1768672410958_1621",
+    "type": "trade_official",
+    "participants": [
+      "dragons",
+      "fae"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "sky",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#d35400"
+  },
+  {
+    "id": "trade_official__gm_1768670731193_3441__gm_1769050304643_7577",
+    "from": "gm_1768670731193_3441",
+    "to": "gm_1769050304643_7577",
+    "type": "trade_official",
+    "participants": [
+      "dwarves",
+      "elves"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#e67e22"
+  },
+  {
+    "id": "trade_official__gm_1768670731193_3441__gm_1768672410958_1621",
+    "from": "gm_1768670731193_3441",
+    "to": "gm_1768672410958_1621",
+    "type": "trade_official",
+    "participants": [
+      "dwarves",
+      "fae"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#e67e22"
+  },
+  {
+    "id": "trade_official__gm_1769050304643_7577__gm_1768672410958_1621",
+    "from": "gm_1769050304643_7577",
+    "to": "gm_1768672410958_1621",
+    "type": "trade_official",
+    "participants": [
+      "elves",
+      "fae"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#2ecc71"
+  },
+  {
+    "id": "trade_official__giants_world_set_001__gm_1768653939960_6918",
+    "from": "giants_world_set_001",
+    "to": "gm_1768653939960_6918",
+    "type": "trade_official",
+    "participants": [
+      "giants",
+      "humans"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#95a5a6"
+  },
+  {
+    "id": "trade_official__giants_world_set_001__gm_1768672015625_3700",
+    "from": "giants_world_set_001",
+    "to": "gm_1768672015625_3700",
+    "type": "trade_official",
+    "participants": [
+      "giants",
+      "nagas"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#95a5a6"
+  },
+  {
+    "id": "trade_official__gnomes_world_set_001__gm_1768672015625_3700",
+    "from": "gnomes_world_set_001",
+    "to": "gm_1768672015625_3700",
+    "type": "trade_official",
+    "participants": [
+      "gnomes",
+      "nagas"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#f1c40f"
+  },
+  {
+    "id": "trade_official__gnomes_world_set_001__gm_1768671819162_7446",
+    "from": "gnomes_world_set_001",
+    "to": "gm_1768671819162_7446",
+    "type": "trade_official",
+    "participants": [
+      "gnomes",
+      "orcs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#f1c40f"
+  },
+  {
+    "id": "trade_official__gm_1768653939960_6918__gm_1768671819162_7446",
+    "from": "gm_1768653939960_6918",
+    "to": "gm_1768671819162_7446",
+    "type": "trade_official",
+    "participants": [
+      "humans",
+      "orcs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#e74c3c"
+  },
+  {
+    "id": "trade_official__gm_1768672015625_3700__gm_1768671668907_4532",
+    "from": "gm_1768672015625_3700",
+    "to": "gm_1768671668907_4532",
+    "type": "trade_official",
+    "participants": [
+      "nagas",
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "subaquatica",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#16a085"
+  },
+  {
+    "id": "trade_official__gm_1768671819162_7446__gm_angels_main_celestia",
+    "from": "gm_1768671819162_7446",
+    "to": "gm_angels_main_celestia",
+    "type": "trade_official",
+    "participants": [
+      "orcs",
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "world",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#8e6b3a"
+  },
+  {
+    "id": "trade_official__gate_necrothar_descent__gm_1768671668907_4532",
+    "from": "gate_necrothar_descent",
+    "to": "gm_1768671668907_4532",
+    "type": "trade_official",
+    "participants": [
+      "undead",
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#14532d"
+  },
+  {
+    "id": "trade_shadow__gate_necrothar_descent__gm_1768671668907_4532",
+    "from": "gate_necrothar_descent",
+    "to": "gm_1768671668907_4532",
+    "type": "trade_shadow",
+    "participants": [
+      "undead",
+      "vampires"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#14532d"
+  },
+  {
+    "id": "trade_shadow__gate_necrothar_descent__gm_1768672142768_3322",
+    "from": "gate_necrothar_descent",
+    "to": "gm_1768672142768_3322",
+    "type": "trade_shadow",
+    "participants": [
+      "undead",
+      "centaurs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#14532d"
+  },
+  {
+    "id": "trade_official__gm_1768671668907_4532__gm_angels_main_celestia",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_angels_main_celestia",
+    "type": "trade_official",
+    "participants": [
+      "vampires",
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.7,
+    "opacity": 0.78,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_shadow__gm_1768671668907_4532__gm_angels_main_celestia",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_angels_main_celestia",
+    "type": "trade_shadow",
+    "participants": [
+      "vampires",
+      "angels"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_shadow__gm_1768671668907_4532__gm_1768672142768_3322",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_1768672142768_3322",
+    "type": "trade_shadow",
+    "participants": [
+      "vampires",
+      "centaurs"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#9b59b6"
+  },
+  {
+    "id": "trade_shadow__gm_1768671668907_4532__gm_1768671357317_8534",
+    "from": "gm_1768671668907_4532",
+    "to": "gm_1768671357317_8534",
+    "type": "trade_shadow",
+    "participants": [
+      "vampires",
+      "demons"
+    ],
+    "eras": [
+      "current"
+    ],
+    "layer": "underground",
+    "width": 0.55,
+    "opacity": 0.7,
+    "color": "#9b59b6"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "eras": [
+    {
+      "id": "current",
+      "label": "Atual"
+    },
+    {
+      "id": "divine_age",
+      "label": "Era das Divindades"
+    },
+    {
+      "id": "dragon_age",
+      "label": "Era dos Dragões"
+    },
+    {
+      "id": "civilizations_age",
+      "label": "Era das Civilizações"
+    },
+    {
+      "id": "guild_age",
+      "label": "Era da Guilda"
+    }
+  ]
+}
