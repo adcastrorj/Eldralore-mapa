@@ -46,6 +46,7 @@
     </div>
 
     <div id="controlsPanel" class="controls">
+      <button id="mobileFiltersCloseBtn" class="btn btn-sm mobile-only mobile-drawer-close" type="button">Fechar filtros</button>
       <label data-present-hide="1" class="ctrl">
         Camada
         <select id="layerSelect">
@@ -175,6 +176,7 @@
 
   <main class="layout">
     <aside id="sidebarPanel" class="sidebar">
+      <button id="mobileLocationsCloseBtn" class="btn btn-sm mobile-only mobile-drawer-close" type="button">Fechar locais</button>
       <div class="sidebar-title sidebar-title-row"><span>Locais</span><button id="advancedFiltersBtn" class="btn btn-sm" type="button" title="Filtros avançados de locais e história">Filtros avançados</button></div>
       <div id="list" class="list">
         <div id="advancedPanel" class="advanced-panel hidden">
@@ -234,6 +236,7 @@
 
     <section class="map-wrap">
       <div id="mapContainer" class="map-container">
+        <button id="mobileMapFullBtn" class="mobile-map-full-btn mobile-only" type="button" aria-pressed="false" title="Expandir mapa para tela cheia">Mapa tela cheia</button>
         <div id="mapStage" class="map-stage">
           <div id="mapCalendarHud" class="map-calendar-hud">
             <button id="calendarHudCloseBtn" class="hud-close" type="button" title="Ocultar calendário">×</button>

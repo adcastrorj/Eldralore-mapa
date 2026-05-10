@@ -5,7 +5,13 @@ function applyZoom() {
   els.mapZoomLayer.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
   // Pins: mantém tamanho visual razoável conforme zoom (evita ficar gigante em zoom alto)
   const inv = 1 / (scale || 1);
-  const pinScale = Math.max(0.35, Math.min(1, inv));
+  const isMobileViewport = window.matchMedia && window.matchMedia('(max-width: 980px)').matches;
+  // Desktop preservado: os pins mantêm a lógica anterior.
+  // Mobile: limite um pouco mais baixo para evitar pins grandes demais em telas pequenas,
+  // mas com área de toque ampliada via CSS.
+  const minPinScale = isMobileViewport ? 0.28 : 0.35;
+  const maxPinScale = isMobileViewport ? 0.88 : 1;
+  const pinScale = Math.max(minPinScale, Math.min(maxPinScale, inv));
   els.mapZoomLayer.style.setProperty('--pinInvScale', String(pinScale));
   if (els.pins) els.pins.style.setProperty('--pinInvScale', String(pinScale));
   if (els.zoomLabel) els.zoomLabel.textContent = `${Math.round(scale * 100)}%`;
@@ -1987,7 +1993,16 @@ function renderAtlasIntelligenceForLoc(obj, opts = {}) {
   return html ? `<div class="intel-section"><div class="intel-title">Informações regionais</div><div class="intel-grid">${html}</div></div>` : '';
 }
 
+function closeAtlasMobileShells(){
+  try{
+    document.body.classList.remove('mobile-controls-open','mobile-sidebar-open');
+    const mb = document.getElementById('mobileBackdrop');
+    if(mb) mb.hidden = true;
+  }catch(_){}
+}
+
 function openLoc(p) {
+  closeAtlasMobileShells();
   hideTooltip();
   if (state && state.ui) state.ui.openLocId = (p && p.id) ? p.id : null;
   els.modalTitle.textContent = p.name || 'Local';

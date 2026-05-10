@@ -265,8 +265,10 @@ const els = {
   gmMerchantsPerPlace: document.getElementById('gmMerchantsPerPlace'),
   gmApplyCityConfigBtn: document.getElementById('gmApplyCityConfigBtn'),
 
+  mapContainer: document.getElementById('mapContainer'),
   mapStage: document.getElementById('mapStage'),
   mapZoomLayer: document.getElementById('mapZoomLayer'),
+  mobileMapFullBtn: document.getElementById('mobileMapFullBtn'),
   pins: document.getElementById('pins'),
   list: document.getElementById('list'),
   tooltip: document.getElementById('tooltip'),
@@ -674,7 +676,11 @@ function bindUI() {
     if (els.advancedPanel && !els.advancedPanel.classList.contains('hidden')) { els.advancedPanel.classList.add('hidden'); return; }
 
     // Mobile panels
-    if (els.mobileBackdrop && !els.mobileBackdrop.classList.contains('hidden')) { els.mobileBackdrop.classList.add('hidden'); return; }
+    if (document.body.classList.contains('mobile-controls-open') || document.body.classList.contains('mobile-sidebar-open')) {
+      document.body.classList.remove('mobile-controls-open', 'mobile-sidebar-open');
+      if (els.mobileBackdrop) els.mobileBackdrop.hidden = true;
+      return;
+    }
   }, { passive: true });
 
   // --- Core Controls ---
@@ -1079,6 +1085,73 @@ function bindUI() {
       if (typeof zoomAboutPoint === 'function') zoomAboutPoint(state.view.scale * factor, ox, oy);
     }, { passive: false });
 
+    // --- Touch / pointer do mapa (mobile/tablet) ---
+    // Mantém o comportamento do mouse no PC e adiciona arrasto com dedo + pinch zoom no celular.
+    const touchPointers = new Map();
+    let touchGesture = { mode: null, startX: 0, startY: 0, basePanX: 0, basePanY: 0, startScale: 1, startDist: 0, startMidX: 0, startMidY: 0, moved: false };
+    const pointFromPointer = (ev) => ({ x: ev.clientX, y: ev.clientY });
+    const dist2 = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+    const mid2 = (a, b) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+    const resetTouchGesture = () => { touchGesture = { mode: null, startX: 0, startY: 0, basePanX: 0, basePanY: 0, startScale: state.view.scale, startDist: 0, startMidX: 0, startMidY: 0, moved: false }; };
+    els.mapStage.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'mouse') return;
+      if (state.measure && state.measure.on) return;
+      if (state.gm && state.gm.unlocked && state.gm.captureMode) return;
+      if (e.target && e.target.closest && e.target.closest('.pin,.route-line,.route-legend,.route-info,.measure-box,.mobile-map-full-btn,.map-calendar-hud')) return;
+      e.preventDefault();
+      touchPointers.set(e.pointerId, pointFromPointer(e));
+      try { els.mapStage.setPointerCapture(e.pointerId); } catch (_) {}
+      const pts = Array.from(touchPointers.values());
+      if (pts.length === 1) {
+        touchGesture = { mode: 'pan', startX: pts[0].x, startY: pts[0].y, basePanX: state.view.panX, basePanY: state.view.panY, startScale: state.view.scale, startDist: 0, startMidX: 0, startMidY: 0, moved: false };
+      } else if (pts.length >= 2) {
+        const rect = els.mapStage.getBoundingClientRect();
+        const a = pts[0], b = pts[1], m = mid2(a, b);
+        touchGesture = { mode: 'pinch', startX: 0, startY: 0, basePanX: state.view.panX, basePanY: state.view.panY, startScale: state.view.scale, startDist: Math.max(1, dist2(a, b)), startMidX: m.x - rect.left, startMidY: m.y - rect.top, moved: false };
+      }
+    }, { passive: false });
+    els.mapStage.addEventListener('pointermove', e => {
+      if (!touchPointers.has(e.pointerId)) return;
+      if (e.pointerType === 'mouse') return;
+      e.preventDefault();
+      touchPointers.set(e.pointerId, pointFromPointer(e));
+      const pts = Array.from(touchPointers.values());
+      if (pts.length >= 2 && touchGesture.mode === 'pinch') {
+        const rect = els.mapStage.getBoundingClientRect();
+        const a = pts[0], b = pts[1], m = mid2(a, b);
+        const nextScale = clampZoom(touchGesture.startScale * (dist2(a, b) / Math.max(1, touchGesture.startDist)));
+        const ratio = nextScale / (touchGesture.startScale || 1);
+        state.view.scale = nextScale;
+        state.view.panX = (m.x - rect.left) - (touchGesture.startMidX - touchGesture.basePanX) * ratio;
+        state.view.panY = (m.y - rect.top) - (touchGesture.startMidY - touchGesture.basePanY) * ratio;
+        touchGesture.moved = true;
+        panDrag.lastMoveTs = Date.now();
+        applyZoom();
+      } else if (pts.length === 1 && touchGesture.mode === 'pan') {
+        const p = pts[0];
+        const dx = p.x - touchGesture.startX;
+        const dy = p.y - touchGesture.startY;
+        if (Math.abs(dx) + Math.abs(dy) > 4) touchGesture.moved = true;
+        state.view.panX = touchGesture.basePanX + dx;
+        state.view.panY = touchGesture.basePanY + dy;
+        panDrag.lastMoveTs = Date.now();
+        applyZoom();
+      }
+    }, { passive: false });
+    const endTouchPointer = (e) => {
+      if (!touchPointers.has(e.pointerId)) return;
+      touchPointers.delete(e.pointerId);
+      if (touchPointers.size === 0) {
+        if (touchGesture.moved) panDrag.lastMoveTs = Date.now();
+        resetTouchGesture();
+      } else if (touchPointers.size === 1) {
+        const p = Array.from(touchPointers.values())[0];
+        touchGesture = { mode: 'pan', startX: p.x, startY: p.y, basePanX: state.view.panX, basePanY: state.view.panY, startScale: state.view.scale, startDist: 0, startMidX: 0, startMidY: 0, moved: false };
+      }
+    };
+    els.mapStage.addEventListener('pointerup', endTouchPointer, { passive: true });
+    els.mapStage.addEventListener('pointercancel', endTouchPointer, { passive: true });
+
     els.mapStage.addEventListener('click', e => {
       if (panDrag.active || (Date.now() - (panDrag.lastMoveTs || 0)) < 180) return;
       if (e.target && e.target.closest && e.target.closest('.pin,.route-line,.route-legend,.route-info,.measure-box')) return;
@@ -1115,24 +1188,87 @@ function bindUI() {
   }
 
   // --- Mobile / Advanced ---
+  const closeAtlasMobileDrawers = () => {
+    document.body.classList.remove('mobile-controls-open', 'mobile-sidebar-open');
+    if (els.mobileBackdrop) els.mobileBackdrop.hidden = true;
+  };
+  const toggleAtlasMobileDrawer = (kind) => {
+    const cls = kind === 'controls' ? 'mobile-controls-open' : 'mobile-sidebar-open';
+    const other = kind === 'controls' ? 'mobile-sidebar-open' : 'mobile-controls-open';
+    const willOpen = !document.body.classList.contains(cls);
+    document.body.classList.remove(other);
+    document.body.classList.toggle(cls, willOpen);
+    if (els.mobileBackdrop) els.mobileBackdrop.hidden = !willOpen;
+  };
+  let atlasMobileViewBeforeFullscreen = null;
+  const fitAtlasMapToFullscreen = () => {
+    if (!els.mapStage || !mapViewport || !mapViewport.w || !mapViewport.h) return;
+    const rect = els.mapStage.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const coverScale = clampZoom(Math.max(rect.width / mapViewport.w, rect.height / mapViewport.h) * 1.02);
+    state.view.scale = coverScale;
+    state.view.panX = (rect.width - mapViewport.w * coverScale) / 2 - mapViewport.x * coverScale;
+    state.view.panY = (rect.height - mapViewport.h * coverScale) / 2 - mapViewport.y * coverScale;
+    if (typeof applyZoom === 'function') applyZoom();
+  };
+  const setAtlasMapFullscreen = (enabled) => {
+    if (enabled && !atlasMobileViewBeforeFullscreen) {
+      atlasMobileViewBeforeFullscreen = { ...state.view };
+    }
+    document.body.classList.toggle('mobile-map-fullscreen', !!enabled);
+    if (els.mobileMapFullBtn) {
+      els.mobileMapFullBtn.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+      els.mobileMapFullBtn.textContent = enabled ? 'Sair da tela cheia' : 'Mapa tela cheia';
+    }
+    closeAtlasMobileDrawers();
+    setTimeout(() => {
+      if (typeof applyMapViewport === 'function') applyMapViewport();
+      if (enabled) {
+        fitAtlasMapToFullscreen();
+      } else if (atlasMobileViewBeforeFullscreen) {
+        state.view = { ...atlasMobileViewBeforeFullscreen };
+        atlasMobileViewBeforeFullscreen = null;
+        if (typeof applyZoom === 'function') applyZoom();
+      } else if (typeof applyZoom === 'function') {
+        applyZoom();
+      }
+      if (typeof resizeClimateCanvas === 'function') resizeClimateCanvas();
+      if (typeof drawClimateOverlay === 'function' && state.climateOn) drawClimateOverlay();
+    }, 60);
+  };
   if (els.mobileFiltersBtn) {
-    els.mobileFiltersBtn.addEventListener('click', () => {
-      document.body.classList.toggle('mobile-controls-open');
-      if (els.mobileBackdrop) els.mobileBackdrop.hidden = !document.body.classList.contains('mobile-controls-open');
-    });
+    els.mobileFiltersBtn.addEventListener('click', () => toggleAtlasMobileDrawer('controls'));
   }
   if (els.mobileLocationsBtn) {
-    els.mobileLocationsBtn.addEventListener('click', () => {
-      document.body.classList.toggle('mobile-sidebar-open');
-      if (els.mobileBackdrop) els.mobileBackdrop.hidden = !document.body.classList.contains('mobile-sidebar-open');
+    els.mobileLocationsBtn.addEventListener('click', () => toggleAtlasMobileDrawer('sidebar'));
+  }
+  if (els.mobileMapFullBtn) {
+    els.mobileMapFullBtn.addEventListener('click', () => {
+      setAtlasMapFullscreen(!document.body.classList.contains('mobile-map-fullscreen'));
     });
+  }
+  const mobileFiltersCloseBtn = document.getElementById('mobileFiltersCloseBtn');
+  const mobileLocationsCloseBtn = document.getElementById('mobileLocationsCloseBtn');
+  if (mobileFiltersCloseBtn) {
+    mobileFiltersCloseBtn.addEventListener('click', closeAtlasMobileDrawers);
+  }
+  if (mobileLocationsCloseBtn) {
+    mobileLocationsCloseBtn.addEventListener('click', closeAtlasMobileDrawers);
+  }
+  if (els.controlsPanel) {
+    els.controlsPanel.addEventListener('click', (e) => e.stopPropagation());
+    els.controlsPanel.addEventListener('pointerdown', (e) => e.stopPropagation());
+  }
+  if (els.sidebarPanel) {
+    els.sidebarPanel.addEventListener('click', (e) => e.stopPropagation());
+    els.sidebarPanel.addEventListener('pointerdown', (e) => e.stopPropagation());
   }
   if (els.mobileBackdrop) {
-    els.mobileBackdrop.addEventListener('click', () => {
-      document.body.classList.remove('mobile-controls-open', 'mobile-sidebar-open');
-      els.mobileBackdrop.hidden = true;
-    });
+    els.mobileBackdrop.addEventListener('click', closeAtlasMobileDrawers);
   }
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('mobile-map-fullscreen')) setAtlasMapFullscreen(false);
+  });
   // Advanced Panel
   if (els.advancedFiltersBtn) {
     els.advancedFiltersBtn.addEventListener('click', () => {

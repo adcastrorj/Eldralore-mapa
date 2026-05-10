@@ -151,6 +151,7 @@ function cityImportantNpcs(city){
 }
 
 function openCity(cityId){
+  if (typeof closeAtlasMobileShells === 'function') closeAtlasMobileShells();
   closeLoc();
 
   const city = state.cities[cityId];

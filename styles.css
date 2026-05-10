@@ -975,3 +975,450 @@ body.gm-console-body{min-height:100%;background:radial-gradient(circle at top le
 .trade-alert.warn { border-color: rgba(251,197,49,.55); background: rgba(110,80,10,.22); }
 .gm-console-tab[data-tab="groupRep"] .gm-selector { margin: 10px 0 14px; }
 .gm-console-tab[data-tab="groupRep"] .political-summary { margin-top: 12px; }
+
+/* =====================================================================
+   Patch Mobile Responsivo — Atlas Eldralore
+   Escopo: apenas telas menores. Mantém desktop intacto.
+   ===================================================================== */
+.mobile-map-full-btn{display:none;}
+
+@media (max-width: 980px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden;}
+  body{min-height:100dvh;}
+
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:90;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+    padding:8px 10px;
+    max-width:100vw;
+    overflow:hidden;
+  }
+  .topbar .top-actions{
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    grid-auto-rows:minmax(38px,auto);
+    gap:7px;
+    width:100%;
+    min-width:0;
+    align-items:center;
+  }
+  .topbar .brand{
+    min-width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    font-size:15px;
+  }
+  .topbar .ui-toggle,
+  .topbar #presentBtn{display:none;}
+  .topbar .top-actions .mobile-only{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:38px;
+    padding:9px 11px;
+    border-radius:12px;
+    font-weight:800;
+    font-size:13px;
+    touch-action:manipulation;
+  }
+
+  .layout{
+    display:block;
+    padding:8px;
+    min-height:calc(100dvh - var(--topbar-h, 58px));
+  }
+  .map-wrap{width:100%;min-width:0;}
+  .map-container{
+    height:calc(100dvh - var(--topbar-h, 58px) - 16px) !important;
+    min-height:520px;
+    border-radius:16px;
+    touch-action:none;
+  }
+  .map-stage{touch-action:none;cursor:grab;}
+  #mapZoomLayer{will-change:transform;}
+
+  .mobile-map-full-btn{
+    position:absolute;
+    right:10px;
+    top:10px;
+    z-index:120;
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    min-height:40px;
+    max-width:calc(100% - 20px);
+    padding:9px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.20);
+    background:rgba(10,13,22,.78);
+    color:#fff;
+    font-weight:900;
+    font-size:12px;
+    box-shadow:0 8px 24px rgba(0,0,0,.42);
+    backdrop-filter:blur(8px);
+    touch-action:manipulation;
+    cursor:pointer;
+  }
+
+  body.mobile-map-fullscreen{overflow:hidden;}
+  body.mobile-map-fullscreen .topbar{display:none;}
+  body.mobile-map-fullscreen .layout{padding:0;min-height:100dvh;}
+  body.mobile-map-fullscreen .map-container{
+    position:fixed;
+    inset:0;
+    z-index:1600;
+    width:100vw;
+    height:100dvh !important;
+    min-height:100dvh;
+    border:0;
+    border-radius:0;
+    background:#05070d;
+  }
+  body.mobile-map-fullscreen .mobile-map-full-btn{
+    top:calc(env(safe-area-inset-top, 0px) + 10px);
+    right:calc(env(safe-area-inset-right, 0px) + 10px);
+    background:rgba(10,13,22,.88);
+  }
+
+  #controlsPanel,
+  #sidebarPanel{
+    top:0;
+    bottom:0;
+    width:min(94vw, 430px);
+    max-width:430px;
+    padding:calc(env(safe-area-inset-top, 0px) + 14px) 14px calc(env(safe-area-inset-bottom, 0px) + 18px);
+    background:rgba(13,16,26,.98);
+    box-shadow:0 18px 60px rgba(0,0,0,.62);
+    z-index:130;
+  }
+  #controlsPanel{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+  #controlsPanel .ctrl,
+  #controlsPanel .toggle,
+  #controlsPanel .timebox,
+  #controlsPanel .zoombox{
+    width:100%;
+    min-width:0;
+  }
+  #controlsPanel .ctrl select,
+  #controlsPanel .ctrl input,
+  #controlsPanel .small-select,
+  #controlsPanel .small-input{
+    width:100%;
+    min-width:0;
+    min-height:42px;
+    font-size:16px;
+  }
+  #controlsPanel .btn,
+  #controlsPanel .btn.btn-sm,
+  #sidebarPanel .btn,
+  #sidebarPanel .btn.btn-sm{
+    min-height:40px;
+    touch-action:manipulation;
+  }
+  #controlsPanel .zoombox{
+    justify-content:space-between;
+    padding:8px;
+  }
+  #controlsPanel .zoombox .btn{flex:1;}
+
+  #mobileBackdrop{
+    z-index:120;
+    background:rgba(0,0,0,.58);
+    backdrop-filter:blur(2px);
+  }
+
+  .sidebar-title-row{
+    position:sticky;
+    top:0;
+    z-index:2;
+    padding-bottom:8px;
+    background:linear-gradient(to bottom, rgba(13,16,26,.98), rgba(13,16,26,.88));
+  }
+  .list{gap:8px;}
+  .card{
+    min-height:48px;
+    padding:10px 12px;
+    touch-action:manipulation;
+  }
+  .card .name{font-size:14px;}
+  .card .meta{font-size:12px;}
+
+  .pin{touch-action:manipulation;}
+  .pin::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:38px;
+    height:38px;
+    transform:translate(-50%,-50%);
+    border-radius:999px;
+  }
+  .pin .dot{
+    width:11px;
+    height:11px;
+    border-width:2px;
+    box-shadow:0 1px 8px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.10);
+  }
+  .pin.region-label .label{font-size:13px;padding:5px 8px;}
+  .pin .label{font-size:11px;max-width:170px;overflow:hidden;text-overflow:ellipsis;}
+
+  .map-calendar-hud{
+    left:8px !important;
+    top:8px !important;
+    min-width:0;
+    max-width:min(230px, calc(100vw - 120px));
+    padding:9px 11px;
+    border-radius:14px;
+  }
+  body.mobile-map-fullscreen .map-calendar-hud{
+    top:calc(env(safe-area-inset-top, 0px) + 58px) !important;
+  }
+  .hud-kicker{font-size:10px;}
+  .hud-date{font-size:12px;}
+  .hud-season{font-size:11px;}
+
+  .route-legend,
+  .route-info,
+  .measure-box{
+    left:8px !important;
+    right:8px !important;
+    bottom:8px !important;
+    max-width:none !important;
+    width:auto !important;
+    font-size:12px;
+  }
+  .route-tooltip{max-width:calc(100vw - 18px);}
+
+  .backdrop{padding:0;align-items:flex-end;}
+  .modal{
+    width:100vw !important;
+    max-width:100vw !important;
+    max-height:88dvh;
+    border-radius:18px 18px 0 0;
+    padding:14px 12px calc(env(safe-area-inset-bottom, 0px) + 16px);
+  }
+  .close{min-width:40px;min-height:38px;}
+  .city-wrap{grid-template-columns:1fr !important;}
+  .city-hero img{height:auto;max-height:42vh;object-fit:contain;background:rgba(0,0,0,.20);}
+  .city-gallery{grid-template-columns:1fr 1fr;}
+  .media-grid{grid-template-columns:1fr;}
+  .media-grid img,.media-grid video{max-height:55vh;}
+  .gm-grid,.gm-form{grid-template-columns:1fr !important;}
+  .gm-row,.modal-actions,.adv-row{align-items:stretch;}
+}
+
+@media (max-width: 420px){
+  .topbar .top-actions{grid-template-columns:1fr 1fr;}
+  .topbar .brand{grid-column:1 / -1;text-align:center;}
+  .topbar .top-actions .mobile-only{width:100%;}
+  .map-container{min-height:500px;}
+  .city-gallery{grid-template-columns:1fr;}
+}
+
+@media (max-width: 340px){
+  .map-container{min-height:460px;}
+  .topbar .top-actions .mobile-only{font-size:12px;padding:8px 9px;}
+  .map-calendar-hud{display:none;}
+}
+
+
+
+/* =====================================================================
+   Patch Mobile Responsivo v2 — drawers realmente clicáveis + modais seguros
+   Motivo: o backdrop estava acima do header em mobile, cobrindo o painel de filtros.
+   Escopo: mobile/tablet. Desktop permanece preservado.
+   ===================================================================== */
+.city-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.72fr);gap:12px;margin-top:10px}
+.city-grid .city-left,.city-grid .city-right{min-width:0}
+
+@media (max-width: 980px){
+  /* Drawers acima do overlay: evita a tela preta interceptar toques nos filtros. */
+  body.mobile-controls-open,
+  body.mobile-sidebar-open{
+    overflow:hidden;
+  }
+  body.mobile-controls-open .topbar,
+  body.mobile-sidebar-open .topbar{
+    z-index:2000 !important;
+    overflow:visible !important;
+    isolation:isolate;
+  }
+  #mobileBackdrop[hidden]{
+    display:none !important;
+    pointer-events:none !important;
+  }
+  body.mobile-controls-open #mobileBackdrop,
+  body.mobile-sidebar-open #mobileBackdrop{
+    display:block !important;
+    z-index:1900 !important;
+    pointer-events:auto !important;
+    background:rgba(0,0,0,.56);
+  }
+  #controlsPanel,
+  #sidebarPanel{
+    height:100dvh !important;
+    max-height:100dvh !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    touch-action:pan-y;
+    visibility:visible;
+  }
+  body.mobile-controls-open #controlsPanel{
+    transform:translate3d(0,0,0) !important;
+    z-index:2010 !important;
+    pointer-events:auto !important;
+  }
+  body.mobile-sidebar-open #sidebarPanel{
+    transform:translate3d(0,0,0) !important;
+    z-index:2010 !important;
+    pointer-events:auto !important;
+  }
+  #controlsPanel *,
+  #sidebarPanel *{
+    pointer-events:auto;
+  }
+  .mobile-drawer-close{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    min-height:44px;
+    margin:0 0 10px 0;
+    border-radius:14px;
+    font-weight:900;
+    background:rgba(255,255,255,.10);
+    border-color:rgba(255,255,255,.20);
+  }
+
+  /* Modal de pin/cidade como bottom-sheet real, dentro da viewport. */
+  .backdrop:not(.passthrough){
+    align-items:flex-end !important;
+    justify-content:center !important;
+    padding:calc(env(safe-area-inset-top, 0px) + 8px) 0 0 0 !important;
+    overflow:hidden !important;
+  }
+  #cityBackdrop{z-index:3100 !important;}
+  #locBackdrop{z-index:3200 !important;}
+  #debugBackdrop{z-index:3300 !important;}
+  #economyBackdrop,
+  #routeFiltersBackdrop,
+  #timelineBackdrop,
+  #worldVisionBackdrop{z-index:3000 !important;}
+
+  .backdrop:not(.passthrough) .modal{
+    width:100vw !important;
+    max-width:100vw !important;
+    margin:0 !important;
+    border-left:0;
+    border-right:0;
+    border-bottom:0;
+    border-radius:18px 18px 0 0 !important;
+    max-height:calc(100dvh - env(safe-area-inset-top, 0px) - 8px) !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    padding:14px 12px calc(env(safe-area-inset-bottom, 0px) + 16px) !important;
+  }
+  #cityBackdrop .modal{
+    height:calc(100dvh - env(safe-area-inset-top, 0px) - 8px) !important;
+    max-height:calc(100dvh - env(safe-area-inset-top, 0px) - 8px) !important;
+  }
+  .modal-title{
+    padding-right:48px;
+    overflow-wrap:anywhere;
+  }
+  .modal-meta,
+  .modal-body,
+  .desc,
+  .details,
+  .city-desc,
+  .city-desc-text,
+  .city-box-body{
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+  #locBackdrop .media-grid,
+  #debugBackdrop .media-grid{
+    grid-template-columns:1fr !important;
+  }
+  #locBackdrop .media-grid img,
+  #locBackdrop .media-grid video{
+    max-height:46dvh !important;
+    object-fit:contain !important;
+  }
+  #locBackdrop .modal-actions{
+    position:sticky;
+    bottom:calc(-1 * env(safe-area-inset-bottom, 0px));
+    z-index:6;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin:12px -12px calc(-1 * env(safe-area-inset-bottom, 0px) - 16px);
+    padding:10px 12px calc(env(safe-area-inset-bottom, 0px) + 12px);
+    border-top:1px solid rgba(255,255,255,.12);
+    background:linear-gradient(to bottom, rgba(20,24,36,.92), rgba(20,24,36,.99));
+    backdrop-filter:blur(8px);
+  }
+  .modal-actions .btn,
+  .city-map-actions .btn{
+    width:100%;
+    min-height:46px;
+    justify-content:center;
+    font-weight:900;
+    touch-action:manipulation;
+  }
+
+  /* City View: uma coluna limpa, sem estourar lateralmente. */
+  .city-grid{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:12px !important;
+    width:100%;
+    min-width:0;
+  }
+  .city-left,
+  .city-right{
+    width:100%;
+    min-width:0;
+  }
+  .city-hero img{
+    width:100%;
+    height:auto !important;
+    max-height:34dvh !important;
+    object-fit:contain !important;
+    background:rgba(0,0,0,.22);
+  }
+  .city-places{
+    gap:10px;
+  }
+  .place-card{
+    min-height:50px;
+    padding:11px 12px;
+    touch-action:manipulation;
+  }
+  .merchant{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .inv{
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+}
