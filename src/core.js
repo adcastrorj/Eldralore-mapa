@@ -1232,6 +1232,8 @@ function bindUI() {
       } else if (typeof applyZoom === 'function') {
         applyZoom();
       }
+      if (typeof clampMapPanToViewportBounds === 'function') clampMapPanToViewportBounds();
+      if (typeof applyZoom === 'function') applyZoom();
       if (typeof resizeClimateCanvas === 'function') resizeClimateCanvas();
       if (typeof drawClimateOverlay === 'function' && state.climateOn) drawClimateOverlay();
     }, 60);
@@ -1248,9 +1250,13 @@ function bindUI() {
     });
   }
   const mobileFiltersCloseBtn = document.getElementById('mobileFiltersCloseBtn');
+  const mobileFiltersDoneBtn = document.getElementById('mobileFiltersDoneBtn');
   const mobileLocationsCloseBtn = document.getElementById('mobileLocationsCloseBtn');
   if (mobileFiltersCloseBtn) {
     mobileFiltersCloseBtn.addEventListener('click', closeAtlasMobileDrawers);
+  }
+  if (mobileFiltersDoneBtn) {
+    mobileFiltersDoneBtn.addEventListener('click', closeAtlasMobileDrawers);
   }
   if (mobileLocationsCloseBtn) {
     mobileLocationsCloseBtn.addEventListener('click', closeAtlasMobileDrawers);
