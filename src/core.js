@@ -356,6 +356,55 @@ function applyMapViewport() {
 }
 
 
+// Mantém o mapa preso às bordas no fullscreen mobile.
+// A regra é simples: em tela cheia o mapa nunca pode ficar menor que a viewport
+// e o pan é limitado para não revelar o fundo atrás da imagem.
+function isAtlasMobileViewport() {
+  return !!(window.matchMedia && window.matchMedia('(max-width: 980px)').matches);
+}
+
+function isAtlasMapFullscreen() {
+  return !!(document.body && document.body.classList && document.body.classList.contains('mobile-map-fullscreen'));
+}
+
+function constrainAtlasMapPan() {
+  if (!isAtlasMobileViewport() || !isAtlasMapFullscreen()) return false;
+  if (!els || !els.mapStage || !mapViewport || !mapViewport.w || !mapViewport.h) return false;
+  const rect = els.mapStage.getBoundingClientRect();
+  const stageW = Math.max(1, rect.width || window.innerWidth || 1);
+  const stageH = Math.max(1, rect.height || window.innerHeight || 1);
+  const coverScale = Math.max(stageW / Math.max(1, mapViewport.w), stageH / Math.max(1, mapViewport.h));
+  const currentScale = Number(state.view.scale) || 1;
+  const nextScale = clampZoom(Math.max(currentScale, coverScale));
+  state.view.scale = nextScale;
+
+  const scaledX = mapViewport.x * nextScale;
+  const scaledY = mapViewport.y * nextScale;
+  const scaledW = mapViewport.w * nextScale;
+  const scaledH = mapViewport.h * nextScale;
+
+  let minPanX = stageW - scaledX - scaledW;
+  let maxPanX = -scaledX;
+  let minPanY = stageH - scaledY - scaledH;
+  let maxPanY = -scaledY;
+
+  if (scaledW <= stageW) {
+    state.view.panX = (stageW - scaledW) / 2 - scaledX;
+  } else {
+    if (minPanX > maxPanX) [minPanX, maxPanX] = [maxPanX, minPanX];
+    state.view.panX = Math.max(minPanX, Math.min(maxPanX, state.view.panX));
+  }
+
+  if (scaledH <= stageH) {
+    state.view.panY = (stageH - scaledH) / 2 - scaledY;
+  } else {
+    if (minPanY > maxPanY) [minPanY, maxPanY] = [maxPanY, minPanY];
+    state.view.panY = Math.max(minPanY, Math.min(maxPanY, state.view.panY));
+  }
+  return true;
+}
+
+
 
 // ----------------- Modo Apresentação (Player View) -----------------
 // ----------------- Modo Apresentação (Player View) -----------------
@@ -1202,13 +1251,15 @@ function bindUI() {
   };
   let atlasMobileViewBeforeFullscreen = null;
   const fitAtlasMapToFullscreen = () => {
-    if (!els.mapStage || !mapViewport || !mapViewport.w || !mapViewport.h) return;
+    if (!els.mapStage) return;
+    if (typeof applyMapViewport === 'function') applyMapViewport();
     const rect = els.mapStage.getBoundingClientRect();
-    if (!rect.width || !rect.height) return;
-    const coverScale = clampZoom(Math.max(rect.width / mapViewport.w, rect.height / mapViewport.h) * 1.02);
+    if (!rect.width || !rect.height || !mapViewport.w || !mapViewport.h) return;
+    const coverScale = clampZoom(Math.max(rect.width / Math.max(1, mapViewport.w), rect.height / Math.max(1, mapViewport.h)) * 1.001);
     state.view.scale = coverScale;
     state.view.panX = (rect.width - mapViewport.w * coverScale) / 2 - mapViewport.x * coverScale;
     state.view.panY = (rect.height - mapViewport.h * coverScale) / 2 - mapViewport.y * coverScale;
+    if (typeof constrainAtlasMapPan === 'function') constrainAtlasMapPan();
     if (typeof applyZoom === 'function') applyZoom();
   };
   const setAtlasMapFullscreen = (enabled) => {
@@ -1221,7 +1272,14 @@ function bindUI() {
       els.mobileMapFullBtn.textContent = enabled ? 'Sair da tela cheia' : 'Mapa tela cheia';
     }
     closeAtlasMobileDrawers();
-    setTimeout(() => {
+    if (enabled && els.worldMap && !els.worldMap.complete) {
+      els.worldMap.addEventListener('load', () => {
+        if (!document.body.classList.contains('mobile-map-fullscreen')) return;
+        if (typeof applyMapViewport === 'function') applyMapViewport();
+        fitAtlasMapToFullscreen();
+      }, { once: true });
+    }
+    const refreshFullscreenLayout = () => {
       if (typeof applyMapViewport === 'function') applyMapViewport();
       if (enabled) {
         fitAtlasMapToFullscreen();
@@ -1232,11 +1290,10 @@ function bindUI() {
       } else if (typeof applyZoom === 'function') {
         applyZoom();
       }
-      if (typeof clampMapPanToViewportBounds === 'function') clampMapPanToViewportBounds();
-      if (typeof applyZoom === 'function') applyZoom();
       if (typeof resizeClimateCanvas === 'function') resizeClimateCanvas();
       if (typeof drawClimateOverlay === 'function' && state.climateOn) drawClimateOverlay();
-    }, 60);
+    };
+    requestAnimationFrame(() => requestAnimationFrame(refreshFullscreenLayout));
   };
   if (els.mobileFiltersBtn) {
     els.mobileFiltersBtn.addEventListener('click', () => toggleAtlasMobileDrawer('controls'));
@@ -1250,13 +1307,9 @@ function bindUI() {
     });
   }
   const mobileFiltersCloseBtn = document.getElementById('mobileFiltersCloseBtn');
-  const mobileFiltersDoneBtn = document.getElementById('mobileFiltersDoneBtn');
   const mobileLocationsCloseBtn = document.getElementById('mobileLocationsCloseBtn');
   if (mobileFiltersCloseBtn) {
     mobileFiltersCloseBtn.addEventListener('click', closeAtlasMobileDrawers);
-  }
-  if (mobileFiltersDoneBtn) {
-    mobileFiltersDoneBtn.addEventListener('click', closeAtlasMobileDrawers);
   }
   if (mobileLocationsCloseBtn) {
     mobileLocationsCloseBtn.addEventListener('click', closeAtlasMobileDrawers);
@@ -1264,16 +1317,36 @@ function bindUI() {
   if (els.controlsPanel) {
     els.controlsPanel.addEventListener('click', (e) => e.stopPropagation());
     els.controlsPanel.addEventListener('pointerdown', (e) => e.stopPropagation());
+    els.controlsPanel.addEventListener('touchmove', (e) => e.stopPropagation(), { passive: true });
+    els.controlsPanel.addEventListener('wheel', (e) => e.stopPropagation(), { passive: true });
   }
   if (els.sidebarPanel) {
     els.sidebarPanel.addEventListener('click', (e) => e.stopPropagation());
     els.sidebarPanel.addEventListener('pointerdown', (e) => e.stopPropagation());
+    els.sidebarPanel.addEventListener('touchmove', (e) => e.stopPropagation(), { passive: true });
+    els.sidebarPanel.addEventListener('wheel', (e) => e.stopPropagation(), { passive: true });
   }
   if (els.mobileBackdrop) {
     els.mobileBackdrop.addEventListener('click', closeAtlasMobileDrawers);
   }
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && document.body.classList.contains('mobile-map-fullscreen')) setAtlasMapFullscreen(false);
+  });
+  window.addEventListener('resize', () => {
+    if (!document.body.classList.contains('mobile-map-fullscreen')) return;
+    requestAnimationFrame(() => {
+      if (typeof applyMapViewport === 'function') applyMapViewport();
+      fitAtlasMapToFullscreen();
+      if (typeof resizeClimateCanvas === 'function') resizeClimateCanvas();
+      if (typeof drawClimateOverlay === 'function' && state.climateOn) drawClimateOverlay();
+    });
+  });
+  window.addEventListener('orientationchange', () => {
+    if (!document.body.classList.contains('mobile-map-fullscreen')) return;
+    setTimeout(() => {
+      if (typeof applyMapViewport === 'function') applyMapViewport();
+      fitAtlasMapToFullscreen();
+    }, 220);
   });
   // Advanced Panel
   if (els.advancedFiltersBtn) {

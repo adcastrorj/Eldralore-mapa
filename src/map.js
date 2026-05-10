@@ -1,36 +1,7 @@
 // ---- Zoom/Pan (aplicado na camada #mapZoomLayer) ----
-function clampMapPanToViewportBounds() {
-  if (!document.body.classList.contains('mobile-map-fullscreen')) return;
-  if (!els.mapStage || !mapViewport || !mapViewport.w || !mapViewport.h) return;
-  const rect = els.mapStage.getBoundingClientRect();
-  const scale = Math.max(0.0001, state.view.scale || 1);
-
-  const contentW = mapViewport.w * scale;
-  const contentH = mapViewport.h * scale;
-
-  const centeredPanX = (rect.width - contentW) / 2 - mapViewport.x * scale;
-  const centeredPanY = (rect.height - contentH) / 2 - mapViewport.y * scale;
-
-  if (contentW <= rect.width) {
-    state.view.panX = centeredPanX;
-  } else {
-    const minPanX = rect.width - (mapViewport.x + mapViewport.w) * scale;
-    const maxPanX = -mapViewport.x * scale;
-    state.view.panX = Math.min(maxPanX, Math.max(minPanX, state.view.panX));
-  }
-
-  if (contentH <= rect.height) {
-    state.view.panY = centeredPanY;
-  } else {
-    const minPanY = rect.height - (mapViewport.y + mapViewport.h) * scale;
-    const maxPanY = -mapViewport.y * scale;
-    state.view.panY = Math.min(maxPanY, Math.max(minPanY, state.view.panY));
-  }
-}
-
 function applyZoom() {
   if (!els.mapZoomLayer) return;
-  clampMapPanToViewportBounds();
+  if (typeof constrainAtlasMapPan === 'function') constrainAtlasMapPan();
   const { scale, panX, panY } = state.view;
   els.mapZoomLayer.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
   // Pins: mantém tamanho visual razoável conforme zoom (evita ficar gigante em zoom alto)

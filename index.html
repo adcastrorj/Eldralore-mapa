@@ -46,7 +46,7 @@
     </div>
 
     <div id="controlsPanel" class="controls">
-      <div class="mobile-filter-head mobile-only"><div><strong>Filtros do Atlas</strong><span>Toque nos campos e role para baixo para ver tudo.</span></div><button id="mobileFiltersCloseBtn" class="btn btn-sm mobile-only mobile-drawer-close" type="button">Fechar</button></div>
+      <button id="mobileFiltersCloseBtn" class="btn btn-sm mobile-only mobile-drawer-close" type="button">Fechar filtros</button>
       <label data-present-hide="1" class="ctrl">
         Camada
         <select id="layerSelect">
@@ -170,14 +170,13 @@
       <button id="campaignImportBtn" class="btn btn-sm" type="button" title="Importa um JSON de estado da campanha gerado pelo GM">Importar Estado</button>
       <input id="campaignImportFile" type="file" accept="application/json" hidden />
       <span id="gmHint" class="gm-hint inline">Modo GM bloqueado.</span>
-      <button id="mobileFiltersDoneBtn" class="btn btn-sm mobile-only mobile-drawer-done" type="button">Fechar e ver mapa</button>
     </div>
   </header>
   <div id="mobileBackdrop" class="mobile-backdrop" hidden></div>
 
   <main class="layout">
     <aside id="sidebarPanel" class="sidebar">
-      <div class="mobile-filter-head mobile-only"><div><strong>Locais</strong><span>Lista de pins filtrados do mapa.</span></div><button id="mobileLocationsCloseBtn" class="btn btn-sm mobile-only mobile-drawer-close" type="button">Fechar</button></div>
+      <button id="mobileLocationsCloseBtn" class="btn btn-sm mobile-only mobile-drawer-close" type="button">Fechar locais</button>
       <div class="sidebar-title sidebar-title-row"><span>Locais</span><button id="advancedFiltersBtn" class="btn btn-sm" type="button" title="Filtros avançados de locais e história">Filtros avançados</button></div>
       <div id="list" class="list">
         <div id="advancedPanel" class="advanced-panel hidden">
