@@ -1,0 +1,72 @@
+[
+  {
+    "pinId": "dwarves_und_set_001",
+    "cityId": "settlement_dwarves_und_set_001",
+    "name": "Entreposto de Forja Cofre de Ferro",
+    "integratedImages": [
+      "assets/settlements/dwarves/dwarves_und_set_001_1.webp",
+      "assets/settlements/dwarves/dwarves_und_set_001_2.webp"
+    ],
+    "sourceFiles": [
+      "dwarven_forge_in_a_cavernous_stronghold.png",
+      "dwarven_forge_in_a_molten_cavern.png"
+    ],
+    "status": "integrated_valid_block1_only"
+  },
+  {
+    "pinId": "dwarves_und_set_002",
+    "cityId": "settlement_dwarves_und_set_002",
+    "name": "Reduto Forja de Gor",
+    "integratedImages": [
+      "assets/settlements/dwarves/dwarves_und_set_002_1.webp",
+      "assets/settlements/dwarves/dwarves_und_set_002_2.webp"
+    ],
+    "sourceFiles": [
+      "molten_lava_forge_in_dwarven_stronghold.png",
+      "molten_forge_of_the_dwarven_stronghold.png"
+    ],
+    "status": "integrated_valid_block1_only"
+  },
+  {
+    "pinId": "dwarves_und_set_003",
+    "cityId": "settlement_dwarves_und_set_003",
+    "name": "Reduto Khaz-Profundo",
+    "integratedImages": [
+      "assets/settlements/dwarves/dwarves_und_set_003_1.webp",
+      "assets/settlements/dwarves/dwarves_und_set_003_2.webp"
+    ],
+    "sourceFiles": [
+      "epic_subterranean_fortress_city.png",
+      "dwarven_stronghold_in_fiery_cavern.png"
+    ],
+    "status": "integrated_valid_block1_only"
+  },
+  {
+    "pinId": "dwarves_und_set_004",
+    "cityId": "settlement_dwarves_und_set_004",
+    "name": "Posto Mineiro Khaz-Profundo",
+    "integratedImages": [
+      "assets/settlements/dwarves/dwarves_und_set_004_1.webp",
+      "assets/settlements/dwarves/dwarves_und_set_004_2.webp"
+    ],
+    "sourceFiles": [
+      "dwarven_mining_complex_in_deep_cavern.png",
+      "bustling_mining_settlement_in_a_cavern.png"
+    ],
+    "status": "integrated_valid_block1_only"
+  },
+  {
+    "pinId": "dwarves_und_set_005",
+    "cityId": "settlement_dwarves_und_set_005",
+    "name": "Entreposto de Forja Dûr Negro",
+    "integratedImages": [
+      "assets/settlements/dwarves/dwarves_und_set_005_1.webp",
+      "assets/settlements/dwarves/dwarves_und_set_005_2.webp"
+    ],
+    "sourceFiles": [
+      "industrial_dwarven_citadel_in_darkness.png",
+      "molten_forge_in_a_gothic_industrial_complex.png"
+    ],
+    "status": "integrated_valid_block1_only"
+  }
+]

@@ -601,3 +601,377 @@ body.present-mode .map-wrap{
 /* (FIX) não esconder o painel de controles no modo compacto; usamos .topbar.collapsed para reduzir */
 body.ui-collapsed #controlsPanel{display:flex !important;}
 body.ui-collapsed .topbar{padding-bottom:6px;}
+
+/* --- Patch rotas comerciais v13 --- */
+.routes-svg .route-line{
+  pointer-events: stroke;
+  cursor: pointer;
+  transition: stroke-opacity .12s ease, stroke-width .12s ease, filter .12s ease;
+}
+.routes-svg .route-line:hover{
+  stroke-opacity: .95;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,.35));
+}
+#routeFiltersBackdrop .econ-grid label{
+  line-height: 1.25;
+}
+
+/* --- Patch rotas comerciais v14: painéis móveis, riscos e régua --- */
+.route-legend{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  max-width:340px;
+  cursor:default;
+  box-shadow:0 14px 40px rgba(0,0,0,.45);
+}
+.route-info{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:360px;
+  max-width:calc(100vw - 28px);
+  box-shadow:0 14px 40px rgba(0,0,0,.52);
+}
+.floating-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  cursor:move;
+  user-select:none;
+  margin:-2px -2px 8px 0;
+}
+.floating-close{
+  flex:0 0 auto;
+  width:26px;
+  height:26px;
+  border-radius:9px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:18px;
+  line-height:20px;
+  cursor:pointer;
+}
+.floating-close:hover{background:rgba(255,255,255,.16)}
+.route-legend.is-dragging,.route-info.is-dragging{opacity:.94;box-shadow:0 18px 50px rgba(0,0,0,.65)}
+.route-info .ri-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.58);font-weight:800;margin-bottom:2px}
+.route-info .ri-title{font-weight:900;font-size:13px;line-height:1.2;margin:0 24px 0 0;color:#fff}
+.route-info .ri-route-points{font-size:12px;color:rgba(255,255,255,.78);margin:6px 0 8px;border-left:2px solid rgba(255,255,255,.16);padding-left:8px}
+.route-info .ri-route-points span{opacity:.65;margin:0 4px}
+.route-info .ri-row{align-items:center}
+.route-info .ri-risk{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 0 6px;padding:8px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)}
+.route-info .ri-risk span{font-size:11px;color:rgba(255,255,255,.68);text-transform:uppercase;letter-spacing:.04em}
+.route-info .ri-risk b{font-size:12px}
+.route-info .ri-risk.safe{border-color:rgba(80,220,140,.28);background:rgba(80,220,140,.10)}
+.route-info .ri-risk.warn{border-color:rgba(255,210,90,.30);background:rgba(255,210,90,.10)}
+.route-info .ri-risk.danger{border-color:rgba(255,130,80,.32);background:rgba(255,130,80,.12)}
+.route-info .ri-risk.deadly{border-color:rgba(255,70,90,.38);background:rgba(255,70,90,.14)}
+.route-info .ri-note,.route-info .ri-flavor,.route-info .ri-econ{font-size:12px;color:rgba(255,255,255,.80);margin-top:7px;line-height:1.35}
+.route-info .ri-econ{padding-top:7px;border-top:1px dashed rgba(255,255,255,.13)}
+.route-info .ri-econ.muted{color:rgba(255,255,255,.56)}
+.route-info .ri-close{display:none}
+.measure-box{
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:52;
+  width:330px;
+  max-width:calc(100vw - 36px);
+  padding:12px 14px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.20);
+  background:rgba(0,0,0,.80);
+  color:rgba(255,255,255,.92);
+  font-size:12px;
+  line-height:1.35;
+  backdrop-filter:blur(8px);
+  box-shadow:0 18px 50px rgba(0,0,0,.52);
+  pointer-events:auto;
+}
+.measure-box span{color:rgba(255,255,255,.78)}
+.measure-title{font-weight:900;font-size:13px;margin-bottom:5px;color:#fff}
+.measure-distance{font-size:20px;font-weight:900;margin:2px 0 8px;color:#fff}
+.measure-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 0;border-top:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10)}
+.measure-row b{font-size:12px;text-align:right;color:#fff}
+.measure-custom{margin-top:10px}
+.measure-custom label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:rgba(255,255,255,.62);margin-bottom:5px}
+.measure-speed-row{display:grid;grid-template-columns:1fr 82px 76px;gap:6px}
+.measure-speed-row input,.measure-speed-row select,.measure-speed-row button{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);color:#fff;padding:7px 8px;font-size:12px;outline:none}
+.measure-speed-row button{cursor:pointer;background:rgba(122,167,255,.18);font-weight:800}
+.measure-speed-row button:hover{background:rgba(122,167,255,.28)}
+.measure-speed-row input:focus,.measure-speed-row select:focus{border-color:rgba(122,167,255,.65);box-shadow:0 0 0 2px rgba(122,167,255,.16)}
+.measure-result{margin-top:7px;padding:7px 9px;border-radius:10px;background:rgba(122,167,255,.11);border:1px solid rgba(122,167,255,.18);color:rgba(255,255,255,.86)}
+.measure-muted{margin-top:7px;color:rgba(255,255,255,.62);font-size:11px}
+.present-exit{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 99999;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(10,12,18,.85);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+}
+.present-exit:hover{ background: rgba(10,12,18,.95); }
+
+body.present-mode #sidebarPanel{ display:none !important; }
+body.present-mode [data-present-hide="1"]{ display:none !important; }
+body.present-mode header.topbar{ padding: 8px 12px !important; }
+
+
+/* ===== Presentation mode layout fixes ===== */
+body.present-mode main.layout{
+  grid-template-columns: 1fr !important;
+}
+body.present-mode main.layout > aside#sidebarPanel{
+  display:none !important;
+}
+body.present-mode main.layout{
+  gap:12px !important;
+}
+body.present-mode .map-wrap{
+  grid-column: 1 / -1 !important;
+}
+
+
+
+/* UI Collapsed (topbar) */
+/* (FIX) não esconder o painel de controles no modo compacto; usamos .topbar.collapsed para reduzir */
+body.ui-collapsed #controlsPanel{display:flex !important;}
+body.ui-collapsed .topbar{padding-bottom:6px;}
+
+/* --- Patch rotas comerciais v13 --- */
+.routes-svg .route-line{
+  pointer-events: stroke;
+  cursor: pointer;
+  transition: stroke-opacity .12s ease, stroke-width .12s ease, filter .12s ease;
+}
+.routes-svg .route-line:hover{
+  stroke-opacity: .95;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,.35));
+}
+#routeFiltersBackdrop .econ-grid label{
+  line-height: 1.25;
+}
+
+/* --- Patch rotas comerciais v14: painéis móveis, riscos e régua --- */
+.route-legend{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  max-width:340px;
+  cursor:default;
+  box-shadow:0 14px 40px rgba(0,0,0,.45);
+}
+.route-info{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:360px;
+  max-width:calc(100vw - 28px);
+  box-shadow:0 14px 40px rgba(0,0,0,.52);
+}
+.floating-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  cursor:move;
+  user-select:none;
+  margin:-2px -2px 8px 0;
+}
+.floating-close{
+  flex:0 0 auto;
+  width:26px;
+  height:26px;
+  border-radius:9px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:18px;
+  line-height:20px;
+  cursor:pointer;
+}
+.floating-close:hover{background:rgba(255,255,255,.16)}
+.route-legend.is-dragging,.route-info.is-dragging{opacity:.94;box-shadow:0 18px 50px rgba(0,0,0,.65)}
+.route-info .ri-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.58);font-weight:800;margin-bottom:2px}
+.route-info .ri-title{font-weight:900;font-size:13px;line-height:1.2;margin:0 24px 0 0;color:#fff}
+.route-info .ri-route-points{font-size:12px;color:rgba(255,255,255,.78);margin:6px 0 8px;border-left:2px solid rgba(255,255,255,.16);padding-left:8px}
+.route-info .ri-route-points span{opacity:.65;margin:0 4px}
+.route-info .ri-row{align-items:center}
+.route-info .ri-risk{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 0 6px;padding:8px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)}
+.route-info .ri-risk span{font-size:11px;color:rgba(255,255,255,.68);text-transform:uppercase;letter-spacing:.04em}
+.route-info .ri-risk b{font-size:12px}
+.route-info .ri-risk.safe{border-color:rgba(80,220,140,.28);background:rgba(80,220,140,.10)}
+.route-info .ri-risk.warn{border-color:rgba(255,210,90,.30);background:rgba(255,210,90,.10)}
+.route-info .ri-risk.danger{border-color:rgba(255,130,80,.32);background:rgba(255,130,80,.12)}
+.route-info .ri-risk.deadly{border-color:rgba(255,70,90,.38);background:rgba(255,70,90,.14)}
+.route-info .ri-note,.route-info .ri-flavor,.route-info .ri-econ{font-size:12px;color:rgba(255,255,255,.80);margin-top:7px;line-height:1.35}
+.route-info .ri-econ{padding-top:7px;border-top:1px dashed rgba(255,255,255,.13)}
+.route-info .ri-econ.muted{color:rgba(255,255,255,.56)}
+.route-info .ri-close{display:none}
+.measure-box{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  z-index:52;
+  width:260px;
+  max-width:calc(100vw - 36px);
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.78);
+  color:rgba(255,255,255,.92);
+  font-size:12px;
+  line-height:1.35;
+  backdrop-filter:blur(6px);
+  box-shadow:0 14px 40px rgba(0,0,0,.45);
+  pointer-events:auto;
+}
+.measure-box span{color:rgba(255,255,255,.78)}
+.present-exit{
+  top:auto;
+  right:auto;
+  left:14px;
+  bottom:14px;
+}
+/* Painel de rota separado da legenda para evitar sobreposição inicial */
+.route-info{top:120px;bottom:auto;}
+
+
+/* --- Patch v16: régua sempre visível e centralizada --- */
+.measure-box{
+  position:fixed !important;
+  left:50vw !important;
+  top:50vh !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:100200 !important;
+  width:min(360px, calc(100vw - 32px)) !important;
+  max-width:calc(100vw - 32px) !important;
+  max-height:calc(100vh - 32px) !important;
+  overflow:auto !important;
+  box-sizing:border-box !important;
+}
+.measure-box.hidden{display:none !important;}
+
+/* ---- GM: Visão do Mundo ---- */
+.backdrop#worldVisionBackdrop{z-index:1450}
+.modal-world-vision{width:min(1180px,98vw);max-height:92vh}
+.world-vision-body{display:flex;flex-direction:column;gap:12px}
+.wv-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.wv-section{border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.035);padding:10px}
+.wv-section-title{font-weight:900;color:rgba(255,255,255,.90);font-size:13px;margin-bottom:4px}
+.wv-hint{font-size:12px;color:rgba(255,255,255,.62);margin:4px 0 8px}
+.wv-summary{border:1px solid rgba(122,167,255,.22);background:rgba(122,167,255,.08);border-radius:12px;padding:9px 10px;color:rgba(255,255,255,.86);font-size:13px}
+.wv-location-list.disabled,.wv-states.disabled{opacity:.68}
+.wv-empty{font-size:13px;color:rgba(255,255,255,.62);padding:8px 4px}
+.wv-location-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;max-height:210px;overflow:auto;padding-right:4px}
+.wv-state-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.wv-category{margin-top:10px;border-top:1px dashed rgba(255,255,255,.12);padding-top:10px}
+.wv-category:first-child{margin-top:0;border-top:0;padding-top:0}
+.wv-category-title{font-size:12px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.74);margin-bottom:6px}
+.wv-check{display:flex;align-items:flex-start;gap:7px;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:rgba(0,0,0,.14);padding:7px 8px;font-size:12px;line-height:1.25;color:rgba(255,255,255,.86);cursor:pointer;user-select:none}
+.wv-check:hover{border-color:rgba(122,167,255,.35);background:rgba(122,167,255,.07)}
+.wv-check input{margin-top:1px;accent-color:#7aa7ff}
+.wv-check span{min-width:0}
+.wv-check em{display:block;color:rgba(255,255,255,.48);font-style:normal;font-size:11px;margin-top:2px}
+.wv-check-all{margin-bottom:8px;background:rgba(122,167,255,.08);border-color:rgba(122,167,255,.18)}
+.wv-actions{flex-wrap:wrap;justify-content:flex-end}
+.wv-export-box{border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(0,0,0,.14);padding:10px}
+.wv-export-box summary{cursor:pointer;font-weight:800;color:rgba(255,255,255,.86)}
+#wv-spacer{height:1px}
+#worldVisionJsonBox{width:100%;min-height:120px;margin-top:8px;background:#0d111a;color:rgba(255,255,255,.86);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px}
+.world-vision-pin .dot{box-shadow:0 0 0 2px rgba(255,255,255,.18),0 0 16px currentColor}
+.world-vision-pin.wv-applied .dot{filter:saturate(1.25);box-shadow:0 0 0 2px rgba(255,255,255,.20),0 0 22px rgba(255,255,255,.16)}
+.world-vision-pin.wv-medium .dot{transform:scale(1.08)}
+.world-vision-pin.wv-high .dot{transform:scale(1.18)}
+.world-vision-pin.wv-extreme .dot{transform:scale(1.28);box-shadow:0 0 0 2px rgba(255,255,255,.30),0 0 26px rgba(255,80,80,.28)}
+.world-vision-pin.wv-auto .dot{opacity:.88}
+.wv-tooltip-line{margin-top:3px;color:rgba(255,255,255,.76)!important}
+.world-vision-popup{margin-top:10px;border:1px solid rgba(122,167,255,.20);background:rgba(122,167,255,.07);border-radius:12px;padding:9px 10px;font-size:13px;color:rgba(255,255,255,.86)}
+.wv-popup-vision{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.12)}
+.wv-popup-title{font-weight:900;margin-bottom:4px;color:rgba(255,255,255,.92)}
+.wv-popup-cat{margin-top:4px;color:rgba(255,255,255,.80)}
+
+@media (max-width:980px){
+  .wv-flow{grid-template-columns:1fr}
+  .wv-location-grid,.wv-state-grid{grid-template-columns:1fr}
+  .modal-world-vision{width:100%!important;max-width:100%!important}
+}
+
+
+/* --- Patch v19: calendário visível no mapa e painel GM externo --- */
+.map-calendar-hud{
+  position:absolute;
+  left:16px;
+  top:16px;
+  z-index:35;
+  min-width:230px;
+  max-width:min(340px, calc(100vw - 48px));
+  padding:11px 13px;
+  border-radius:16px;
+  border:1px solid rgba(245,215,110,.26);
+  background:linear-gradient(135deg, rgba(20,24,36,.92), rgba(11,13,20,.78));
+  color:#fff;
+  box-shadow:0 14px 42px rgba(0,0,0,.42), inset 0 0 0 1px rgba(255,255,255,.04);
+  backdrop-filter:blur(8px);
+  pointer-events:none;
+}
+.map-calendar-hud .hud-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:rgba(245,215,110,.78);font-weight:900;margin-bottom:3px}
+.map-calendar-hud .hud-date{font-size:15px;font-weight:900;letter-spacing:.01em;text-shadow:0 2px 8px rgba(0,0,0,.45)}
+.map-calendar-hud .hud-season{font-size:12px;color:rgba(255,255,255,.72);margin-top:2px}
+.campaign-row{padding-top:4px;border-top:1px dashed rgba(255,255,255,.10)}
+.gm-hint.inline{display:inline!important;margin:0!important;font-size:11px;align-self:center}
+body.present-mode .map-calendar-hud{left:18px;top:18px;opacity:.96}
+
+/* gm.html */
+body.gm-console-body{min-height:100%;background:radial-gradient(circle at top left, rgba(122,167,255,.13), transparent 38%), var(--bg)}
+.gm-console-shell{max-width:1500px;margin:0 auto;padding:18px;display:flex;flex-direction:column;gap:14px}
+.gm-console-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:18px;background:rgba(20,24,36,.86);padding:14px 16px;box-shadow:0 18px 46px rgba(0,0,0,.28)}
+.gm-console-title{font-size:22px;font-weight:950;margin:0;color:#fff}.gm-console-sub{margin-top:4px;color:var(--muted);font-size:13px;line-height:1.4}
+.gm-console-tabs{display:flex;gap:8px;flex-wrap:wrap}.gm-tab-btn{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#fff;border-radius:12px;padding:9px 11px;cursor:pointer;font-weight:800}.gm-tab-btn.active{background:rgba(122,167,255,.20);border-color:rgba(122,167,255,.42)}
+.gm-console-grid{display:grid;grid-template-columns:280px 1fr;gap:14px}.gm-console-side,.gm-console-main{border:1px solid var(--border);border-radius:18px;background:rgba(20,24,36,.78);padding:14px;box-shadow:0 18px 46px rgba(0,0,0,.20)}
+.gm-console-side{height:fit-content;position:sticky;top:14px}.gm-status-card{border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.04);padding:11px;margin-bottom:10px}.gm-status-card b{display:block;color:#fff;margin-bottom:4px}.gm-status-card span{font-size:12px;color:var(--muted)}
+.gm-console-tab{display:none}.gm-console-tab.active{display:block}.gm-console-section{border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(255,255,255,.035);padding:13px;margin-bottom:12px}.gm-console-section h2,.gm-console-section h3{margin:0 0 8px;color:#fff}.gm-console-section p{color:var(--muted);font-size:13px;line-height:1.45}.gm-console-row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}.gm-console-row .ctrl input,.gm-console-row .ctrl select{min-width:120px}.gm-console-textarea{width:100%;min-height:260px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(0,0,0,.22);color:#fff;padding:11px;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:12px;line-height:1.45;resize:vertical}.gm-console-small{font-size:12px;color:var(--muted)}.gm-console-locked{max-width:620px;margin:10vh auto;border:1px solid var(--border);border-radius:18px;background:rgba(20,24,36,.92);padding:18px;box-shadow:0 18px 60px rgba(0,0,0,.4)}
+@media (max-width: 980px){.gm-console-grid{grid-template-columns:1fr}.gm-console-side{position:static}.gm-console-head{flex-direction:column}}
+
+/* --- Patch v20: mapa principal limpo + GM em janela separada --- */
+.gm-accessbox{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gm-hint.inline{display:inline-flex!important;align-items:center;margin:0!important;white-space:nowrap}
+.map-calendar-hud{position:absolute;left:16px;top:16px;z-index:30;min-width:220px;border:1px solid rgba(255,255,255,.16);border-radius:16px;background:linear-gradient(135deg,rgba(18,22,35,.88),rgba(9,11,18,.76));box-shadow:0 12px 38px rgba(0,0,0,.42);backdrop-filter:blur(8px);padding:12px 14px;color:#fff;pointer-events:auto}
+.map-calendar-hud.hidden{display:none!important}
+.map-calendar-hud .hud-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58);font-weight:900;margin-bottom:3px}
+.map-calendar-hud .hud-date{font-size:16px;font-weight:950;color:#fff;line-height:1.2}
+.map-calendar-hud .hud-season{font-size:12px;color:rgba(255,255,255,.78);margin-top:3px}
+.hud-close{position:absolute;right:8px;top:8px;width:24px;height:24px;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);color:#fff;cursor:pointer;line-height:20px;font-size:17px}.hud-close:hover{background:rgba(255,255,255,.15)}
+.modal-timeline{max-width:760px}.timeline-body{max-height:50vh;overflow:auto}.timeline-card{border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.04);padding:11px 12px;margin:8px 0}.tl-date{font-size:11px;color:rgba(255,255,255,.58);font-weight:800;text-transform:uppercase;letter-spacing:.04em}.tl-title{font-size:15px;font-weight:900;color:#fff;margin-top:4px}.tl-text{font-size:13px;color:rgba(255,255,255,.84);line-height:1.45;margin-top:7px}.tl-pins{font-size:12px;color:rgba(255,255,255,.62);margin-top:8px}.tl-badge{display:inline-block;margin-left:6px;border:1px solid rgba(122,167,255,.35);border-radius:999px;padding:1px 7px;font-size:10px;color:rgba(190,210,255,.95)}.tl-badge.gm{border-color:rgba(255,120,120,.35);color:#ffbcbc}.timeline-notes-box{margin-top:12px}.timeline-notes-box textarea{width:100%;min-height:150px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(0,0,0,.22);color:#fff;padding:10px;resize:vertical}
+.routes-svg{pointer-events:none!important}.routes-svg .route-line{pointer-events:visibleStroke!important;cursor:pointer}.route-line-hit{pointer-events:stroke!important;stroke-opacity:0!important;stroke-width:8!important}
+.debug-row code{user-select:all}
+.gm-console-tabs{gap:6px}.gm-console-tab .ctrl.wide{display:block;margin:10px 0}.gm-console-tab .ctrl.wide input,.gm-console-tab .ctrl.wide textarea{width:100%;box-sizing:border-box}.gm-small-textarea{min-height:92px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(0,0,0,.22);color:#fff;padding:10px;resize:vertical}.gm-console-section.soft{background:rgba(0,0,0,.12);margin-top:12px}.gm-check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:7px}.gm-toggle{min-height:34px}.gm-apply-flow{margin-bottom:6px}.gm-selector{border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:10px;background:rgba(255,255,255,.03);margin-bottom:12px}.gm-console-textarea.compact{min-height:90px!important}.muted{opacity:.64;font-size:11px;margin-left:4px}
+@media (max-width: 900px){.map-calendar-hud{left:10px;top:10px;min-width:190px}.gm-console-grid{grid-template-columns:1fr!important}.gm-console-side{position:static!important}.gm-console-tabs{max-height:none!important}}
+.sidebar-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px}.sidebar-title-row .btn{font-size:11px;padding:6px 8px;border-radius:10px}
+
+
+/* Inteligência regional: rumores, perigo, política e reputação */
+.intel-section{margin-top:12px;padding:10px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(5,10,18,.34)}
+.intel-title{font-weight:800;margin-bottom:8px;color:rgba(255,255,255,.92)}
+.intel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}
+.intel-card{padding:9px;border:1px solid rgba(255,255,255,.10);border-radius:12px;background:rgba(255,255,255,.04)}
+.intel-card.wide{grid-column:1/-1}.intel-k{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.58);margin-bottom:3px}.intel-v{font-size:14px}.intel-note{font-size:12px;color:rgba(255,255,255,.70);margin-top:4px;line-height:1.35}.intel-note.small{font-size:11px;margin-top:1px}.rep-row{display:flex;justify-content:space-between;gap:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:5px;margin-top:5px}.intel-rumor-title{font-weight:700;margin-bottom:4px}.gm-only{color:#f8d78a}.political-summary{display:grid;gap:8px;margin-top:10px}.political-card{border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:10px;background:rgba(255,255,255,.04)}
+
+/* Patch — Reputação macro do grupo e rumores dinâmicos */
+.group-rep.blocked { border-color: rgba(255, 90, 90, .55); background: rgba(120, 20, 20, .22); }
+.dynamic-rumors { border-color: rgba(122, 167, 255, .35); }
+.trade-alert { margin: 8px 0; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); color: rgba(255,255,255,.86); }
+.trade-alert.blocked { border-color: rgba(255,90,90,.6); background: rgba(120,20,20,.28); }
+.trade-alert.warn { border-color: rgba(251,197,49,.55); background: rgba(110,80,10,.22); }
+.gm-console-tab[data-tab="groupRep"] .gm-selector { margin: 10px 0 14px; }
+.gm-console-tab[data-tab="groupRep"] .political-summary { margin-top: 12px; }

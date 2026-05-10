@@ -20,6 +20,12 @@ function ok(msg){
   console.log("OK:", msg);
 }
 
+function asArray(data){
+  if(Array.isArray(data)) return data;
+  if(data && typeof data === "object") return Object.keys(data).map(k => ({ __key: k, ...data[k], id: data[k]?.id || k }));
+  return [];
+}
+
 function ensureUniqueIds(items, label){
   const seen = new Set();
   const dups = new Set();
@@ -43,7 +49,9 @@ function ensureXY(items){
 }
 
 function ensureCityRefs(mainPins, cities){
-  const ids = new Set(cities.map(c=>c.id));
+  const cityArr = asArray(cities);
+  const ids = new Set();
+  for(const c of cityArr){ if(c.id) ids.add(c.id); if(c.__key) ids.add(c.__key); }
   const broken = [];
   for(const p of mainPins){
     if(p.cityId && !ids.has(p.cityId)) broken.push(`${p.id}=>${p.cityId}`);
@@ -88,14 +96,16 @@ function ensureAssetsExist(pins, cities){
 (function main(){
   const pins = readJson("data/pins.json");
   const mainPins = readJson("data/main_cities_pins.json");
-  const cities = readJson("data/cities.json");
+  const citiesRaw = readJson("data/cities.json");
+  const cities = asArray(citiesRaw);
 
   ensureUniqueIds(pins, "pins");
   ensureUniqueIds(mainPins, "main_cities_pins");
   ensureUniqueIds(cities, "cities");
   ensureXY(pins);
   ensureCityRefs(mainPins, cities);
-  ensureAssetsExist(pins, cities);
+  if(process.argv.includes("--skip-assets")) ok("assets: verificação ignorada (--skip-assets)");
+  else ensureAssetsExist(pins, cities);
 
   if(process.exitCode) {
     console.error("\nValidação falhou.");

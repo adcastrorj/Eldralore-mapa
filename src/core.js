@@ -7,8 +7,8 @@
 // - Clima: overlay automático (modelo leve) + calendário interno
 
 // Bump de versão para evitar conflitos com estados antigos no localStorage
-const STORAGE_KEY = 'eldralore_state_v2_v12';
-const LEGACY_KEYS = ['eldralore_state_v2_v6', 'eldralore_state_v2_v7', 'eldralore_state_v2_v8'];
+const STORAGE_KEY = 'eldralore_state_v2_v20';
+const LEGACY_KEYS = ['eldralore_state_v2_v19', 'eldralore_state_v2_v18', 'eldralore_state_v2_v17', 'eldralore_state_v2_v16', 'eldralore_state_v2_v15', 'eldralore_state_v2_v14', 'eldralore_state_v2_v13', 'eldralore_state_v2_v12', 'eldralore_state_v2_v6', 'eldralore_state_v2_v7', 'eldralore_state_v2_v8'];
 
 const state = {
   layer: 'world',
@@ -24,7 +24,19 @@ const state = {
   groupFilter: { enabled: false, selected: [] },
   tagFilter: { enabled: false, mode: 'OR', selected: [] },
   geo: { territories: false, borders: true },
-  routeFilter: { enabled: false, types: ['trade_internal', 'trade_official', 'trade_shadow'], participants: [] },
+  routeFilter: {
+    enabled: false,
+    types: ['trade_internal', 'trade_official', 'trade_shadow'],
+    participants: [],
+    races: null,
+    // Padrão limpo: ao ligar rotas, mostra só as conexões principais até o usuário expandir os filtros.
+    connectionTypes: ['main-main'],
+    // strict = só aparece se todas as raças da rota estiverem marcadas. universal = ponto de vista de uma raça.
+    viewMode: 'strict',
+    focusRace: 'humans',
+    // quando ativo, mostra apenas comércio externo da raça escolhida no ponto de vista
+    externalOnly: false
+  },
   story: { active: false, storyId: null, chapter: 0 },
   taxonomies: null,
   presets: null,
@@ -38,13 +50,18 @@ const state = {
   zonePolys: [],
   uiCollapsed: false,
   presentMode: false,
-  worldTime: { day: 1, month: 1, year: 1 },
+  worldTime: { era: 'fourth_age', day: 1, month: 1, year: 1 },
   // Estado global do mundo (pode ser sincronizado entre jogadores via servidor)
   worldState: {
     rev: 0,
     updatedAt: 0,
     climate: { regions: {} },
+    vision: { pins: {} },
+    groupReputation: { pins: {} },
+    rumors: { pins: {} },
   },
+  campaign: { timeline: [], pinSecrets: {}, hooks: {}, importantNpcs: [] },
+  economy: { modifiers: [] },
   dateLock: true,
   gm: { unlocked: false, showImportantNpcs: false, showAllInfo: false, editorOpen: false, editorMinimized: false, captureMode: false, selectedPinId: null },
   customPins: [],
@@ -52,9 +69,11 @@ const state = {
   pinOverrides: {},
   merchantState: {},
   view: { scale: 1, panX: 0, panY: 0 },
-  measure: { on: false, a: null, b: null },
+  measure: { on: false, a: null, b: null, customSpeedValue: '', customSpeedUnit: 'kmh' },
   items: [],
   ui: {
+    calendarHudVisible: true,
+    playerExpandedInfo: false,
     cityOpenId: null,
     selectedPlaceId: null,
     selectedMerchantId: null,
@@ -102,6 +121,16 @@ const els = {
   measureToggle: document.getElementById('measureToggle'),
   climateToggle: document.getElementById('climateToggle'),
   hideNoImageToggle: document.getElementById('hideNoImageToggle'),
+  calendarHudToggle: document.getElementById('calendarHudToggle'),
+  calendarHudCloseBtn: document.getElementById('calendarHudCloseBtn'),
+  mapCalendarHud: document.getElementById('mapCalendarHud'),
+  playerExpandInfoToggle: document.getElementById('playerExpandInfoToggle'),
+  timelineOpenBtn: document.getElementById('timelineOpenBtn'),
+  timelineBackdrop: document.getElementById('timelineBackdrop'),
+  closeTimeline: document.getElementById('closeTimeline'),
+  timelineBody: document.getElementById('timelineBody'),
+  timelinePlayerNotes: document.getElementById('timelinePlayerNotes'),
+  savePlayerNotesBtn: document.getElementById('savePlayerNotesBtn'),
   presetSelect: document.getElementById('presetSelect'),
   eraSelect: document.getElementById('eraSelect'),
   routesToggleBtn: document.getElementById('routesToggleBtn'),
@@ -164,6 +193,10 @@ const els = {
   routeRaceFilters: document.getElementById('routeRaceFilters'),
   routeFilterAllBtn: document.getElementById('routeFilterAllBtn'),
   routeFilterNoneBtn: document.getElementById('routeFilterNoneBtn'),
+  routeViewStrict: document.getElementById('routeViewStrict'),
+  routeViewUniversal: document.getElementById('routeViewUniversal'),
+  routeExternalOnly: document.getElementById('routeExternalOnly'),
+  routeFocusRaceSelect: document.getElementById('routeFocusRaceSelect'),
 
   // calendario / GM
   worldTimeLabel: document.getElementById('worldTimeLabel'),
@@ -180,6 +213,8 @@ const els = {
   gmHint: document.getElementById('gmHint'),
 
   gmEditorBtn: document.getElementById('gmEditorBtn'),
+  gmWorldVisionBtn: document.getElementById('gmWorldVisionBtn'),
+  gmPanelBtn: document.getElementById('gmPanelBtn'),
   gmEditorBackdrop: document.getElementById('gmEditorBackdrop'),
   minimizeGmEditor: document.getElementById('minimizeGmEditor'),
   gmSelectPinBtn: document.getElementById('gmSelectPinBtn'),
@@ -240,6 +275,7 @@ const els = {
   routeInfo: document.getElementById('routeInfo'),
   climateCanvas: document.getElementById('climateCanvas'),
   measureSvg: document.getElementById('measureSvg'),
+  travelBox: document.getElementById('travelBox'),
 
   worldMap: document.getElementById('worldMap'),
   bordersOverlay: document.getElementById('bordersOverlay'),
@@ -385,40 +421,102 @@ function togglePresentationMode() {
   setPresentationMode(!state.presentMode);
 }
 
+function getAllRouteRaceIds() {
+  return Object.keys(TERRITORY_COLORS || {}).filter(r => r !== 'default');
+}
+
+function normalizeRouteFilter() {
+  const allTypes = (typeof ALL_ROUTE_TYPES !== 'undefined') ? ALL_ROUTE_TYPES : ['trade_internal', 'trade_official', 'trade_shadow'];
+  const races = getAllRouteRaceIds();
+  if (!state.routeFilter || typeof state.routeFilter !== 'object') state.routeFilter = {};
+
+  if (!Array.isArray(state.routeFilter.types)) state.routeFilter.types = [...allTypes];
+  // Estados antigos podem não conhecer novos tipos de rota. Mantém compatibilidade sem apagar preferências.
+  for (const t of allTypes) {
+    if (!state.routeFilter.types.includes(t)) state.routeFilter.types.push(t);
+  }
+  if (!Array.isArray(state.routeFilter.races)) state.routeFilter.races = [...races];
+  if (!Array.isArray(state.routeFilter.participants)) state.routeFilter.participants = [...state.routeFilter.races];
+
+  // undefined = primeira abertura/estado antigo. [] = usuário escolheu “Todas” em tipo de conexão.
+  if (!Array.isArray(state.routeFilter.connectionTypes)) state.routeFilter.connectionTypes = ['main-main'];
+
+  if (!['strict', 'universal'].includes(state.routeFilter.viewMode)) state.routeFilter.viewMode = 'strict';
+  if (typeof state.routeFilter.externalOnly !== 'boolean') state.routeFilter.externalOnly = false;
+  if (!state.routeFilter.focusRace || !races.includes(state.routeFilter.focusRace)) {
+    state.routeFilter.focusRace = races.includes(state.race) ? state.race : (races[0] || 'humans');
+  }
+  state.routeFilter.participants = [...state.routeFilter.races];
+  return state.routeFilter;
+}
+
+function populateRouteViewControls() {
+  const rf = normalizeRouteFilter();
+  if (els.routeViewStrict) els.routeViewStrict.checked = rf.viewMode !== 'universal';
+  if (els.routeViewUniversal) els.routeViewUniversal.checked = rf.viewMode === 'universal';
+  if (els.routeExternalOnly) els.routeExternalOnly.checked = !!rf.externalOnly;
+
+  if (els.routeFocusRaceSelect) {
+    const races = getAllRouteRaceIds();
+    const previous = els.routeFocusRaceSelect.value || rf.focusRace;
+    els.routeFocusRaceSelect.innerHTML = '';
+    for (const r of races) {
+      const opt = document.createElement('option');
+      opt.value = r;
+      opt.textContent = raceLabel(r);
+      els.routeFocusRaceSelect.appendChild(opt);
+    }
+    els.routeFocusRaceSelect.value = races.includes(previous) ? previous : rf.focusRace;
+    rf.focusRace = els.routeFocusRaceSelect.value || rf.focusRace;
+  }
+}
+
+function populateRouteConnectionControls() {
+  const rf = normalizeRouteFilter();
+  const selected = Array.isArray(rf.connectionTypes) ? rf.connectionTypes : ['main-main'];
+  const radioValue = selected.length === 0 ? 'all' : selected[0];
+  const box = document.querySelector('#routeFiltersBackdrop #routeTypeFilters');
+  if (!box) return;
+  box.querySelectorAll('input[name="routeConnType"]').forEach(r => {
+    r.checked = (r.value === radioValue);
+  });
+}
+
 function populateRouteRaceFilters() {
   if (!els.routeRaceFilters) return;
-  const hasContent = els.routeRaceFilters.children.length > 0;
-  if (!hasContent) {
-    const races = Object.keys(TERRITORY_COLORS).filter(r => r !== 'default');
+  const rf = normalizeRouteFilter();
+  const races = getAllRouteRaceIds();
+
+  if (!els.routeRaceFilters.children.length) {
     races.forEach(r => {
       const label = document.createElement('label');
-      label.innerHTML = `<input type="checkbox" value="${r}" checked> ${raceLabel(r)}`;
+      label.innerHTML = `<input type="checkbox" value="${r}"> ${raceLabel(r)}`;
       label.querySelector('input').addEventListener('change', (e) => {
         const checked = e.target.checked;
         const current = new Set(state.routeFilter.races || []);
         if (checked) current.add(r); else current.delete(r);
         state.routeFilter.races = Array.from(current);
+        state.routeFilter.participants = Array.from(current);
+        state.routeFilter.enabled = true;
         persistState();
         if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
       });
       els.routeRaceFilters.appendChild(label);
     });
-    // Inicializa state se estiver vazio (primeira vez)
-    if (!state.routeFilter.races || state.routeFilter.races.length === 0) {
-      state.routeFilter.races = races; // todas ativas
-    }
   }
 
-  // Sync UI com State
-  const active = new Set(state.routeFilter.races || []);
+  const active = new Set(rf.races || []);
   els.routeRaceFilters.querySelectorAll('input').forEach(chk => {
     chk.checked = active.has(chk.value);
   });
 }
 
 function toggleAllRouteRaces(on) {
-  const races = Object.keys(TERRITORY_COLORS).filter(r => r !== 'default');
+  const races = getAllRouteRaceIds();
+  normalizeRouteFilter();
   state.routeFilter.races = on ? races : [];
+  state.routeFilter.participants = [...state.routeFilter.races];
+  state.routeFilter.enabled = true;
   persistState();
   populateRouteRaceFilters();
   if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
@@ -459,6 +557,71 @@ function closeOnBackdropClick(backdrop, closeFn) {
   });
 }
 
+function eraLabelFromValue(value) {
+  const v = String(value || state?.worldTime?.era || 'fourth_age');
+  const labels = {
+    first_age: '1ª Era', second_age: '2ª Era', third_age: '3ª Era', fourth_age: '4ª Era', fifth_age: '5ª Era',
+    divine_age: 'Era das Divindades', dragon_age: 'Era dos Dragões', civilizations_age: 'Era das Civilizações', guild_age: 'Era da Guilda'
+  };
+  if (labels[v]) return labels[v];
+  const m = v.match(/^(\d+)$/);
+  if (m) return `${m[1]}ª Era`;
+  return v || '4ª Era';
+}
+window.eraLabelFromValue = eraLabelFromValue;
+
+function normalizeWorldTime() {
+  if (!state.worldTime || typeof state.worldTime !== 'object') state.worldTime = { era: 'fourth_age', day: 1, month: 1, year: 1 };
+  if (!state.worldTime.era) state.worldTime.era = 'fourth_age';
+  state.worldTime.day = Math.max(1, parseInt(state.worldTime.day || 1, 10));
+  state.worldTime.month = Math.max(1, Math.min(12, parseInt(state.worldTime.month || 1, 10)));
+  state.worldTime.year = Math.max(1, parseInt(state.worldTime.year || 1, 10));
+  return state.worldTime;
+}
+window.normalizeWorldTime = normalizeWorldTime;
+
+function getPlayerNotes() {
+  try { return localStorage.getItem('eldralore_player_timeline_notes_v1') || ''; } catch (_) { return ''; }
+}
+function setPlayerNotes(txt) {
+  try { localStorage.setItem('eldralore_player_timeline_notes_v1', String(txt || '')); } catch (_) {}
+}
+function timelineEventDateText(ev) {
+  const era = eraLabelFromValue(ev.era || ev.Era || state.worldTime?.era || 'fourth_age');
+  const day = ev.dia || ev.day || ev.data?.day || '?';
+  const month = ev.mes || ev.month || ev.data?.month || '?';
+  const year = ev.ano || ev.year || ev.data?.year || '?';
+  return `${era} — Dia ${day} • Mês ${month} • Ano ${year}`;
+}
+function openTimelinePanel() {
+  if (!els.timelineBackdrop || !els.timelineBody) return;
+  const camp = (typeof CampaignState !== 'undefined' && CampaignState.ensureCampaign) ? CampaignState.ensureCampaign() : (state.campaign || { timeline: [] });
+  const events = Array.isArray(camp.timeline) ? camp.timeline.slice() : [];
+  events.sort((a,b) => {
+    const ea = String(a.era || ''); const eb = String(b.era || '');
+    const ka = `${ea}|${String(a.ano || a.year || 0).padStart(6,'0')}|${String(a.mes || a.month || 0).padStart(2,'0')}|${String(a.dia || a.day || 0).padStart(2,'0')}`;
+    const kb = `${eb}|${String(b.ano || b.year || 0).padStart(6,'0')}|${String(b.mes || b.month || 0).padStart(2,'0')}|${String(b.dia || b.day || 0).padStart(2,'0')}`;
+    return ka.localeCompare(kb);
+  });
+  const esc = (typeof escapeHtml === 'function') ? escapeHtml : (x => String(x || ''));
+  if (!events.length) {
+    els.timelineBody.innerHTML = '<div class="hint">Nenhum evento público importado ainda.</div>';
+  } else {
+    els.timelineBody.innerHTML = events.map(ev => {
+      const title = ev.titulo || ev.title || ev.nome || 'Evento sem título';
+      const text = ev.texto || ev.text || ev.descricao || ev.description || ev.efeito || '';
+      const pins = Array.isArray(ev.pins) ? ev.pins.join(', ') : (ev.pin || ev.local || '');
+      const publicFlag = ev.gmOnly || ev.secreto || ev.secret ? '<span class="tl-badge gm">GM</span>' : '<span class="tl-badge">Público</span>';
+      if (ev.gmOnly || ev.secreto || ev.secret) return '';
+      return `<article class="timeline-card"><div class="tl-date">${esc(timelineEventDateText(ev))}</div><div class="tl-title">${esc(title)} ${publicFlag}</div>${text ? `<div class="tl-text">${esc(text).replace(/\n/g,'<br>')}</div>` : ''}${pins ? `<div class="tl-pins">Locais: ${esc(pins)}</div>` : ''}</article>`;
+    }).join('') || '<div class="hint">Os eventos existentes estão marcados como GM/secretos.</div>';
+  }
+  if (els.timelinePlayerNotes) els.timelinePlayerNotes.value = getPlayerNotes();
+  els.timelineBackdrop.classList.remove('hidden');
+}
+window.openTimelinePanel = openTimelinePanel;
+function closeTimelinePanel() { if (els.timelineBackdrop) els.timelineBackdrop.classList.add('hidden'); }
+
 
 // Global update() used across modules (climate/gm/map/worldSync).
 // Re-applies filters and redraws pins/routes/zones depending on availability.
@@ -496,7 +659,9 @@ function bindUI() {
       return;
     }
 
-    // Route filters / Economy
+    // Painel Visão do Mundo / Route filters / Economy
+    const wvBackdrop = document.getElementById('worldVisionBackdrop');
+    if (wvBackdrop && !wvBackdrop.classList.contains('hidden')) { if (typeof closeWorldVisionPanel === 'function') closeWorldVisionPanel(); else wvBackdrop.classList.add('hidden'); return; }
     if (els.routeFiltersBackdrop && !els.routeFiltersBackdrop.classList.contains('hidden')) { els.routeFiltersBackdrop.classList.add('hidden'); return; }
     if (els.economyBackdrop && !els.economyBackdrop.classList.contains('hidden')) { els.economyBackdrop.classList.add('hidden'); return; }
 
@@ -565,8 +730,11 @@ function bindUI() {
   // --- Toggles ---
   if (els.routesToggleBtn) {
     els.routesToggleBtn.addEventListener('click', () => {
+      normalizeRouteFilter();
       state.routeFilter.enabled = !state.routeFilter.enabled;
+      if (state.routeFilter.enabled && state.ui) state.ui.routeLegendClosed = false;
       els.routesToggleBtn.classList.toggle('is-on', state.routeFilter.enabled);
+      els.routesToggleBtn.classList.toggle('active', state.routeFilter.enabled);
       persistState();
       if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
     });
@@ -582,6 +750,49 @@ function bindUI() {
     });
   }
 
+
+  if (els.calendarHudToggle) {
+    els.calendarHudToggle.addEventListener('change', e => {
+      if (!state.ui) state.ui = {};
+      state.ui.calendarHudVisible = !!e.target.checked;
+      persistState();
+      if (typeof updateTimeUI === 'function') updateTimeUI();
+    });
+  }
+  if (els.calendarHudCloseBtn) {
+    els.calendarHudCloseBtn.addEventListener('click', () => {
+      if (!state.ui) state.ui = {};
+      state.ui.calendarHudVisible = false;
+      if (els.calendarHudToggle) els.calendarHudToggle.checked = false;
+      persistState();
+      if (typeof updateTimeUI === 'function') updateTimeUI();
+    });
+  }
+  if (els.playerExpandInfoToggle) {
+    els.playerExpandInfoToggle.addEventListener('change', e => {
+      if (!state.ui) state.ui = {};
+      state.ui.playerExpandedInfo = !!e.target.checked;
+      persistState();
+      if (state.ui.openLocId) {
+        const p = (state.pins || []).find(x => x.id === state.ui.openLocId);
+        if (p && typeof openLoc === 'function') openLoc(p);
+      }
+    });
+  }
+  if (els.timelineOpenBtn) {
+    els.timelineOpenBtn.addEventListener('click', openTimelinePanel);
+  }
+  if (els.closeTimeline) {
+    els.closeTimeline.addEventListener('click', closeTimelinePanel);
+  }
+  closeOnBackdropClick(els.timelineBackdrop, closeTimelinePanel);
+  if (els.savePlayerNotesBtn) {
+    els.savePlayerNotesBtn.addEventListener('click', () => {
+      setPlayerNotes(els.timelinePlayerNotes ? els.timelinePlayerNotes.value : '');
+      alert('Notas do jogador salvas neste navegador.');
+    });
+  }
+
   if (els.measureToggle) {
     els.measureToggle.addEventListener('click', () => {
       state.measure.on = !state.measure.on;
@@ -590,6 +801,14 @@ function bindUI() {
         if (typeof resetMeasure === 'function') resetMeasure();
       }
     });
+  }
+
+  if (els.debugToggle) {
+    els.debugToggle.addEventListener('change', () => {
+      state.debug = !!els.debugToggle.checked;
+      persistState();
+    });
+    els.debugToggle.checked = !!state.debug;
   }
 
   if (els.climateToggle) {
@@ -614,6 +833,27 @@ function bindUI() {
   }
   if (els.presentExitBtn) {
     els.presentExitBtn.addEventListener('click', togglePresentationMode);
+  }
+
+  // --- Calendar / GM time controls ---
+  if (els.advanceDayBtn) {
+    els.advanceDayBtn.addEventListener('click', () => {
+      if (!state.gm.unlocked) return;
+      if (typeof advanceDay === 'function') advanceDay();
+    });
+  }
+  if (els.dateLockToggle) {
+    els.dateLockToggle.addEventListener('change', () => {
+      state.dateLock = !!els.dateLockToggle.checked;
+      persistState();
+      if (typeof updateTimeUI === 'function') updateTimeUI();
+    });
+  }
+  if (els.applyDateBtn) {
+    els.applyDateBtn.addEventListener('click', () => {
+      if (!state.gm.unlocked || state.dateLock) return;
+      if (typeof applyDateFromInputs === 'function') applyDateFromInputs();
+    });
   }
 
   // --- Economy Modal ---
@@ -656,33 +896,11 @@ function bindUI() {
   // --- Route Filters Modal ---
   if (els.routeFiltersBtn) {
     els.routeFiltersBtn.addEventListener('click', () => {
-      if (els.routeFiltersBackdrop) {
-        els.routeFiltersBackdrop.classList.remove('hidden');
-        populateRouteRaceFilters();
-  // Bind route-type checkboxes (Tipo de Conexão)
-  const routeTypeBox = document.querySelector('#routeFiltersBackdrop #routeTypeFilters');
-  if (routeTypeBox && !routeTypeBox.dataset.bound) {
-    routeTypeBox.dataset.bound = '1';
-    routeTypeBox.querySelectorAll('input[type="checkbox"]').forEach(chk => {
-      chk.addEventListener('change', () => {
-        if (!state.routeFilter) state.routeFilter = {};
-        const val = chk.value;
-        const current = new Set(state.routeFilter.connectionTypes || []);
-        if (chk.checked) current.add(val); else current.delete(val);
-        state.routeFilter.connectionTypes = Array.from(current);
-        state.routeFilter.enabled = true;
-        persistState();
-        if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
-      });
-    });
-    // Init state from initial checked boxes (se ainda não houver)
-    if (!Array.isArray(state.routeFilter.connectionTypes) || state.routeFilter.connectionTypes.length === 0) {
-      const init = Array.from(routeTypeBox.querySelectorAll('input[type="checkbox"]'))
-        .filter(x => x.checked).map(x => x.value);
-      state.routeFilter.connectionTypes = init;
-    }
-  }
-      }
+      normalizeRouteFilter();
+      if (els.routeFiltersBackdrop) els.routeFiltersBackdrop.classList.remove('hidden');
+      populateRouteConnectionControls();
+      populateRouteViewControls();
+      populateRouteRaceFilters();
     });
   }
   if (els.closeRouteFilters) {
@@ -694,45 +912,11 @@ function bindUI() {
     if (els.routeFiltersBackdrop) els.routeFiltersBackdrop.classList.add('hidden');
   });
 
-  // Botão "Aplicar" (Filtros de Rotas)
-  if (els.routesApplyBtn) {
-    els.routesApplyBtn.addEventListener('click', () => {
-      if (!state.routeFilter) state.routeFilter = {};
-      state.routeFilter.enabled = true;
-
-      // Tipos de rota (trade_*). Se vazio, assume todos.
-      if (!Array.isArray(state.routeFilter.types) || state.routeFilter.types.length === 0) {
-        state.routeFilter.types = ['trade_internal', 'trade_official', 'trade_shadow'];
-      }
-
-      // Tipo de Conexão (seleção isolada via radio)
-      const c = document.querySelector('#routeFiltersBackdrop #routeTypeFilters');
-      let connVal = 'all';
-      if (c) {
-        const sel = c.querySelector('input[name="routeConnType"]:checked');
-        if (sel && sel.value) connVal = sel.value;
-      }
-      // connVal === 'all' => sem restrição
-      state.routeFilter.connectionTypes = (connVal === 'all') ? [] : [connVal];
-
-      // Raças participantes (compatibilidade: participants + races)
-      const races = [];
-      if (els.routeRaceFilters) {
-        els.routeRaceFilters.querySelectorAll('input[type="checkbox"]').forEach(chk => { if (chk.checked) races.push(chk.value); });
-      }
-      state.routeFilter.participants = races;
-      state.routeFilter.races = races;
-
-      persistState();
-      if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
-    });
-  }
-
-  // Helper para seleção de tipo de conexão (modal) - radios
+  // Tipo de conexão: radio simples para manter o painel fácil de usar.
   if (els.routeTypeFilters) {
     els.routeTypeFilters.querySelectorAll('input[name="routeConnType"]').forEach(r => {
       r.addEventListener('change', () => {
-        if (!state.routeFilter) state.routeFilter = {};
+        normalizeRouteFilter();
         const v = r.value || 'all';
         state.routeFilter.connectionTypes = (v === 'all') ? [] : [v];
         state.routeFilter.enabled = true;
@@ -742,7 +926,98 @@ function bindUI() {
     });
   }
 
-// Botões All/None para raças (Rotas)
+  // Modo restrito x visão universal por raça.
+  const bindRouteViewMode = (el, mode) => {
+    if (!el) return;
+    el.addEventListener('change', () => {
+      if (!el.checked) return;
+      normalizeRouteFilter();
+      state.routeFilter.viewMode = mode;
+      state.routeFilter.enabled = true;
+      persistState();
+      populateRouteViewControls();
+      populateRouteRaceFilters();
+      if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
+    });
+  };
+  bindRouteViewMode(els.routeViewStrict, 'strict');
+  bindRouteViewMode(els.routeViewUniversal, 'universal');
+
+  if (els.routeExternalOnly) {
+    els.routeExternalOnly.addEventListener('change', () => {
+      normalizeRouteFilter();
+      state.routeFilter.externalOnly = !!els.routeExternalOnly.checked;
+      if (state.routeFilter.externalOnly) {
+        state.routeFilter.viewMode = 'universal';
+        if (state.routeFilter.focusRace && Array.isArray(state.routeFilter.races) && !state.routeFilter.races.includes(state.routeFilter.focusRace)) {
+          state.routeFilter.races.push(state.routeFilter.focusRace);
+          state.routeFilter.participants = [...state.routeFilter.races];
+        }
+      }
+      state.routeFilter.enabled = true;
+      if (state.ui) state.ui.routeLegendClosed = false;
+      persistState();
+      populateRouteViewControls();
+      populateRouteRaceFilters();
+      if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
+    });
+  }
+
+  if (els.routeFocusRaceSelect) {
+    els.routeFocusRaceSelect.addEventListener('change', () => {
+      normalizeRouteFilter();
+      state.routeFilter.focusRace = els.routeFocusRaceSelect.value || state.routeFilter.focusRace;
+      if (state.routeFilter.focusRace && Array.isArray(state.routeFilter.races) && !state.routeFilter.races.includes(state.routeFilter.focusRace)) {
+        state.routeFilter.races.push(state.routeFilter.focusRace);
+        state.routeFilter.participants = [...state.routeFilter.races];
+      }
+      state.routeFilter.viewMode = 'universal';
+      state.routeFilter.enabled = true;
+      if (state.ui) state.ui.routeLegendClosed = false;
+      persistState();
+      populateRouteViewControls();
+      populateRouteRaceFilters();
+      if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
+    });
+  }
+
+  // Botão "Aplicar" (Filtros de Rotas)
+  if (els.routesApplyBtn) {
+    els.routesApplyBtn.addEventListener('click', () => {
+      normalizeRouteFilter();
+      state.routeFilter.enabled = true;
+
+      const c = document.querySelector('#routeFiltersBackdrop #routeTypeFilters');
+      let connVal = 'main-main';
+      if (c) {
+        const sel = c.querySelector('input[name="routeConnType"]:checked');
+        if (sel && sel.value) connVal = sel.value;
+      }
+      state.routeFilter.connectionTypes = (connVal === 'all') ? [] : [connVal];
+
+      const races = [];
+      if (els.routeRaceFilters) {
+        els.routeRaceFilters.querySelectorAll('input[type="checkbox"]').forEach(chk => { if (chk.checked) races.push(chk.value); });
+      }
+      state.routeFilter.races = races;
+      state.routeFilter.participants = [...races];
+
+      state.routeFilter.viewMode = (els.routeViewUniversal && els.routeViewUniversal.checked) ? 'universal' : 'strict';
+      if (els.routeFocusRaceSelect && els.routeFocusRaceSelect.value) state.routeFilter.focusRace = els.routeFocusRaceSelect.value;
+      state.routeFilter.externalOnly = !!(els.routeExternalOnly && els.routeExternalOnly.checked);
+      if (state.routeFilter.externalOnly && state.routeFilter.focusRace && !state.routeFilter.races.includes(state.routeFilter.focusRace)) {
+        state.routeFilter.races.push(state.routeFilter.focusRace);
+        state.routeFilter.participants = [...state.routeFilter.races];
+      }
+      if (state.ui) state.ui.routeLegendClosed = false;
+
+      persistState();
+      if (typeof update === 'function') update(); else if (typeof renderRoutes === 'function') renderRoutes();
+      if (els.routeFiltersBackdrop) els.routeFiltersBackdrop.classList.add('hidden');
+    });
+  }
+
+  // Botões All/None para raças (Rotas)
   if (els.routeFilterAllBtn) {
     els.routeFilterAllBtn.addEventListener('click', () => toggleAllRouteRaces(true));
   }
@@ -770,6 +1045,7 @@ function bindUI() {
   if (els.mapStage) {
     els.mapStage.addEventListener('mousedown', e => {
       if (e.button !== 0 && !e.shiftKey) return; // apenas left click ou shift
+      if (state.measure && state.measure.on) return; // régua usa cliques, não arrasto
       if (e.shiftKey) e.preventDefault(); // evita select text
       panDrag.active = true;
       panDrag.startX = e.clientX;
@@ -784,6 +1060,7 @@ function bindUI() {
       const dy = e.clientY - panDrag.startY;
       state.view.panX = panDrag.basePanX + dx;
       state.view.panY = panDrag.basePanY + dy;
+      panDrag.lastMoveTs = Date.now();
       applyZoom();
     });
     window.addEventListener('mouseup', () => {
@@ -801,6 +1078,40 @@ function bindUI() {
       // Garante zoomAboutPoint disponivel
       if (typeof zoomAboutPoint === 'function') zoomAboutPoint(state.view.scale * factor, ox, oy);
     }, { passive: false });
+
+    els.mapStage.addEventListener('click', e => {
+      if (panDrag.active || (Date.now() - (panDrag.lastMoveTs || 0)) < 180) return;
+      if (e.target && e.target.closest && e.target.closest('.pin,.route-line,.route-legend,.route-info,.measure-box')) return;
+      if (typeof getPercentFromEvent !== 'function') return;
+      const [x, y] = getPercentFromEvent(e);
+
+      if (state.gm && state.gm.unlocked && state.gm.captureMode) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof captureGmCoordinates === 'function') captureGmCoordinates(x, y);
+        return;
+      }
+
+      if (state.measure && state.measure.on) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!state.measure.a || (state.measure.a && state.measure.b)) {
+          state.measure.a = [x, y];
+          state.measure.b = null;
+        } else {
+          state.measure.b = [x, y];
+        }
+        if (typeof drawMeasure === 'function') drawMeasure();
+        if (typeof updateMeasureInfo === 'function') updateMeasureInfo();
+        return;
+      }
+
+      if (state.debug) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof openDebug === 'function') openDebug(x, y);
+      }
+    });
   }
 
   // --- Mobile / Advanced ---
@@ -842,6 +1153,65 @@ function bindUI() {
   }
 
 
+  // --- Advanced Tags / Story Mode ---
+  if (els.tagModeSelect) {
+    els.tagModeSelect.addEventListener('change', () => {
+      if (!state.tagFilter) state.tagFilter = { enabled: false, mode: 'OR', selected: [] };
+      state.tagFilter.mode = String(els.tagModeSelect.value || 'OR').toUpperCase();
+      state.tagFilter.enabled = Array.isArray(state.tagFilter.selected) && state.tagFilter.selected.length > 0;
+      persistState();
+      if (typeof rebuildAdvancedPanel === 'function') rebuildAdvancedPanel();
+      if (typeof update === 'function') update();
+    });
+  }
+  if (els.tagSearchInput) {
+    els.tagSearchInput.addEventListener('input', () => {
+      if (typeof rebuildAdvancedPanel === 'function') rebuildAdvancedPanel();
+    });
+  }
+  if (els.clearTagsBtn) {
+    els.clearTagsBtn.addEventListener('click', () => {
+      state.tagFilter = { enabled: false, mode: (els.tagModeSelect && els.tagModeSelect.value) ? String(els.tagModeSelect.value).toUpperCase() : 'OR', selected: [] };
+      if (els.tagSearchInput) els.tagSearchInput.value = '';
+      persistState();
+      if (typeof rebuildAdvancedPanel === 'function') rebuildAdvancedPanel();
+      if (typeof update === 'function') update();
+    });
+  }
+
+  if (els.storyStartBtn) {
+    els.storyStartBtn.addEventListener('click', () => {
+      const storyId = (els.storySelect && els.storySelect.value) ? els.storySelect.value : '';
+      if (!storyId) { alert('Selecione uma história primeiro.'); return; }
+      if (typeof startStory === 'function') startStory(storyId);
+      else alert('Story Mode indisponível.');
+    });
+  }
+  if (els.storyStopBtn) {
+    els.storyStopBtn.addEventListener('click', () => {
+      if (typeof stopStory === 'function') stopStory();
+    });
+  }
+  if (els.storyPrevBtn) {
+    els.storyPrevBtn.addEventListener('click', () => {
+      if (typeof storyPrev === 'function') storyPrev();
+    });
+  }
+  if (els.storyNextBtn) {
+    els.storyNextBtn.addEventListener('click', () => {
+      if (typeof storyNext === 'function') storyNext();
+    });
+  }
+  if (els.storySelect) {
+    els.storySelect.addEventListener('change', () => {
+      const storyId = els.storySelect.value || null;
+      state.story = { active: false, storyId, chapter: 0, data: null };
+      persistState();
+      if (typeof rebuildAdvancedPanel === 'function') rebuildAdvancedPanel();
+    });
+  }
+
+
 // --- GM Mode ---
 if (els.gmLoginBtn) {
   els.gmLoginBtn.addEventListener('click', () => {
@@ -864,6 +1234,7 @@ if (els.gmLogoutBtn) {
     persistState();
     applyGmUiState();
     try { if (typeof closeGmEditor === 'function') closeGmEditor(); } catch (_) {}
+    try { if (typeof closeWorldVisionPanel === 'function') closeWorldVisionPanel(); } catch (_) {}
     if (typeof update === 'function') update(); else if (typeof renderPins === 'function') renderPins();
   });
 }
@@ -872,6 +1243,13 @@ if (els.gmEditorBtn) {
     if (!state.gm.unlocked) return;
     if (typeof openGmEditor === 'function') openGmEditor();
     else alert('Editor GM indisponível (gm.js não carregou).');
+  });
+}
+
+if (els.gmPanelBtn) {
+  els.gmPanelBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) { alert('Ative o Modo GM antes de abrir o Painel GM.'); return; }
+    try { window.open('gm.html', 'eldralore_gm_panel'); } catch (_) { window.location.href = 'gm.html'; }
   });
 }
 if (els.importantNpcToggle) {
@@ -912,8 +1290,82 @@ if (els.gmCaptureBtn) {
   els.gmCaptureBtn.addEventListener('click', () => {
     if (!state.gm.unlocked) return;
     state.gm.captureMode = !state.gm.captureMode;
+    if (state.gm.captureMode) {
+      if (typeof setGmEditorMinimized === 'function') setGmEditorMinimized(true);
+      const hint = document.getElementById('gmCreateHint');
+      if (hint) hint.textContent = 'Captura ativa: clique no mapa para preencher X/Y automaticamente.';
+    }
     persistState();
     if (typeof updateGmCaptureUI === 'function') updateGmCaptureUI();
+  });
+}
+
+// --- GM Editor action buttons ---
+if (els.gmSelectPinBtn) {
+  els.gmSelectPinBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof setGmEditorMinimized === 'function') setGmEditorMinimized(true);
+    if (els.gmSelectedPin) els.gmSelectedPin.textContent = 'Editor minimizado: clique em um pin no mapa para selecionar.';
+  });
+}
+if (els.gmCreatePinBtn) {
+  els.gmCreatePinBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmCreatePin === 'function') gmCreatePin();
+  });
+}
+if (els.gmPromoteBtn) {
+  els.gmPromoteBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmApplyZoneConversion === 'function') gmApplyZoneConversion('promote');
+  });
+}
+if (els.gmDemoteBtn) {
+  els.gmDemoteBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmApplyZoneConversion === 'function') gmApplyZoneConversion('demote');
+  });
+}
+if (els.gmExportBtn) {
+  els.gmExportBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmExportData === 'function') gmExportData();
+  });
+}
+if (els.gmMakeCityMainBtn) {
+  els.gmMakeCityMainBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmSetSelectedPinType === 'function') gmSetSelectedPinType('city_main');
+  });
+}
+if (els.gmMakeSettlementBtn) {
+  els.gmMakeSettlementBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmSetSelectedPinType === 'function') gmSetSelectedPinType('settlement');
+  });
+}
+if (els.gmApplyCityConfigBtn) {
+  els.gmApplyCityConfigBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmApplyCityConfig === 'function') gmApplyCityConfig();
+  });
+}
+if (els.gmApplyClimateBtn) {
+  els.gmApplyClimateBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmApplyClimateOverride === 'function') gmApplyClimateOverride();
+  });
+}
+if (els.gmClearClimateBtn) {
+  els.gmClearClimateBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmClearClimateOverride === 'function') gmClearClimateOverride();
+  });
+}
+if (els.gmClearAllClimateBtn) {
+  els.gmClearAllClimateBtn.addEventListener('click', () => {
+    if (!state.gm.unlocked) return;
+    if (typeof gmClearAllClimateOverrides === 'function') gmClearAllClimateOverrides();
   });
 }
 }
@@ -923,9 +1375,11 @@ function applyGmUiState() {
   const on = !!state.gm?.unlocked;
   if (els.gmLogoutBtn) els.gmLogoutBtn.disabled = !on;
   if (els.gmEditorBtn) els.gmEditorBtn.disabled = !on;
+  if (els.gmWorldVisionBtn) els.gmWorldVisionBtn.disabled = !on;
+  if (els.gmPanelBtn) els.gmPanelBtn.disabled = !on;
   if (els.importantNpcToggle) els.importantNpcToggle.disabled = !on;
   if (els.expandAllInfoToggle) els.expandAllInfoToggle.disabled = !on;
-  if (els.gmHint) els.gmHint.textContent = on ? 'GM ativo' : 'GM bloqueado';
+  if (els.gmHint) els.gmHint.textContent = on ? 'GM ativo — abra o Painel GM' : 'Modo GM bloqueado.';
   // refletir toggles
   if (els.importantNpcToggle) els.importantNpcToggle.checked = !!state.gm?.showImportantNpcs;
   if (els.expandAllInfoToggle) els.expandAllInfoToggle.checked = !!state.gm?.showAllInfo;

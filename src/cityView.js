@@ -15,8 +15,35 @@ function placeTypeLabel(t){
     archive: 'Arquivo',
     district: 'Distrito',
     street: 'Avenida/Rua',
+    guild: 'Guilda',
+    guild_hq: 'Guilda',
   };
   return map[t] || t;
+}
+
+
+function isTradePlace(place){
+  const t = place && place.type;
+  return ['blacksmith','tailor','alchemy','general','curiosities','tavern','inn'].includes(t) || !!(place && (place.owner || place.rng_merchants || (Array.isArray(place.merchants) && place.merchants.length)));
+}
+
+function cityReputationTarget(city){
+  if (!city) return null;
+  if (typeof pinForCityId === 'function') return pinForCityId(city.id) || city;
+  return city;
+}
+
+function tradeBlockedForCity(city){
+  if (typeof getGroupReputation !== 'function') return false;
+  return !!getGroupReputation(cityReputationTarget(city)).tradeBlocked;
+}
+
+function tradeRestrictionHtml(city){
+  if (typeof getGroupReputation !== 'function') return '';
+  const rep = getGroupReputation(cityReputationTarget(city));
+  if (rep.tradeBlocked) return `<div class="trade-alert blocked"><b>Negociação bloqueada:</b> reputação do grupo marcada como ${escapeHtml(rep.label)}. O grupo ainda pode circular pelo local, mas lojas recusam atendimento aberto.</div>`;
+  if (rep.tradeRestricted) return `<div class="trade-alert warn"><b>Negociação restrita:</b> reputação ${escapeHtml(rep.label)}. Comerciantes cobram mais caro e observam o grupo com cautela.</div>`;
+  return '';
 }
 
 function generateNpcName(seedStr, culture){
@@ -29,6 +56,14 @@ function generateNpcName(seedStr, culture){
     vampires: ['Noctis','Selene','Vesper','Lilith','Vladin','Morana','Sorin','Nyx'],
     orcs: ['Kragnar','Urzok','Gorim','Sharka','Morg','Rakka','Thok','Varg'],
     undead: ['Mordacai','Nythra','Tenebris','Mortella','Sablebone','Grimwell','Ebon','Carrion'],
+    giants: ['Thorgar','Valmor','Khael','Rurik','Branna','Jorund','Hroth','Grenda'],
+    gnomes: ['Fizzlebop','Tinkerbellina','Quiggle','Rustle','Wizzle','Glimwick','Nimble','Spark'],
+    nagas: ['Xilara','Zhyss','Nyssara','Vaelthis','Syriss','Korrash'],
+    centaurs: ['Dhoran','Kaelor','Windar','Thundra','Galeon','Serya'],
+    dragons: ['Varkhaz','Ashyr','Drakos','Emberion','Sablex','Thyrax'],
+    demons: ['Malphas','Azrakar','Velkhor','Seara','Drazhul','Khorvex'],
+    fae: ['Lumina','Thistle','Auris','Faylen','Glimmer','Sylpha'],
+    angels: ['Seraphiel','Aureon','Lumiel','Celestine','Haliel','Solaen'],
     default: ['Aren','Vale','Kira','Orin','Seth','Lina','Bran','Yara']
   };
   const last = {
@@ -38,6 +73,14 @@ function generateNpcName(seedStr, culture){
     vampires: ['Nocturna','Sanguefrio','Véu-Negro','Sombraluz','Dente-de-Ébano'],
     orcs: ['Punho-Bruto','Dente-Cortante','Garra-Seca','Sangue-Quente','Lâmina-Quebrada'],
     undead: ['o Eterno','da Cripta','da Névoa','das Ruínas','do Túmulo'],
+    giants: ['Pilar-Antigo','Trovão-Alto','Primeiro-Passo','Rocha-Funda','Martelo-de-Pedra'],
+    gnomes: ['Whizbang','Gearspike','Nutcrank','Sprocket','Twigglesprocket','Sparktouch'],
+    nagas: ['das Correntes','Maré-Negra','Pérola-Abissal','de Naryss','do Coral Profundo'],
+    centaurs: ['Chifres-Guias','Casco-de-Trovão','Crina-Aurora','Vento-Livre'],
+    dragons: ['Escama-Rubra','Asa-Tempestade','Chama-Antiga','Obsidiana'],
+    demons: ['Corrente-Negra','Pacto-Sangrento','Brasa-Profana','Chifre-de-Ferro'],
+    fae: ['Brilho-de-Lírio','Dança-Estelar','Espinho-Doce','Auris'],
+    angels: ['Luz-Eterna','do Sétimo Halo','Solara','Amanhecer'],
     default: ['do Vale','da Torre','do Rio','da Forja','da Estrada']
   };
   const c = first[culture] ? culture : 'default';
@@ -127,12 +170,14 @@ function openCity(cityId){
   state.ui.selectedMerchantId = null;
 
   els.cityTitle.textContent = city.name;
+  const cityKindLabel = city.kind === 'fortress' ? 'Fortaleza' : (city.kind === 'settlement' ? 'Assentamento' : (city.kind === 'temple' ? 'Templo' : (city.kind === 'guild' ? 'Guilda' : 'Cidade')));
   const cityPin = state.pins.find(p => p.cityId === cityId) || null;
   const cityClimate = cityPin ? climateTextForPoint(cityPin.layer, cityPin.x, cityPin.y, cityPin.territory || null) : '';
   const season = seasonFromMonth(state.worldTime.month);
-  els.cityMeta.textContent = `${city.tagline || ''} • Dia ${state.worldTime.day}, Mês ${state.worldTime.month}, Ano ${state.worldTime.year} • ${season}`.replace(/^\s*•\s*/,'');
+  els.cityMeta.textContent = `${cityKindLabel} • ${city.tagline || ''} • Dia ${state.worldTime.day}, Mês ${state.worldTime.month}, Ano ${state.worldTime.year} • ${season}`.replace(/^\s*•\s*/,'');
   renderCityHero(city);
 
+  const cityIntelHtml = (typeof renderAtlasIntelligenceForLoc === 'function') ? renderAtlasIntelligenceForLoc(city) : '';
   const imp = cityImportantNpcs(city);
   const impHtml = imp.length ? `
     <div class="imp-section">
@@ -148,6 +193,7 @@ function openCity(cityId){
   els.cityDesc.innerHTML = `
     <div class="city-desc-text">${escapeHtml(city.description || '')}</div>
     ${cityClimate ? `<div class="climate"><b>Clima</b>: ${escapeHtml(cityClimate)}</div>` : ''}
+    ${cityIntelHtml}
     ${impHtml}
     ${city.mapImage ? `<div class="city-map-actions"><button type="button" class="btn" id="btnCityMap">Ver planta da cidade</button></div>` : ""}
   `;
@@ -208,40 +254,62 @@ function renderPlacePanel(city, place){
     : '';
 
   // Comerciantes:
-  // - Se place.merchants existir, usa a lista.
-  // - Caso contrário, se existir rng_merchants, gera uma lista determinística (1..10) por dia/calendário.
+  // - place.owner permanece fixo como dono/responsável do local.
+  // - rng_merchants gera vendedores rotativos por calendário; o ciclo pode durar 1..4 dias (cidades) ou 5..7 dias (assentamentos/fortalezas).
   let baseMerchants = Array.isArray(place.merchants) ? place.merchants : [];
-  if(!baseMerchants.length && place.rng_merchants && typeof place.rng_merchants.min === 'number' && typeof place.rng_merchants.max === 'number'){
-    const dayKey = `${state.worldTime.year}-${state.worldTime.month}-${state.worldTime.day}`;
-    const seed = hashStringToUint32(`rng_merchants|${city.id||city.name}|${place.id}|${dayKey}`);
+  const ownerMerchant = place.owner && place.owner.fixedName ? { ...place.owner, id: place.owner.id || 'owner', type: place.owner.type || place.type || 'general', isOwner: true } : null;
+
+  if(place.rng_merchants && typeof place.rng_merchants.min === 'number' && typeof place.rng_merchants.max === 'number'){
+    const wt = state.worldTime || { day:1, month:1, year:1 };
+    const serialDay = ((Number(wt.year)||1) * 360) + (((Number(wt.month)||1) - 1) * 30) + ((Number(wt.day)||1) - 1);
+    const rmin = Math.max(1, Math.floor(place.rng_merchants.rotationDaysMin || 1));
+    const rmax = Math.max(rmin, Math.floor(place.rng_merchants.rotationDaysMax || rmin));
+    const rotSeed = hashStringToUint32(`rotation_days|${city.id||city.name}|${place.id}`);
+    const rotDays = rmin + (rotSeed % (rmax - rmin + 1));
+    const bucket = Math.floor(serialDay / rotDays);
+    const seed = hashStringToUint32(`rng_merchants|${city.id||city.name}|${place.id}|${bucket}`);
     const rng = mulberry32(seed);
     const min = Math.max(0, Math.floor(place.rng_merchants.min));
     const max = Math.max(min, Math.floor(place.rng_merchants.max));
-    const count = min + Math.floor(rng() * (max - min + 1));
-    baseMerchants = Array.from({length: count}, (_, i) => ({
-      id: `m${i+1}`,
-      type: place.type || 'general'
+    const total = min + Math.floor(rng() * (max - min + 1));
+    const ownerCount = ownerMerchant ? 1 : 0;
+    const rotatingCount = Math.max(0, total - ownerCount);
+    const rotating = Array.from({length: rotatingCount}, (_, i) => ({
+      id: `rot_${bucket}_${i+1}`,
+      type: place.type || 'general',
+      rotationDays: rotDays
     }));
+    baseMerchants = ownerMerchant ? [ownerMerchant, ...rotating] : rotating;
+  } else if(ownerMerchant && !baseMerchants.length) {
+    baseMerchants = [ownerMerchant];
+  } else if(ownerMerchant && baseMerchants.length && !baseMerchants.some(m => m.id === ownerMerchant.id)) {
+    baseMerchants = [ownerMerchant, ...baseMerchants];
   }
 
   const merchants = baseMerchants.map(m => {
     const name = m.fixedName || generateNpcName(`${city.name}|${place.id}|${m.id}`, culture);
-    return { ...m, displayName: name };
+    return { ...m, displayName: name, displayRole: m.role || (m.isOwner ? 'dono do local' : 'vendedor rotativo'), phrase: m.phrase || '' };
   });
 
-  const merchantHtml = merchants.length ? `
+  const tradeBlocked = isTradePlace(place) && tradeBlockedForCity(city);
+  const tradeMsg = tradeRestrictionHtml(city);
+  const merchantHtml = tradeBlocked ? `
+    ${tradeMsg}
+    <div class="hint">As lojas e negociações deste local estão bloqueadas pela reputação atual do grupo. O GM pode alterar isso no Painel GM → Reputação do Grupo.</div>
+  ` : (merchants.length ? `
+    ${tradeMsg}
     <div class="merchant-list">
       ${merchants.map(m => `
         <div class="merchant" data-merchant="${escapeHtml(m.id)}">
           <div>
             <div class="m-name">${escapeHtml(m.displayName)}</div>
-            <div class="m-type">${escapeHtml(placeTypeLabel(m.type || place.type))}</div>
+            <div class="m-type">${escapeHtml(placeTypeLabel(m.type || place.type))}${m.isOwner ? ' • dono fixo' : ''}</div>
           </div>
           <div class="badge">Abrir</div>
         </div>
       `).join('')}
     </div>
-  ` : `<div class="hint">Não há comerciantes neste local.</div>`;
+  ` : `<div class="hint">Não há comerciantes neste local.</div>`);
 
   const placeImgs = Array.isArray(place.images) ? place.images.filter(Boolean) : [];
   const placeGallery = placeImgs.length ? `
@@ -264,6 +332,10 @@ function renderPlacePanel(city, place){
   const nodes = els.placePanel.querySelectorAll('[data-merchant]');
   for(const node of nodes){
     node.addEventListener('click', () => {
+      if (isTradePlace(place) && tradeBlockedForCity(city)) {
+        els.merchantPanel.innerHTML = tradeRestrictionHtml(city) || '<div class="hint">Negociação bloqueada pela reputação atual do grupo.</div>';
+        return;
+      }
       const merchantId = node.getAttribute('data-merchant');
       const merchant = merchants.find(x => x.id === merchantId);
       if(!merchant) return;
@@ -274,16 +346,27 @@ function renderPlacePanel(city, place){
 }
 
 function renderMerchantPanel(city, place, merchant){
+  if (isTradePlace(place) && tradeBlockedForCity(city)) {
+    els.merchantPanel.innerHTML = tradeRestrictionHtml(city) || '<div class="hint">Negociação bloqueada pela reputação atual do grupo.</div>';
+    return;
+  }
   const inv = generateInventory({
     cityId: state.ui.cityOpenId,
     placeId: place.id,
     merchantId: merchant.id,
     merchantType: merchant.type || place.type || 'general',
   });
+  const repPrice = (typeof reputationPriceInfo === 'function') ? reputationPriceInfo(cityReputationTarget(city)) : null;
+  const priceLine = repPrice ? `<div style="margin-top:6px;color:rgba(255,255,255,.75)"><b>Reputação comercial:</b> ${escapeHtml(repPrice.label)} — ${escapeHtml(repPrice.text)}.</div>` : '';
 
+  const merchantRole = merchant.displayRole ? `<div style="margin-top:4px;color:rgba(255,255,255,.78)"><b>Função</b>: ${escapeHtml(merchant.displayRole)}</div>` : '';
+  const merchantPhrase = merchant.phrase ? `<div style="margin-top:4px;color:rgba(255,255,255,.72);font-style:italic;">${escapeHtml(merchant.phrase)}</div>` : '';
   els.merchantPanel.innerHTML = `
-    <div><b>Mercador</b>: ${escapeHtml(merchant.displayName)} <span class="badge">${escapeHtml(placeTypeLabel(merchant.type || place.type || 'general'))}</span></div>
+    <div><b>Mercador</b>: ${escapeHtml(merchant.displayName)} <span class="badge">${escapeHtml(placeTypeLabel(merchant.type || place.type || 'general'))}</span>${merchant.isOwner ? ' <span class="badge">dono fixo</span>' : ''}</div>
+    ${merchantRole}
+    ${merchantPhrase}
     <div style="margin-top:6px;color:rgba(255,255,255,.75)">O estoque muda automaticamente com o calendário (Dia ${state.worldTime.day}, Mês ${state.worldTime.month}).</div>
+    ${priceLine}
     <table class="inv">
       <thead>
         <tr>
@@ -300,7 +383,7 @@ function renderMerchantPanel(city, place, merchant){
             <td>${escapeHtml(row.name)}</td>
             <td>${rarityBadge(row.rarity)}</td>
             <td>${escapeHtml(String(row.qty))}</td>
-            <td>${escapeHtml(String(row.price))}</td>
+            <td>${escapeHtml(String((typeof applyReputationToPrice === 'function') ? applyReputationToPrice(row.price, cityReputationTarget(city)) : row.price))}</td>
             <td>${row.qty > 0 ? `<button type="button" class="btn btn-xs buy" data-buy="${escapeHtml(row.rowId)}">Comprar</button>` : `<span class="muted">—</span>`}</td>
           </tr>
         `).join('')}

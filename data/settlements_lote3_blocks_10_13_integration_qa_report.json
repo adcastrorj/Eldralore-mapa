@@ -1,0 +1,31 @@
+{
+  "baseZip": "atlas_eldralore_patch_assentamentos_lote3_blocos2_9_integrados_QA(1).zip",
+  "outputZip": "atlas_eldralore_patch_assentamentos_lote3_blocos2_13_integrados_QA.zip",
+  "checkedAt": "2026-05-10T00:34:42",
+  "integratedImageCount": 35,
+  "integratedPinsCount": 18,
+  "blockCounts": {
+    "Bloco 10 — Feéricos III + Gigantes I": 10,
+    "Bloco 11 — Gigantes II": 10,
+    "Bloco 12 — Gnomos I": 10,
+    "Bloco 13 — Fechamento parcial": 5
+  },
+  "duplicateHashesAmongNewImages": {},
+  "duplicateHashesAllSettlementAssets": {},
+  "allNewDestFilesExist": true,
+  "allNewCityRefsExist": true,
+  "allNewPinRefsExist": true,
+  "settlementTotal": 112,
+  "settlementsComplete2Images": 112,
+  "settlementsIncomplete": [],
+  "assetSettlementFileCount": 224,
+  "blockedInvalidGeneratedSources": [
+    "a_wide_collage_montage_of_fantasy_concept_art_la.png",
+    "a_wide_high_detail_fantasy_steampunk_collage_like.png"
+  ],
+  "notes": [
+    "O Bloco 13 tinha apenas 5 slots reais pendentes; foram integradas somente essas 5 imagens.",
+    "As colagens/grids de Bloco 13 foram descartadas e não aparecem no mapeamento.",
+    "O slot pendente nagas_subaquatica_set_003_2.webp foi preenchido agora com imagem subaquática válida."
+  ]
+}

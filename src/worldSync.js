@@ -95,6 +95,30 @@ const WorldSync = (() => {
       state.worldState.climate.regions = wsObj.climate.regions;
     }
 
+    // aplica estados GM da Visão do Mundo
+    if(wsObj.economy && typeof wsObj.economy === 'object'){
+      state.economy = { modifiers: Array.isArray(wsObj.economy.modifiers) ? wsObj.economy.modifiers : [] };
+    }
+
+    if(wsObj.campaign && typeof wsObj.campaign === 'object'){
+      state.campaign = {
+        timeline: Array.isArray(wsObj.campaign.timeline) ? wsObj.campaign.timeline : [],
+        pinSecrets: wsObj.campaign.pinSecrets && typeof wsObj.campaign.pinSecrets === 'object' ? wsObj.campaign.pinSecrets : {},
+        hooks: wsObj.campaign.hooks && typeof wsObj.campaign.hooks === 'object' ? wsObj.campaign.hooks : {},
+        importantNpcs: Array.isArray(wsObj.campaign.importantNpcs) ? wsObj.campaign.importantNpcs : [],
+      };
+    }
+
+    if(wsObj.vision && wsObj.vision.pins && typeof wsObj.vision.pins === 'object'){
+      state.worldState.vision = { pins: wsObj.vision.pins };
+    }
+    if(wsObj.groupReputation && wsObj.groupReputation.pins && typeof wsObj.groupReputation.pins === 'object'){
+      state.worldState.groupReputation = { pins: wsObj.groupReputation.pins };
+    }
+    if(wsObj.rumors && wsObj.rumors.pins && typeof wsObj.rumors.pins === 'object'){
+      state.worldState.rumors = { pins: wsObj.rumors.pins };
+    }
+
     state.worldState.rev = rev || (state.worldState.rev + 1);
     state.worldState.updatedAt = Number(wsObj.updatedAt||Date.now());
 
@@ -190,6 +214,11 @@ const WorldSync = (() => {
       updatedAt: Date.now(),
       worldTime: state.worldTime,
       climate: state.worldState.climate || { regions:{} },
+      vision: state.worldState.vision || { pins:{} },
+      groupReputation: state.worldState.groupReputation || { pins:{} },
+      rumors: state.worldState.rumors || { pins:{} },
+      economy: state.economy || { modifiers: [] },
+      campaign: state.campaign || { timeline: [], pinSecrets: {}, hooks: {}, importantNpcs: [] },
       reason,
     };
 

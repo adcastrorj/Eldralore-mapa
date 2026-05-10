@@ -1,0 +1,352 @@
+[
+  {
+    "pin_id": "humans_world_set_001",
+    "pin_name": "Entreposto Riacho Dourado",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_001_1.webp",
+      "assets/settlements/humans/humans_world_set_001_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_033.webp",
+      "assentamento_lote1_034.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "humans_world_set_002",
+    "pin_name": "Vila Riacho Dourado",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_002_1.webp",
+      "assets/settlements/humans/humans_world_set_002_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_035.webp",
+      "assentamento_lote1_043.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "humans_world_set_003",
+    "pin_name": "Povoado Vale de Lark",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_003_1.webp",
+      "assets/settlements/humans/humans_world_set_003_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_037.webp",
+      "assentamento_lote1_044.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "humans_world_set_004",
+    "pin_name": "Burgo Marca Fria",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_004_1.webp",
+      "assets/settlements/humans/humans_world_set_004_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_045.webp",
+      "assentamento_lote1_050.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "humans_world_set_005",
+    "pin_name": "Vilarejo Solar do Trigo",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_005_1.webp",
+      "assets/settlements/humans/humans_world_set_005_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_031.webp",
+      "assentamento_lote1_046.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "humans_world_set_006",
+    "pin_name": "Aldeia Agrícola Solar do Trigo",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_006_1.webp",
+      "assets/settlements/humans/humans_world_set_006_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_038.webp",
+      "assentamento_lote1_042.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "humans_world_set_007",
+    "pin_name": "Povoado Ponte Negra",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_007_1.webp",
+      "assets/settlements/humans/humans_world_set_007_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_047.webp",
+      "assentamento_lote1_048.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "humans_world_set_008",
+    "pin_name": "Vilarejo Ponte Negra",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_008_1.webp",
+      "assets/settlements/humans/humans_world_set_008_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_036.webp",
+      "assentamento_lote1_041.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "humans_world_set_009",
+    "pin_name": "Aldeia Agrícola Ponte Negra",
+    "group": "humans",
+    "target_images": [
+      "assets/settlements/humans/humans_world_set_009_1.webp",
+      "assets/settlements/humans/humans_world_set_009_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_032.webp",
+      "assentamento_lote1_049.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_001",
+    "pin_name": "Jardim Habitado Névoa de Eryvess",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_001_1.webp",
+      "assets/settlements/elves/elves_world_set_001_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_022.webp",
+      "assentamento_lote1_039.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_002",
+    "pin_name": "Clareira Vaelgrove",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_002_1.webp",
+      "assets/settlements/elves/elves_world_set_002_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_021.webp",
+      "assentamento_lote1_014.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_003",
+    "pin_name": "Vila-Arvoredo Névoa de Eryvess",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_003_1.webp",
+      "assets/settlements/elves/elves_world_set_003_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_025.webp",
+      "assentamento_lote1_027.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_004",
+    "pin_name": "Retiro Thalthir",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_004_1.webp",
+      "assets/settlements/elves/elves_world_set_004_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_023.webp",
+      "assentamento_lote1_030.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_005",
+    "pin_name": "Santuário Povoado Thalthir",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_005_1.webp",
+      "assets/settlements/elves/elves_world_set_005_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_015.webp",
+      "assentamento_lote1_040.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_006",
+    "pin_name": "Retiro Névoa de Eryvess",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_006_1.webp",
+      "assets/settlements/elves/elves_world_set_006_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_028.webp",
+      "assentamento_lote1_029.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_007",
+    "pin_name": "Vila-Arvoredo Thalthir",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_007_1.webp",
+      "assets/settlements/elves/elves_world_set_007_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_011.webp",
+      "assentamento_lote1_012.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_008",
+    "pin_name": "Retiro Vaelgrove",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_008_1.webp",
+      "assets/settlements/elves/elves_world_set_008_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_013.webp",
+      "assentamento_lote1_026.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "elves_world_set_009",
+    "pin_name": "Santuário Povoado Elyrion",
+    "group": "elves",
+    "target_images": [
+      "assets/settlements/elves/elves_world_set_009_1.webp",
+      "assets/settlements/elves/elves_world_set_009_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_016.webp",
+      "assentamento_lote1_024.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "dwarves_world_set_001",
+    "pin_name": "Posto Mineiro Borin-Ridge",
+    "group": "dwarves",
+    "target_images": [
+      "assets/settlements/dwarves/dwarves_world_set_001_1.webp",
+      "assets/settlements/dwarves/dwarves_world_set_001_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_017.webp",
+      "assentamento_lote1_018.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "dwarves_world_set_002",
+    "pin_name": "Burgo Subterrâneo Khaz-Profundo",
+    "group": "dwarves",
+    "target_images": [
+      "assets/settlements/dwarves/dwarves_world_set_002_1.webp",
+      "assets/settlements/dwarves/dwarves_world_set_002_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_019.webp",
+      "assentamento_lote1_020.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "dwarves_world_set_003",
+    "pin_name": "Burgo Subterrâneo Salão de Pedra",
+    "group": "dwarves",
+    "target_images": [
+      "assets/settlements/dwarves/dwarves_world_set_003_1.webp",
+      "assets/settlements/dwarves/dwarves_world_set_003_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_002.webp",
+      "assentamento_lote1_008.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "dwarves_world_set_004",
+    "pin_name": "Burgo Subterrâneo Dûr Negro",
+    "group": "dwarves",
+    "target_images": [
+      "assets/settlements/dwarves/dwarves_world_set_004_1.webp",
+      "assets/settlements/dwarves/dwarves_world_set_004_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_001.webp",
+      "assentamento_lote1_007.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "orcs_world_set_001",
+    "pin_name": "Reduto Tribal Poço de Gore",
+    "group": "orcs",
+    "target_images": [
+      "assets/settlements/orcs/orcs_world_set_001_1.webp",
+      "assets/settlements/orcs/orcs_world_set_001_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_003.webp",
+      "assentamento_lote1_010.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "orcs_world_set_005",
+    "pin_name": "Acampamento Campo de Ferro",
+    "group": "orcs",
+    "target_images": [
+      "assets/settlements/orcs/orcs_world_set_005_1.webp",
+      "assets/settlements/orcs/orcs_world_set_005_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_004.webp",
+      "assentamento_lote1_006.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  },
+  {
+    "pin_id": "gnomes_world_set_001",
+    "pin_name": "Estação Gnômica Oficina Gear",
+    "group": "gnomes",
+    "target_images": [
+      "assets/settlements/gnomes/gnomes_world_set_001_1.webp",
+      "assets/settlements/gnomes/gnomes_world_set_001_2.webp"
+    ],
+    "source_indices": [
+      "assentamento_lote1_005.webp",
+      "assentamento_lote1_009.webp"
+    ],
+    "source_note": "mapeado por conteúdo visual/bioma/raça/tipo de assentamento; imagens 005/009 alocadas como gnomos por arquitetura steampunk de montanha gelada"
+  }
+]

@@ -229,6 +229,8 @@ function merchantCategoryFilter(merchantType) {
   if (merchantType === 'tailor') return new Set(['combat', 'accessory']);
   if (merchantType === 'alchemy') return new Set(['consumable']);
   if (merchantType === 'general') return new Set(['utility', 'consumable', 'odd', 'accessory']);
+  if (merchantType === 'tavern') return new Set(['consumable', 'utility', 'odd']);
+  if (merchantType === 'inn') return new Set(['utility', 'consumable']);
   if (merchantType === 'curiosities') return new Set(['odd', 'utility', 'accessory']);
   // fallback
   return new Set(['combat', 'accessory', 'consumable', 'utility', 'odd']);

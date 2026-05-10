@@ -41,6 +41,20 @@ function resetMeasure() {
   state.measure.a = null;
   state.measure.b = null;
   drawMeasure();
+  if (typeof updateMeasureInfo === 'function') updateMeasureInfo();
+}
+
+function shortestWorldDeltaPct(a, b) {
+  let dx = (b?.[0] || 0) - (a?.[0] || 0);
+  let dy = (b?.[1] || 0) - (a?.[1] || 0);
+
+  // Eldralore é tratado como globo: a régua sempre escolhe o menor caminho.
+  // Se os pontos estão perto das bordas opostas, ela atravessa a borda do mapa, não o continente inteiro.
+  if (dx > 50) dx -= 100;
+  if (dx < -50) dx += 100;
+  if (dy > 50) dy -= 100;
+  if (dy < -50) dy += 100;
+  return { dx, dy, x2: (a?.[0] || 0) + dx, y2: (a?.[1] || 0) + dy };
 }
 
 function drawMeasure() {
@@ -53,13 +67,110 @@ function drawMeasure() {
     els.measureSvg.innerHTML = '';
     return;
   }
+
   const ax = a[0], ay = a[1];
-  const bx = b ? b[0] : ax;
-  const by = b ? b[1] : ay;
-  const line = `<line x1="${ax}" y1="${ay}" x2="${bx}" y2="${by}" stroke="rgba(255,255,255,.85)" stroke-width="0.35" />`;
-  const ca = `<circle cx="${ax}" cy="${ay}" r="0.8" fill="rgba(122,167,255,.95)" stroke="rgba(0,0,0,.55)" stroke-width="0.25" />`;
-  const cb = b ? `<circle cx="${bx}" cy="${by}" r="0.8" fill="rgba(255,200,90,.95)" stroke="rgba(0,0,0,.55)" stroke-width="0.25" />` : '';
-  els.measureSvg.innerHTML = line + ca + cb;
+  const baseEnd = b ? shortestWorldDeltaPct(a, b) : { x2: ax, y2: ay };
+  const bx = baseEnd.x2;
+  const by = baseEnd.y2;
+
+  // Desenha cópias deslocadas para a linha “sair” por uma borda e “entrar” pela oposta.
+  // O próprio SVG corta o que fica fora do viewBox. Isso deixa a régua visualmente coerente com o globo.
+  const lineParts = [];
+  for (const ox of [-100, 0, 100]) {
+    for (const oy of [-100, 0, 100]) {
+      lineParts.push(`<line x1="${ax + ox}" y1="${ay + oy}" x2="${bx + ox}" y2="${by + oy}" stroke="rgba(255,255,255,.9)" stroke-width="0.45" vector-effect="non-scaling-stroke" stroke-linecap="round" />`);
+    }
+  }
+
+  const ca = `<circle cx="${ax}" cy="${ay}" r="0.9" fill="rgba(122,167,255,.98)" stroke="rgba(0,0,0,.7)" stroke-width="0.3" vector-effect="non-scaling-stroke" />`;
+  const cb = b ? `<circle cx="${b[0]}" cy="${b[1]}" r="0.9" fill="rgba(255,200,90,.98)" stroke="rgba(0,0,0,.7)" stroke-width="0.3" vector-effect="non-scaling-stroke" />` : '';
+  els.measureSvg.innerHTML = lineParts.join('') + ca + cb;
+}
+
+function updateMeasureInfo() {
+  if (!els.travelBox) return;
+  const a = state.measure && state.measure.a;
+  const b = state.measure && state.measure.b;
+  if (!(state.measure && state.measure.on) || !a) {
+    els.travelBox.classList.add('hidden');
+    els.travelBox.innerHTML = '';
+    return;
+  }
+  els.travelBox.classList.remove('hidden');
+  if (!b) {
+    els.travelBox.innerHTML = `
+      <div class="measure-title">Régua ativa</div>
+      <div class="measure-muted">1º ponto marcado. Clique no mapa para marcar o destino.</div>
+    `;
+    return;
+  }
+
+  const t = computeTravel(a, b);
+  if (!t) {
+    els.travelBox.innerHTML = `<div class="measure-title">Régua ativa</div><div class="measure-muted">Distância indisponível.</div>`;
+    return;
+  }
+
+  const custom = computeCustomTravel(t.distKm);
+  const value = escapeHtml(state.measure?.customSpeedValue || '');
+  const unit = state.measure?.customSpeedUnit || 'kmh';
+  const unitOptions = [
+    ['kmh', 'km/h'],
+    ['ms', 'm/s'],
+    ['kmd', 'km/dia']
+  ].map(([v, label]) => `<option value="${v}" ${unit === v ? 'selected' : ''}>${label}</option>`).join('');
+
+  els.travelBox.innerHTML = `
+    <div class="measure-title">Distância estimada</div>
+    <div class="measure-distance">${t.distKm.toFixed(1)} km</div>
+    <div class="measure-row"><span>Padrão — 40 km/dia</span><b>${escapeHtml(formatTravel(t.days))}</b></div>
+    <div class="measure-custom">
+      <label>Velocidade atual</label>
+      <div class="measure-speed-row">
+        <input id="measureSpeedInput" type="text" inputmode="decimal" placeholder="Ex: 370" value="${value}">
+        <select id="measureSpeedUnit">${unitOptions}</select>
+        <button id="measureSpeedApply" type="button">Calcular</button>
+      </div>
+      <div class="measure-result">${custom ? `Tempo nessa velocidade: <b>${escapeHtml(formatTravelPrecise(custom.days))}</b>` : 'Digite uma velocidade e clique em Calcular.'}</div>
+    </div>
+    <div class="measure-muted">Escala: volta completa do mundo = 4 anos a 40 km/dia.</div>
+  `;
+
+  const speedInput = document.getElementById('measureSpeedInput');
+  const speedUnit = document.getElementById('measureSpeedUnit');
+  const speedApply = document.getElementById('measureSpeedApply');
+  const refresh = () => {
+    if (!state.measure) state.measure = { on: true, a: null, b: null };
+    state.measure.customSpeedValue = speedInput ? speedInput.value : '';
+    state.measure.customSpeedUnit = speedUnit ? speedUnit.value : 'kmh';
+    try { persistState(); } catch (_) {}
+    updateMeasureInfo();
+  };
+  if (speedInput) {
+    speedInput.addEventListener('change', refresh);
+    speedInput.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') refresh(); });
+  }
+  if (speedUnit) speedUnit.addEventListener('change', refresh);
+  if (speedApply) speedApply.addEventListener('click', refresh);
+}
+
+function parseSpeedNumber(value) {
+  const n = Number(String(value || '').trim().replace(',', '.'));
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+function customSpeedToKmPerDay(value, unit) {
+  const n = parseSpeedNumber(value);
+  if (!n) return null;
+  if (unit === 'ms') return n * 3.6 * 24;
+  if (unit === 'kmd') return n;
+  return n * 24;
+}
+
+function computeCustomTravel(distKm) {
+  const kmPerDay = customSpeedToKmPerDay(state.measure?.customSpeedValue, state.measure?.customSpeedUnit);
+  if (!kmPerDay) return null;
+  return { days: distKm / kmPerDay, kmPerDay };
 }
 
 function computeTravel(a, b) {
@@ -67,22 +178,15 @@ function computeTravel(a, b) {
   const natH = els.worldMap?.naturalHeight || 0;
   if (!natW || !natH) return null;
 
-  const ax = (a[0] / 100) * natW;
-  const ay = (a[1] / 100) * natH;
-  const bx = (b[0] / 100) * natW;
-  const by = (b[1] / 100) * natH;
+  const wrapped = shortestWorldDeltaPct(a, b);
+  const dxPct = Math.abs(wrapped.dx);
+  const dyPct = Math.abs(wrapped.dy);
 
-  let dx = Math.abs(bx - ax);
-  let dy = Math.abs(by - ay);
-  // Mundo em "globo" (wrap horizontal e vertical, conforme premissa)
-  dx = Math.min(dx, natW - dx);
-  dy = Math.min(dy, natH - dy);
-
-  const kmPerPxX = WORLD_CIRCUMFERENCE_KM / natW;
-  const kmPerPxY = WORLD_CIRCUMFERENCE_KM / natH;
-  const distKm = Math.hypot(dx * kmPerPxX, dy * kmPerPxY);
+  const kmPerPercentX = WORLD_CIRCUMFERENCE_KM / 100;
+  const kmPerPercentY = WORLD_CIRCUMFERENCE_KM / 100;
+  const distKm = Math.hypot(dxPct * kmPerPercentX, dyPct * kmPerPercentY);
   const days = distKm / TRAVEL_KM_PER_DAY;
-  return { distKm, days, kmPerPxX, kmPerPxY };
+  return { distKm, days, kmPerPercentX, kmPerPercentY, wrapped };
 }
 
 function formatTravel(days) {
@@ -96,6 +200,26 @@ function formatTravel(days) {
   if (months) parts.push(`${months} mês(es)`);
   parts.push(`${d} dia(s)`);
   return `${total} dias (${parts.join(', ')})`;
+}
+
+function formatTravelPrecise(days) {
+  if (!Number.isFinite(days) || days < 0) return 'indisponível';
+  const totalHours = days * 24;
+  if (totalHours < 1) {
+    const minutes = Math.max(1, Math.ceil(totalHours * 60));
+    return `${minutes} minuto(s)`;
+  }
+  if (days < 1) {
+    const hours = Math.floor(totalHours);
+    const minutes = Math.round((totalHours - hours) * 60);
+    return `${hours}h${String(minutes).padStart(2, '0')}`;
+  }
+  if (days < 30) {
+    const d = Math.floor(days);
+    const h = Math.round((days - d) * 24);
+    return `${d} dia(s) e ${h}h`;
+  }
+  return formatTravel(days);
 }
 
 function escapeHtml(s) {
@@ -179,7 +303,29 @@ function loadPersistentState() {
     const obj = JSON.parse(raw);
     if (obj && obj.worldTime) state.worldTime = obj.worldTime;
     if (obj && obj.worldState) state.worldState = obj.worldState;
+    if (typeof obj.layer === 'string') state.layer = obj.layer;
+    if (typeof obj.race === 'string') state.race = obj.race;
+    if (typeof obj.type === 'string') state.type = obj.type;
+    if (typeof obj.q === 'string') state.q = obj.q;
+    if (typeof obj.preset === 'string') state.preset = obj.preset;
+    if (typeof obj.era === 'string') state.era = obj.era;
+    if (obj && obj.groupFilter && typeof obj.groupFilter === 'object') state.groupFilter = { enabled: !!obj.groupFilter.enabled, selected: Array.isArray(obj.groupFilter.selected) ? obj.groupFilter.selected : [] };
+    if (obj && obj.tagFilter && typeof obj.tagFilter === 'object') state.tagFilter = { enabled: !!obj.tagFilter.enabled, mode: String(obj.tagFilter.mode || 'OR').toUpperCase(), selected: Array.isArray(obj.tagFilter.selected) ? obj.tagFilter.selected : [] };
+    if (obj && obj.story && typeof obj.story === 'object') state.story = { active: !!obj.story.active, storyId: obj.story.storyId || null, chapter: Math.max(0, parseInt(obj.story.chapter || '0', 10) || 0), data: null };
     if (obj && obj.geo) state.geo = obj.geo;
+    if (obj && obj.routeFilter && typeof obj.routeFilter === 'object') state.routeFilter = { ...state.routeFilter, ...obj.routeFilter };
+    if (obj && obj.economy && typeof obj.economy === 'object') state.economy = { modifiers: Array.isArray(obj.economy.modifiers) ? obj.economy.modifiers : [] };
+    if (obj && obj.measure && typeof obj.measure === 'object') {
+      state.measure = { ...state.measure, customSpeedValue: obj.measure.customSpeedValue || '', customSpeedUnit: obj.measure.customSpeedUnit || 'kmh' };
+    }
+    if (obj && obj.ui && typeof obj.ui === 'object' && state.ui) {
+      if (typeof obj.ui.routeLegendClosed === 'boolean') state.ui.routeLegendClosed = obj.ui.routeLegendClosed;
+      if (typeof obj.ui.calendarHudVisible === 'boolean') state.ui.calendarHudVisible = obj.ui.calendarHudVisible;
+      // playerExpandedInfo público foi desativado; a liberação agora é por local via Painel GM.
+      if (obj.ui.routeLegendPos) state.ui.routeLegendPos = obj.ui.routeLegendPos;
+      if (obj.ui.routeInfoPos) state.ui.routeInfoPos = obj.ui.routeInfoPos;
+    }
+    if (obj && obj.campaign && typeof obj.campaign === 'object') state.campaign = obj.campaign;
     if (typeof obj.climateOn === 'boolean') state.climateOn = obj.climateOn;
     if (typeof obj.hideNoImage === 'boolean') state.hideNoImage = obj.hideNoImage;
     if (typeof obj.dateLock === 'boolean') state.dateLock = obj.dateLock;
@@ -198,6 +344,15 @@ function persistState() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       worldTime: state.worldTime,
       worldState: state.worldState,
+      layer: state.layer,
+      race: state.race,
+      type: state.type,
+      q: state.q,
+      preset: state.preset,
+      era: state.era,
+      groupFilter: state.groupFilter,
+      tagFilter: state.tagFilter,
+      story: state.story ? { active: !!state.story.active, storyId: state.story.storyId || null, chapter: state.story.chapter || 0 } : null,
       climateOn: state.climateOn,
       hideNoImage: state.hideNoImage,
       dateLock: state.dateLock,
@@ -207,6 +362,17 @@ function persistState() {
       customCities: state.customCities,
       pinOverrides: state.pinOverrides,
       merchantState: state.merchantState,
+      campaign: state.campaign,
+      routeFilter: state.routeFilter,
+      economy: state.economy,
+      measure: { customSpeedValue: state.measure && state.measure.customSpeedValue || '', customSpeedUnit: state.measure && state.measure.customSpeedUnit || 'kmh' },
+      ui: {
+        calendarHudVisible: !(state.ui && state.ui.calendarHudVisible === false),
+        playerExpandedInfo: false,
+        routeLegendClosed: !!(state.ui && state.ui.routeLegendClosed),
+        routeLegendPos: state.ui && state.ui.routeLegendPos,
+        routeInfoPos: state.ui && state.ui.routeInfoPos,
+      },
     }));
   } catch { /* ignore */ }
 }
@@ -224,6 +390,7 @@ async function loadAdvancedData() {
   try { state.eras = await loadJson('data/eras.json'); } catch { state.eras = null; }
   try { state.routes = await loadJson('data/routes.json'); } catch { state.routes = []; }
   try { state.storiesIndex = await loadJson('data/stories/index.json'); } catch { state.storiesIndex = null; }
+  try { const wsData = await loadJson('data/world_state.json'); if (typeof mergeWorldStateFromData === 'function') mergeWorldStateFromData(wsData); } catch { /* optional */ }
 }
 
 function normalizePin(p) {
@@ -248,11 +415,29 @@ async function loadPins() {
   let extraPins = [];
   try { extraPins = await loadJson('data/main_cities_pins.json'); } catch { extraPins = []; }
 
-  // Pins criados via Editor GM ficam em state.customPins (persistidos)
-  const customPins = Array.isArray(state.customPins) ? state.customPins : [];
+  // Pins criados via Editor GM ficam em state.customPins (persistidos).
+  // Proteção: customPins antigos no localStorage podem duplicar pins canônicos após um patch.
+  // Aqui mantemos os pins canônicos e descartamos customPins com mesmo id, mesma cityId ou mesma assinatura visual.
+  const canonicalPins = [...basePins, ...extraPins];
+  const canonicalIds = new Set(canonicalPins.map(p => p && p.id).filter(Boolean));
+  const canonicalCityIds = new Set(canonicalPins.map(p => p && p.cityId).filter(Boolean));
+  const pinSignature = (p) => [p?.type||'', p?.layer||'', p?.territory||'', String(p?.name||'').trim().toLowerCase(), Number(p?.x||0).toFixed(2), Number(p?.y||0).toFixed(2)].join('|');
+  const canonicalSignatures = new Set(canonicalPins.map(pinSignature));
+  const rawCustomPins = Array.isArray(state.customPins) ? state.customPins : [];
+  const customPins = rawCustomPins.filter(p => {
+    if (!p) return false;
+    if (p.id && canonicalIds.has(p.id)) return false;
+    if (p.cityId && canonicalCityIds.has(p.cityId)) return false;
+    if (canonicalSignatures.has(pinSignature(p))) return false;
+    return true;
+  });
+  if (customPins.length !== rawCustomPins.length) {
+    state.customPins = customPins;
+    try { persistState(); } catch (_) {}
+  }
 
   // Mescla e aplica overrides de tipo/race/camada, sem alterar o JSON base
-  const all = [...basePins, ...extraPins, ...customPins].map(p => normalizePin(applyPinOverrides(p)));
+  const all = [...canonicalPins, ...customPins].map(p => normalizePin(applyPinOverrides(p)));
 
   // Dedup de cidades principais por cityId (prioriza pins com 2 imagens + descrição curta).
   // Necessário porque pins criados no GM Editor (customPins) persistem em localStorage e podem duplicar cidades principais.
@@ -284,140 +469,243 @@ async function loadPins() {
 
   // Geração procedural de rotas (para cobrir todas as raças)
   generateProceduralRoutes();
+
+  // Se o usuário recarregar com Story Mode ativo, recarrega o JSON da história antes de reconstruir o painel.
+  if (state.story && state.story.active && state.story.storyId && !state.story.data) {
+    const storyData = await loadStory(state.story.storyId);
+    if (storyData) state.story.data = storyData;
+    else state.story.active = false;
+  }
 }
 
 function generateProceduralRoutes() {
-  // Gera rotas comerciais se não existirem manualmente, replicando o padrão:
-  // 1. Cidades Principais (CP) conectadas entre si (rede interna).
-  // 2. CP conectam com 4 Assentamentos da mesma raça.
-  // 3. 2 CPs e 1 Assentamento conectam com todas as outras raças (Comércio Oficial/Ilegal).
-
-  // Agrupa por layer e territorio
+  // Geração controlada de rotas auxiliares.
+  // A versão anterior conectava muitos hubs entre todas as raças e deixava o mapa poluído.
+  // Agora a malha automática é interna e discreta; rotas inter-raciais ficam nos dados manuais/canônicos.
   const byTerritory = {};
   for (const p of state.pins) {
     if (!p.territory || !p.layer) continue;
     const key = `${p.layer}|${p.territory}`;
-    if (!byTerritory[key]) byTerritory[key] = { main: [], set: [] };
+    if (!byTerritory[key]) byTerritory[key] = { main: [], settlement: [], fortress: [], dungeon: [] };
     if (p.type === 'city_main') byTerritory[key].main.push(p);
-    if (p.type === 'settlement') byTerritory[key].set.push(p);
+    else if (p.type === 'settlement') byTerritory[key].settlement.push(p);
+    else if (p.type === 'fortress') byTerritory[key].fortress.push(p);
+    else if (p.type === 'dungeon') byTerritory[key].dungeon.push(p);
   }
 
   const newRoutes = [];
-  const existingIds = new Set(state.routes.map(r => r.id));
+  const existingIds = new Set((state.routes || []).map(r => r.id));
 
-  // Helper para criar rota
-  const createRoute = (pA, pB, type, customColor = null) => {
+  const uniqueParts = (a, b) => Array.from(new Set([a?.territory, b?.territory].filter(Boolean)));
+  const dist = (a, b) => {
+    if (!a || !b) return Infinity;
+    let dx = Math.abs((a.x || 0) - (b.x || 0));
+    dx = Math.min(dx, 100 - dx); // mundo horizontalmente circular
+    const dy = (a.y || 0) - (b.y || 0);
+    return Math.hypot(dx, dy);
+  };
+  const nearest = (source, list, limit = 1) => {
+    return [...(list || [])]
+      .filter(p => p && source && p.id !== source.id)
+      .sort((a, b) => dist(source, a) - dist(source, b) || String(a.id).localeCompare(String(b.id)))
+      .slice(0, limit);
+  };
+
+  const createRoute = (pA, pB, type, connectionType) => {
     if (!pA || !pB || pA.id === pB.id) return;
-    const id = `${type}__${pA.id}__${pB.id}`;
-    const idRev = `${type}__${pB.id}__${pA.id}`;
+    const id = `${type}__auto__${connectionType}__${pA.id}__${pB.id}`;
+    const idRev = `${type}__auto__${connectionType}__${pB.id}__${pA.id}`;
     if (existingIds.has(id) || existingIds.has(idRev)) return;
-
-    // Evita duplicatas na mesma passada
     existingIds.add(id);
-
     newRoutes.push({
       id,
       from: pA.id,
       to: pB.id,
       type,
-      participants: [pA.territory, pB.territory],
+      connectionType,
+      generated: true,
+      participants: uniqueParts(pA, pB),
       eras: ['current'],
       layer: pA.layer,
       width: (type === 'trade_shadow' ? 0.55 : 0.45),
-      opacity: (type === 'trade_shadow' ? 0.7 : 0.6),
-      color: customColor || undefined
+      opacity: (type === 'trade_shadow' ? 0.62 : 0.52),
+      color: TERRITORY_COLORS[pA.territory] || undefined
     });
   };
 
-  // 1. Intra-raça
   for (const key in byTerritory) {
-    const { main, set } = byTerritory[key];
-    const terr = key.split('|')[1];
+    const group = byTerritory[key];
+    const main = [...group.main].sort((a, b) => (a.x - b.x) || String(a.id).localeCompare(String(b.id)));
+    const settlements = [...group.settlement];
+    const fortresses = [...group.fortress];
+    const dungeons = [...group.dungeon];
 
-    // Conecta todas as CPs entre si
-    for (let i = 0; i < main.length; i++) {
-      for (let j = i + 1; j < main.length; j++) {
-        createRoute(main[i], main[j], 'trade_internal');
-      }
+    // Cidades principais: corrente organizada, não todas contra todas.
+    for (let i = 0; i < main.length - 1; i++) {
+      createRoute(main[i], main[i + 1], 'trade_internal', 'main-main');
     }
 
-    // Conecta CPs a 4 Assentamentos (random)
-    // Se seed fixo for desejado, usar mulberry32. Aqui usaremos Math.random por simplicidade, 
-    // mas idealmente seria determinístico baseada no ID.
-    // Para estabilidade visual, vamos usar um pseudo-random baseado no ID.
-    const pseudoRandom = (str) => {
-      let h = 0x811c9dc5;
-      for (let i = 0; i < str.length; i++) h = Math.imul(h ^ str.charCodeAt(i), 0x01000193);
-      return function () {
-        h = Math.imul(h ^ (h >>> 16), 2246822507);
-        h = Math.imul(h ^ (h >>> 13), 3266489909);
-        return (h >>> 0) / 4294967296;
-      }
-    };
-
+    // Cidades principais para assentamentos próximos.
     for (const cp of main) {
-      if (set.length === 0) continue;
-      const rng = pseudoRandom(cp.id);
-      // embaralha indices
-      const indices = set.map((_, i) => i).sort(() => rng() - 0.5);
-      const limit = Math.min(4, indices.length);
-      for (let k = 0; k < limit; k++) {
-        createRoute(cp, set[indices[k]], 'trade_internal');
-      }
+      for (const s of nearest(cp, settlements, 2)) createRoute(cp, s, 'trade_internal', 'main-settlement');
+      for (const f of nearest(cp, fortresses, 1)) createRoute(cp, f, 'trade_internal', 'main-fortress');
+    }
+
+    // Fortalezas abastecem assentamentos próximos.
+    for (const f of fortresses) {
+      for (const s of nearest(f, settlements, 1)) createRoute(f, s, 'trade_internal', 'fortress-settlement');
+    }
+
+    // Masmorras: poucos pontos de suprimento obscuro por região/camada, para não sujar o mapa.
+    for (const d of dungeons.slice(0, 2)) {
+      const base = nearest(d, [...fortresses, ...main, ...settlements], 1)[0];
+      if (base) createRoute(base, d, 'trade_shadow', 'dungeon-supply');
     }
   }
 
-  // 2. Inter-raça
-  const keys = Object.keys(byTerritory);
-  for (let i = 0; i < keys.length; i++) {
-    for (let j = i + 1; j < keys.length; j++) {
-      const kA = keys[i];
-      const kB = keys[j];
-      const tA = kA.split('|')[1];
-      const tB = kB.split('|')[1];
-      const lA = kA.split('|')[0];
-      const lB = kB.split('|')[0];
+  // Comércio externo controlado: gera bastante material inter-racial, mas só aparece
+  // quando o usuário ativa “comércio externo” ou escolhe esse tipo nos filtros.
+  const layerGroups = {};
+  for (const p of state.pins) {
+    if (!p || !p.layer || !p.territory) continue;
+    if (!['city_main', 'fortress', 'settlement'].includes(p.type)) continue;
+    const layer = p.layer;
+    const terr = p.territory;
+    if (!layerGroups[layer]) layerGroups[layer] = {};
+    if (!layerGroups[layer][terr]) layerGroups[layer][terr] = [];
+    layerGroups[layer][terr].push(p);
+  }
 
-      // Apenas mesma layer (simplificação inicial)
-      if (lA !== lB) continue;
+  const rankHub = (p) => p.type === 'city_main' ? 0 : (p.type === 'fortress' ? 1 : 2);
+  const createExternalRoute = (source, target) => {
+    if (!source || !target || source.id === target.id || source.territory === target.territory) return;
+    const id = `trade_external__auto__${source.id}__${target.id}`;
+    const idRev = `trade_external__auto__${target.id}__${source.id}`;
+    if (existingIds.has(id) || existingIds.has(idRev)) return;
+    existingIds.add(id);
+    const seed = hashStringToUint32(id);
+    const oneway = (seed % 5 === 0);
+    newRoutes.push({
+      id,
+      from: source.id,
+      to: target.id,
+      type: 'trade_external',
+      connectionType: 'external-trade',
+      generated: true,
+      direction: oneway ? 'oneway' : 'both',
+      participants: uniqueParts(source, target),
+      eras: ['current'],
+      layer: source.layer,
+      width: 0.5,
+      opacity: 0.58,
+      color: TERRITORY_COLORS[source.territory] || undefined
+    });
+  };
 
-      const groupA = byTerritory[kA];
-      const groupB = byTerritory[kB];
+  for (const layer of Object.keys(layerGroups)) {
+    const territories = Object.keys(layerGroups[layer]).sort();
+    const allExternalTargets = [];
+    for (const terr of territories) {
+      layerGroups[layer][terr].sort((a, b) => rankHub(a) - rankHub(b) || dist(a, b) || String(a.id).localeCompare(String(b.id)));
+      allExternalTargets.push(...layerGroups[layer][terr]);
+    }
 
-      if (groupA.main.length === 0 && groupA.set.length === 0) continue;
-      if (groupB.main.length === 0 && groupB.set.length === 0) continue;
-
-      // Seleciona 2 CPs e 1 Set como "hubs" de cada lado
-      const getHubs = (g) => {
-        const rng = (g.main[0] || g.set[0]) ? (g.main[0] || g.set[0]).id.length : 123; // seed simples
-        const allMain = [...g.main].sort((a, b) => a.id.localeCompare(b.id)); // sort estável
-        const allSet = [...g.set].sort((a, b) => a.id.localeCompare(b.id));
-
-        // Pega 2 primeiros main (ou o que tiver)
-        const hubs = [];
-        if (allMain.length > 0) hubs.push(allMain[0]);
-        if (allMain.length > 1) hubs.push(allMain[allMain.length - 1]); // pega pontas
-        // Pega 1 set
-        if (allSet.length > 0) hubs.push(allSet[Math.floor(allSet.length / 2)]);
-        return hubs;
-      };
-
-      const hubsA = getHubs(groupA);
-      const hubsB = getHubs(groupB);
-
-      // Conecta hubs entre si
-      for (const ha of hubsA) {
-        for (const hb of hubsB) {
-          // 80% oficial, 20% shadow
-          const isShadow = ((ha.id.length + hb.id.length) % 10) > 7;
-          createRoute(ha, hb, isShadow ? 'trade_shadow' : 'trade_official');
+    for (const terr of territories) {
+      const anchors = layerGroups[layer][terr].slice(0, 6);
+      for (const anchor of anchors) {
+        const candidates = allExternalTargets.filter(p => p.territory !== terr && p.layer === anchor.layer);
+        for (const target of nearest(anchor, candidates, anchor.type === 'city_main' ? 4 : 2)) {
+          createExternalRoute(anchor, target);
         }
       }
     }
   }
 
-  // Adiciona ao state
-  state.routes = [...state.routes, ...newRoutes];
+  // Garantia canônica de comércio externo: cada par de raças recebe pelo menos 2 rotas comerciais.
+  // Elas continuam escondidas no padrão limpo e aparecem pelo filtro “comércio externo”/ponto de vista.
+  const territoryGroups = {};
+  for (const p of state.pins) {
+    if (!p || !p.territory || !p.layer) continue;
+    if (!['city_main', 'fortress', 'settlement', 'guild_hq', 'temple'].includes(p.type)) continue;
+    if (!territoryGroups[p.territory]) territoryGroups[p.territory] = [];
+    territoryGroups[p.territory].push(p);
+  }
+  for (const terr of Object.keys(territoryGroups)) {
+    territoryGroups[terr].sort((a, b) => rankHub(a) - rankHub(b) || String(a.id).localeCompare(String(b.id)));
+  }
+
+  const pairKey = (a, b) => [a, b].sort().join('|');
+  const pairCounts = {};
+  const allKnownRoutes = [...(state.routes || []), ...newRoutes];
+  for (const r of allKnownRoutes) {
+    const parts = Array.isArray(r.participants) ? r.participants.filter(Boolean) : [];
+    if (parts.length < 2) continue;
+    const key = pairKey(parts[0], parts[1]);
+    pairCounts[key] = (pairCounts[key] || 0) + 1;
+  }
+
+  const candidatePairsForTerritories = (terrA, terrB) => {
+    const aList = territoryGroups[terrA] || [];
+    const bList = territoryGroups[terrB] || [];
+    const pairs = [];
+    for (const a of aList.slice(0, 10)) {
+      for (const b of bList.slice(0, 10)) {
+        if (!a || !b || a.id === b.id) continue;
+        const sameLayer = a.layer === b.layer;
+        const layerBonus = sameLayer ? 0 : 1000;
+        pairs.push({ a, b, score: layerBonus + dist(a, b) + rankHub(a) * 0.4 + rankHub(b) * 0.4 });
+      }
+    }
+    return pairs.sort((x, y) => x.score - y.score || String(x.a.id + x.b.id).localeCompare(String(y.a.id + y.b.id)));
+  };
+
+  const createGuaranteedExternalRoute = (source, target, index) => {
+    if (!source || !target || source.id === target.id || source.territory === target.territory) return false;
+    const sameLayer = source.layer === target.layer;
+    const id = `trade_external__pair__${source.territory}__${target.territory}__${index}__${source.id}__${target.id}`;
+    const idRev = `trade_external__pair__${target.territory}__${source.territory}__${index}__${target.id}__${source.id}`;
+    if (existingIds.has(id) || existingIds.has(idRev)) return false;
+    existingIds.add(id);
+    const seed = hashStringToUint32(id);
+    const oneway = (seed % 3 === 0);
+    newRoutes.push({
+      id,
+      from: source.id,
+      to: target.id,
+      type: 'trade_external',
+      connectionType: sameLayer ? 'external-trade' : undefined,
+      crossLayer: !sameLayer,
+      generated: true,
+      direction: oneway ? 'oneway' : 'both',
+      participants: uniqueParts(source, target),
+      eras: ['current'],
+      layer: source.layer,
+      width: 0.5,
+      opacity: 0.58,
+      color: TERRITORY_COLORS[source.territory] || undefined
+    });
+    return true;
+  };
+
+  const territoriesAll = Object.keys(territoryGroups).sort();
+  for (let i = 0; i < territoriesAll.length; i++) {
+    for (let j = i + 1; j < territoriesAll.length; j++) {
+      const terrA = territoriesAll[i];
+      const terrB = territoriesAll[j];
+      const key = pairKey(terrA, terrB);
+      let count = pairCounts[key] || 0;
+      if (count >= 2) continue;
+      const pairs = candidatePairsForTerritories(terrA, terrB);
+      let idx = 0;
+      for (const pair of pairs) {
+        if (count >= 2) break;
+        if (createGuaranteedExternalRoute(pair.a, pair.b, idx++)) count++;
+      }
+      pairCounts[key] = count;
+    }
+  }
+
+  state.routes = [...(state.routes || []), ...newRoutes];
 }
 
 async function loadCities() {
@@ -708,6 +996,10 @@ function renderTerritoryLabels(frag) {
 }
 function semanticColor(p) {
   const preset = state.preset || 'default';
+  if (typeof getWorldVisionMeta === 'function') {
+    const wv = getWorldVisionMeta(p, preset);
+    if (wv && wv.color) return wv.color;
+  }
   if (preset === 'religion') {
     const k = (p.religion || p.deity || '').toLowerCase();
     const m = {
@@ -751,6 +1043,21 @@ function pinDotColor(p) {
   return semanticColor(p);
 }
 
+function captureGmCoordinates(x, y) {
+  if (!state.gm || !state.gm.unlocked || !state.gm.captureMode) return false;
+  const xx = clamp(Number(x), 0, 100);
+  const yy = clamp(Number(y), 0, 100);
+  if (els.gmPinX) els.gmPinX.value = xx.toFixed(2);
+  if (els.gmPinY) els.gmPinY.value = yy.toFixed(2);
+  state.gm.captureMode = false;
+  try { if (typeof updateGmCaptureUI === 'function') updateGmCaptureUI(); } catch (_) {}
+  try { if (typeof setGmEditorMinimized === 'function') setGmEditorMinimized(false); } catch (_) {}
+  try { persistState(); } catch (_) {}
+  const hint = document.getElementById('gmCreateHint');
+  if (hint) hint.textContent = `Coordenadas capturadas: X ${xx.toFixed(2)} / Y ${yy.toFixed(2)}. Preencha o nome e clique em Criar pin.`;
+  return true;
+}
+
 function renderPins() {
 
   clearPins();
@@ -766,6 +1073,15 @@ function renderPins() {
     el.style.left = `${p.x}%`;
     el.style.top = `${p.y}%`;
     el.dataset.id = p.id;
+    if (typeof getWorldVisionMeta === 'function') {
+      const wvMeta = getWorldVisionMeta(p, state.preset || 'default');
+      if (wvMeta) {
+        el.classList.add('world-vision-pin');
+        el.classList.add(`wv-${wvMeta.level || 'low'}`);
+        if (wvMeta.hasState) el.classList.add('wv-applied');
+        else el.classList.add('wv-auto');
+      }
+    }
 
     const dot = document.createElement('div');
     dot.className = 'dot';
@@ -782,6 +1098,14 @@ function renderPins() {
     el.addEventListener('mouseleave', hideTooltip);
     el.addEventListener('click', (e) => {
       e.stopPropagation();
+      if (state.gm && state.gm.unlocked && state.gm.captureMode) {
+        captureGmCoordinates(p.x, p.y);
+        return;
+      }
+      if (state.debug) {
+        openDebug(p.x, p.y);
+        return;
+      }
       if (state.measure && state.measure.on) {
         // Permite medir clicando no próprio pin (não abre popup)
         const x = p.x;
@@ -790,21 +1114,21 @@ function renderPins() {
           state.measure.a = [x, y];
           state.measure.b = null;
           drawMeasure();
+          if (typeof updateMeasureInfo === 'function') updateMeasureInfo();
           return;
         }
         if (!state.measure.b) {
           state.measure.b = [x, y];
           drawMeasure();
           const t = computeTravel(state.measure.a, state.measure.b);
-          if (t && els.travelBox) {
-            els.travelBox.innerHTML = `Distância estimada: <b>${t.distKm.toFixed(1)} km</b><br/>Tempo (a ${TRAVEL_KM_PER_DAY} km/dia): <b>${escapeHtml(formatTravel(t.days))}</b>`;
-          }
+          if (typeof updateMeasureInfo === 'function') updateMeasureInfo();
           return;
         }
         // 3º clique reinicia
         state.measure.a = [x, y];
         state.measure.b = null;
         drawMeasure();
+        if (typeof updateMeasureInfo === 'function') updateMeasureInfo();
         return;
       }
       if (state.gm.unlocked && state.gm.editorOpen) {
@@ -820,162 +1144,119 @@ function renderPins() {
 }
 
 
-const ALL_ROUTE_TYPES = ['trade_internal', 'trade_official', 'trade_shadow'];
+const ALL_ROUTE_TYPES = ['trade_internal', 'trade_official', 'trade_shadow', 'trade_external'];
+const ROUTE_DEFAULT_CONNECTIONS = ['main-main'];
 
 function clearRoutes() {
   if (els.routesSvg) els.routesSvg.innerHTML = '';
+  if (els.routeLegend) {
+    els.routeLegend.classList.add('hidden');
+    els.routeLegend.innerHTML = '';
+  }
+  if (typeof hideRouteTooltip === 'function') hideRouteTooltip();
 }
 
-function renderRoutes() {
-  clearRoutes();
-  if (!els.routesSvg) return;
-    els.routesSvg.setAttribute("viewBox","0 0 100 100");
-  els.routesSvg.setAttribute("preserveAspectRatio","none");
-const rf = state.routeFilter;
-  if (!rf || !rf.enabled) return;
-  const allowed = new Set(rf.types || []);
-  const era = state.era || 'current';
-
-  // Filtros Avançados de Rotas
-  const allowedConn = new Set(rf.connectionTypes || ['main-main', 'main-settlement', 'inter-race']);
-  // Se rf.races vazio, assume todas? Na logica do core definimos que populamos tudo.
-  // Mas se for null/undefined, safe fallback.
-  const allowedRaces = new Set(rf.races || []); // Se vazio aqui, significa NENHUMA (pois populamos no core)
-
-  // Fallback safe: se races array estiver vazio E connectionTypes tbm vazio, talvez seja init.
-  // Mas vamos confiar no state.
-
-  const pinsById = new Map();
-  for (const p of state.pins) {
-    if (p.layer !== state.layer) continue;
-    const eras = Array.isArray(p.eras) ? p.eras : ['current'];
-    if (era !== 'all' && !eras.includes('all') && !eras.includes(era)) continue;
-    pinsById.set(p.id, p);
+function routeParts(r, aPin, bPin) {
+  const raw = Array.isArray(r?.participants) ? r.participants : [];
+  const parts = [];
+  for (const x of raw) if (x && !parts.includes(x)) parts.push(x);
+  for (const p of [aPin, bPin]) {
+    if (p?.territory && !parts.includes(p.territory)) parts.push(p.territory);
   }
-
-  const routes = Array.isArray(state.routes) ? state.routes : [];
-  const lines = [];
-
-  // desenha linha com wrap horizontal (mundo em globo) para evitar rotas “sumindo” ao cruzar bordas
-  function pushLineWrapped(x1, y1, x2, y2, attrs) {
-    const dx = x2 - x1;
-    if (Math.abs(dx) <= 50) {
-      lines.push(`<line ${attrs} x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" />`);
-      return;
-    }
-    // Ajusta x2 para o lado mais próximo
-    let x2a = x2;
-    if (dx > 0) x2a = x2 - 100; else x2a = x2 + 100;
-    const boundary = x2a < 0 ? 0 : 100;
-    const t = (boundary - x1) / (x2a - x1);
-    const yb = y1 + (y2 - y1) * t;
-    // Segmento 1 até a borda
-    lines.push(`<line ${attrs} x1="${x1}" y1="${y1}" x2="${boundary}" y2="${yb}" />`);
-    // Segmento 2 do outro lado
-    const other = (boundary === 0) ? 100 : 0;
-    lines.push(`<line ${attrs} x1="${other}" y1="${yb}" x2="${x2}" y2="${y2}" />`);
-  }
-
-  for (const r of routes) {
-    if (r.layer && r.layer !== state.layer) continue;
-    const rEras = Array.isArray(r.eras) ? r.eras : ['all'];
-    if (era !== 'all' && !rEras.includes('all') && !rEras.includes(era)) continue;
-    if (r.type && !allowed.has(r.type)) continue;
-    let pts = null;
-    // Participantes: permite filtrar rotas por raça/parte envolvida
-    if (rf && Array.isArray(rf.participants) && rf.participants.length) {
-      const pset = new Set(rf.participants);
-      const rparts = Array.isArray(r.participants) ? r.participants : [];
-      let okPart = false;
-      for (const rp of rparts) { if (pset.has(rp)) { okPart = true; break; } }
-      if (!okPart) continue;
-    }
-
-    // Tipo de Conexão (categorias específicas)
-    // connectionTypes vazio => sem restrição (mostra todas)
-    if (rf && Array.isArray(rf.connectionTypes) && rf.connectionTypes.length) {
-      const allowedConn = new Set(rf.connectionTypes);
-
-      const aPin = pinsById.get(r.from);
-      const bPin = pinsById.get(r.to);
-      const aIsMain = !!(aPin && (aPin.kind === 'city_main' || aPin.type === 'city_main' || aPin.category === 'city_main'));
-      const bIsMain = !!(bPin && (bPin.kind === 'city_main' || bPin.type === 'city_main' || bPin.category === 'city_main'));
-
-      const rparts = Array.isArray(r.participants) ? r.participants : [];
-      const multiRace = rparts.length >= 2;
-
-      // Classificação
-      let connType = 'main-settlement';
-      if (aIsMain && bIsMain) {
-        connType = 'main-main';
-      } else if (aIsMain || bIsMain) {
-        connType = 'main-settlement';
-      } else {
-        // Nenhum endpoint é cidade principal
-        connType = multiRace ? 'settlement-interracial' : 'internal';
-      }
-
-      // Compatibilidade com valor antigo 'inter-race'
-      if (allowedConn.has('inter-race')) {
-        // 'inter-race' historicamente significava: qualquer rota com múltiplas raças
-        if (!multiRace) continue;
-      } else {
-        if (!allowedConn.has(connType)) continue;
-      }
-    }
-
-
-    if (Array.isArray(r.path) && r.path.length >= 2) {
-      pts = r.path; // [[x,y],...]
-    } else if (r.fromTerritory && r.toTerritory) {
-      const centers = getTerritoryLabelCenters();
-      const ca = centers.get(r.fromTerritory);
-      const cb = centers.get(r.toTerritory);
-      if (!ca || !cb) continue;
-      pts = [[ca.cx, ca.cy], [cb.cx, cb.cy]];
-    } else {
-      const a = pinsById.get(r.from);
-      const b = pinsById.get(r.to);
-      if (!a || !b) continue;
-      pts = [[a.x, a.y], [b.x, b.y]];
-    }
-
-    const stroke = routeStrokeColor(r);
-    const opacity = (typeof r.opacity === 'number') ? r.opacity : 0.72;
-
-    // Stroke em px (não escala com zoom): evita sumir em zoom out e ficar grosso em zoom in
-    const widthPx = (typeof r.widthPx === 'number') ? r.widthPx :
-      (r.type === 'trade_shadow' ? 2.4 : (r.type === 'trade_internal' ? 1.6 : 2.0));
-
-    // Dash bem visível (especialmente no zoom out)
-    const dash = (r.type === 'trade_shadow') ? '10 7' :
-      (r.type === 'trade_internal' ? '6 8' : '');
-
-
-    // coords percentuais no viewport (0..100)
-    // constrói SVG (linha ou polilinha)
-    if (pts.length === 2) {
-      const [[x1, y1], [x2, y2]] = pts;
-      const dashAttr = dash ? ` stroke-dasharray="${dash}"` : ``;
-      const attrs = `data-routeid="${escapeHtml(r.id || '')}" data-from="${escapeHtml(r.from || '')}" data-to="${escapeHtml(r.to || '')}" data-type="${escapeHtml(r.type || '')}" stroke="${stroke}" stroke-width="${widthPx}" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="${opacity}"${dashAttr}`;
-      pushLineWrapped(x1, y1, x2, y2, attrs);
-    } else {
-      const d = pts.map(([x, y]) => `${x},${y}`).join(' ');
-      const dashAttr = dash ? ` stroke-dasharray="${dash}"` : ``;
-      lines.push(`<polyline data-routeid="${escapeHtml(r.id || '')}" data-from="${escapeHtml(r.from || '')}" data-to="${escapeHtml(r.to || '')}" data-type="${escapeHtml(r.type || '')}" points="${d}" fill="none" stroke="${stroke}" stroke-width="${widthPx}" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="${opacity}"${dashAttr} />`);
-    }
-  }
-  // viewBox 0..100 para coordenadas percentuais
-  els.routesSvg.setAttribute('viewBox', '0 0 100 100');
-  els.routesSvg.setAttribute('preserveAspectRatio', 'none');
-  els.routesSvg.innerHTML = lines.join('');
-  renderRouteLegend();
+  return parts;
 }
 
-function routeStrokeColor(r) {
-  // Prefer explicit color (routes generated to match raça/território)
+function routePinType(p) {
+  return p?.kind || p?.type || p?.category || '';
+}
+
+function isMainPin(p) { return routePinType(p) === 'city_main'; }
+function isFortressPin(p) { return routePinType(p) === 'fortress'; }
+function isSettlementPin(p) { return routePinType(p) === 'settlement'; }
+function isDungeonPin(p) { return routePinType(p) === 'dungeon'; }
+function isTempleOrGuildPin(p) { return ['temple', 'guild_hq'].includes(routePinType(p)); }
+
+function getRouteConnectionType(r, aPin, bPin) {
+  if (r?.connectionType) return r.connectionType;
+  if (r?.crossLayer || (aPin && bPin && aPin.layer && bPin.layer && aPin.layer !== bPin.layer)) return 'cross-layer';
+  if (isDungeonPin(aPin) || isDungeonPin(bPin)) return 'dungeon-supply';
+  if (isMainPin(aPin) && isMainPin(bPin)) return 'main-main';
+  if ((isMainPin(aPin) && isFortressPin(bPin)) || (isFortressPin(aPin) && isMainPin(bPin))) return 'main-fortress';
+  if ((isFortressPin(aPin) && isSettlementPin(bPin)) || (isSettlementPin(aPin) && isFortressPin(bPin))) return 'fortress-settlement';
+  if ((isMainPin(aPin) && isSettlementPin(bPin)) || (isSettlementPin(aPin) && isMainPin(bPin))) return 'main-settlement';
+  if (isTempleOrGuildPin(aPin) || isTempleOrGuildPin(bPin)) return 'temple-guild';
+
+  const parts = routeParts(r, aPin, bPin);
+  if (isSettlementPin(aPin) && isSettlementPin(bPin)) return parts.length >= 2 ? 'settlement-interracial' : 'settlement-settlement';
+  if (parts.length >= 2) return 'settlement-interracial';
+  return 'internal';
+}
+
+function routeConnectionLabel(conn) {
+  const m = {
+    'main-main': 'Cidade Principal ↔ Cidade Principal',
+    'main-fortress': 'Cidade Principal ↔ Fortaleza',
+    'main-settlement': 'Cidade Principal ↔ Assentamento',
+    'fortress-settlement': 'Fortaleza ↔ Assentamento',
+    'settlement-settlement': 'Assentamento ↔ Assentamento',
+    'settlement-interracial': 'Assentamento ↔ Assentamento Inter-racial',
+    'external-trade': 'Comércio Externo entre Raças',
+    'dungeon-supply': 'Masmorras / Suprimento Obscuro',
+    'cross-layer': 'Rota Intercamada',
+    'temple-guild': 'Templos / Guildas',
+    'internal': 'Internas',
+    'all': 'Todas'
+  };
+  return m[conn] || conn || 'Rota';
+}
+
+function isRouteOneWay(r) {
+  return r?.direction === 'oneway' || r?.direction === 'one-way' || r?.oneway === true || r?.bidirectional === false;
+}
+
+function routeDirectionLabel(r) {
+  return isRouteOneWay(r) ? 'Unidirecional' : 'Bidirecional';
+}
+
+function routeVisualStyle(r, conn) {
+  const base = {
+    widthPx: (typeof r?.widthPx === 'number') ? r.widthPx : ((typeof r?.width === 'number') ? Math.max(1.2, r.width * 4) : 1.9),
+    opacity: (typeof r?.opacity === 'number') ? r.opacity : 0.58,
+    dash: '',
+    curve: 1.6,
+  };
+
+  const byConn = {
+    'main-main': { widthPx: 2.35, opacity: 0.68, dash: '', curve: 1.2 },
+    'main-fortress': { widthPx: 2.05, opacity: 0.62, dash: '14 7', curve: 1.6 },
+    'main-settlement': { widthPx: 1.8, opacity: 0.55, dash: '9 6', curve: 1.4 },
+    'fortress-settlement': { widthPx: 1.7, opacity: 0.52, dash: '6 5', curve: 1.2 },
+    'settlement-settlement': { widthPx: 1.45, opacity: 0.48, dash: '4 7', curve: 1.0 },
+    'settlement-interracial': { widthPx: 1.55, opacity: 0.50, dash: '2 6', curve: 1.4 },
+    'external-trade': { widthPx: 1.85, opacity: 0.58, dash: '10 4 2 4', curve: 1.8 },
+    'dungeon-supply': { widthPx: 1.75, opacity: 0.64, dash: '2 5', curve: 1.8 },
+    'cross-layer': { widthPx: 2.1, opacity: 0.70, dash: '12 4 2 4', curve: 2.2 },
+    'temple-guild': { widthPx: 1.65, opacity: 0.55, dash: '1 4', curve: 1.4 },
+    'internal': { widthPx: 1.45, opacity: 0.46, dash: '5 7', curve: 0.9 },
+  };
+  Object.assign(base, byConn[conn] || {});
+
+  if (r?.type === 'trade_shadow') {
+    base.widthPx = Math.max(base.widthPx, 1.9);
+    base.opacity = Math.max(base.opacity, 0.66);
+    base.dash = '2 5';
+  } else if (r?.type === 'trade_official' && !base.dash) {
+    base.widthPx = Math.max(base.widthPx, 2.05);
+  }
+  return base;
+}
+
+function routeStrokeColor(r, conn) {
   if (r && r.color) return r.color;
-  const parts = (r && Array.isArray(r.participants)) ? r.participants : [];
+  if (conn === 'dungeon-supply') return '#b86b6b';
+  if (conn === 'cross-layer') return '#9ad7ff';
+  if (conn === 'external-trade') return '#f2c94c';
+  const parts = routeParts(r, null, null);
   const terr = parts.length ? parts[0] : (r && r.fromTerritory) || null;
   if (terr && typeof TERRITORY_COLORS === 'object' && TERRITORY_COLORS[terr]) return TERRITORY_COLORS[terr];
   return 'rgba(255,255,255,0.65)';
@@ -986,51 +1267,226 @@ function routeTypeLabel(t) {
     trade_internal: 'Comércio Interno',
     trade_official: 'Comércio Oficial',
     trade_shadow: 'Contrabando / Rotas Obscuras',
+    trade_external: 'Comércio Externo',
   };
   return m[t] || t;
+}
+
+function routeCurvePath(x1, y1, x2, y2, routeId, conn, curveAmount) {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const len = Math.hypot(dx, dy) || 1;
+  const mx = (x1 + x2) / 2;
+  const my = (y1 + y2) / 2;
+  const seed = (typeof hashStringToUint32 === 'function') ? hashStringToUint32(`${routeId || ''}|${conn || ''}`) : 1;
+  const sign = (seed % 2 === 0) ? 1 : -1;
+  const jitter = ((seed % 7) - 3) * 0.12;
+  const amount = (curveAmount || 1.2) + jitter;
+  const cx = mx + sign * (-dy / len) * amount;
+  const cy = my + sign * (dx / len) * amount;
+  return `M ${x1} ${y1} Q ${cx.toFixed(3)} ${cy.toFixed(3)} ${x2} ${y2}`;
+}
+
+function routeShouldRender(r, rf, aPin, bPin, conn) {
+  const allowedTypes = Array.isArray(rf.types) && rf.types.length ? new Set(rf.types) : new Set(ALL_ROUTE_TYPES);
+  if (r.type && !allowedTypes.has(r.type)) return false;
+
+  const parts = routeParts(r, aPin, bPin);
+  const allowedRaces = new Set(Array.isArray(rf.races) ? rf.races : []);
+  const focus = rf.focusRace || '';
+
+  // Comércio externo: usa a raça de ponto de vista como origem da leitura.
+  // Ex.: foco Humanos + raças marcadas Humanos/Elfos/Anões mostra Humanos↔Elfos e Humanos↔Anões,
+  // mas não Elfos↔Anões.
+  if (rf.externalOnly) {
+    if (!focus || !parts.includes(focus)) return false;
+    if (parts.length < 2) return false;
+    if (allowedRaces.size === 0) return false;
+    return parts.every(x => allowedRaces.has(x));
+  }
+
+  const selectedConn = Array.isArray(rf.connectionTypes) ? rf.connectionTypes : ROUTE_DEFAULT_CONNECTIONS;
+  if (selectedConn.length > 0 && !selectedConn.includes(conn)) return false;
+
+  const viewMode = rf.viewMode || 'strict';
+  if (viewMode === 'universal') {
+    return !!(focus && parts.includes(focus));
+  }
+
+  if (parts.length === 0) return true;
+  if (allowedRaces.size === 0) return false;
+  return parts.every(x => allowedRaces.has(x));
+}
+
+function renderRoutes() {
+  clearRoutes();
+  if (!els.routesSvg) return;
+  els.routesSvg.setAttribute('viewBox', '0 0 100 100');
+  els.routesSvg.setAttribute('preserveAspectRatio', 'none');
+
+  const rf = (typeof normalizeRouteFilter === 'function') ? normalizeRouteFilter() : state.routeFilter;
+  if (!rf || !rf.enabled) return;
+
+  const era = state.era || 'current';
+  const layerPinsById = new Map();
+  const allPinsById = new Map();
+  for (const p of state.pins) {
+    allPinsById.set(p.id, p);
+    if (p.layer !== state.layer) continue;
+    const eras = Array.isArray(p.eras) ? p.eras : ['current'];
+    if (era !== 'all' && !eras.includes('all') && !eras.includes(era)) continue;
+    layerPinsById.set(p.id, p);
+  }
+
+  const routes = Array.isArray(state.routes) ? state.routes : [];
+  const lines = [];
+  const defs = `
+    <defs>
+      <marker id="routeArrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="rgba(255,255,255,.78)"></path>
+      </marker>
+    </defs>`;
+  lines.push(defs);
+
+  for (const r of routes) {
+    const rEras = Array.isArray(r.eras) ? r.eras : ['all'];
+    if (era !== 'all' && !rEras.includes('all') && !rEras.includes(era)) continue;
+
+    const aAll = allPinsById.get(r.from);
+    const bAll = allPinsById.get(r.to);
+    if (!aAll || !bAll) continue;
+
+    const conn = getRouteConnectionType(r, aAll, bAll);
+    const isCrossLayer = conn === 'cross-layer';
+
+    // Rotas normais aparecem só na camada dos dois pins. Rotas intercamada aparecem na camada declarada da rota
+    // ou na camada de uma das pontas.
+    if (isCrossLayer) {
+      const allowedLayers = new Set([r.layer, aAll.layer, bAll.layer].filter(Boolean));
+      if (!allowedLayers.has(state.layer)) continue;
+    } else {
+      if (r.layer && r.layer !== state.layer) continue;
+      if (aAll.layer !== state.layer || bAll.layer !== state.layer) continue;
+    }
+
+    if (!routeShouldRender(r, rf, aAll, bAll, conn)) continue;
+
+    let pts = null;
+    if (Array.isArray(r.path) && r.path.length >= 2) {
+      pts = r.path;
+    } else if (r.fromTerritory && r.toTerritory) {
+      const centers = getTerritoryLabelCenters();
+      const ca = centers.get(r.fromTerritory);
+      const cb = centers.get(r.toTerritory);
+      if (!ca || !cb) continue;
+      pts = [[ca.cx, ca.cy], [cb.cx, cb.cy]];
+    } else {
+      pts = [[aAll.x, aAll.y], [bAll.x, bAll.y]];
+    }
+
+    const style = routeVisualStyle(r, conn);
+    const stroke = routeStrokeColor(r, conn);
+    const dashAttr = style.dash ? ` stroke-dasharray="${style.dash}"` : '';
+    const arrowAttr = isRouteOneWay(r) ? ' marker-end="url(#routeArrow)"' : '';
+    const common = `class="route-line route-conn-${escapeHtml(conn)}" data-routeid="${escapeHtml(r.id || '')}" data-from="${escapeHtml(r.from || '')}" data-to="${escapeHtml(r.to || '')}" data-type="${escapeHtml(r.type || '')}" data-connection="${escapeHtml(conn)}" data-direction="${isRouteOneWay(r) ? 'oneway' : 'both'}" stroke="${stroke}" stroke-width="${style.widthPx}" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="${style.opacity}"${dashAttr}${arrowAttr}`;
+
+    if (pts.length === 2) {
+      const [[x1, y1], [x2, y2]] = pts;
+      const dx = x2 - x1;
+      if (Math.abs(dx) > 50) {
+        // Mantém o tratamento de borda do mapa-múndi. É linha simples para evitar caminho atravessando o mapa inteiro.
+        let x2a = x2;
+        if (dx > 0) x2a = x2 - 100; else x2a = x2 + 100;
+        const boundary = x2a < 0 ? 0 : 100;
+        const t = (boundary - x1) / (x2a - x1);
+        const yb = y1 + (y2 - y1) * t;
+        const other = (boundary === 0) ? 100 : 0;
+        lines.push(`<line ${common} x1="${x1}" y1="${y1}" x2="${boundary}" y2="${yb}" />`);
+        lines.push(`<line ${common} x1="${other}" y1="${yb}" x2="${x2}" y2="${y2}" />`);
+      } else {
+        const d = routeCurvePath(x1, y1, x2, y2, r.id, conn, style.curve);
+        lines.push(`<path ${common} d="${d}" fill="none" />`);
+      }
+    } else {
+      const d = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'} ${x} ${y}`).join(' ');
+      lines.push(`<path ${common} d="${d}" fill="none" />`);
+    }
+  }
+
+  els.routesSvg.innerHTML = lines.join('');
+  els.routesSvg.querySelectorAll('.route-line').forEach(routeEl => {
+    routeEl.addEventListener('mousemove', (ev) => showRouteTooltip(ev, routeEl));
+    routeEl.addEventListener('mouseleave', () => hideRouteTooltip());
+    routeEl.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      openRouteInfo(routeEl);
+    });
+  });
+  renderRouteLegend();
+  if (state.ui && state.ui.openRouteId && els.routeInfo && !els.routeInfo.classList.contains('hidden')) {
+    const selected = Array.from(els.routesSvg.querySelectorAll('.route-line')).find(el => el.dataset.routeid === state.ui.openRouteId);
+    if (selected) openRouteInfo(selected);
+    else { els.routeInfo.classList.add('hidden'); els.routeInfo.innerHTML = ''; state.ui.openRouteId = null; }
+  }
 }
 
 function renderRouteLegend() {
   if (!els.routeLegend) return;
   const rf = state.routeFilter;
-  if (!rf || !rf.enabled) {
+  if (!rf || !rf.enabled || (state.ui && state.ui.routeLegendClosed)) {
     els.routeLegend.classList.add('hidden');
     els.routeLegend.innerHTML = '';
     return;
   }
-  const enabledTypes = Array.isArray(rf.types) ? rf.types : ALL_ROUTE_TYPES;
-  const items = [];
-  const meta = {
-    trade_internal: { desc: 'Conexões dentro do território (cidades principais + assentamentos).', dash: '1.2 2.2' },
-    trade_official: { desc: 'Rotas oficiais entre raças e capitais comerciais.', dash: '' },
-    trade_shadow: { desc: 'Contrabando, rotas obscuras e acordos não declarados.', dash: '3 2' },
-  };
-  for (const t of ALL_ROUTE_TYPES) {
-    if (!enabledTypes.includes(t)) continue;
-    const col = routeStrokeColor(t);
-    const dash = meta[t]?.dash || '';
-    const dashAttr = dash ? `stroke-dasharray="${dash}"` : '';
-    items.push(`
+
+  let selectedConn = Array.isArray(rf.connectionTypes) ? rf.connectionTypes : ROUTE_DEFAULT_CONNECTIONS;
+  let conns = selectedConn.length ? selectedConn : ['main-main', 'main-fortress', 'main-settlement', 'fortress-settlement', 'external-trade', 'dungeon-supply', 'cross-layer'];
+  if (rf.externalOnly) conns = ['external-trade'];
+  const viewText = rf.externalOnly
+    ? `Comércio externo: ${raceLabel(rf.focusRace)} como ponto de vista`
+    : (rf.viewMode === 'universal'
+      ? `Visão universal: ${raceLabel(rf.focusRace)}`
+      : 'Modo restrito: todas as raças da rota precisam estar marcadas');
+
+  const items = conns.slice(0, 8).map(conn => {
+    const style = routeVisualStyle({}, conn);
+    const stroke = routeStrokeColor({}, conn);
+    const dashAttr = style.dash ? `stroke-dasharray="${style.dash}"` : '';
+    return `
       <div class="item">
         <div class="swatch">
           <svg viewBox="0 0 34 10" preserveAspectRatio="none" aria-hidden="true">
-            <line x1="2" y1="5" x2="32" y2="5" stroke="${col}" stroke-width="2.2" ${dashAttr}></line>
+            <line x1="2" y1="5" x2="32" y2="5" stroke="${stroke}" stroke-width="2.2" ${dashAttr}></line>
           </svg>
         </div>
         <div>
-          <div class="label">${escapeHtml(routeTypeLabel(t))}</div>
-          <div class="desc">${escapeHtml(meta[t]?.desc || '')}</div>
+          <div class="label">${escapeHtml(routeConnectionLabel(conn))}</div>
         </div>
       </div>
-    `);
-  }
+    `;
+  });
+
   els.routeLegend.classList.remove('hidden');
   els.routeLegend.innerHTML = `
-    <div class="title">Rotas</div>
+    <div class="floating-head route-legend-head">
+      <div class="title">Rotas</div>
+      <button class="floating-close" type="button" id="routeLegendCloseBtn" title="Fechar legenda">×</button>
+    </div>
+    <div class="desc" style="margin-bottom:7px;opacity:.82;">${escapeHtml(viewText)}</div>
     <div class="items">${items.join('')}</div>
   `;
+  const close = document.getElementById('routeLegendCloseBtn');
+  if (close) close.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    if (state.ui) state.ui.routeLegendClosed = true;
+    els.routeLegend.classList.add('hidden');
+    els.routeLegend.innerHTML = '';
+    try { persistState(); } catch (_) {}
+  });
+  makeFloatingPanelDraggable(els.routeLegend, '.route-legend-head', 'routeLegendPos');
 }
-
 
 function renderList() {
   els.list.innerHTML = '';
@@ -1067,6 +1523,7 @@ function showTooltip(ev, p) {
   const x = ev.clientX - rect.left;
   const y = ev.clientY - rect.top;
   const terr = p.territory ? ` • ${raceLabel(p.territory)}` : '';
+  const wvLine = (typeof getWorldVisionTooltipLine === 'function') ? getWorldVisionTooltipLine(p) : '';
   els.tooltip.classList.remove('hidden');
   const left = Math.min(Math.max(8, x + 14), Math.max(8, rect.width - 260));
   const top = Math.min(Math.max(8, y + 14), Math.max(8, rect.height - 110));
@@ -1074,6 +1531,7 @@ function showTooltip(ev, p) {
     <div class="box" style="left:${left}px; top:${top}px;">
       <div class="tname">${escapeHtml(p.name)}</div>
       <div class="tmeta">${escapeHtml(typeLabel(p.type))} • ${escapeHtml(layerLabel(p.layer))}${escapeHtml(terr)}</div>
+      ${wvLine ? `<div class="tmeta wv-tooltip-line">${escapeHtml(wvLine)}</div>` : ''}
     </div>
   `;
 }
@@ -1085,6 +1543,143 @@ function hideTooltip() {
 
 
 // ---- Rotas: tooltip e painel de info (clique) ----
+function routeDateKey() {
+  const wt = (state && state.worldTime) ? state.worldTime : { day: 1, month: 1, year: 1 };
+  const mm = String(wt.month || 1).padStart(2, '0');
+  const dd = String(wt.day || 1).padStart(2, '0');
+  return `${wt.year || 1}-${mm}-${dd}`;
+}
+
+function getRouteById(id) {
+  return (state.routes || []).find(r => r && r.id === id) || null;
+}
+
+function routeDisplayName(r, fromName, toName, conn) {
+  if (r && r.name) return r.name;
+  const prefix = {
+    'main-main': 'Grande Via Comercial',
+    'main-fortress': 'Rota de Abastecimento Militar',
+    'main-settlement': 'Caminho Mercantil',
+    'fortress-settlement': 'Linha de Suprimentos',
+    'settlement-settlement': 'Estrada Local',
+    'settlement-interracial': 'Travessia de Fronteira',
+    'external-trade': 'Rota Externa',
+    'dungeon-supply': 'Trilha Obscura de Suprimento',
+    'cross-layer': 'Passagem Intercamada',
+    'temple-guild': 'Via de Patronos'
+  }[conn] || 'Rota Comercial';
+  return `${prefix}: ${fromName} → ${toName}`;
+}
+
+function activeEconomyLabels() {
+  const names = {
+    war: 'guerra', bandits: 'bandidos', guild_thieves: 'guilda de ladrões', disaster: 'desastre',
+    plague: 'praga', blockade: 'bloqueio comercial', famine: 'escassez', monster_surge: 'monstros',
+    corruption: 'corrupção', high_taxes: 'impostos altos', peace: 'paz', bumper_crop: 'colheita farta',
+    trade_agreement: 'acordo comercial', festival: 'festival', new_mine: 'nova mina', magic_abundance: 'abundância mágica',
+    guild_support: 'apoio da guilda', road_safety: 'estradas seguras', innovation: 'inovação', low_taxes: 'impostos baixos'
+  };
+  const mods = (state.economy && Array.isArray(state.economy.modifiers)) ? state.economy.modifiers : [];
+  return mods.map(m => names[m] || m);
+}
+
+function routeRiskProfile(r, conn) {
+  let score = 30;
+  if (conn === 'dungeon-supply') score += 34;
+  if (conn === 'cross-layer') score += 18;
+  if (conn === 'external-trade') score += 12;
+  if (r && r.type === 'trade_shadow') score += 22;
+  if (isRouteOneWay(r)) score += 6;
+
+  const mods = (state.economy && Array.isArray(state.economy.modifiers)) ? state.economy.modifiers : [];
+  const negative = ['war', 'bandits', 'guild_thieves', 'disaster', 'plague', 'blockade', 'famine', 'monster_surge', 'corruption', 'high_taxes'];
+  const positive = ['peace', 'bumper_crop', 'trade_agreement', 'festival', 'new_mine', 'magic_abundance', 'guild_support', 'road_safety', 'innovation', 'low_taxes'];
+  for (const m of mods) {
+    if (negative.includes(m)) score += (m === 'war' || m === 'blockade' || m === 'famine') ? 14 : 8;
+    if (positive.includes(m)) score -= (m === 'peace' || m === 'road_safety' || m === 'trade_agreement') ? 10 : 5;
+  }
+
+  const seed = hashStringToUint32(`${r?.id || ''}|${routeDateKey()}|risk`);
+  score += (seed % 25) - 12;
+  score = clamp(score, 5, 100);
+
+  let label = 'Segura';
+  let tone = 'safe';
+  let note = 'Patrulhas e fluxo mercantil estável.';
+  if (score >= 78) { label = 'Extremamente perigosa'; tone = 'deadly'; note = 'Ataques, bloqueios e perdas são prováveis.'; }
+  else if (score >= 58) { label = 'Perigosa'; tone = 'danger'; note = 'Exige escolta, cautela e bom planejamento.'; }
+  else if (score >= 38) { label = 'Instável'; tone = 'warn'; note = 'Funciona, mas pode sofrer atrasos e emboscadas.'; }
+  return { score, label, tone, note };
+}
+
+function routeFlavorText(r, conn, risk) {
+  if (conn === 'dungeon-supply') return 'Comércio obscuro, usado por exploradores, atravessadores e grupos que lucram com ruínas perigosas.';
+  if (conn === 'cross-layer') return 'Rota especial entre camadas do mundo; depende de passagens, portais, túneis ou travessias raras.';
+  if (conn === 'external-trade') return 'Comércio externo entre raças, sujeito a política, fronteiras e relações diplomáticas.';
+  if (risk.score >= 58) return 'A rota continua ativa, mas mercadores evitam viajar sem proteção.';
+  return 'Rota em operação regular, com fluxo previsível de caravanas e mensageiros.';
+}
+
+function routeTravelEstimateText(aPin, bPin, route) {
+  if (!aPin || !bPin || typeof aPin.x !== 'number' || typeof bPin.x !== 'number') return null;
+  let dx = Math.abs((aPin.x || 0) - (bPin.x || 0));
+  dx = Math.min(dx, 100 - dx);
+  const dy = Math.abs((aPin.y || 0) - (bPin.y || 0));
+  const kmPerPercent = WORLD_CIRCUMFERENCE_KM / 100;
+  const distKm = Math.hypot(dx * kmPerPercent, dy * kmPerPercent);
+  const days = distKm / TRAVEL_KM_PER_DAY;
+  let note = 'Estimativa por comitiva comum a 40 km/dia.';
+  if (days > 120) note = 'Rota longa: caravanas costumam usar postos intermediários, escoltas reforçadas, navegação mágica ou atalhos arcanos controlados.';
+  else if (days > 45) note = 'Rota extensa: o deslocamento costuma exigir comboio, suprimentos e paradas seguras.';
+  else if (route && route.type === 'trade_shadow') note = 'Rotas clandestinas raramente seguem linha reta; o tempo real pode ser maior por desvios e ocultação.';
+  return { distKm, days, label: `${distKm.toFixed(0)} km • ${formatTravel(days)}`, note };
+}
+
+function makeFloatingPanelDraggable(panel, handleSelector, stateKey) {
+  if (!panel) return;
+  const pos = state.ui && state.ui[stateKey];
+  if (pos && typeof pos.left === 'number' && typeof pos.top === 'number') {
+    panel.style.left = `${pos.left}px`;
+    panel.style.top = `${pos.top}px`;
+    panel.style.right = 'auto';
+    panel.style.bottom = 'auto';
+  }
+  const handle = panel.querySelector(handleSelector);
+  if (!handle) return;
+  handle.onpointerdown = (ev) => {
+    if (ev.target && ev.target.closest && ev.target.closest('button')) return;
+    ev.preventDefault();
+    const rect = panel.getBoundingClientRect();
+    const startX = ev.clientX;
+    const startY = ev.clientY;
+    const baseLeft = rect.left;
+    const baseTop = rect.top;
+    panel.style.left = `${baseLeft}px`;
+    panel.style.top = `${baseTop}px`;
+    panel.style.right = 'auto';
+    panel.style.bottom = 'auto';
+    panel.classList.add('is-dragging');
+    try { handle.setPointerCapture(ev.pointerId); } catch (_) {}
+
+    const move = (e) => {
+      const nextLeft = clamp(baseLeft + (e.clientX - startX), 8, Math.max(8, window.innerWidth - rect.width - 8));
+      const nextTop = clamp(baseTop + (e.clientY - startY), 8, Math.max(8, window.innerHeight - rect.height - 8));
+      panel.style.left = `${nextLeft}px`;
+      panel.style.top = `${nextTop}px`;
+    };
+    const up = () => {
+      panel.classList.remove('is-dragging');
+      const finalRect = panel.getBoundingClientRect();
+      if (state.ui) state.ui[stateKey] = { left: finalRect.left, top: finalRect.top };
+      try { persistState(); } catch (_) {}
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+}
+
 function getPinNameById(id) {
   const p = (state.pins || []).find(x => x && x.id === id);
   return p ? p.name : id || '';
@@ -1101,6 +1696,8 @@ function showRouteTooltip(ev, routeEl) {
   const from = routeEl?.dataset?.from || '';
   const to = routeEl?.dataset?.to || '';
   const type = routeEl?.dataset?.type || '';
+  const conn = routeEl?.dataset?.connection || '';
+  const direction = routeEl?.dataset?.direction === 'oneway' ? 'Unidirecional' : 'Bidirecional';
 
   const left = Math.min(Math.max(8, x + 14), Math.max(8, rect.width - 330));
   const top = Math.min(Math.max(8, y + 14), Math.max(8, rect.height - 120));
@@ -1112,6 +1709,7 @@ function showRouteTooltip(ev, routeEl) {
   els.routeTooltip.innerHTML = `
     <div style="font-weight:700;margin-bottom:4px;">${escapeHtml(getPinNameById(from))} → ${escapeHtml(getPinNameById(to))}</div>
     <div style="opacity:.92;">${escapeHtml(routeTypeLabel(type))}</div>
+    <div style="opacity:.82;">${escapeHtml(routeConnectionLabel(conn))} • ${escapeHtml(direction)}</div>
   `;
 }
 
@@ -1126,19 +1724,53 @@ function openRouteInfo(routeEl) {
   const from = routeEl?.dataset?.from || '';
   const to = routeEl?.dataset?.to || '';
   const type = routeEl?.dataset?.type || '';
+  const conn = routeEl?.dataset?.connection || '';
   const rid = routeEl?.dataset?.routeid || '';
+  const route = getRouteById(rid) || { id: rid, from, to, type };
+  const direction = isRouteOneWay(route) ? 'Unidirecional' : 'Bidirecional';
+  const fromName = getPinNameById(from);
+  const toName = getPinNameById(to);
+  const aPin = (state.pins || []).find(x => x && x.id === from) || null;
+  const bPin = (state.pins || []).find(x => x && x.id === to) || null;
+  const travel = routeTravelEstimateText(aPin, bPin, route);
+  const risk = routeRiskProfile(route, conn);
+  const routeState = route && route.routeState ? route.routeState : null;
+  const econ = activeEconomyLabels();
+  const routeName = routeDisplayName(route, fromName, toName, conn);
+  const flavor = routeFlavorText(route, conn, risk);
 
+  if (state.ui) state.ui.openRouteId = rid;
   els.routeInfo.classList.remove('hidden');
   els.routeInfo.innerHTML = `
-    <button class="btn btn-sm ri-close" type="button" id="routeInfoCloseBtn">Fechar</button>
-    <div class="ri-title">${escapeHtml(getPinNameById(from))} → ${escapeHtml(getPinNameById(to))}</div>
+    <div class="floating-head ri-head">
+      <div>
+        <div class="ri-kicker">Rota Comercial</div>
+        <div class="ri-title">${escapeHtml(routeName)}</div>
+      </div>
+      <button class="floating-close" type="button" id="routeInfoCloseBtn" title="Fechar">×</button>
+    </div>
+    <div class="ri-route-points">${escapeHtml(fromName)} <span>→</span> ${escapeHtml(toName)}</div>
     <div class="ri-row"><span>Tipo</span><span class="ri-badge">${escapeHtml(routeTypeLabel(type))}</span></div>
-    <div class="ri-row"><span>ID</span><span style="opacity:.85;">${escapeHtml(rid)}</span></div>
-    <div style="margin-top:8px;opacity:.85;">Dica: use os filtros de Rotas no Avançado para limpar a visualização.</div>
+    <div class="ri-row"><span>Conexão</span><span class="ri-badge">${escapeHtml(routeConnectionLabel(conn))}</span></div>
+    <div class="ri-row"><span>Direção</span><span class="ri-badge">${escapeHtml(direction)}</span></div>
+    ${routeState ? `<div class="ri-row"><span>Estado base</span><span class="ri-badge">${escapeHtml(routeState.status || 'regular')}</span></div><div class="ri-note">Fluxo: ${escapeHtml(routeState.tradeFlow || 'regular')}. ${escapeHtml(routeState.note || '')}</div>` : ''}
+    ${travel ? `<div class="ri-row"><span>Deslocamento médio</span><span class="ri-badge">${escapeHtml(travel.label)}</span></div><div class="ri-note">${escapeHtml(travel.note)}</div>` : ''}
+    <div class="ri-risk ${escapeHtml(risk.tone)}">
+      <span>Risco atual</span><b>${escapeHtml(risk.label)}</b>
+    </div>
+    <div class="ri-note">${escapeHtml(risk.note)}</div>
+    <div class="ri-flavor">${escapeHtml(flavor)}</div>
+    ${econ.length ? `<div class="ri-econ"><b>Influências econômicas:</b> ${escapeHtml(econ.join(', '))}</div>` : `<div class="ri-econ muted">Sem situações econômicas marcadas.</div>`}
   `;
   const btn = document.getElementById('routeInfoCloseBtn');
-  if (btn) btn.addEventListener('click', () => { els.routeInfo.classList.add('hidden'); els.routeInfo.innerHTML = ''; });
+  if (btn) btn.addEventListener('click', () => {
+    if (state.ui) state.ui.openRouteId = null;
+    els.routeInfo.classList.add('hidden');
+    els.routeInfo.innerHTML = '';
+  });
+  makeFloatingPanelDraggable(els.routeInfo, '.ri-head', 'routeInfoPos');
 }
+
 
 
 function renderNpcSectionForLoc(p) {
@@ -1151,7 +1783,7 @@ function renderNpcSectionForLoc(p) {
     const wt = (state && state.worldTime) ? state.worldTime : { day: 1, month: 1, year: 1 };
     const mm = String(wt.month).padStart(2, '0');
     const dd = String(wt.day).padStart(2, '0');
-    return `${wt.year}-${mm}-${dd}`;
+    return `${wt.era || 'fourth_age'}-${wt.year}-${mm}-${dd}`;
   }
   function pickImportant(list) {
     if (!showImportant || !list.length) return [];
@@ -1163,12 +1795,19 @@ function renderNpcSectionForLoc(p) {
   }
 
   const impPick = pickImportant(important);
+  const campaignImportant = showImportant && state.campaign && Array.isArray(state.campaign.importantNpcs)
+    ? state.campaign.importantNpcs.filter(n => {
+        const raw = String(n.pinId || n.pin || n.localId || n.locationId || n.where || n.local || '').toLowerCase();
+        return raw && (raw === String(p.id || '').toLowerCase() || raw === String(p.name || '').toLowerCase());
+      })
+    : [];
 
   const esc = (s) => escapeHtml(String(s || ''));
-  const li = (n) => `<li><b>${esc(n.name)}</b> — ${esc(n.role || '')}</li>`;
-  const fixedHtml = fixed.length ? `<div class="npc-section"><div class="npc-title"><b>NPCs do Templo</b></div><ul class="npc-list">${fixed.map(li).join('')}</ul></div>` : '';
+  const li = (n) => `<li><b>${esc(n.name || n.nome)}</b> — ${esc(n.role || n.papel || n.function || '')}</li>`;
+  const fixedHtml = fixed.length ? `<div class="npc-section"><div class="npc-title"><b>NPCs do Local</b></div><ul class="npc-list">${fixed.map(li).join('')}</ul></div>` : '';
   const impHtml = impPick.length ? `<div class="npc-section"><div class="npc-title"><b>NPCs Importantes (ocasionais)</b></div><ul class="npc-list">${impPick.map(li).join('')}</ul></div>` : '';
-  return fixedHtml + impHtml;
+  const campaignImpHtml = campaignImportant.length ? `<div class="npc-section"><div class="npc-title"><b>NPCs Importantes da Campanha</b></div><ul class="npc-list">${campaignImportant.map(li).join('')}</ul></div>` : '';
+  return fixedHtml + impHtml + campaignImpHtml;
 }
 
 
@@ -1182,7 +1821,7 @@ function renderSecretSectionForLoc(p) {
     const wt = (state && state.worldTime) ? state.worldTime : { day: 1, month: 1, year: 1 };
     const mm = String(wt.month).padStart(2, '0');
     const dd = String(wt.day).padStart(2, '0');
-    return `${wt.year}-${mm}-${dd}`;
+    return `${wt.era || 'fourth_age'}-${wt.year}-${mm}-${dd}`;
   }
   function pickImportant(list) {
     if (!list.length) return [];
@@ -1194,11 +1833,31 @@ function renderSecretSectionForLoc(p) {
   }
   const impPick = pickImportant(imp);
   const esc = (s) => escapeHtml(String(s || ''));
-  const li = (n) => `<li><b>${esc(n.name)}</b> — ${esc(n.role || '')}</li>`;
+  const li = (n) => `<li><b>${esc(n.name || n.nome)}</b> — ${esc(n.role || n.papel || '')}</li>`;
   const impHtml = impPick.length ? `<div class="npc-section"><div class="npc-title"><b>NPCs Importantes (segredos)</b></div><ul class="npc-list">${impPick.map(li).join('')}</ul></div>` : '';
   const body = txt ? renderStructuredDetails(txt) : '';
-  if (!impHtml && !body) return '';
-  return `<div class="secret-box"><div class="secret-title">Segredos (GM)</div>${impHtml}${body}</div>`;
+
+  const camp = state.campaign || {};
+  const secretRec = (camp.pinSecrets && (camp.pinSecrets[p.id] || camp.pinSecrets[p.name])) || null;
+  const hookRec = (camp.hooks && (camp.hooks[p.id] || camp.hooks[p.name])) || null;
+  function renderAny(title, rec) {
+    if (!rec) return '';
+    if (typeof rec === 'string') return `<div class="subsection"><div class="subhead">${esc(title)}</div><div class="subtext">${esc(rec).replace(/\n/g, '<br>')}</div></div>`;
+    if (Array.isArray(rec)) return `<div class="subsection"><div class="subhead">${esc(title)}</div><ul class="bullets">${rec.map(x => `<li>${esc(typeof x === 'string' ? x : (x.title || x.titulo || JSON.stringify(x)))}</li>`).join('')}</ul></div>`;
+    if (typeof rec === 'object') {
+      const rows = Object.entries(rec).map(([k,v]) => {
+        const val = typeof v === 'string' ? v : JSON.stringify(v, null, 2);
+        return `<div class="meta-item"><div class="meta-k">${esc(k)}</div><div class="meta-v">${esc(val).replace(/\n/g, '<br>')}</div></div>`;
+      }).join('');
+      return `<div class="subsection"><div class="subhead">${esc(title)}</div><div class="meta-grid">${rows}</div></div>`;
+    }
+    return '';
+  }
+  const campaignSecretHtml = renderAny('Segredos da campanha', secretRec);
+  const campaignHooksHtml = renderAny('Ganchos ativos', hookRec);
+
+  if (!impHtml && !body && !campaignSecretHtml && !campaignHooksHtml) return '';
+  return `<div class="secret-box"><div class="secret-title">Segredos (GM)</div>${impHtml}${body}${campaignSecretHtml}${campaignHooksHtml}</div>`;
 }
 
 
@@ -1279,6 +1938,55 @@ function renderStructuredDetails(txt) {
   return html;
 }
 
+
+// ---- Inteligência Local: rumores, reputação, controle político e perigo ----
+function renderAtlasIntelligenceForLoc(obj, opts = {}) {
+  if (!obj) return '';
+  const esc = escapeHtml;
+  const danger = obj.dangerProfile || null;
+  const pol = obj.politicalControl || null;
+  const rep = obj.reputation || null;
+  const rumors = obj.localRumors || null;
+  const gmUnlocked = !!(state && state.gm && state.gm.unlocked);
+
+  const dangerHtml = danger ? `
+    <div class="intel-card danger-${esc(String(danger.level || '').toLowerCase())}">
+      <div class="intel-k">Nível de perigo</div>
+      <div class="intel-v"><b>${esc(danger.level || 'Moderado')}</b>${danger.score ? ` <span class="badge">${esc(String(danger.score))}/100</span>` : ''}</div>
+      ${danger.reason ? `<div class="intel-note">${esc(danger.reason)}</div>` : ''}
+    </div>` : '';
+
+  const politicalHtml = pol ? `
+    <div class="intel-card">
+      <div class="intel-k">Controle político</div>
+      <div class="intel-v"><b>${esc(pol.controller || 'Autoridade local')}</b></div>
+      <div class="intel-note">${esc(pol.realm || 'Eldralore')} • ${esc(pol.mode || 'influência local')} • ${esc(pol.stability || 'estável')}</div>
+      ${pol.notes ? `<div class="intel-note">${esc(pol.notes)}</div>` : ''}
+    </div>` : '';
+
+  let repHtml = '';
+  if (rep && Array.isArray(rep.factions) && rep.factions.length) {
+    repHtml = `<div class="intel-card"><div class="intel-k">Reputação local</div>` +
+      rep.factions.slice(0, 4).map(f => `<div class="rep-row"><span>${esc(f.name || f.id || 'Facção')}</span><b>${esc(f.status || rep.default || 'Neutro')}</b></div>${f.note ? `<div class="intel-note small">${esc(f.note)}</div>` : ''}`).join('') +
+      `</div>`;
+  }
+
+  let rumorsHtml = '';
+  if (typeof renderDynamicRumorsHtml === 'function') {
+    rumorsHtml = renderDynamicRumorsHtml(obj, gmUnlocked);
+  } else if (rumors && (Array.isArray(rumors.public) || Array.isArray(rumors.gm))) {
+    const pub = Array.isArray(rumors.public) ? rumors.public.filter(Boolean) : [];
+    const gm = gmUnlocked && Array.isArray(rumors.gm) ? rumors.gm.filter(Boolean) : [];
+    const pubHtml = pub.length ? `<div class="intel-rumor-title">Rumores públicos</div><ul class="bullets">${pub.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : '';
+    const gmHtml = gm.length ? `<div class="intel-rumor-title gm-only">Rumores GM</div><ul class="bullets gm-only">${gm.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : '';
+    if (pubHtml || gmHtml) rumorsHtml = `<div class="intel-card wide">${pubHtml}${gmHtml}</div>`;
+  }
+
+  const groupRepHtml = (typeof renderGroupReputationHtml === 'function') ? renderGroupReputationHtml(obj) : '';
+  const html = [dangerHtml, politicalHtml, repHtml, groupRepHtml, rumorsHtml].filter(Boolean).join('');
+  return html ? `<div class="intel-section"><div class="intel-title">Informações regionais</div><div class="intel-grid">${html}</div></div>` : '';
+}
+
 function openLoc(p) {
   hideTooltip();
   if (state && state.ui) state.ui.openLocId = (p && p.id) ? p.id : null;
@@ -1292,9 +2000,13 @@ function openLoc(p) {
 
   const desc = p.description || '';
   const more = p.details || '';
+  const expandedReleased = (typeof isExpandedInfoReleasedForPin === 'function') ? isExpandedInfoReleasedForPin(p) : false;
+  const showPlayerExpanded = !!(state.gm && state.gm.unlocked) || expandedReleased;
 
   const climateText = climateTextForPoint(p.layer, p.x, p.y, p.territory || null);
   const npcHtml = renderNpcSectionForLoc(p);
+  const worldVisionHtml = (typeof renderWorldVisionForPin === 'function') ? renderWorldVisionForPin(p) : '';
+  const intelHtml = (typeof renderAtlasIntelligenceForLoc === 'function') ? renderAtlasIntelligenceForLoc(p) : '';
   const secretHtml = renderSecretSectionForLoc(p);
 
   const hasSecret = !!secretHtml;
@@ -1314,20 +2026,23 @@ function openLoc(p) {
     ? `<div class="media-grid">${p.videos.map(u => `<video controls src="${escapeHtml(u)}"></video>`).join('')}</div>`
     : '';
 
-  // City View: habilita quando houver cityId
+  // View estruturada: cidades, assentamentos e fortalezas usam o mesmo motor interno.
   const hasCityView = !!p.cityId;
+  const openLabel = p.type === 'fortress' ? 'Abrir fortaleza' : (p.type === 'settlement' ? 'Abrir assentamento' : (p.type === 'temple' ? 'Abrir templo' : (p.type === 'guild_hq' ? 'Abrir guilda' : 'Abrir cidade')));
   const cityBtn = hasCityView
-    ? `<button type="button" class="btn" data-city="${escapeHtml(p.cityId)}">Abrir cidade</button>`
+    ? `<button type="button" class="btn" data-city="${escapeHtml(p.cityId)}">${escapeHtml(openLabel)}</button>`
     : '';
 
   els.modalBody.innerHTML = `
     <div class="section">
       <div class="desc">${escapeHtml(desc)}</div>
       <div class="climate"><b>Clima</b>: ${escapeHtml(climateText)}</div>
+      ${worldVisionHtml}
+      ${intelHtml}
       ${npcHtml}
       ${imgHtml}
       ${vidHtml}
-      ${more ? `<div class=\"details\">${renderStructuredDetails(more)}</div>` : ''}
+      ${(more && showPlayerExpanded) ? `<div class=\"details\">${renderStructuredDetails(more)}</div>` : (more ? `<div class=\"hint\">Info expandida oculta pelo GM.</div>` : '')}
       ${secretToggleHtml}
       ${secretWrapHtml}
     </div>
@@ -1340,6 +2055,14 @@ function openLoc(p) {
   if (btn) {
     btn.addEventListener('click', () => {
       openCity(btn.getAttribute('data-city'));
+    });
+  }
+  const secretBtn = els.modalBody.querySelector('[data-gm-secret]');
+  if (secretBtn) {
+    secretBtn.addEventListener('click', () => {
+      const box = els.modalBody.querySelector('.gm-secret');
+      if (!box) return;
+      box.classList.toggle('hidden');
     });
   }
 
@@ -1504,7 +2227,8 @@ function rebuildAdvancedPanel() {
       const on = (state.routeFilter && Array.isArray(state.routeFilter.types) && state.routeFilter.types.includes(t));
       if (on) chip.classList.add('is-on');
       chip.addEventListener('click', () => {
-        if (!state.routeFilter) state.routeFilter = { enabled: false, types: [...types], participants: [] };
+        if (typeof normalizeRouteFilter === 'function') normalizeRouteFilter();
+        else if (!state.routeFilter) state.routeFilter = { enabled: false, types: [...types], participants: [] };
         const set = new Set(state.routeFilter.types || []);
         if (set.has(t)) set.delete(t); else set.add(t);
         state.routeFilter.types = Array.from(set);
@@ -1526,12 +2250,14 @@ function rebuildAdvancedPanel() {
       const chip = document.createElement('div');
       chip.className = 'adv-chip';
       chip.textContent = raceLabel(r) || r;
-      const on = (state.routeFilter && Array.isArray(state.routeFilter.participants) && state.routeFilter.participants.includes(r));
+      const on = (state.routeFilter && Array.isArray(state.routeFilter.races || state.routeFilter.participants) && (state.routeFilter.races || state.routeFilter.participants).includes(r));
       if (on) chip.classList.add('is-on');
       chip.addEventListener('click', () => {
-        if (!state.routeFilter) state.routeFilter = { enabled: false, types: [...types], participants: [] };
-        const set = new Set(state.routeFilter.participants || []);
+        if (typeof normalizeRouteFilter === 'function') normalizeRouteFilter();
+        else if (!state.routeFilter) state.routeFilter = { enabled: false, types: [...types], participants: [] };
+        const set = new Set(state.routeFilter.races || state.routeFilter.participants || []);
         if (set.has(r)) set.delete(r); else set.add(r);
+        state.routeFilter.races = Array.from(set);
         state.routeFilter.participants = Array.from(set);
         persistState();
         rebuildAdvancedPanel();
@@ -1561,10 +2287,18 @@ function rebuildAdvancedPanel() {
 
   if (els.storyChapterLabel) {
     const ch = state.story?.chapter || 0;
-    els.storyChapterLabel.textContent = state.story?.active ? `Capítulo: ${ch + 1}` : '';
+    const total = Array.isArray(state.story?.data?.chapters) ? state.story.data.chapters.length : 0;
+    els.storyChapterLabel.textContent = state.story?.active ? `Capítulo: ${ch + 1}${total ? `/${total}` : ''}` : '';
   }
   if (els.storyText) {
-    els.storyText.innerHTML = '';
+    const story = state.story;
+    const chapters = Array.isArray(story?.data?.chapters) ? story.data.chapters : [];
+    const ch = story?.active ? chapters[story.chapter || 0] : null;
+    if (ch) {
+      els.storyText.innerHTML = `<div><b>${escapeHtml(ch.title || '')}</b></div><div style="margin-top:6px">${escapeHtml(ch.text || '')}</div>`;
+    } else {
+      els.storyText.innerHTML = '';
+    }
   }
 }
 
@@ -1604,6 +2338,10 @@ function applyStoryChapter() {
   if (ch.tags) {
     state.tagFilter = { enabled: true, mode: (ch.tagMode || 'OR').toUpperCase(), selected: ch.tags.slice(0) };
   }
+
+  // Sincroniza controles visíveis quando o capítulo altera visão/era.
+  if (els.presetSelect && state.preset) els.presetSelect.value = state.preset;
+  if (els.eraSelect && state.era) els.eraSelect.value = state.era;
 
   // Texto
   if (els.storyText) {

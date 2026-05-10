@@ -1,0 +1,14 @@
+{
+  "status": "superseded_by_integration",
+  "supersededAt": "2026-05-09T21:59:08",
+  "note": "Relatório antigo substituído: blocos 2-5 foram processados nesta integração QA. Uma imagem planejada de settlement_nagas_subaquatica_set_003 imagem 2 não foi integrada porque o arquivo fonte gerado anteriormente foi sobrescrito por outro arquivo de mesmo nome; nenhuma imagem descartada/ambígua foi usada para preencher esse slot.",
+  "integratedImageCount": 39,
+  "expectedImageCountForBlocks2To5": 40,
+  "knownMissing": [
+    {
+      "city_id": "settlement_nagas_subaquatica_set_003",
+      "expected_dest": "assets/settlements/nagas/nagas_subaquatica_set_003_2.webp",
+      "reason": "fonte original sobrescrita/indisponível; não substituída por imagem descartada"
+    }
+  ]
+}

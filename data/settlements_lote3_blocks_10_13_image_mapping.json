@@ -1,0 +1,754 @@
+{
+  "baseZip": "atlas_eldralore_patch_assentamentos_lote3_blocos2_9_integrados_QA(1).zip",
+  "outputZip": "atlas_eldralore_patch_assentamentos_lote3_blocos2_13_integrados_QA.zip",
+  "createdAt": "2026-05-10T00:34:42",
+  "scope": "Integração dos blocos 10, 11, 12 e fechamento parcial 13.",
+  "rules": [
+    "Blocos 10, 11 e 12 integrados como 10 imagens individuais cada.",
+    "Bloco 13 integrado como fechamento parcial com 5 imagens reais pendentes, sem inventar slots inexistentes.",
+    "Imagens de grid/colagem/montagem geradas por erro foram bloqueadas e não integradas.",
+    "Cada destino corresponde a um único pin/local/path.",
+    "cities.json e pins.json foram sincronizados."
+  ],
+  "blockedInvalidGeneratedSources": [
+    "a_wide_collage_montage_of_fantasy_concept_art_la.png",
+    "a_wide_high_detail_fantasy_steampunk_collage_like.png"
+  ],
+  "entries": [
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_fae_world_set_007",
+      "pin_id_expected": "fae_world_set_007",
+      "img_no": 1,
+      "source_png": "enchanted_fairy_village_in_a_glowing_garden.png",
+      "dest": "assets/settlements/fae/fae_world_set_007_1.webp",
+      "race_folder": "fae",
+      "asset_stem": "fae_world_set_007",
+      "note": "Jardim Vivo Anel de Flores — visão ampla de jardim feérico vivo, flores luminosas e arquitetura orgânica.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 312482,
+      "webp_sha256": "359c44f0c737fa9523bd98e205227f565a76064b8a2471aa0669f759ddf2bcaf",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_fae_world_set_007",
+      "pin_id_expected": "fae_world_set_007",
+      "img_no": 2,
+      "source_png": "magical_elven_village_at_dusk.png",
+      "dest": "assets/settlements/fae/fae_world_set_007_2.webp",
+      "race_folder": "fae",
+      "asset_stem": "fae_world_set_007",
+      "note": "Jardim Vivo Anel de Flores — praça/círculo comunitário feérico em jardim vivo.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 440346,
+      "webp_sha256": "d00f3f9b4269b5135a0825323be2597304ce6069bab821c79320a1db5f65c741",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_fae_world_set_008",
+      "pin_id_expected": "fae_world_set_008",
+      "img_no": 1,
+      "source_png": "enchanting_fairy_village_in_a_lush_forest.png",
+      "dest": "assets/settlements/fae/fae_world_set_008_1.webp",
+      "race_folder": "fae",
+      "asset_stem": "fae_world_set_008",
+      "note": "Clareira Encantada Thistlehollow — aldeia agrícola feérica em clareira florestal viva.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 455052,
+      "webp_sha256": "2027acae554369e87755a6ec002f541b685ded608740446bcb4f7ca4dfa1e08f",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_fae_world_set_008",
+      "pin_id_expected": "fae_world_set_008",
+      "img_no": 2,
+      "source_png": "enchanted_village_garden_at_twilight.png",
+      "dest": "assets/settlements/fae/fae_world_set_008_2.webp",
+      "race_folder": "fae",
+      "asset_stem": "fae_world_set_008",
+      "note": "Clareira Encantada Thistlehollow — horta/jardim e casas orgânicas em crepúsculo.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 414844,
+      "webp_sha256": "1eee34f48ffa8d65f096382facb74d6fc7cb6ec62c5fb8b0a3eb8e877e350998",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_giants_world_set_001",
+      "pin_id_expected": "giants_world_set_001",
+      "img_no": 1,
+      "source_png": "ancient_stone_fortress_in_the_mountains.png",
+      "dest": "assets/settlements/giants/giants_world_set_001_1.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_001",
+      "note": "Assentamento Colossal Thundergate — assentamento monumental em montanhas, pedra maciça e salões gigantes.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 219266,
+      "webp_sha256": "2a2cd2db4bc7adc6e56f56d7631b63b421a1d203858691b2311a875cbd9358d8",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_giants_world_set_001",
+      "pin_id_expected": "giants_world_set_001",
+      "img_no": 2,
+      "source_png": "mountain_fortress_in_a_bustling_courtyard.png",
+      "dest": "assets/settlements/giants/giants_world_set_001_2.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_001",
+      "note": "Assentamento Colossal Thundergate — pátio colossal com trabalhadores e estruturas de escala gigante.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 310550,
+      "webp_sha256": "5bc7ec2ac37549d7566b688e199069860c17e85f36b23e94ef9e4a0e7189afc7",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_giants_world_set_002",
+      "pin_id_expected": "giants_world_set_002",
+      "img_no": 1,
+      "source_png": "ancient_fortress_in_snowy_mountain_cliffs.png",
+      "dest": "assets/settlements/giants/giants_world_set_002_1.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_002",
+      "note": "Terraço de Clã Peak-Stead — terraços montanhosos e plataformas gigantes em clima frio.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 274462,
+      "webp_sha256": "b746c01db0f249c974154baf09c5607847e48eac1b32c69a1cf84f55d3bfffd4",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_giants_world_set_002",
+      "pin_id_expected": "giants_world_set_002",
+      "img_no": 2,
+      "source_png": "gathering_in_the_mountain_hall.png",
+      "dest": "assets/settlements/giants/giants_world_set_002_2.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_002",
+      "note": "Terraço de Clã Peak-Stead — salão/pátio de reunião de clã com mesas e colunas massivas.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 233740,
+      "webp_sha256": "26c7911cf40c9940e08a79f2489e7b1b8607282efcb04c57b57e1316e7f25d96",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_giants_world_set_003",
+      "pin_id_expected": "giants_world_set_003",
+      "img_no": 1,
+      "source_png": "rugged_mountain_village_in_fantasy_valley.png",
+      "dest": "assets/settlements/giants/giants_world_set_003_1.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_003",
+      "note": "Vila dos Passos Thundergate — vila de fronteira em vale montanhoso, casas enormes e caminhos largos.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 266622,
+      "webp_sha256": "7991a7a831336ed8b9887e2ad022deb7919e703ba47ddeb1c39d056fd6f7d638",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 10 — Feéricos III + Gigantes I",
+      "city_id": "settlement_giants_world_set_003",
+      "pin_id_expected": "giants_world_set_003",
+      "img_no": 2,
+      "source_png": "giants_hall_at_dusk.png",
+      "dest": "assets/settlements/giants/giants_world_set_003_2.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_003",
+      "note": "Vila dos Passos Thundergate — salão de passagem com gigantes e arquitetura de penhasco.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 368834,
+      "webp_sha256": "f6d4b5d0cdfbee39f7902af2e61fb455dcbb3b0819d88ea43a9d8ea2460d457e",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_004",
+      "pin_id_expected": "giants_world_set_004",
+      "img_no": 1,
+      "source_png": "ancient_mountain_fortress_in_misty_heights.png",
+      "dest": "assets/settlements/giants/giants_world_set_004_1.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_004",
+      "note": "Vila dos Passos Salão do Penhasco — fortaleza/aldeia colossal em penhascos enevoados.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 215368,
+      "webp_sha256": "1d1248b5a4b0d1a4e4b3c146ee02a24a0244892ea166a76a237b50dbf81d25c3",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_004",
+      "pin_id_expected": "giants_world_set_004",
+      "img_no": 2,
+      "source_png": "feast_in_the_mountain_great_hall.png",
+      "dest": "assets/settlements/giants/giants_world_set_004_2.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_004",
+      "note": "Vila dos Passos Salão do Penhasco — interior de grande salão de clã com gigantes.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 237452,
+      "webp_sha256": "dc4ceaa303216a1d88278cc35ae82a0d14c77f3d07a73012f57736aa22c7d9f5",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_005",
+      "pin_id_expected": "giants_world_set_005",
+      "img_no": 1,
+      "source_png": "ancient_ice_stronghold_in_a_mountain_valley.png",
+      "dest": "assets/settlements/giants/giants_world_set_005_1.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_005",
+      "note": "Povoado de Pedra Marco de Gelo — povoado de pedra em vale frio com marco/cristal de gelo.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 295362,
+      "webp_sha256": "1feb30bbda2a0292318cfa7b2b6e5fecffabd906378ae89e4ecb40e24b2a8158",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_005",
+      "pin_id_expected": "giants_world_set_005",
+      "img_no": 2,
+      "source_png": "giant_workers_in_a_frozen_stronghold.png",
+      "dest": "assets/settlements/giants/giants_world_set_005_2.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_005",
+      "note": "Povoado de Pedra Marco de Gelo — rotina interna com gigantes, neve, pedra e cristal.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 289902,
+      "webp_sha256": "73e207a62a5270b1da9fe65c187417c2a08f59a14c8e75f2fcdd91feab018281",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_006",
+      "pin_id_expected": "giants_world_set_006",
+      "img_no": 1,
+      "source_png": "epic_fortress_in_a_stormy_canyon.png",
+      "dest": "assets/settlements/giants/giants_world_set_006_1.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_006",
+      "note": "Assentamento Colossal Thundergate — portões imensos em cânion de tempestade.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 233328,
+      "webp_sha256": "f1d2f3a85e49368d3f1e939bfd1a43006e6763fa1495ef6fb419ae29ed752a2d",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_006",
+      "pin_id_expected": "giants_world_set_006",
+      "img_no": 2,
+      "source_png": "giant_warriors_approach_the_mountain_fortress.png",
+      "dest": "assets/settlements/giants/giants_world_set_006_2.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_006",
+      "note": "Assentamento Colossal Thundergate — guerreiros gigantes aproximando-se da fortaleza.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 275870,
+      "webp_sha256": "554da9493bfc36593df2349d867a2a1958a6da959cf52110b3762b886e053381",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_007",
+      "pin_id_expected": "giants_world_set_007",
+      "img_no": 1,
+      "source_png": "stone_terraces_of_a_giant_settlement.png",
+      "dest": "assets/settlements/giants/giants_world_set_007_1.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_007",
+      "note": "Terraço de Clã Prateleira de Pedra — terraços de pedra suspensos e estruturas de escala gigante.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 312752,
+      "webp_sha256": "78c1ae7716ce1afab7563fb13410e1b3da6d11af896e911677402b9ff18fa1aa",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_007",
+      "pin_id_expected": "giants_world_set_007",
+      "img_no": 2,
+      "source_png": "ancient_fortress_in_the_rugged_mountains.png",
+      "dest": "assets/settlements/giants/giants_world_set_007_2.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_007",
+      "note": "Terraço de Clã Prateleira de Pedra — assentamento em montanhas rústicas e plataformas largas.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 263416,
+      "webp_sha256": "219f200ecffb3491c6cd2f1ece9c82f11841ae7f64d214cadd201f3b714149a2",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_008",
+      "pin_id_expected": "giants_world_set_008",
+      "img_no": 1,
+      "source_png": "epic_mountain_fortress_on_towering_cliffs.png",
+      "dest": "assets/settlements/giants/giants_world_set_008_1.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_008",
+      "note": "Vila dos Passos Cragwatch — fortaleza em penhascos altos e passagens massivas.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 217424,
+      "webp_sha256": "0ed49c6998bf1955fe425c2c9c14b59b5fda5479389284d3a438a3ba5158b5fe",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 11 — Gigantes II",
+      "city_id": "settlement_giants_world_set_008",
+      "pin_id_expected": "giants_world_set_008",
+      "img_no": 2,
+      "source_png": "mountain_stronghold_in_misty_cliffs.png",
+      "dest": "assets/settlements/giants/giants_world_set_008_2.webp",
+      "race_folder": "giants",
+      "asset_stem": "giants_world_set_008",
+      "note": "Vila dos Passos Cragwatch — reduto montanhoso com vigias e escadarias gigantes.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 231036,
+      "webp_sha256": "29ce50bdd23e8a162a9f1a3a7490e637bc10e91fd5a0c5c5ece18e26308832b8",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_002",
+      "pin_id_expected": "gnomes_world_set_002",
+      "img_no": 1,
+      "source_png": "gnomish_workshop_of_invention_and_wonder.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_002_1.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_002",
+      "note": "Bairro Livre Anexo Faísca — bairro-oficina gnômico com máquinas, energia azul e casas inventivas.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 365256,
+      "webp_sha256": "fcaa0af5d9b02c7b01848a659f62cb1edc8ff6e07e2a71f0fa5b1d8ff45da826",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_002",
+      "pin_id_expected": "gnomes_world_set_002",
+      "img_no": 2,
+      "source_png": "steampunk_gnome_workshop_in_action.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_002_2.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_002",
+      "note": "Bairro Livre Anexo Faísca — interior produtivo com bancadas, engrenagens e gnomos trabalhando.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 351444,
+      "webp_sha256": "f61474aa0551f8f1cd44ecde575c701d3d8632ee65eeb69d7b33f846921098a3",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_003",
+      "pin_id_expected": "gnomes_world_set_003",
+      "img_no": 1,
+      "source_png": "whimsical_steampunk_gnome_village_in_action.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_003_1.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_003",
+      "note": "Bairro Livre Pátio dos Parafusos — pátio ativo com máquinas, domos e ferramentas.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 307644,
+      "webp_sha256": "f02f58d0bde59e4aea09cde65d473ccbf01a2ed3e2e3b9434fd65924035e6685",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_003",
+      "pin_id_expected": "gnomes_world_set_003",
+      "img_no": 2,
+      "source_png": "steampunk_gnome_village_in_full_motion.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_003_2.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_003",
+      "note": "Bairro Livre Pátio dos Parafusos — praça técnica com oficinas e movimento.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 286004,
+      "webp_sha256": "637bc086fd64981359f3e481946cea230496f29336311069ced3e8485da1a26c",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_004",
+      "pin_id_expected": "gnomes_world_set_004",
+      "img_no": 1,
+      "source_png": "whimsical_steampunk_village_in_nature.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_004_1.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_004",
+      "note": "Vila de Engrenagens Anexo Tinker — vila mecânica integrada à natureza, hortas e energia arcana.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 319058,
+      "webp_sha256": "fb06115a737469038113c53c6eb9938c5d7eecc85c3df7fc75c312cd2ec8d453",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_004",
+      "pin_id_expected": "gnomes_world_set_004",
+      "img_no": 2,
+      "source_png": "bustling_steampunk_gnome_village_workshop.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_004_2.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_004",
+      "note": "Vila de Engrenagens Anexo Tinker — área de oficinas e produção comunitária.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 396406,
+      "webp_sha256": "a5e1a698fecd96fda04c51d568f6160155077a18e9e5ab2d933b7256e73b3d7c",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_005",
+      "pin_id_expected": "gnomes_world_set_005",
+      "img_no": 1,
+      "source_png": "steampunk_city_in_mechanical_harmony.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_005_1.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_005",
+      "note": "Anexo Inventivo Pátio dos Parafusos — pequena cidade mecânica com harmonia de engrenagens.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 310582,
+      "webp_sha256": "077d1ebee82f5ef61605c68d52eca17a28430e325ac4136463273d6de34386e7",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_005",
+      "pin_id_expected": "gnomes_world_set_005",
+      "img_no": 2,
+      "source_png": "bustling_steampunk_gnome_workshop_market.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_005_2.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_005",
+      "note": "Anexo Inventivo Pátio dos Parafusos — mercado/oficina com gnomos, bancadas e mecanismos.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 361730,
+      "webp_sha256": "8cb06ac459c1d34cb6d9246f12549bf84f4fe033c5be5951a4a324efac263433",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_006",
+      "pin_id_expected": "gnomes_world_set_006",
+      "img_no": 1,
+      "source_png": "gnome_inspired_steampunk_cityscape_in_motion.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_006_1.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_006",
+      "note": "Estação Gnômica Estação Bolt — estação mecânica com tráfego, torres e artefatos em movimento.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 398322,
+      "webp_sha256": "6cbbd48d563b9256801e98ecc1343312ab9459d254695ada8b17c1245209ade8",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 12 — Gnomos I",
+      "city_id": "settlement_gnomes_world_set_006",
+      "pin_id_expected": "gnomes_world_set_006",
+      "img_no": 2,
+      "source_png": "steampunk_workshop_with_glowing_crystals_and_gears.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_006_2.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_006",
+      "note": "Estação Gnômica Estação Bolt — oficina de cristais, engrenagens e energia arcano-tecnológica.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 303758,
+      "webp_sha256": "9c717076966fc4dae40606113b110d22f2885ada3b84bede4d18949217965d27",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 13 — Fechamento parcial",
+      "city_id": "settlement_gnomes_world_set_007",
+      "pin_id_expected": "gnomes_world_set_007",
+      "img_no": 1,
+      "source_png": "steampunk_gnome_workshop_in_the_mountains.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_007_1.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_007",
+      "note": "Oficina-Povoado Anexo Tinker — oficina-povoado gnômica em montanhas, máquinas e passarelas.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 353174,
+      "webp_sha256": "3927b7b804682014139e7a7892de30c86edb31990402143e01be022fbd82bba9",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 13 — Fechamento parcial",
+      "city_id": "settlement_gnomes_world_set_007",
+      "pin_id_expected": "gnomes_world_set_007",
+      "img_no": 2,
+      "source_png": "gnome_workshop_city_of_gears_and_crystals.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_007_2.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_007",
+      "note": "Oficina-Povoado Anexo Tinker — centro de engrenagens e cristais com oficinas ativas.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 359408,
+      "webp_sha256": "f04bbdd62f204ccdd3c1f42527fecb77a5a0da4030cab278588b4998da4a05ef",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 13 — Fechamento parcial",
+      "city_id": "settlement_gnomes_world_set_008",
+      "pin_id_expected": "gnomes_world_set_008",
+      "img_no": 1,
+      "source_png": "whimsical_steampunk_workshop_cityscape.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_008_1.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_008",
+      "note": "Anexo Inventivo Pátio dos Parafusos — paisagem urbana-oficina gnômica, domos e máquinas.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 425710,
+      "webp_sha256": "dfe25c8892f4dfcfda6b75ec0927b74f0a97afc68d1bf23099dce2e13a01736a",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 13 — Fechamento parcial",
+      "city_id": "settlement_gnomes_world_set_008",
+      "pin_id_expected": "gnomes_world_set_008",
+      "img_no": 2,
+      "source_png": "gnome_engineers_in_a_vibrant_steampunk_plaza.png",
+      "dest": "assets/settlements/gnomes/gnomes_world_set_008_2.webp",
+      "race_folder": "gnomes",
+      "asset_stem": "gnomes_world_set_008",
+      "note": "Anexo Inventivo Pátio dos Parafusos — praça técnica com engenheiros gnômicos e equipamentos.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 396512,
+      "webp_sha256": "a253be5c140e5fb80986c484c34c151e6f6fdd0c6dc593a47fed06f31f48be63",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 13 — Fechamento parcial",
+      "city_id": "settlement_nagas_subaquatica_set_003",
+      "pin_id_expected": "nagas_subaquatica_set_003",
+      "img_no": 2,
+      "source_png": "bioluminescent_underwater_market_of_serpents.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_003_2.webp",
+      "race_folder": "nagas",
+      "asset_stem": "nagas_subaquatica_set_003",
+      "note": "Correção naga — Entreposto Submerso Reefcoil, imagem 2, mercado/assentamento subaquático serpentino.",
+      "source_dimensions": [
+        1448,
+        1086
+      ],
+      "webp_size_bytes": 288852,
+      "webp_sha256": "31fb464c4f4321d9f18c073e1eb2a8574714f3557a593e00666ab1c41f8199c1",
+      "webp_dimensions": [
+        1448,
+        1086
+      ]
+    }
+  ]
+}

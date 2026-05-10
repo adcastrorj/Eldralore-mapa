@@ -13,7 +13,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#74b9ff"
+    "color": "#74b9ff",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_angels_main_celestia__gm_angels_main_etheria",
@@ -29,7 +34,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#74b9ff"
+    "color": "#74b9ff",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_angels_main_celestia__gm_angels_main_sanctoria",
@@ -45,7 +55,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#74b9ff"
+    "color": "#74b9ff",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_angels_main_celestia__gm_angels_main_halcyon",
@@ -61,7 +76,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#74b9ff"
+    "color": "#74b9ff",
+    "routeState": {
+      "status": "vigiada",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_angels_main_celestia__angels_sky_guild_001",
@@ -77,7 +97,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#74b9ff"
+    "color": "#74b9ff",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_angels_main_celestia__angels_world_dun_001",
@@ -93,7 +118,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#74b9ff"
+    "color": "#74b9ff",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672142768_3322__gm_1768672231480_8251",
@@ -109,7 +139,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#a3e635"
+    "color": "#a3e635",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672142768_3322__gm_1768672203415_5002",
@@ -125,7 +160,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#a3e635"
+    "color": "#a3e635",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672142768_3322__gm_1768672186159_9882",
@@ -141,7 +181,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#a3e635"
+    "color": "#a3e635",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672142768_3322__centaurs_world_set_002",
@@ -157,7 +202,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#a3e635"
+    "color": "#a3e635",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672142768_3322__centaurs_world_set_003",
@@ -173,7 +223,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#a3e635"
+    "color": "#a3e635",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671357317_8534__gm_1768671420757_1844",
@@ -189,7 +244,12 @@
     "layer": "abismo",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671357317_8534__gm_1768671468140_330",
@@ -205,7 +265,12 @@
     "layer": "abismo",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671357317_8534__gm_1768671382957_5727",
@@ -221,7 +286,12 @@
     "layer": "abismo",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671357317_8534__gm_1768671446813_2662",
@@ -237,7 +307,12 @@
     "layer": "abismo",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "protegida por escolta",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671357317_8534__gm_1768671402893_9798",
@@ -253,7 +328,12 @@
     "layer": "abismo",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671357317_8534__demons_abismo_set_001",
@@ -269,7 +349,12 @@
     "layer": "abismo",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671357317_8534__demons_abismo_set_003",
@@ -285,7 +370,12 @@
     "layer": "abismo",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671357317_8534__gm_1768671468140_330",
@@ -301,7 +391,12 @@
     "layer": "abismo",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "vigiada por contrabandistas",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671357317_8534__gm_1768671382957_5727",
@@ -317,7 +412,12 @@
     "layer": "abismo",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "ameaçada por patrulhas",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671357317_8534__gm_1768671402893_9798",
@@ -333,7 +433,12 @@
     "layer": "abismo",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "vigiada por contrabandistas",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671357317_8534__demons_abismo_set_001",
@@ -349,7 +454,12 @@
     "layer": "abismo",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "ameaçada por patrulhas",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671357317_8534__demons_abismo_set_003",
@@ -365,7 +475,12 @@
     "layer": "abismo",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "vigiada por contrabandistas",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671118391_5214__gm_1768671260454_4087",
@@ -381,7 +496,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#d35400"
+    "color": "#d35400",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671118391_5214__gm_1768671193950_6632",
@@ -397,7 +517,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#d35400"
+    "color": "#d35400",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671118391_5214__dragons_world_set_002",
@@ -413,7 +538,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#d35400"
+    "color": "#d35400",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671118391_5214__dragons_world_set_003",
@@ -429,7 +559,12 @@
     "layer": "sky",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#d35400"
+    "color": "#d35400",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768670731193_3441__gm_1768670781545_9354",
@@ -445,7 +580,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e67e22"
+    "color": "#e67e22",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768670731193_3441__gm_1768670818633_1113",
@@ -461,7 +601,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e67e22"
+    "color": "#e67e22",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768670731193_3441__gm_1768670674794_15",
@@ -477,7 +622,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e67e22"
+    "color": "#e67e22",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768670731193_3441__gm_1768670633554_332",
@@ -493,7 +643,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e67e22"
+    "color": "#e67e22",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768670731193_3441__gm_1768670598442_4093",
@@ -509,7 +664,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e67e22"
+    "color": "#e67e22",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1769050304643_7577__gm_1768665293989_8918",
@@ -525,7 +685,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#2ecc71"
+    "color": "#2ecc71",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1769050304643_7577__gm_1768665141918_1067",
@@ -541,7 +706,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#2ecc71"
+    "color": "#2ecc71",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1769050304643_7577__gm_1768665222742_2360",
@@ -557,7 +727,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#2ecc71"
+    "color": "#2ecc71",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1769050304643_7577__gm_1768665516540_6918",
@@ -573,7 +748,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#2ecc71"
+    "color": "#2ecc71",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1769050304643_7577__elves_world_set_002",
@@ -589,7 +769,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#2ecc71"
+    "color": "#2ecc71",
+    "routeState": {
+      "status": "protegida por escolta",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1769050304643_7577__elves_world_set_003",
@@ -605,7 +790,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#2ecc71"
+    "color": "#2ecc71",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672410958_1621__gm_1768672515333_169",
@@ -621,7 +811,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#00d2d3"
+    "color": "#00d2d3",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672410958_1621__gm_1768672387686_2062",
@@ -637,7 +832,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#00d2d3"
+    "color": "#00d2d3",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672410958_1621__gm_1768672468982_682",
@@ -653,7 +853,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#00d2d3"
+    "color": "#00d2d3",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672410958_1621__gm_1768672496565_451",
@@ -669,7 +874,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#00d2d3"
+    "color": "#00d2d3",
+    "routeState": {
+      "status": "protegida por escolta",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672410958_1621__fae_world_set_003",
@@ -685,7 +895,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#00d2d3"
+    "color": "#00d2d3",
+    "routeState": {
+      "status": "protegida por escolta",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__giants_world_set_001__giants_world_set_002",
@@ -701,7 +916,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#95a5a6"
+    "color": "#95a5a6",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__giants_world_set_001__giants_world_set_003",
@@ -717,7 +937,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#95a5a6"
+    "color": "#95a5a6",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gnomes_world_set_001__gnomes_world_set_002",
@@ -733,7 +958,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#f1c40f"
+    "color": "#f1c40f",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gnomes_world_set_001__gnomes_world_set_003",
@@ -749,7 +979,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#f1c40f"
+    "color": "#f1c40f",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768653939960_6918__gm_1768654126310_9646",
@@ -765,7 +1000,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e74c3c"
+    "color": "#e74c3c",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768653939960_6918__gm_1768653848321_8085",
@@ -781,7 +1021,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e74c3c"
+    "color": "#e74c3c",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768653939960_6918__gm_1768653434803_1951",
@@ -797,7 +1042,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e74c3c"
+    "color": "#e74c3c",
+    "routeState": {
+      "status": "vigiada",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768653939960_6918__gm_1768672341311_3043",
@@ -813,7 +1063,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e74c3c"
+    "color": "#e74c3c",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768653939960_6918__humans_world_set_001",
@@ -829,7 +1084,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e74c3c"
+    "color": "#e74c3c",
+    "routeState": {
+      "status": "protegida por escolta",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768653939960_6918__humans_world_set_003",
@@ -845,7 +1105,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#e74c3c"
+    "color": "#e74c3c",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672015625_3700__gm_1768672039432_3228",
@@ -861,7 +1126,12 @@
     "layer": "subaquatica",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#16a085"
+    "color": "#16a085",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672015625_3700__gm_1768672108960_7133",
@@ -877,7 +1147,12 @@
     "layer": "subaquatica",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#16a085"
+    "color": "#16a085",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672015625_3700__gm_1768671990681_432",
@@ -893,7 +1168,12 @@
     "layer": "subaquatica",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#16a085"
+    "color": "#16a085",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672015625_3700__nagas_subaquatica_set_001",
@@ -909,7 +1189,12 @@
     "layer": "subaquatica",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#16a085"
+    "color": "#16a085",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768672015625_3700__nagas_subaquatica_set_002",
@@ -925,7 +1210,12 @@
     "layer": "subaquatica",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#16a085"
+    "color": "#16a085",
+    "routeState": {
+      "status": "protegida por escolta",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671819162_7446__gm_1768671798946_8601",
@@ -941,7 +1231,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#8e6b3a"
+    "color": "#8e6b3a",
+    "routeState": {
+      "status": "vigiada",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671819162_7446__gm_1768671836698_492",
@@ -957,7 +1252,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#8e6b3a"
+    "color": "#8e6b3a",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671819162_7446__gm_1768671928905_4869",
@@ -973,7 +1273,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#8e6b3a"
+    "color": "#8e6b3a",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671819162_7446__orcs_world_set_001",
@@ -989,7 +1294,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#8e6b3a"
+    "color": "#8e6b3a",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671819162_7446__orcs_world_set_003",
@@ -1005,7 +1315,12 @@
     "layer": "world",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#8e6b3a"
+    "color": "#8e6b3a",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gate_necrothar_descent__undead_underground_set_001",
@@ -1021,7 +1336,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#14532d"
+    "color": "#14532d",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gate_necrothar_descent__undead_underground_set_003",
@@ -1037,7 +1357,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#14532d"
+    "color": "#14532d",
+    "routeState": {
+      "status": "segura",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gate_necrothar_descent__undead_underground_set_001",
@@ -1053,7 +1378,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#14532d"
+    "color": "#14532d",
+    "routeState": {
+      "status": "ameaçada por patrulhas",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gate_necrothar_descent__undead_underground_set_002",
@@ -1069,7 +1399,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#14532d"
+    "color": "#14532d",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gate_necrothar_descent__undead_underground_set_003",
@@ -1085,7 +1420,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#14532d"
+    "color": "#14532d",
+    "routeState": {
+      "status": "vigiada por contrabandistas",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671668907_4532__gm_1768671579308_164",
@@ -1101,7 +1441,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671668907_4532__gm_1768671628819_3810",
@@ -1117,7 +1462,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "vigiada",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671668907_4532__gm_1768671553444_4879",
@@ -1133,7 +1483,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671668907_4532__gm_1768671646443_6675",
@@ -1149,7 +1504,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_internal__gm_1768671668907_4532__vampires_world_set_002",
@@ -1165,7 +1525,12 @@
     "layer": "underground",
     "width": 0.45,
     "opacity": 0.6,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "vigiada",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671668907_4532__gm_1768671594404_4417",
@@ -1181,7 +1546,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671668907_4532__vampires_world_set_002",
@@ -1197,7 +1567,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768672142768_3322__gm_1768671118391_5214",
@@ -1214,7 +1589,12 @@
     "layer": "world",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#a3e635"
+    "color": "#a3e635",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768671357317_8534__gm_1768671118391_5214",
@@ -1231,7 +1611,12 @@
     "layer": "abismo",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#e84393"
+    "color": "#e84393",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768671118391_5214__gm_1768670731193_3441",
@@ -1248,7 +1633,12 @@
     "layer": "sky",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#d35400"
+    "color": "#d35400",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768671118391_5214__gm_1768672410958_1621",
@@ -1265,7 +1655,12 @@
     "layer": "sky",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#d35400"
+    "color": "#d35400",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768670731193_3441__gm_1769050304643_7577",
@@ -1282,7 +1677,12 @@
     "layer": "underground",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#e67e22"
+    "color": "#e67e22",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768670731193_3441__gm_1768672410958_1621",
@@ -1299,7 +1699,12 @@
     "layer": "underground",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#e67e22"
+    "color": "#e67e22",
+    "routeState": {
+      "status": "sob pedágio",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1769050304643_7577__gm_1768672410958_1621",
@@ -1316,7 +1721,12 @@
     "layer": "world",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#2ecc71"
+    "color": "#2ecc71",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__giants_world_set_001__gm_1768653939960_6918",
@@ -1333,7 +1743,12 @@
     "layer": "world",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#95a5a6"
+    "color": "#95a5a6",
+    "routeState": {
+      "status": "protegida por escolta",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__giants_world_set_001__gm_1768672015625_3700",
@@ -1350,7 +1765,12 @@
     "layer": "world",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#95a5a6"
+    "color": "#95a5a6",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gnomes_world_set_001__gm_1768672015625_3700",
@@ -1367,7 +1787,12 @@
     "layer": "world",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#f1c40f"
+    "color": "#f1c40f",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gnomes_world_set_001__gm_1768671819162_7446",
@@ -1384,7 +1809,12 @@
     "layer": "world",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#f1c40f"
+    "color": "#f1c40f",
+    "routeState": {
+      "status": "ameaçada por monstros",
+      "tradeFlow": "irregular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768653939960_6918__gm_1768671819162_7446",
@@ -1401,7 +1831,12 @@
     "layer": "world",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#e74c3c"
+    "color": "#e74c3c",
+    "routeState": {
+      "status": "sob inspeção de fronteira",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768672015625_3700__gm_1768671668907_4532",
@@ -1418,7 +1853,12 @@
     "layer": "subaquatica",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#16a085"
+    "color": "#16a085",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768671819162_7446__gm_angels_main_celestia",
@@ -1435,7 +1875,12 @@
     "layer": "world",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#8e6b3a"
+    "color": "#8e6b3a",
+    "routeState": {
+      "status": "bloqueada parcialmente",
+      "tradeFlow": "baixo",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gate_necrothar_descent__gm_1768671668907_4532",
@@ -1452,7 +1897,12 @@
     "layer": "underground",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#14532d"
+    "color": "#14532d",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gate_necrothar_descent__gm_1768671668907_4532",
@@ -1469,7 +1919,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#14532d"
+    "color": "#14532d",
+    "routeState": {
+      "status": "vigiada por contrabandistas",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gate_necrothar_descent__gm_1768672142768_3322",
@@ -1486,7 +1941,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#14532d"
+    "color": "#14532d",
+    "routeState": {
+      "status": "clandestina",
+      "tradeFlow": "regular",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_official__gm_1768671668907_4532__gm_angels_main_celestia",
@@ -1503,7 +1963,12 @@
     "layer": "underground",
     "width": 0.7,
     "opacity": 0.78,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "protegida por escolta",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671668907_4532__gm_angels_main_celestia",
@@ -1520,7 +1985,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "clandestina",
+      "tradeFlow": "sazonal",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671668907_4532__gm_1768672142768_3322",
@@ -1537,7 +2007,12 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "vigiada por contrabandistas",
+      "tradeFlow": "intenso",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   },
   {
     "id": "trade_shadow__gm_1768671668907_4532__gm_1768671357317_8534",
@@ -1554,6 +2029,11 @@
     "layer": "underground",
     "width": 0.55,
     "opacity": 0.7,
-    "color": "#9b59b6"
+    "color": "#9b59b6",
+    "routeState": {
+      "status": "instável",
+      "tradeFlow": "clandestino",
+      "note": "Estado-base da rota; o painel de rota ainda ajusta risco diário conforme calendário e modificadores econômicos."
+    }
   }
 ]

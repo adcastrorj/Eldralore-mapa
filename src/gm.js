@@ -22,6 +22,7 @@ function openGmEditor(){
   state.gm.selectedPinId = null;
   if(els.gmSelectedPin) els.gmSelectedPin.textContent = 'Selecione um pin no mapa (com o Editor aberto) para configurar a cidade.';
   populateGmZoneSelect();
+  try { populateGmClimateZoneSelect(); } catch (_) {}
   updateGmCaptureUI();
   els.gmEditorBackdrop.classList.remove('hidden');
 }
@@ -298,17 +299,26 @@ function gmApplyZoneConversion(direction){
 }
 
 function gmExportData(){
+  if (typeof CampaignState !== 'undefined' && CampaignState && typeof CampaignState.download === 'function') {
+    CampaignState.download('eldralore_campaign_state.json');
+    return;
+  }
   const payload = {
+    schema: 'eldralore_campaign_state_v1',
     worldTime: state.worldTime,
+    worldState: state.worldState || { climate:{ regions:{} }, vision:{ pins:{} } },
+    economy: state.economy || { modifiers: [] },
+    campaign: state.campaign || { timeline: [], pinSecrets: {}, hooks: {}, importantNpcs: [] },
     customPins: state.customPins || [],
     customCities: state.customCities || {},
     pinOverrides: state.pinOverrides || {},
+    merchantState: state.merchantState || {},
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'eldralore_gm_export.json';
+  a.download = 'eldralore_campaign_state.json';
   document.body.appendChild(a);
   a.click();
   a.remove();

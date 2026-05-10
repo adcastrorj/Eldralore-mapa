@@ -13,7 +13,48 @@
     ],
     "description": "Capital nômade dos centauros nas Planícies dos Ventos Livres — Windstep, rituais sagrados e honra acima de tudo.",
     "alwaysLabel": false,
-    "cityId": "Equinalis"
+    "cityId": "Equinalis",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 58,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Clã Casco-de-Trovão",
+      "realm": "Kael'Thor",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Kael'Thor; sua lealdade prática passa por Clã Casco-de-Trovão e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "centaurs",
+          "name": "Kael'Thor",
+          "status": "Desconfiado",
+          "score": -8,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768672231480_8251",
@@ -29,7 +70,48 @@
     ],
     "description": "Cidade fixa e fértil dos centauros, coração agrícola e espiritual. Campos em círculos concêntricos e velários gigantes regulam o vento e protegem as colheitas.",
     "alwaysLabel": false,
-    "cityId": "Galehoof"
+    "cityId": "Galehoof",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 52,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Clã Casco-de-Trovão",
+      "realm": "Kael'Thor",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Kael'Thor; sua lealdade prática passa por Clã Casco-de-Trovão e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "centaurs",
+          "name": "Kael'Thor",
+          "status": "Neutro",
+          "score": 4,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 12,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768672203415_5002",
@@ -45,7 +127,48 @@
     ],
     "description": "Hub comercial nômade dos centauros: caravanas, tratados e o Grande Pavilhão Dourado.",
     "alwaysLabel": false,
-    "cityId": "Hoofcrest"
+    "cityId": "Hoofcrest",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 58,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Clã Casco-de-Trovão",
+      "realm": "Kael'Thor",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Kael'Thor; sua lealdade prática passa por Clã Casco-de-Trovão e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "centaurs",
+          "name": "Kael'Thor",
+          "status": "Neutro",
+          "score": -7,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 22,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768672220312_7409",
@@ -61,7 +184,48 @@
     ],
     "description": "Fortificação fixa dos centauros, erguida sobre cristas rochosas para vigiar as rotas das planícies. Disciplina, patrulhas e sinais de fogo mantêm o território seguro.",
     "alwaysLabel": false,
-    "cityId": "Plainswatch"
+    "cityId": "Plainswatch",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 49,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Clã Casco-de-Trovão",
+      "realm": "Kael'Thor",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Kael'Thor; sua lealdade prática passa por Clã Casco-de-Trovão e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "centaurs",
+          "name": "Kael'Thor",
+          "status": "Neutro",
+          "score": -7,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 7,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768672186159_9882",
@@ -77,7 +241,48 @@
     ],
     "description": "Cidade xamânica dos centauros onde as tempestades falam: presságios, totens e o Círculo das Tempestades.",
     "alwaysLabel": false,
-    "cityId": "Stormstride"
+    "cityId": "Stormstride",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 72,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Conselho dos Xamãs do Vento",
+      "realm": "Kael'Thor",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Kael'Thor; sua lealdade prática passa por Conselho dos Xamãs do Vento e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "centaurs",
+          "name": "Kael'Thor",
+          "status": "Neutro",
+          "score": 0,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768672244815_4078",
@@ -93,7 +298,48 @@
     ],
     "description": "Cidade nômade que segue os corredores de tempestade: chuva constante, relâmpagos e presságios. Mastros condutores e ritos do trovão guiam cada deslocamento.",
     "alwaysLabel": false,
-    "cityId": "Thunderpath"
+    "cityId": "Thunderpath",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 75,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Clã Crina-Aurora",
+      "realm": "Kael'Thor",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Kael'Thor; sua lealdade prática passa por Clã Crina-Aurora e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "centaurs",
+          "name": "Kael'Thor",
+          "status": "Neutro",
+          "score": -6,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 13,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671357317_8534",
@@ -109,7 +355,48 @@
     ],
     "description": "Torres góticas, ferro maldito e pactos: um mecanismo de dominação no Deserto das Sombras.",
     "alwaysLabel": false,
-    "cityId": "Abyssara"
+    "cityId": "Abyssara",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 85,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Pactário de Abyssus",
+      "realm": "Abyssus",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Abyssus; sua lealdade prática passa por Pactário de Abyssus e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "demons",
+          "name": "Abyssus",
+          "status": "Respeitado",
+          "score": 21,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 20,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768671486380_2362",
@@ -125,7 +412,48 @@
     ],
     "description": "Cidade de arenas na planície de espinhos; violência como ritual e espetáculo.",
     "alwaysLabel": false,
-    "cityId": "Bloodthorn"
+    "cityId": "Bloodthorn",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 65,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Pactário de Abyssus",
+      "realm": "Abyssus",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Abyssus; sua lealdade prática passa por Pactário de Abyssus e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "demons",
+          "name": "Abyssus",
+          "status": "Respeitado",
+          "score": 16,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 22,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768671420757_1844",
@@ -141,7 +469,48 @@
     ],
     "description": "Cidade vertical do Eixo Supremo: pontes suspensas, intriga política e quedas fatais.",
     "alwaysLabel": false,
-    "cityId": "Doomspire"
+    "cityId": "Doomspire",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 54,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Legião de Brasa Profana",
+      "realm": "Abyssus",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Abyssus; sua lealdade prática passa por Legião de Brasa Profana e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "demons",
+          "name": "Abyssus",
+          "status": "Neutro",
+          "score": 0,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -5,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768671468140_330",
@@ -157,7 +526,48 @@
     ],
     "description": "Cidade construída ao redor de uma fenda congelada; forja dual de frio e fogo.",
     "alwaysLabel": false,
-    "cityId": "Hell's Maw"
+    "cityId": "Hell's Maw",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 85,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Corrente-Negra",
+      "realm": "Abyssus",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Abyssus; sua lealdade prática passa por Casa Corrente-Negra e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "demons",
+          "name": "Abyssus",
+          "status": "Neutro",
+          "score": -7,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 25,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768671382957_5727",
@@ -173,7 +583,48 @@
     ],
     "description": "Bastião militar no cânion: disciplina rígida, forjas infernais e prontidão constante.",
     "alwaysLabel": false,
-    "cityId": "Malgorath"
+    "cityId": "Malgorath",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 88,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Corrente-Negra",
+      "realm": "Abyssus",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Abyssus; sua lealdade prática passa por Casa Corrente-Negra e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "demons",
+          "name": "Abyssus",
+          "status": "Respeitado",
+          "score": 21,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768671446813_2662",
@@ -189,7 +640,48 @@
     ],
     "description": "Cidade oculta em floresta morta; jardins venenosos e alquimia sombria.",
     "alwaysLabel": false,
-    "cityId": "Nightshade"
+    "cityId": "Nightshade",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 91,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Pactário de Abyssus",
+      "realm": "Abyssus",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Abyssus; sua lealdade prática passa por Pactário de Abyssus e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "demons",
+          "name": "Abyssus",
+          "status": "Respeitado",
+          "score": 21,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 7,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671402893_9798",
@@ -205,7 +697,48 @@
     ],
     "description": "Sombras eternas sob um sol negro: necromancia, chamas espectrais e terror silencioso.",
     "alwaysLabel": false,
-    "cityId": "Shadewrath"
+    "cityId": "Shadewrath",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 54,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Círculo dos Contratos de Sangue",
+      "realm": "Abyssus",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Abyssus; sua lealdade prática passa por Círculo dos Contratos de Sangue e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "demons",
+          "name": "Abyssus",
+          "status": "Respeitado",
+          "score": 21,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 15,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671118391_5214",
@@ -221,7 +754,48 @@
     ],
     "description": "Cidade dracônica celestial sobre picos que tocam as nuvens: platina, vidro encantado e pontes de energia arcana sob tempestades controladas.",
     "alwaysLabel": false,
-    "cityId": "Embercliff O Trono dos Céus"
+    "cityId": "Embercliff O Trono dos Céus",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 69,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Escama-Rubra",
+      "realm": "Drakmyr",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Drakmyr; sua lealdade prática passa por Casa Escama-Rubra e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dragons",
+          "name": "Drakmyr",
+          "status": "Respeitado",
+          "score": 23,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 3,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768671231846_2774",
@@ -237,7 +811,48 @@
     ],
     "description": "Centro espiritual sobre rocha vulcânica cinza; rituais e festivais religiosos.",
     "alwaysLabel": false,
-    "cityId": "Ashenrock"
+    "cityId": "Ashenrock",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 72,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Asa-Tempestade",
+      "realm": "Drakmyr",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Drakmyr; sua lealdade prática passa por Asa-Tempestade e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dragons",
+          "name": "Drakmyr",
+          "status": "Neutro",
+          "score": 0,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 21,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671260454_4087",
@@ -253,7 +868,48 @@
     ],
     "description": "Acima das Montanhas de Glaciar-Névoa, rios e quedas d’água correm sobre gelo moldado por dragões.",
     "alwaysLabel": false,
-    "cityId": "Cinderfall"
+    "cityId": "Cinderfall",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 55,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Conclave de Drakmyr",
+      "realm": "Drakmyr",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Drakmyr; sua lealdade prática passa por Conclave de Drakmyr e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dragons",
+          "name": "Drakmyr",
+          "status": "Aliado",
+          "score": 28,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 6,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768671065583_3023",
@@ -269,7 +925,48 @@
     ],
     "description": "Capital dracônica nas Terras Escaldantes: fendas vulcânicas, magma vivo e um poder hierárquico regido por rituais de combate e sabedoria ancestral.",
     "alwaysLabel": false,
-    "cityId": "Drakara"
+    "cityId": "Drakara",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 75,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Guardas do Tesouro Antigo",
+      "realm": "Drakmyr",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Drakmyr; sua lealdade prática passa por Guardas do Tesouro Antigo e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dragons",
+          "name": "Drakmyr",
+          "status": "Neutro",
+          "score": 5,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 1,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671290902_524",
@@ -285,7 +982,48 @@
     ],
     "description": "Uma metrópole de vapor e águas termais domadas por engenharia e magia dracônica.",
     "alwaysLabel": false,
-    "cityId": "Pyrestorm"
+    "cityId": "Pyrestorm",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 41,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Guardas do Tesouro Antigo",
+      "realm": "Drakmyr",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Drakmyr; sua lealdade prática passa por Guardas do Tesouro Antigo e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dragons",
+          "name": "Drakmyr",
+          "status": "Neutro",
+          "score": 7,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 2,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768671157654_2237",
@@ -301,7 +1039,48 @@
     ],
     "description": "Bastião militar no pico mais alto; plataformas de lançamento e vigia dracônica.",
     "alwaysLabel": false,
-    "cityId": "Scorchpeak"
+    "cityId": "Scorchpeak",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 69,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Asa-Tempestade",
+      "realm": "Drakmyr",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Drakmyr; sua lealdade prática passa por Asa-Tempestade e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dragons",
+          "name": "Drakmyr",
+          "status": "Respeitado",
+          "score": 14,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 20,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768671193950_6632",
@@ -317,7 +1096,48 @@
     ],
     "description": "Cidade no cume do vulcão perene; Pira dos Ancestrais e Anfiteatro de Lava.",
     "alwaysLabel": false,
-    "cityId": "Volcaryx"
+    "cityId": "Volcaryx",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 55,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Asa-Tempestade",
+      "realm": "Drakmyr",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Drakmyr; sua lealdade prática passa por Asa-Tempestade e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dragons",
+          "name": "Drakmyr",
+          "status": "Neutro",
+          "score": -3,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 16,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768670731193_3441",
@@ -333,7 +1153,48 @@
     ],
     "description": "Cidadela anã isolada sob gelo eterno, iluminada por cristais arcanos e marcada por conhecimento proibido e segredos antigos.",
     "alwaysLabel": false,
-    "cityId": "Dungrim's Hold"
+    "cityId": "Dungrim's Hold",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 58,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Casa Steelbreaker",
+      "realm": "Kharak-Dûm",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Kharak-Dûm; sua lealdade prática passa por Casa Steelbreaker e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dwarves",
+          "name": "Kharak-Dûm",
+          "status": "Desconfiado",
+          "score": -8,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 19,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768670781545_9354",
@@ -349,7 +1210,48 @@
     ],
     "description": "Capital anã esculpida na montanha, com a Grande Forja alimentada por lava e produção lendária.",
     "alwaysLabel": false,
-    "cityId": "Ironforge"
+    "cityId": "Ironforge",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 69,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Stoneshield",
+      "realm": "Kharak-Dûm",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Kharak-Dûm; sua lealdade prática passa por Casa Stoneshield e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dwarves",
+          "name": "Kharak-Dûm",
+          "status": "Neutro",
+          "score": 6,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 10,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768670818633_1113",
@@ -365,7 +1267,48 @@
     ],
     "description": "Fortaleza subterrânea anã nas Montanhas de Ferro, movida por magma controlado e forjas lendárias.",
     "alwaysLabel": false,
-    "cityId": "Karnak-Dûm"
+    "cityId": "Karnak-Dûm",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 41,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Casa Ironfist",
+      "realm": "Kharak-Dûm",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Kharak-Dûm; sua lealdade prática passa por Casa Ironfist e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dwarves",
+          "name": "Kharak-Dûm",
+          "status": "Respeitado",
+          "score": 14,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768670761289_9147",
@@ -381,7 +1324,48 @@
     ],
     "description": "Cidade-mina anã nas Montanhas Cinzentas, construída ao redor de uma vasta jazida de mythril.",
     "alwaysLabel": false,
-    "cityId": "Khazâd-Thrûl"
+    "cityId": "Khazâd-Thrûl",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 41,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Casa Steelbreaker",
+      "realm": "Kharak-Dûm",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Kharak-Dûm; sua lealdade prática passa por Casa Steelbreaker e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dwarves",
+          "name": "Kharak-Dûm",
+          "status": "Neutro",
+          "score": -2,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -3,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768670674794_15",
@@ -397,7 +1381,48 @@
     ],
     "description": "Cidade mineira anã, um labirinto de túneis e trilhos que levam minério precioso às forjas. Vapor, martelos e contratos rígidos definem a vida sob a montanha.",
     "alwaysLabel": false,
-    "cityId": "Borgrim"
+    "cityId": "Borgrim",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 52,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Casa Ironfist",
+      "realm": "Kharak-Dûm",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Kharak-Dûm; sua lealdade prática passa por Casa Ironfist e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dwarves",
+          "name": "Kharak-Dûm",
+          "status": "Desconfiado",
+          "score": -10,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 11,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768670633554_332",
@@ -413,7 +1438,48 @@
     ],
     "description": "Centro próspero de comércio e mineração de mithril e adamantina. Mercados vibrantes, oficinas de elite e casas de câmbio fazem a riqueza circular sem parar.",
     "alwaysLabel": false,
-    "cityId": "Mithrilgate"
+    "cityId": "Mithrilgate",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 35,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Casa Stoneshield",
+      "realm": "Kharak-Dûm",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Kharak-Dûm; sua lealdade prática passa por Casa Stoneshield e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dwarves",
+          "name": "Kharak-Dûm",
+          "status": "Neutro",
+          "score": 9,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 8,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1769050304643_7577",
@@ -429,7 +1495,48 @@
     ],
     "description": "Capital élfica flutuante sobre um lago ancestral, erguida por raízes colossais, regida pela Rainha Aelindra e pelo Conselho dos Anciãos.",
     "alwaysLabel": false,
-    "cityId": "Eldaraen"
+    "cityId": "Eldaraen",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 59,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Lunavestra",
+      "realm": "Sylvari",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Sylvari; sua lealdade prática passa por Casa Lunavestra e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "elves",
+          "name": "Sylvari",
+          "status": "Desconfiado",
+          "score": -8,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768665341069_2578",
@@ -445,7 +1552,48 @@
     ],
     "description": "Erguida entre árvores de prata e riachos cintilantes, Eledhel é o santuário élfico onde astronomia arcana e magia antiga se unem sob o Oráculo das Três Luas.",
     "alwaysLabel": false,
-    "cityId": "Eledhel"
+    "cityId": "Eledhel",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 19,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Conselho das Estrelas",
+      "realm": "Sylvari",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Sylvari; sua lealdade prática passa por Conselho das Estrelas e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "elves",
+          "name": "Sylvari",
+          "status": "Respeitado",
+          "score": 16,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 0,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768665293989_8918",
@@ -461,7 +1609,48 @@
     ],
     "description": "A mais elevada cidade élfica, móvel e difícil de encontrar: copas flutuantes, passagens luminosas e a Torre das Estrelas formam a escola viva dos Guardiões Celestiais.",
     "alwaysLabel": false,
-    "cityId": "Fëanoril"
+    "cityId": "Fëanoril",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 33,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Conselho das Estrelas",
+      "realm": "Sylvari",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Sylvari; sua lealdade prática passa por Conselho das Estrelas e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "elves",
+          "name": "Sylvari",
+          "status": "Neutro",
+          "score": 9,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 0,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768665141918_1067",
@@ -477,7 +1666,48 @@
     ],
     "description": "Fortaleza élfica de arquitetura humana tomada pela floresta — muralhas vivas e rituais mantêm a Barreira Crepuscular, travando a expansão vampírica.",
     "alwaysLabel": false,
-    "cityId": "Galadorn"
+    "cityId": "Galadorn",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 53,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Verdefolha",
+      "realm": "Sylvari",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Sylvari; sua lealdade prática passa por Casa Verdefolha e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "elves",
+          "name": "Sylvari",
+          "status": "Neutro",
+          "score": -2,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 5,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768665222742_2360",
@@ -493,7 +1723,48 @@
     ],
     "description": "Entre bosques imortais, Lórienor é a cidade da cultura e do conhecimento. Árvores douradas abrigam bardos, eruditos e magos.\n\nNo coração está o Grande Salão das Estrelas, onde canções preservam feitos antigos e luzes flutuantes mudam de cor conforme a música.\n\nAqui, arte e sabedoria são defesa contra o esquecimento.",
     "alwaysLabel": false,
-    "cityId": "Lórienor"
+    "cityId": "Lórienor",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 16,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Casa Lunavestra",
+      "realm": "Sylvari",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Sylvari; sua lealdade prática passa por Casa Lunavestra e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "elves",
+          "name": "Sylvari",
+          "status": "Neutro",
+          "score": -3,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -2,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768602147442_1587",
@@ -509,7 +1780,48 @@
     "images": [
       "assets/cities/sylvandar/sylvandar_preview_1.webp",
       "assets/cities/sylvandar/sylvandar_preview_2.webp"
-    ]
+    ],
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 39,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Casa Verdefolha",
+      "realm": "Sylvari",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Sylvari; sua lealdade prática passa por Casa Verdefolha e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "elves",
+          "name": "Sylvari",
+          "status": "Respeitado",
+          "score": 16,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 1,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768665516540_6918",
@@ -525,7 +1837,48 @@
     ],
     "description": "Thalindra é lar de druidas e curandeiros, esculpida em troncos ocos e vinhas sagradas. Os Caminhos Vivos conduzem pelos distritos moldados pela floresta.\n\nNo centro, a Fonte da Eternidade cura corpo e espírito. A cidade é sede dos Druidas da Canção Verde.",
     "alwaysLabel": false,
-    "cityId": "Thalindra"
+    "cityId": "Thalindra",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 39,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Casa Verdefolha",
+      "realm": "Sylvari",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Sylvari; sua lealdade prática passa por Casa Verdefolha e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "elves",
+          "name": "Sylvari",
+          "status": "Neutro",
+          "score": 0,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 7,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768672410958_1621",
@@ -541,7 +1894,48 @@
     ],
     "description": "Cidade vibrante onde palavras viram música e a realidade dança. Lar da Orquestra Celestial e do Festival das Mil Harmonias.",
     "alwaysLabel": false,
-    "cityId": "Eversong"
+    "cityId": "Eversong",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 39,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Corte de Lumina Auris",
+      "realm": "Luminara",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Luminara; sua lealdade prática passa por Corte de Lumina Auris e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "fae",
+          "name": "Luminara",
+          "status": "Respeitado",
+          "score": 14,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 7,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768672536173_3291",
@@ -557,7 +1951,48 @@
     ],
     "description": "Cidade feérica em ilhas flutuantes sob a lua eterna, com torres de cristal, cascatas suspensas e presságios celestiais.",
     "alwaysLabel": false,
-    "cityId": "Faelight Hollow"
+    "cityId": "Faelight Hollow",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 22,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Círculo das Estrelas Dançantes",
+      "realm": "Luminara",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Luminara; sua lealdade prática passa por Círculo das Estrelas Dançantes e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "fae",
+          "name": "Luminara",
+          "status": "Respeitado",
+          "score": 20,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 2,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768672515333_169",
@@ -573,7 +2008,48 @@
     ],
     "description": "Cidade oculta entre árvores que brilham como ouro líquido; passarelas de luz e oráculos feéricos governam sob sonhos e estrelas.",
     "alwaysLabel": false,
-    "cityId": "Glimmerwood"
+    "cityId": "Glimmerwood",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 25,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Círculo das Estrelas Dançantes",
+      "realm": "Luminara",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Luminara; sua lealdade prática passa por Círculo das Estrelas Dançantes e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "fae",
+          "name": "Luminara",
+          "status": "Neutro",
+          "score": 11,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 25,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768672387686_2062",
@@ -589,7 +2065,48 @@
     ],
     "description": "Cidade encantada no coração da floresta mágica, erguida em torno da Árvore da Vida Eterna. Protegida por encantamentos e pelos Guardas das Estrelas.",
     "alwaysLabel": false,
-    "cityId": "Luminara"
+    "cityId": "Luminara",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 42,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Círculo das Estrelas Dançantes",
+      "realm": "Luminara",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Luminara; sua lealdade prática passa por Círculo das Estrelas Dançantes e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "fae",
+          "name": "Luminara",
+          "status": "Desconfiado",
+          "score": -9,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 23,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768672468982_682",
@@ -605,7 +2122,48 @@
     ],
     "description": "Jardins lunares sob noite perpétua, lagos suspensos e videntes do Templo de Selunara. No Solstício da Lua Cheia, caminhos secretos surgem à luz das estrelas.",
     "alwaysLabel": false,
-    "cityId": "Moonbloom"
+    "cityId": "Moonbloom",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 22,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Casa Brilho-de-Lírio",
+      "realm": "Luminara",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Luminara; sua lealdade prática passa por Casa Brilho-de-Lírio e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "fae",
+          "name": "Luminara",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 18,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768672450182_7670",
@@ -621,7 +2179,48 @@
     ],
     "description": "Cidade feérica de crepúsculo e névoa: torres finas, passarelas flutuantes e ilhas de flores venenosas. O Santuário da Lua Negra guarda portais para planos desconhecidos.",
     "alwaysLabel": false,
-    "cityId": "Thistledell"
+    "cityId": "Thistledell",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 59,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Conselho dos Espinhos Doces",
+      "realm": "Luminara",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Luminara; sua lealdade prática passa por Conselho dos Espinhos Doces e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "fae",
+          "name": "Luminara",
+          "status": "Respeitado",
+          "score": 13,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -2,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768672496565_451",
@@ -637,7 +2236,48 @@
     ],
     "description": "Cidade-viva fundida à natureza: casas de árvores e flores colossais. No Grande Círculo Verdejante, armas viram pétalas e o ciclo da vida nunca se quebra.",
     "alwaysLabel": false,
-    "cityId": "Verdant"
+    "cityId": "Verdant",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 53,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Corte de Lumina Auris",
+      "realm": "Luminara",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Luminara; sua lealdade prática passa por Corte de Lumina Auris e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "fae",
+          "name": "Luminara",
+          "status": "Neutro",
+          "score": 7,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 11,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768653939960_6918",
@@ -653,7 +2293,48 @@
     "images": [
       "assets/cities/darkheart/darkheart_preview_1.webp",
       "assets/cities/darkheart/darkheart_preview_2.webp"
-    ]
+    ],
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 49,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Igreja de Solara",
+      "realm": "Aldoria",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Aldoria; sua lealdade prática passa por Igreja de Solara e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "humans",
+          "name": "Aldoria",
+          "status": "Respeitado",
+          "score": 13,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 7,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768654126310_9646",
@@ -669,7 +2350,48 @@
     "images": [
       "assets/cities/goldshire/goldshire_preview_1.webp",
       "assets/cities/goldshire/goldshire_preview_2.webp"
-    ]
+    ],
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 66,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Lorthan",
+      "realm": "Aldoria",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Aldoria; sua lealdade prática passa por Casa Lorthan e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "humans",
+          "name": "Aldoria",
+          "status": "Respeitado",
+          "score": 22,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 2,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768653618682_2430",
@@ -685,7 +2407,48 @@
     "images": [
       "assets/cities/highvale/highvale_preview_1.webp",
       "assets/cities/highvale/highvale_preview_2.webp"
-    ]
+    ],
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 66,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Draken",
+      "realm": "Aldoria",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Aldoria; sua lealdade prática passa por Casa Draken e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "humans",
+          "name": "Aldoria",
+          "status": "Respeitado",
+          "score": 22,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 8,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768654035024_1048",
@@ -701,7 +2464,48 @@
     "images": [
       "assets/cities/rivermark/rivermark_preview_1.webp",
       "assets/cities/rivermark/rivermark_preview_2.webp"
-    ]
+    ],
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 69,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Valtrion",
+      "realm": "Aldoria",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Aldoria; sua lealdade prática passa por Casa Valtrion e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "humans",
+          "name": "Aldoria",
+          "status": "Respeitado",
+          "score": 18,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 6,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768653848321_8085",
@@ -717,7 +2521,48 @@
     "images": [
       "assets/cities/stonebridge/stonebridge_preview_1.webp",
       "assets/cities/stonebridge/stonebridge_preview_2.webp"
-    ]
+    ],
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 75,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Valtrion",
+      "realm": "Aldoria",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Aldoria; sua lealdade prática passa por Casa Valtrion e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "humans",
+          "name": "Aldoria",
+          "status": "Aliado",
+          "score": 25,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 24,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768653434803_1951",
@@ -733,7 +2578,48 @@
     "images": [
       "assets/cities/thaloria/thaloria_preview_1.webp",
       "assets/cities/thaloria/thaloria_preview_2.webp"
-    ]
+    ],
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 52,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Conselho Arcano de Aldoria",
+      "realm": "Aldoria",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Aldoria; sua lealdade prática passa por Conselho Arcano de Aldoria e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "humans",
+          "name": "Aldoria",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 10,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768672341311_3043",
@@ -749,7 +2635,48 @@
     ],
     "description": "Fortaleza colossal no extremo oeste humano, última defesa contra invasões e monstros. Muralhas triplas, legião de elite e o Salão dos Heróis.",
     "alwaysLabel": false,
-    "cityId": "Westreach"
+    "cityId": "Westreach",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 38,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Casa Lorthan",
+      "realm": "Aldoria",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Aldoria; sua lealdade prática passa por Casa Lorthan e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "humans",
+          "name": "Aldoria",
+          "status": "Respeitado",
+          "score": 14,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 6,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768672015625_3700",
@@ -765,7 +2692,48 @@
     ],
     "description": "Cidade naga submersa erguida em espirais concêntricas ao redor do Espiral Primordial — um núcleo arcano que regula correntes, marés e o poder mágico das profundezas.",
     "alwaysLabel": false,
-    "cityId": "Abyssal Coil"
+    "cityId": "Abyssal Coil",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 32,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Corte das Marés de Naryss",
+      "realm": "Naryss",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Naryss; sua lealdade prática passa por Corte das Marés de Naryss e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "nagas",
+          "name": "Naryss",
+          "status": "Aliado",
+          "score": 25,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 17,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768672074856_920",
@@ -781,7 +2749,48 @@
     ],
     "description": "Fortaleza tritã submersa: disciplina, patrulhas abissais e comando das marés.",
     "alwaysLabel": false,
-    "cityId": "Deepmarsh"
+    "cityId": "Deepmarsh",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 49,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Sacerdócio de Syrene",
+      "realm": "Naryss",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Naryss; sua lealdade prática passa por Sacerdócio de Syrene e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "nagas",
+          "name": "Naryss",
+          "status": "Aliado",
+          "score": 29,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 24,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768672039432_3228",
@@ -797,7 +2806,48 @@
     ],
     "description": "Cidade comercial submersa multirracial, onde contratos, rotas oceânicas e câmaras de arbitragem definem poder mais do que sangue ou tradição.",
     "alwaysLabel": false,
-    "cityId": "Murkwater"
+    "cityId": "Murkwater",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 55,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Guarda de Serpenthra",
+      "realm": "Naryss",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Naryss; sua lealdade prática passa por Guarda de Serpenthra e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "nagas",
+          "name": "Naryss",
+          "status": "Aliado",
+          "score": 29,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 3,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768672058648_230",
@@ -813,7 +2863,48 @@
     ],
     "description": "Fortaleza naga submersa dedicada à disciplina marcial, produção bélica e comando das legiões oceânicas.",
     "alwaysLabel": false,
-    "cityId": "Scaleborn"
+    "cityId": "Scaleborn",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 55,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Guarda de Serpenthra",
+      "realm": "Naryss",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Naryss; sua lealdade prática passa por Guarda de Serpenthra e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "nagas",
+          "name": "Naryss",
+          "status": "Respeitado",
+          "score": 24,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 9,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768672108960_7133",
@@ -829,7 +2920,48 @@
     ],
     "description": "Bastião naga de guerra: disciplina extrema, arsenais profundos e cidadela abissal.",
     "alwaysLabel": false,
-    "cityId": "Serpent's Reach"
+    "cityId": "Serpent's Reach",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 35,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Senhores das Correntes",
+      "realm": "Naryss",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Naryss; sua lealdade prática passa por Senhores das Correntes e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "nagas",
+          "name": "Naryss",
+          "status": "Aliado",
+          "score": 25,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 16,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768671990681_432",
@@ -845,7 +2977,48 @@
     ],
     "description": "Capital naga no Abismo das Marés: corais e gemas bioluminescentes, túneis submersos e câmaras ocultas protegidas por correntes traiçoeiras. Governada pela Rainha Xilara sob Ssynara e Nalak.",
     "alwaysLabel": false,
-    "cityId": "Serpenthra"
+    "cityId": "Serpenthra",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 32,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Sacerdócio de Syrene",
+      "realm": "Naryss",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Naryss; sua lealdade prática passa por Sacerdócio de Syrene e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "nagas",
+          "name": "Naryss",
+          "status": "Respeitado",
+          "score": 15,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 3,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768672089864_153",
@@ -861,7 +3034,48 @@
     ],
     "description": "Cidade neutra de pesquisa: institutos arcanos, bibliotecas vivas e arquivos selados.",
     "alwaysLabel": false,
-    "cityId": "Tidecall"
+    "cityId": "Tidecall",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 55,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Guarda de Serpenthra",
+      "realm": "Naryss",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Naryss; sua lealdade prática passa por Guarda de Serpenthra e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "nagas",
+          "name": "Naryss",
+          "status": "Neutro",
+          "score": -2,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 20,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768671819162_7446",
@@ -877,7 +3091,48 @@
     ],
     "description": "Cidade orc de arenas e carnificina: combate ritual, treinamento militar e apostas brutais. Em Bloodfang, prestígio é conquistado em sangue — e só os mais fortes prosperam.",
     "alwaysLabel": false,
-    "cityId": "Bloodfang"
+    "cityId": "Bloodfang",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 57,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Conselho dos Warlords",
+      "realm": "Grumshar",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Grumshar; sua lealdade prática passa por Conselho dos Warlords e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "orcs",
+          "name": "Grumshar",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 17,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768671798946_8601",
@@ -893,7 +3148,48 @@
     ],
     "description": "",
     "alwaysLabel": false,
-    "cityId": "Grumak's Hold"
+    "cityId": "Grumak's Hold",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 65,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Conselho dos Warlords",
+      "realm": "Grumshar",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Grumshar; sua lealdade prática passa por Conselho dos Warlords e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "orcs",
+          "name": "Grumshar",
+          "status": "Aliado",
+          "score": 27,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 10,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671836698_492",
@@ -909,7 +3205,48 @@
     ],
     "description": "Coração industrial de Morgothar: fornos, chaminés e produção militar em escala. Ironclaw fabrica armas, armaduras e máquinas de cerco sem descanso.",
     "alwaysLabel": false,
-    "cityId": "Ironclaw A Forja da Destruição"
+    "cityId": "Ironclaw A Forja da Destruição",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 91,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Clã Punho-Bruto",
+      "realm": "Grumshar",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Grumshar; sua lealdade prática passa por Clã Punho-Bruto e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "orcs",
+          "name": "Grumshar",
+          "status": "Neutro",
+          "score": -2,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 5,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768671760434_310",
@@ -925,7 +3262,48 @@
     ],
     "description": "",
     "alwaysLabel": false,
-    "cityId": "Morgothar"
+    "cityId": "Morgothar",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 71,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Clã Garra-Seca",
+      "realm": "Grumshar",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Grumshar; sua lealdade prática passa por Clã Garra-Seca e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "orcs",
+          "name": "Grumshar",
+          "status": "Neutro",
+          "score": 5,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 10,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671863418_4424",
@@ -941,7 +3319,48 @@
     ],
     "description": "Bastião no desfiladeiro gelado: muralhas espinhadas, torres de vigia e túneis secretos. Scarhold é a marca viva dos sobreviventes e a última linha contra o cerco.",
     "alwaysLabel": false,
-    "cityId": "Scarhold"
+    "cityId": "Scarhold",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 54,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Conselho dos Warlords",
+      "realm": "Grumshar",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Grumshar; sua lealdade prática passa por Conselho dos Warlords e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "orcs",
+          "name": "Grumshar",
+          "status": "Respeitado",
+          "score": 13,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768671898362_9015",
@@ -957,7 +3376,48 @@
     ],
     "description": "Cidade tribal nas colinas rochosas das Planícies de Guerra, famosa por armadilhas, passagens estreitas e defesa por emboscadas. Porto corsário onde astúcia e força decidem o poder.",
     "alwaysLabel": false,
-    "cityId": "Thornridge"
+    "cityId": "Thornridge",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 71,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Clã Punho-Bruto",
+      "realm": "Grumshar",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Grumshar; sua lealdade prática passa por Clã Punho-Bruto e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "orcs",
+          "name": "Grumshar",
+          "status": "Respeitado",
+          "score": 24,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1768671928905_4869",
@@ -973,20 +3433,108 @@
     ],
     "description": "Cidade tribal erguida sobre um grande pântano, onde os orcs dominam guerrilha e sobrevivência em águas escuras. Emboscadas silenciosas e perigo constante.",
     "alwaysLabel": false,
-    "cityId": "Viletooth"
+    "cityId": "Viletooth",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 74,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Clã Garra-Seca",
+      "realm": "Grumshar",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Grumshar; sua lealdade prática passa por Clã Garra-Seca e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "orcs",
+          "name": "Grumshar",
+          "status": "Respeitado",
+          "score": 21,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 22,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gate_necrothar_descent",
-    "name": "Descida de Necrothar",
-    "type": "dungeon",
+    "name": "Necrothar",
+    "type": "city_main",
     "layer": "underground",
     "territory": "undead",
-    "group": "Necrothar",
+    "group": "undead",
     "x": 46.3,
     "y": 62.8,
-    "description": "Fenda selada por runas antigas; passagens para túneis e enclaves mortos-vivos.",
+    "description": "Necrothar é uma cidade subterrânea enterrada sob camadas de pedra antiga, catacumbas esquecidas e ruínas que parecem anteriores aos reinos modernos de Eldralore. Diferente de Velkarith, que se apresenta como uma necrópole silenciosa, e de Nhar’Velis, que preserva ecos e murmúrios, Necrothar transmite a sensação de origem: um lugar onde a morte deixou de ser apenas fim e passou a ser arquitetura, lei e permanência.",
     "cityId": "necrothar",
-    "images": []
+    "images": [
+      "assets/cities/necrothar/necrothar_preview_1.webp",
+      "assets/cities/necrothar/necrothar_preview_2.webp"
+    ],
+    "videos": [],
+    "details": "A Cidade Sepultada",
+    "alwaysLabel": false,
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 85,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Conselho dos Mortos Despertos",
+      "realm": "Domínios Mortos",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Domínios Mortos; sua lealdade prática passa por Conselho dos Mortos Despertos e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "undead",
+          "name": "Domínios Mortos",
+          "status": "Neutro",
+          "score": 3,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768671668907_4532",
@@ -999,7 +3547,48 @@
     "images": [],
     "description": "",
     "alwaysLabel": false,
-    "cityId": "Nightshade Hollow"
+    "cityId": "Nightshade Hollow",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 88,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Blood Ink",
+      "realm": "Umbra",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Umbra; sua lealdade prática passa por Casa Blood Ink e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "vampires",
+          "name": "Umbra",
+          "status": "Aliado",
+          "score": 29,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 3,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768671594404_4417",
@@ -1015,7 +3604,48 @@
     ],
     "description": "Cidade fortificada ao redor de um castelo de pedra negra. Guardas vampíricos patrulham muralhas e torres; arenas de combate definem prestígio e ascensão. Em Bloodhaven, a lei do mais forte prevalece.",
     "alwaysLabel": false,
-    "cityId": "Bloodhaven"
+    "cityId": "Bloodhaven",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 88,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Blood Ink",
+      "realm": "Umbra",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Umbra; sua lealdade prática passa por Casa Blood Ink e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "vampires",
+          "name": "Umbra",
+          "status": "Neutro",
+          "score": 6,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 9,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768671579308_164",
@@ -1031,7 +3661,48 @@
     ],
     "description": "Duskmire é uma cidade à beira de um lago sombrio, coberta por névoa constante. Mansões góticas e ruas de paralelepípedos abrigam vampiros antigos e poderosos, tornando-a um núcleo de intrigas políticas e conspirações silenciosas.",
     "alwaysLabel": false,
-    "cityId": "Duskmire"
+    "cityId": "Duskmire",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 65,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Corte das Sombras",
+      "realm": "Umbra",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Umbra; sua lealdade prática passa por Corte das Sombras e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "vampires",
+          "name": "Umbra",
+          "status": "Neutro",
+          "score": 11,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 12,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1768671628819_3810",
@@ -1047,7 +3718,48 @@
     ],
     "description": "Cidade vampírica urbana de arquitetura medieval europeia: ruas de pedra, casas de madeira escurecida e lanternas a óleo. Ordem rígida por pactos de sangue e vigilância discreta.",
     "alwaysLabel": false,
-    "cityId": "Ebonwood"
+    "cityId": "Ebonwood",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 85,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Casa Blood Ink",
+      "realm": "Umbra",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Umbra; sua lealdade prática passa por Casa Blood Ink e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "vampires",
+          "name": "Umbra",
+          "status": "Neutro",
+          "score": 11,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 15,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768671553444_4879",
@@ -1063,7 +3775,48 @@
     ],
     "description": "Envolta em eterna escuridão, Noctara jaz nas profundezas da Floresta Sombria, onde a luz do sol raramente penetra. Castelos góticos e ruas estreitas se perdem em névoa sinistra, enquanto a aristocracia vampírica tece intrigas sob a noite permanente.\n\nGovernada pela Rainha Morgana Sombrafúria e devota a Nocturna e Sangrius, a cidade é um centro de poder feudal, manipulação e medo ritual.",
     "alwaysLabel": false,
-    "cityId": "Noctara"
+    "cityId": "Noctara",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 65,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Casa Sable",
+      "realm": "Umbra",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Umbra; sua lealdade prática passa por Casa Sable e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "vampires",
+          "name": "Umbra",
+          "status": "Respeitado",
+          "score": 21,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 3,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671646443_6675",
@@ -1079,7 +3832,48 @@
     ],
     "description": "",
     "alwaysLabel": false,
-    "cityId": "Ravenspire"
+    "cityId": "Ravenspire",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 68,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Corte das Sombras",
+      "realm": "Umbra",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Umbra; sua lealdade prática passa por Corte das Sombras e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "vampires",
+          "name": "Umbra",
+          "status": "Respeitado",
+          "score": 24,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 20,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1768671611371_6424",
@@ -1095,7 +3889,48 @@
     ],
     "description": "Cidade oculta na Floresta Sombria, um labirinto de vegetação retorcida. Refúgio de vampiros eruditos, com jardins sombrios e bibliotecas ocultas dedicadas a magias e rituais antigos.",
     "alwaysLabel": false,
-    "cityId": "Shadowmoor"
+    "cityId": "Shadowmoor",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 68,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Casa Blood Ink",
+      "realm": "Umbra",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Umbra; sua lealdade prática passa por Casa Blood Ink e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "vampires",
+          "name": "Umbra",
+          "status": "Neutro",
+          "score": -6,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 11,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1768670598442_4093",
@@ -1111,7 +3946,48 @@
     ],
     "description": "Fortaleza militar anã de muralhas impenetráveis. Quartéis, torres e pedreiras de mármore sustentam o bastião que protege as rotas das montanhas.",
     "alwaysLabel": false,
-    "cityId": "Stonehelm"
+    "cityId": "Stonehelm",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 32,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Conselho dos Clãs de Kharak-Dûm",
+      "realm": "Kharak-Dûm",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Kharak-Dûm; sua lealdade prática passa por Conselho dos Clãs de Kharak-Dûm e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "dwarves",
+          "name": "Kharak-Dûm",
+          "status": "Respeitado",
+          "score": 16,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 18,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_angels_main_celestia",
@@ -1127,7 +4003,48 @@
     ],
     "description": "Capital dos Anjos — Cidade de Luz",
     "alwaysLabel": false,
-    "cityId": "Celestia"
+    "cityId": "Celestia",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 16,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Legião de Solara",
+      "realm": "Solara",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Solara; sua lealdade prática passa por Legião de Solara e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "angels",
+          "name": "Solara",
+          "status": "Respeitado",
+          "score": 22,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 6,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_angels_main_seraphis",
@@ -1143,7 +4060,48 @@
     ],
     "description": "Centro Espiritual — Cristal Puro",
     "alwaysLabel": false,
-    "cityId": "Seraphis"
+    "cityId": "Seraphis",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 16,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Coro dos Guardiões da Luz",
+      "realm": "Solara",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Solara; sua lealdade prática passa por Coro dos Guardiões da Luz e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "angels",
+          "name": "Solara",
+          "status": "Neutro",
+          "score": 7,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 9,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_angels_main_luminael",
@@ -1159,7 +4117,48 @@
     ],
     "description": "Cidade da Sabedoria — Bibliotecas e Cura",
     "alwaysLabel": false,
-    "cityId": "Luminael"
+    "cityId": "Luminael",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 16,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Coro dos Guardiões da Luz",
+      "realm": "Solara",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Solara; sua lealdade prática passa por Coro dos Guardiões da Luz e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "angels",
+          "name": "Solara",
+          "status": "Neutro",
+          "score": 8,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 14,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_angels_main_etheria",
@@ -1175,7 +4174,48 @@
     ],
     "description": "Etheria é uma cidade flutuante sustentada por correntes de energia celestial. Suas construções de mármore branco e ouro refletem a luz e criam um brilho etéreo. Centro da magia celestial, Etheria é onde os anjos treinam para dominar poderes divinos — um lugar de beleza, mistério e disciplina sagrada.",
     "alwaysLabel": false,
-    "cityId": "Etheria"
+    "cityId": "Etheria",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 16,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Conselho Celestial",
+      "realm": "Solara",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Solara; sua lealdade prática passa por Conselho Celestial e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "angels",
+          "name": "Solara",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 11,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_angels_main_sanctoria",
@@ -1191,7 +4231,48 @@
     ],
     "description": "Sanctoria é a fortaleza de Celestia, construída para a defesa contra as forças do mal. Cercada por muralhas de luz impenetráveis, é o lar dos guerreiros celestiais.\n\nBastião de força e justiça, onde anjos treinam incessantemente para proteger inocentes e combater o mal.",
     "alwaysLabel": false,
-    "cityId": "Sanctoria"
+    "cityId": "Sanctoria",
+    "dangerProfile": {
+      "level": "Baixo",
+      "score": 16,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Conselho Celestial",
+      "realm": "Solara",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Solara; sua lealdade prática passa por Conselho Celestial e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "angels",
+          "name": "Solara",
+          "status": "Neutro",
+          "score": -6,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_angels_main_aurelia",
@@ -1207,7 +4288,48 @@
     ],
     "description": "Aurelia é a cidade da música e das artes. Esculturas e mosaicos narram heroísmo e sacrifício.\n\nA música celestial ressoa pelas ruas, inspirando alegria e devoção através da arte.",
     "alwaysLabel": false,
-    "cityId": "Aurelia"
+    "cityId": "Aurelia",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 42,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Coro dos Guardiões da Luz",
+      "realm": "Solara",
+      "mode": "administração central",
+      "stability": "negociada",
+      "notes": "O local é tratado como administração central de Solara; sua lealdade prática passa por Coro dos Guardiões da Luz e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "angels",
+          "name": "Solara",
+          "status": "Desconfiado",
+          "score": -10,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 16,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_angels_main_halcyon",
@@ -1223,55 +4345,228 @@
     ],
     "description": "Halcyon é a cidade de guerra e artes marciais angelicais nas montanhas mais altas. Refúgio dos combatentes e centro de treinamento da tropa de elite.\n\nLagos cristalinos e florestas douradas cercam os campos de provação e disciplina.",
     "alwaysLabel": false,
-    "cityId": "Halcyon"
+    "cityId": "Halcyon",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 56,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Legião de Solara",
+      "realm": "Solara",
+      "mode": "administração central",
+      "stability": "frágil",
+      "notes": "O local é tratado como administração central de Solara; sua lealdade prática passa por Legião de Solara e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "angels",
+          "name": "Solara",
+          "status": "Neutro",
+          "score": 9,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 3,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1770692222106_6722",
-    "name": "Voltagrinn a energia e fluxo",
+    "name": "Glimmercrank, a Capital do Caos Criativo",
     "layer": "world",
     "type": "city_main",
     "group": "gnomes",
     "territory": "gnomes",
     "x": 66.28,
     "y": 78.41,
-    "description": "",
-    "images": [],
+    "description": "Capital gnômica do caos criativo — torres tortas, engrenagens vivas, cristais ressonantes, laboratórios instáveis e anarquia organizada.",
+    "images": [
+      "assets/cities/glimmercrank/glimmercrank_preview_1.webp",
+      "assets/cities/glimmercrank/glimmercrank_preview_2.webp"
+    ],
     "videos": [],
     "details": "",
     "alwaysLabel": false,
-    "cityId": "Voltagrinn"
+    "cityId": "Glimmercrank",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 35,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Coletivo Sprocket",
+      "realm": "Cidades Gnômicas",
+      "mode": "administração central",
+      "stability": "disputada",
+      "notes": "O local é tratado como administração central de Cidades Gnômicas; sua lealdade prática passa por Coletivo Sprocket e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "gnomes",
+          "name": "Cidades Gnômicas",
+          "status": "Respeitado",
+          "score": 13,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "A rota comercial mais lucrativa também transporta informação proibida.",
+        "Um conselheiro mantém acordo informal com rivais externos."
+      ]
+    }
   },
   {
     "id": "gm_1770692259718_8627",
-    "name": "Kryx-Helion",
+    "name": "Sprocket Hollow, a Caverna das Luzes Impossíveis",
     "layer": "world",
     "type": "city_main",
     "group": "gnomes",
     "territory": "gnomes",
     "x": 69.67,
     "y": 74.1,
-    "description": "",
-    "images": [],
+    "description": "Cidade subterrânea gnômica em caverna cristalina, movida por canais luminosos, máquinas eternas e alquimia que desafia a natureza.",
+    "images": [
+      "assets/cities/sprocket_hollow/sprocket_hollow_preview_1.webp",
+      "assets/cities/sprocket_hollow/sprocket_hollow_preview_2.webp"
+    ],
     "videos": [],
     "details": "",
     "alwaysLabel": false,
-    "cityId": "Kryx"
+    "cityId": "Sprocket Hollow",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 72,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Núcleo Nutcrank",
+      "realm": "Cidades Gnômicas",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Cidades Gnômicas; sua lealdade prática passa por Núcleo Nutcrank e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "gnomes",
+          "name": "Cidades Gnômicas",
+          "status": "Respeitado",
+          "score": 18,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "A guilda recebeu pedidos incomuns nesta semana.",
+        "Mercadores disputam autorização para uma rota nova."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1770692305447_8942",
-    "name": "Nimbarix central autônomos",
+    "name": "Buzzer’s Nest, o Ninho das Máquinas Celestes",
     "layer": "world",
     "type": "city_main",
     "group": "gnomes",
     "territory": "gnomes",
     "x": 74.79,
     "y": 73.65,
-    "description": "",
-    "images": [],
+    "description": "Cidade flutuante gnômica sobre plataformas, dirigíveis, hélices, correntes e cristais azuis, dedicada à pesquisa aérea e à gravidade.",
+    "images": [
+      "assets/cities/buzzers_nest/buzzers_nest_preview_1.webp",
+      "assets/cities/buzzers_nest/buzzers_nest_preview_2.webp"
+    ],
     "videos": [],
     "details": "",
     "alwaysLabel": false,
-    "cityId": "Nimbarix"
+    "cityId": "Buzzer's Nest",
+    "dangerProfile": {
+      "level": "Moderado",
+      "score": 38,
+      "reason": "densidade política, comércio e intrigas urbanas"
+    },
+    "politicalControl": {
+      "controller": "Guildas de Engenheiros Livres",
+      "realm": "Cidades Gnômicas",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Cidades Gnômicas; sua lealdade prática passa por Guildas de Engenheiros Livres e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "gnomes",
+          "name": "Cidades Gnômicas",
+          "status": "Respeitado",
+          "score": 22,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -5,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "O próximo festival será usado para uma manobra política."
+      ]
+    }
   },
   {
     "id": "gm_1770692567957_666",
@@ -1282,12 +4577,56 @@
     "territory": "undead",
     "x": 38.8,
     "y": 25.2,
-    "description": "",
-    "images": [],
+    "description": "Velkarith é uma cidade subterrânea de pedra fria, névoa mortuária e silêncio ritual. Diferente das ruínas comuns tomadas por mortos inquietos, Velkarith parece organizada demais para ser apenas um cemitério esquecido. Suas avenidas são limpas, seus portões permanecem vigiados e suas luzes espectrais acendem em sequência, como se a cidade respirasse sem pulmões.",
+    "images": [
+      "assets/cities/velkarith/velkarith_preview_1.webp",
+      "assets/cities/velkarith/velkarith_preview_2.webp"
+    ],
     "videos": [],
-    "details": "",
+    "details": "A Cidade dos Silenciosos",
     "alwaysLabel": false,
-    "cityId": "Velkarith"
+    "cityId": "Velkarith",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 71,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Arquivo das Cinzas Eternas",
+      "realm": "Domínios Mortos",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Domínios Mortos; sua lealdade prática passa por Arquivo das Cinzas Eternas e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "undead",
+          "name": "Domínios Mortos",
+          "status": "Neutro",
+          "score": 3,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 18,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1770692636953_867",
@@ -1298,12 +4637,56 @@
     "territory": "undead",
     "x": 59,
     "y": 23.13,
-    "description": "",
-    "images": [],
+    "description": "Nhar’Velis é uma cidade subterrânea construída dentro de uma imensa garganta de pedra negra, onde o vento não sopra: ele sussurra. Suas torres ocas, passarelas estreitas e câmaras acústicas foram moldadas para carregar murmúrios por quilômetros, transformando cada palavra dita em um eco que nunca desaparece por completo.",
+    "images": [
+      "assets/cities/nhar_velis/nhar_velis_preview_1.webp",
+      "assets/cities/nhar_velis/nhar_velis_preview_2.webp"
+    ],
     "videos": [],
-    "details": "",
+    "details": "A Cidade do Último Sussurro",
     "alwaysLabel": false,
-    "cityId": "Nhar’Velis"
+    "cityId": "Nhar’Velis",
+    "dangerProfile": {
+      "level": "Lendário",
+      "score": 91,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Arquivo das Cinzas Eternas",
+      "realm": "Domínios Mortos",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Domínios Mortos; sua lealdade prática passa por Arquivo das Cinzas Eternas e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "undead",
+          "name": "Domínios Mortos",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": -4,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Mercadores disputam autorização para uma rota nova.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1770692708916_9808",
@@ -1314,12 +4697,56 @@
     "territory": "giants",
     "x": 80.17,
     "y": 19.63,
-    "description": "",
-    "images": [],
+    "description": "Cidade colossal dos gigantes, erguida entre montanhas ciclópicas, pilares eternos, pontes sobre abismos e forjas titânicas.",
+    "images": [
+      "assets/cities/thorgar_dul/thorgar_dul_preview_1.webp",
+      "assets/cities/thorgar_dul/thorgar_dul_preview_2.webp"
+    ],
     "videos": [],
     "details": "",
     "alwaysLabel": false,
-    "cityId": "Thorgar-Dû"
+    "cityId": "Thorgar-Dûl",
+    "dangerProfile": {
+      "level": "Alto",
+      "score": 58,
+      "reason": "interesses de nobres, guildas e patrulhas"
+    },
+    "politicalControl": {
+      "controller": "Clã Pedra-Ancestral",
+      "realm": "Terras dos Colossos",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Terras dos Colossos; sua lealdade prática passa por Clã Pedra-Ancestral e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "giants",
+          "name": "Terras dos Colossos",
+          "status": "Neutro",
+          "score": -1,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 17,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "A guilda recebeu pedidos incomuns nesta semana."
+      ],
+      "gm": [
+        "Uma casa nobre está comprando silêncio de testemunhas.",
+        "A rota comercial mais lucrativa também transporta informação proibida."
+      ]
+    }
   },
   {
     "id": "gm_1770692757042_1882",
@@ -1330,12 +4757,56 @@
     "territory": "giants",
     "x": 88.12,
     "y": 14.5,
-    "description": "",
-    "images": [],
+    "description": "Cidade dos gigantes acima das nuvens, marcada por torres para-raios, pontes entre picos e autoridade sagrada das tempestades.",
+    "images": [
+      "assets/cities/valmorynth/valmorynth_preview_1.webp",
+      "assets/cities/valmorynth/valmorynth_preview_2.webp"
+    ],
     "videos": [],
     "details": "",
     "alwaysLabel": false,
-    "cityId": "Valmorynth"
+    "cityId": "Valmorynth",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 72,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Clã Pedra-Ancestral",
+      "realm": "Terras dos Colossos",
+      "mode": "administração central",
+      "stability": "vigiada",
+      "notes": "O local é tratado como administração central de Terras dos Colossos; sua lealdade prática passa por Clã Pedra-Ancestral e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "giants",
+          "name": "Terras dos Colossos",
+          "status": "Respeitado",
+          "score": 20,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Neutro",
+          "score": 9,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Uma casa nobre reuniu aliados em silêncio.",
+        "Sacerdotes e comerciantes discordam sobre impostos recentes."
+      ],
+      "gm": [
+        "O próximo festival será usado para uma manobra política.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   },
   {
     "id": "gm_1770692783409_6670",
@@ -1346,11 +4817,55 @@
     "territory": "giants",
     "x": 74.18,
     "y": 15.22,
-    "description": "",
-    "images": [],
+    "description": "Cidade-vale sagrada dos gigantes, guardiã das pegadas ancestrais, dos ritos de linhagem e da memória dos primeiros clãs.",
+    "images": [
+      "assets/cities/khaelorin/khaelorin_preview_1.webp",
+      "assets/cities/khaelorin/khaelorin_preview_2.webp"
+    ],
     "videos": [],
     "details": "",
     "alwaysLabel": false,
-    "cityId": "Khaelorin"
+    "cityId": "Khaelorin",
+    "dangerProfile": {
+      "level": "Crítico",
+      "score": 75,
+      "reason": "grande fluxo de viajantes e rumores"
+    },
+    "politicalControl": {
+      "controller": "Clã Trovão Coroado",
+      "realm": "Terras dos Colossos",
+      "mode": "administração central",
+      "stability": "estável",
+      "notes": "O local é tratado como administração central de Terras dos Colossos; sua lealdade prática passa por Clã Trovão Coroado e por acordos de sobrevivência com forças próximas."
+    },
+    "reputation": {
+      "default": "Neutro",
+      "factions": [
+        {
+          "id": "giants",
+          "name": "Terras dos Colossos",
+          "status": "Respeitado",
+          "score": 22,
+          "note": "Reputação medida pela reação de guardas, comerciantes e moradores ligados ao território."
+        },
+        {
+          "id": "adventurers_guild",
+          "name": "Guilda dos Aventureiros",
+          "status": "Respeitado",
+          "score": 15,
+          "note": "Representa a abertura do local para contratos, escoltas e mediação externa."
+        }
+      ]
+    },
+    "localRumors": {
+      "public": [
+        "Sacerdotes e comerciantes discordam sobre impostos recentes.",
+        "Uma casa nobre reuniu aliados em silêncio."
+      ],
+      "gm": [
+        "Um conselheiro mantém acordo informal com rivais externos.",
+        "Uma casa nobre está comprando silêncio de testemunhas."
+      ]
+    }
   }
 ]

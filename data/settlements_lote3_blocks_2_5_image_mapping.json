@@ -1,0 +1,598 @@
+{
+  "baseZip": "atlas_eldralore_patch_assentamentos_lote3_bloco1_validado(3).zip",
+  "outputZip": "atlas_eldralore_patch_assentamentos_lote3_blocos2_5_integrados_QA.zip",
+  "createdAt": "2026-05-09T21:59:08",
+  "rules": [
+    "Cada arquivo integrado corresponde a uma única imagem individual.",
+    "Não foram integradas imagens de grid, montagem, colagem, poster, painel, texto ou moldura.",
+    "Raça/bioma validados por bloco: orcs terrestres brutais; nagas subaquáticos; centauros em planícies abertas.",
+    "Não houve integração em pins fora da lista programada dos blocos 2-5."
+  ],
+  "entries": [
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_002",
+      "pin_id": "orcs_world_set_002",
+      "img_no": 1,
+      "src": "grim_orc_stronghold_in_the_wasteland.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_002_1.webp",
+      "note": "Campo externo em planície agreste, paliçada e torres tribais.",
+      "webp_size_bytes": 181092,
+      "sha256": "1a8772776a91445e70857a4fabe20e21311047bc09a9fdbd79eb5dd85e1fde68",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_002",
+      "pin_id": "orcs_world_set_002",
+      "img_no": 2,
+      "src": "brutal_orc_stronghold_at_dusk.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_002_2.webp",
+      "note": "Interior com arena, forja rústica e estandartes.",
+      "webp_size_bytes": 201780,
+      "sha256": "a1c6fe3de65ee0f2b5deb1df222a6d81ac349c2618ed8101f8b339037573c4fa",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_003",
+      "pin_id": "orcs_world_set_003",
+      "img_no": 1,
+      "src": "dark_orc_encampment_in_stormy_wilderness.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_003_1.webp",
+      "note": "Assentamento com fossos defensivos, lama e estacas.",
+      "webp_size_bytes": 190974,
+      "sha256": "f59b1c318cc82f0ae231cf8f7ddf43d194a9885e828e47c5ac46a5cae48a6681",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_003",
+      "pin_id": "orcs_world_set_003",
+      "img_no": 2,
+      "src": "grimdark_orc_war_camp_fortress.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_003_2.webp",
+      "note": "Pátio interno, currais, armas e fogueiras.",
+      "webp_size_bytes": 218106,
+      "sha256": "63281a1e1c438862ce02faeb4198d638d2ec3fbc292fc0a2abf1aef6c530fd92",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_004",
+      "pin_id": "orcs_world_set_004",
+      "img_no": 1,
+      "src": "orc_warcamp_fortress_under_stormy_skies.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_004_1.webp",
+      "note": "Reduto consolidado com portão tribal e torres.",
+      "webp_size_bytes": 195922,
+      "sha256": "f7cd7ffeace3a0edca4e45a62458fbd7eb8a16cd993783753033b7dd2acaf748",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_004",
+      "pin_id": "orcs_world_set_004",
+      "img_no": 2,
+      "src": "orc_encampment_under_stormy_skies.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_004_2.webp",
+      "note": "Centro tribal com tambores, área de reunião e xamãs.",
+      "webp_size_bytes": 224054,
+      "sha256": "2c0da5ead0e1ffb31a69ec0c83efbe2c35255becfee5680d1634dd2d3bc1d352",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_006",
+      "pin_id": "orcs_world_set_006",
+      "img_no": 1,
+      "src": "canyon_fortress_of_fire_and_smoke.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_006_1.webp",
+      "note": "Acampamento encaixado em garganta rochosa escura.",
+      "webp_size_bytes": 161264,
+      "sha256": "6c7e65cd06e99a9c5f038573b886570bfee23a920bcda30e3e5deab7b394745f",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_006",
+      "pin_id": "orcs_world_set_006",
+      "img_no": 2,
+      "src": "orc_war_camp_in_a_rugged_canyon.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_006_2.webp",
+      "note": "Trilha militar, sentinelas e barracas de couro.",
+      "webp_size_bytes": 181048,
+      "sha256": "fc1d442fb324e656f9a40fc7ae997e944d5255214532a40bb55e4b4cb44057e3",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_007",
+      "pin_id": "orcs_world_set_007",
+      "img_no": 1,
+      "src": "rough_orc_encampment_under_stormy_skies.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_007_1.webp",
+      "note": "Paliçada, portão de madeira, ossos e lama.",
+      "webp_size_bytes": 154148,
+      "sha256": "fc4c5dfa1f6e9b366a891c34d70a9fa5bab0e9e93b47f07ce2fae77cde5ac8e1",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 2 — Orcs I",
+      "city_id": "settlement_orcs_world_set_007",
+      "pin_id": "orcs_world_set_007",
+      "img_no": 2,
+      "src": "orcish_stronghold_under_stormy_skies.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_007_2.webp",
+      "note": "Interior com praça de guerra, forja simples e vigias.",
+      "webp_size_bytes": 209364,
+      "sha256": "a410bee5bc27a3daec06251284aeb50498f09574482bcc2d8be07f9c8a1a6710",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_orcs_world_set_008",
+      "pin_id": "orcs_world_set_008",
+      "img_no": 1,
+      "src": "orc_stronghold_in_a_desolate_valley.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_008_1.webp",
+      "note": "Vila de Guerra Fosso da Presa, visão externa militar.",
+      "webp_size_bytes": 199014,
+      "sha256": "b4d9443278a91f314b6cc8913be2ed38dfa5d01feb736a75bc39d4234ce9675e",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_orcs_world_set_008",
+      "pin_id": "orcs_world_set_008",
+      "img_no": 2,
+      "src": "grim_orc_war_camp_in_the_canyon.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_008_2.webp",
+      "note": "Interior de vila de guerra com estruturas brutais.",
+      "webp_size_bytes": 288386,
+      "sha256": "666efd784a2f9a7557ef306bb71a993c8f5b8102499575824f459652d44b50bc",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_orcs_world_set_009",
+      "pin_id": "orcs_world_set_009",
+      "img_no": 1,
+      "src": "brutal_orc_war_camp_in_ruins.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_009_1.webp",
+      "note": "Campo de Presas Poço de Gore, fosso/pátio brutal.",
+      "webp_size_bytes": 257732,
+      "sha256": "e0aa6ab01f8a0d499b42c4c412663e17a7077bd8c0949a73e5b9c2e0f2de9c05",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_orcs_world_set_009",
+      "pin_id": "orcs_world_set_009",
+      "img_no": 2,
+      "src": "brutal_orc_war_camp_at_dusk.png",
+      "dest": "assets/settlements/orcs/orcs_world_set_009_2.webp",
+      "note": "Interior noturno com poço sangrento e ritual de guerra.",
+      "webp_size_bytes": 224874,
+      "sha256": "083610f5d9ba3fbedead0c6a4a62d37d28257da2ae3f714042bb2b9a4aaad9db",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_nagas_subaquatica_set_001",
+      "pin_id": "nagas_subaquatica_set_001",
+      "img_no": 1,
+      "src": "rituals_at_the_serpent_temple.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_001_1.webp",
+      "note": "Santuário de Corrente Maré Profunda, altar serpentino.",
+      "webp_size_bytes": 270064,
+      "sha256": "94d22bd55f626a28da1ddccbeb98a36d8600e6921871695cd9417b0837b0a67f",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_nagas_subaquatica_set_001",
+      "pin_id": "nagas_subaquatica_set_001",
+      "img_no": 2,
+      "src": "naga_city_beneath_the_sea.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_001_2.webp",
+      "note": "Santuário/assentamento submerso de Naryss.",
+      "webp_size_bytes": 306612,
+      "sha256": "1cac7fdfcc2d8fa7bce1e5a4cd8790dc54158ab0fbf6bbaf4fd5a19e6d42262c",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_nagas_subaquatica_set_002",
+      "pin_id": "nagas_subaquatica_set_002",
+      "img_no": 1,
+      "src": "merfolk_city_in_a_glowing_coral_grotto.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_002_1.webp",
+      "note": "Recife habitado em gruta coralina.",
+      "webp_size_bytes": 279278,
+      "sha256": "46294f1c8f6fc5edeb45bab91fae8191e4ccbb95dc345c032e5c4f259bf67354",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_nagas_subaquatica_set_002",
+      "pin_id": "nagas_subaquatica_set_002",
+      "img_no": 2,
+      "src": "underwater_naga_market_in_coral_city.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_002_2.webp",
+      "note": "Mercado/vida local em recife coralino.",
+      "webp_size_bytes": 274834,
+      "sha256": "237e43baf4381a7e2bb2094277cac204f69f4809e899713ee698262a7d158a91",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 3 — Orcs II + Nagas I",
+      "city_id": "settlement_nagas_subaquatica_set_003",
+      "pin_id": "nagas_subaquatica_set_003",
+      "img_no": 1,
+      "src": "underwater_market_of_the_merfolk.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_003_1.webp",
+      "note": "Entreposto Submerso Reefcoil, mercado aquático.",
+      "webp_size_bytes": 361476,
+      "sha256": "c4b4f9c3cdc66409a72f78e02a3ca4ffd13a8c40f58903176140b2bc97cb5f62",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_004",
+      "pin_id": "nagas_subaquatica_set_004",
+      "img_no": 1,
+      "src": "ancient_underwater_naga_cityscape.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_004_1.webp",
+      "note": "Recife Habitado Espiral Abissal, visão de espiral/abismo.",
+      "webp_size_bytes": 265838,
+      "sha256": "623c8a89eb391576582036fb556f07d9158fef3e0d28c25e8bcded45b50422ed",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_004",
+      "pin_id": "nagas_subaquatica_set_004",
+      "img_no": 2,
+      "src": "mystical_underwater_city_of_merfolk.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_004_2.webp",
+      "note": "Interior cerimonial coralino do assentamento.",
+      "webp_size_bytes": 390954,
+      "sha256": "db86242601d1ab09e652c8ee422e132ddc166bd1405911695238c1a750a190f1",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_005",
+      "pin_id": "nagas_subaquatica_set_005",
+      "img_no": 1,
+      "src": "merfolk_city_beneath_the_sea.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_005_1.webp",
+      "note": "Vila de Maré Reefcoil, casas e portões submersos.",
+      "webp_size_bytes": 363086,
+      "sha256": "fd743c6266b37ba35d966915cd657ac387e55864de61b7e6eee57c36b531b899",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_005",
+      "pin_id": "nagas_subaquatica_set_005",
+      "img_no": 2,
+      "src": "underwater_village_of_merfolk_and_corals.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_005_2.webp",
+      "note": "Vila de Maré Reefcoil, vida local e cultivo de coral.",
+      "webp_size_bytes": 386546,
+      "sha256": "1ef7cdf459dbcf094abfac1cbad1b7c77b37d80347a5324b54dc551886fa4419",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_006",
+      "pin_id": "nagas_subaquatica_set_006",
+      "img_no": 1,
+      "src": "underwater_naga_village_with_glowing_architecture.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_006_1.webp",
+      "note": "Entreposto Submerso Gruta Coralina, zona agrícola.",
+      "webp_size_bytes": 355152,
+      "sha256": "d908d89b8a175af7a29381199b9bc7eb85c03998faad5c23549922478cebf8ae",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_006",
+      "pin_id": "nagas_subaquatica_set_006",
+      "img_no": 2,
+      "src": "enchanted_underwater_coral_village.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_006_2.webp",
+      "note": "Gruta coralina com moradias e cultivo.",
+      "webp_size_bytes": 329222,
+      "sha256": "5b773423d30ae477205b4e9b86a2f4f23796a50f08c824f6e3e0e94debda4e86",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_007",
+      "pin_id": "nagas_subaquatica_set_007",
+      "img_no": 1,
+      "src": "guardians_of_the_abyssal_city.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_007_1.webp",
+      "note": "Entreposto Submerso Espiral Abissal, guarda abissal.",
+      "webp_size_bytes": 235744,
+      "sha256": "d52ea72f892dc38bd75c88022ab6d609f4a0685203734c38f65c69b765b48d4a",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_007",
+      "pin_id": "nagas_subaquatica_set_007",
+      "img_no": 2,
+      "src": "ceremonial_gathering_in_an_underwater_temple.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_007_2.webp",
+      "note": "Reunião comunitária/cerimonial abissal.",
+      "webp_size_bytes": 257394,
+      "sha256": "b1227a5e823db7a87914fca7ba7cd236eb6dbdbbb2be9825fe6a609986efc39c",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_008",
+      "pin_id": "nagas_subaquatica_set_008",
+      "img_no": 1,
+      "src": "underwater_market_in_a_coral_city.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_008_1.webp",
+      "note": "Entreposto Submerso Gruta Coralina, mercado.",
+      "webp_size_bytes": 311316,
+      "sha256": "357116702a15d15709457b69dc67c2a9611168eaec3a8397ed0494f88834ce79",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 4 — Nagas II",
+      "city_id": "settlement_nagas_subaquatica_set_008",
+      "pin_id": "nagas_subaquatica_set_008",
+      "img_no": 2,
+      "src": "underwater_coral_city_marketplace.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_008_2.webp",
+      "note": "Mercado interno com conchas, pérolas e estruturas coralinas.",
+      "webp_size_bytes": 271276,
+      "sha256": "47a51456a8d79fa7f285fa19c51069b49dd4a6bd91cf5f8f582de6f52aefe1a0",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_nagas_subaquatica_set_009",
+      "pin_id": "nagas_subaquatica_set_009",
+      "img_no": 1,
+      "src": "underwater_naga_market_and_cityscape.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_009_1.webp",
+      "note": "Entreposto Submerso Fluxo Murkwater, visão externa escura.",
+      "webp_size_bytes": 201260,
+      "sha256": "e8dd87135b17c15cf79148152e865322719687f990f7fdf64b20546abada8153",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_nagas_subaquatica_set_009",
+      "pin_id": "nagas_subaquatica_set_009",
+      "img_no": 2,
+      "src": "underwater_market_of_aquatic_traders.png",
+      "dest": "assets/settlements/nagas/nagas_subaquatica_set_009_2.webp",
+      "note": "Mercado aquático em fluxo escuro.",
+      "webp_size_bytes": 291438,
+      "sha256": "d4ecbf600d1fb23e36a81cf13e4ece6736891f516eb84bb9b4c5001988b0c841",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_centaurs_world_set_001",
+      "pin_id": "centaurs_world_set_001",
+      "img_no": 1,
+      "src": "tribal_centaur_settlement_in_the_plains.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_001_1.webp",
+      "note": "Povoado dos Ventos Dawnpath, visão aberta das planícies.",
+      "webp_size_bytes": 306428,
+      "sha256": "7bd3b8360e3d07fd9de6baa5946d17fc5c8f050b4e327cd8a239c2d41a233243",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_centaurs_world_set_001",
+      "pin_id": "centaurs_world_set_001",
+      "img_no": 2,
+      "src": "tribal_encampment_on_the_plains.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_001_2.webp",
+      "note": "Dawnpath, círculo ritual e tendas baixas.",
+      "webp_size_bytes": 279112,
+      "sha256": "f542f2228db35e320337a5138a309dc08544aad71cc8a62d315bced289f874ac",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_centaurs_world_set_002",
+      "pin_id": "centaurs_world_set_002",
+      "img_no": 1,
+      "src": "nomadic_centaur_camp_in_the_plains.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_002_1.webp",
+      "note": "Acampamento Circular Windreach, anel de carroças.",
+      "webp_size_bytes": 320610,
+      "sha256": "2151d06421e7400ae94c6da8884b69d20dd8e2dbca84727d54c37c9ba601c0a2",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_centaurs_world_set_002",
+      "pin_id": "centaurs_world_set_002",
+      "img_no": 2,
+      "src": "tribal_centaur_encampment_beneath_a_canopy.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_002_2.webp",
+      "note": "Interior do acampamento circular sob cobertura tribal.",
+      "webp_size_bytes": 245372,
+      "sha256": "f7998e1df7de4227b4d737650f6b4db3b6d1341d75e986f76c618f3c53de728e",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_centaurs_world_set_003",
+      "pin_id": "centaurs_world_set_003",
+      "img_no": 1,
+      "src": "tribal_centaur_village_in_the_mountains.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_003_1.webp",
+      "note": "Vila de Pasto Windreach, casas baixas e cercados.",
+      "webp_size_bytes": 332942,
+      "sha256": "da898c6ec2e9d929f1304315050cd13bc022d543cf37bcac23bb76a38554290c",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_centaurs_world_set_003",
+      "pin_id": "centaurs_world_set_003",
+      "img_no": 2,
+      "src": "centaurs_in_a_vibrant_village_market.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_003_2.webp",
+      "note": "Windreach, mercado e vida de clã.",
+      "webp_size_bytes": 371624,
+      "sha256": "0bc2095828d9334d562877cc35732fce569872400d795567321c2262daee1a26",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_centaurs_world_set_004",
+      "pin_id": "centaurs_world_set_004",
+      "img_no": 1,
+      "src": "centaurs_in_the_pastoral_plains_village.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_004_1.webp",
+      "note": "Vila de Pasto Hoofreach, visão pastoral.",
+      "webp_size_bytes": 314594,
+      "sha256": "98570b417721c1f6fb56d7b78c11cae683584ecbfc23527b68e67dec0c06e086",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 5 — Nagas III + Centauros I",
+      "city_id": "settlement_centaurs_world_set_004",
+      "pin_id": "centaurs_world_set_004",
+      "img_no": 2,
+      "src": "tribal_village_in_the_plains_sunlight.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_004_2.webp",
+      "note": "Hoofreach, praça e tendas baixas.",
+      "webp_size_bytes": 373010,
+      "sha256": "a04813867151c62b9a186b652106dc10a136bd1c025ed5d7f53cfc2a40922aa1",
+      "dimensions": [
+        1448,
+        1086
+      ]
+    }
+  ]
+}

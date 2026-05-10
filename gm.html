@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Painel GM — Eldralore</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>window.ELDRALORE_GM_PASSWORD = "eldralore2026";</script>
+</head>
+<body class="gm-console-body">
+  <div class="gm-console-shell">
+    <header class="gm-console-head">
+      <div>
+        <h1 class="gm-console-title">Painel GM — Eldralore</h1>
+        <div class="gm-console-sub">Controle separado para o Mestre. Use em outro monitor e exporte o JSON para atualizar os jogadores.</div>
+      </div>
+      <div class="gm-console-tabs">
+        <button class="gm-tab-btn active" data-tab="calendar" type="button">Calendário</button>
+        <button class="gm-tab-btn" data-tab="routes" type="button">Rotas Comerciais</button>
+        <button class="gm-tab-btn" data-tab="vision" type="button">Visão do Mundo</button>
+        <button class="gm-tab-btn" data-tab="political" type="button">Controle Político</button>
+        <button class="gm-tab-btn" data-tab="groupRep" type="button">Reputação do Grupo</button>
+        <button class="gm-tab-btn" data-tab="timeline" type="button">Linha do Tempo</button>
+        <button class="gm-tab-btn" data-tab="secrets" type="button">Segredos</button>
+        <button class="gm-tab-btn" data-tab="hooks" type="button">Ganchos</button>
+        <button class="gm-tab-btn" data-tab="npcs" type="button">NPCs</button>
+        <button class="gm-tab-btn" data-tab="export" type="button">Exportar / Importar</button>
+      </div>
+    </header>
+
+    <div class="gm-console-grid">
+      <aside class="gm-console-side">
+        <div class="gm-status-card"><b>Data atual</b><span id="gmConsoleDate">—</span></div>
+        <div class="gm-status-card"><b>Visão do Mundo</b><span id="gmConsoleVisionCount">—</span></div>
+        <div class="gm-status-card"><b>Campanha</b><span id="gmConsoleCampaignCount">—</span></div>
+        <button id="gmOpenMap" class="btn" type="button">Abrir mapa em outra janela</button>
+        <p class="gm-console-small">O painel salva no navegador e sincroniza com o mapa aberto no mesmo navegador. Para enviar aos jogadores, baixe o JSON.</p>
+      </aside>
+
+      <main class="gm-console-main">
+        <section class="gm-console-tab active" data-tab="calendar">
+          <div class="gm-console-section">
+            <h2>Calendário do Mundo</h2>
+            <p>O calendário aparece no mapa principal e pode ser ocultado pelos jogadores.</p>
+            <div class="gm-console-row">
+              <label class="ctrl">Era
+                <select id="gmEra">
+                  <option value="first_age">1ª Era</option>
+                  <option value="second_age">2ª Era</option>
+                  <option value="third_age">3ª Era</option>
+                  <option value="fourth_age">4ª Era</option>
+                  <option value="fifth_age">5ª Era</option>
+                </select>
+              </label>
+              <label class="ctrl">Dia <input id="gmDay" type="number" min="1" max="30" value="1"></label>
+              <label class="ctrl">Mês <input id="gmMonth" type="number" min="1" max="12" value="1"></label>
+              <label class="ctrl">Ano <input id="gmYear" type="number" min="1" max="9999" value="1"></label>
+              <button id="gmApplyDate" class="btn primary" type="button">Aplicar data</button>
+              <button id="gmAdvanceDay" class="btn" type="button">+1 dia</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="gm-console-tab" data-tab="routes">
+          <div class="gm-console-section">
+            <h2>Rotas Comerciais — Controle Avançado</h2>
+            <p>Use esta aba para preparar o mapa comercial sem poluir a tela dos jogadores. As mudanças afetam o mapa aberto no outro monitor.</p>
+            <div class="gm-console-row">
+              <label class="toggle gm-toggle"><input id="gmRoutesEnabled" type="checkbox"> Mostrar rotas</label>
+              <label class="toggle gm-toggle"><input id="gmRoutesExternalOnly" type="checkbox"> Apenas comércio externo</label>
+              <label class="ctrl">Modo
+                <select id="gmRouteViewMode">
+                  <option value="strict">Restrito</option>
+                  <option value="universal">Ponto de vista por raça</option>
+                </select>
+              </label>
+              <label class="ctrl">Raça do ponto de vista <select id="gmRouteFocusRace"></select></label>
+              <label class="ctrl">Tipo de conexão
+                <select id="gmRouteConnection">
+                  <option value="main-main">Cidade Principal ↔ Cidade Principal</option>
+                  <option value="main-fortress">Cidade Principal ↔ Fortaleza</option>
+                  <option value="main-settlement">Cidade Principal ↔ Assentamento</option>
+                  <option value="fortress-settlement">Fortaleza ↔ Assentamento</option>
+                  <option value="settlement-settlement">Assentamento ↔ Assentamento</option>
+                  <option value="settlement-interracial">Assentamento ↔ Inter-racial</option>
+                  <option value="external-trade">Comércio Externo</option>
+                  <option value="dungeon-supply">Masmorras / Suprimento Obscuro</option>
+                  <option value="cross-layer">Intercamada</option>
+                  <option value="temple-guild">Templos / Guildas</option>
+                  <option value="all">Todas</option>
+                </select>
+              </label>
+            </div>
+            <div class="gm-console-section soft">
+              <h3>Raças participantes</h3>
+              <div class="modal-actions"><button id="gmRouteAllRaces" class="btn" type="button">Marcar todas</button><button id="gmRouteNoRaces" class="btn" type="button">Desmarcar todas</button></div>
+              <div id="gmRouteRaceChecks" class="gm-check-grid"></div>
+            </div>
+            <div class="modal-actions">
+              <button id="gmRouteApply" class="btn primary" type="button">Aplicar rotas no mapa</button>
+              <button id="gmRoutePresetClean" class="btn" type="button">Padrão limpo</button>
+              <button id="gmRoutePresetExternal" class="btn" type="button">Comércio externo da raça</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="gm-console-tab" data-tab="vision">
+          <div class="gm-console-section">
+            <h2>Visão do Mundo</h2>
+            <p>Aplique estados em lote. As checkboxes são múltiplas e acumuláveis.</p>
+            <div class="wv-flow">
+              <label class="ctrl">1. Tipo de local <select id="worldVisionTypeSelect"></select></label>
+              <label class="ctrl">2. Raça <select id="worldVisionRaceSelect" disabled></select></label>
+              <label class="ctrl">4. Visão
+                <select id="worldVisionVisionSelect" disabled>
+                  <option value="">— escolha a visão —</option>
+                  <option value="political">Política</option>
+                  <option value="religion">Religião</option>
+                  <option value="danger">Perigo</option>
+                  <option value="commerce">Comércio</option>
+                  <option value="war">Bélica / Guerras</option>
+                <option value="expanded">Info expandida</option>
+                </select>
+              </label>
+            </div>
+            <div class="wv-section"><div class="wv-section-title">3. Locais afetados</div><div id="worldVisionLocations" class="wv-location-list disabled"></div></div>
+            <div class="wv-section"><div class="wv-section-title">5. Estados aplicáveis</div><div id="worldVisionStates" class="wv-states disabled"></div></div>
+            <div id="worldVisionSummary" class="wv-summary">Selecione um tipo de local para começar.</div>
+            <div class="modal-actions wv-actions">
+              <button id="worldVisionApplyBtn" class="btn primary" type="button">Aplicar estados</button>
+              <button id="worldVisionRemoveBtn" class="btn" type="button">Remover estados marcados</button>
+              <button id="worldVisionClearBtn" class="btn danger" type="button">Limpar visão dos locais</button>
+            </div>
+            <textarea id="worldVisionJsonBox" class="gm-console-textarea compact" placeholder="Export/import auxiliar da Visão"></textarea>
+            <div class="modal-actions"><button id="worldVisionExportBtn" class="btn" type="button">Gerar JSON da campanha</button><button id="worldVisionImportBtn" class="btn warn" type="button">Importar do campo</button></div>
+          </div>
+        </section>
+
+
+        <section class="gm-console-tab" data-tab="political">
+          <div class="gm-console-section">
+            <h2>Controle Político Regional</h2>
+            <p>Resumo dos controladores, estabilidade, reputação e perigo dos locais. Para liberar info expandida aos jogadores, use a aba Visão do Mundo → Info expandida.</p>
+            <div class="gm-console-row">
+              <label class="ctrl">Tipo <select id="politicalControlType"></select></label>
+              <label class="ctrl">Raça <select id="politicalControlRace"></select></label>
+              <button id="politicalControlRefresh" class="btn" type="button">Atualizar resumo</button>
+            </div>
+            <div id="politicalControlSummary" class="political-summary"></div>
+          </div>
+        </section>
+
+        
+        <section class="gm-console-tab" data-tab="groupRep">
+          <div class="gm-console-section">
+            <h2>Reputação do Grupo</h2>
+            <p>Controle macro da reputação dos jogadores por local, raça ou globalmente. Afeta descontos, sobretaxas e bloqueio de lojas/negociações, mas não impede o grupo de abrir/entrar no local.</p>
+            <div id="groupRepSelector" class="gm-selector"></div>
+            <div class="gm-console-row">
+              <label class="ctrl">Nível de reputação
+                <select id="groupRepLevel">
+                  <option value="honrado">Honrado — desconto máximo</option>
+                  <option value="aliado">Aliado</option>
+                  <option value="respeitado">Respeitado</option>
+                  <option value="neutro" selected>Neutro</option>
+                  <option value="desconfiado">Desconfiado</option>
+                  <option value="hostil">Hostil — lojas bloqueadas</option>
+                  <option value="inimigo">Inimigo — lojas bloqueadas</option>
+                </select>
+              </label>
+              <label class="ctrl">Acesso comercial
+                <select id="groupRepCommercialAccess">
+                  <option value="auto">Automático pelo nível</option>
+                  <option value="open">Forçar negociação aberta</option>
+                  <option value="restricted">Negociação restrita</option>
+                  <option value="blocked">Bloquear lojas/negociações</option>
+                </select>
+              </label>
+            </div>
+            <div class="gm-console-row">
+              <label class="ctrl">Social <select id="groupRepSocial"></select></label>
+              <label class="ctrl">Humor local <select id="groupRepMood"></select></label>
+              <label class="ctrl">Postura militar <select id="groupRepMilitary"></select></label>
+              <label class="ctrl">Comércio <select id="groupRepCommerce"></select></label>
+            </div>
+            <label class="ctrl wide">Nota descritiva opcional <textarea id="groupRepNote" class="gm-small-textarea" placeholder="Ex.: O grupo é reconhecido por ter protegido uma caravana, mas a guarda ainda teme retaliações."></textarea></label>
+            <div class="modal-actions">
+              <button id="groupRepApply" class="btn primary" type="button">Aplicar reputação</button>
+              <button id="groupRepClear" class="btn danger" type="button">Limpar reputação dos locais</button>
+              <button id="groupRepRefresh" class="btn" type="button">Atualizar resumo</button>
+            </div>
+            <div id="groupRepSummary" class="political-summary"></div>
+          </div>
+
+          <div class="gm-console-section">
+            <h2>Rumores locais manuais</h2>
+            <p>Além dos rumores aleatórios por calendário, você pode inserir rumores próprios. Se marcar como fixo, ele não some com o ciclo de dias.</p>
+            <div id="groupRumorSelector" class="gm-selector"></div>
+            <div class="gm-console-row">
+              <label class="ctrl">Visibilidade
+                <select id="groupRumorChannel">
+                  <option value="public">Público</option>
+                  <option value="gm">GM secreto</option>
+                </select>
+              </label>
+              <label class="ctrl">Duração se não for fixo <input id="groupRumorDuration" type="number" min="1" max="90" value="7"></label>
+              <label class="toggle gm-toggle"><input id="groupRumorFixed" type="checkbox"> Fixar rumor</label>
+            </div>
+            <label class="ctrl wide">Texto do rumor <textarea id="groupRumorText" class="gm-small-textarea" placeholder="Escreva o rumor que deve aparecer no local."></textarea></label>
+            <div class="modal-actions">
+              <button id="groupRumorApply" class="btn primary" type="button">Adicionar rumor aos locais</button>
+              <button id="groupRumorClear" class="btn danger" type="button">Limpar rumores manuais dos locais</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="gm-console-tab" data-tab="timeline">
+          <div class="gm-console-section">
+            <h2>Linha do Tempo</h2>
+            <p>Cadastre eventos públicos ou secretos. O mapa dos jogadores mostra apenas eventos públicos e uma área de notas locais.</p>
+            <div class="gm-console-row">
+              <label class="ctrl">Era <select id="tlEra"><option value="fourth_age">4ª Era</option><option value="third_age">3ª Era</option><option value="second_age">2ª Era</option><option value="first_age">1ª Era</option><option value="fifth_age">5ª Era</option></select></label>
+              <label class="ctrl">Dia <input id="tlDay" type="number" min="1" max="30" value="1"></label>
+              <label class="ctrl">Mês <input id="tlMonth" type="number" min="1" max="12" value="1"></label>
+              <label class="ctrl">Ano <input id="tlYear" type="number" min="1" value="1"></label>
+              <label class="toggle gm-toggle"><input id="tlSecret" type="checkbox"> Evento secreto GM</label>
+            </div>
+            <label class="ctrl wide">Título <input id="tlTitle" type="text" placeholder="Ex: Cerco iniciado em Velkarith"></label>
+            <label class="ctrl wide">Texto público/GM <textarea id="tlText" class="gm-small-textarea" placeholder="Descrição do evento..."></textarea></label>
+            <label class="ctrl wide">Pins afetados opcional <input id="tlPins" type="text" placeholder="IDs separados por vírgula"></label>
+            <button id="tlAddEvent" class="btn primary" type="button">Adicionar evento</button>
+            <textarea id="timelineJson" class="gm-console-textarea"></textarea>
+            <button id="saveTimeline" class="btn primary" type="button">Salvar JSON da linha do tempo</button>
+          </div>
+        </section>
+
+        <section class="gm-console-tab" data-tab="secrets">
+          <div class="gm-console-section"><h2>Segredos por Pin</h2><p>Aplique textos a um local específico ou a vários locais filtrados.</p><div id="secretSelector" class="gm-selector"></div><label class="ctrl wide">Informação pública opcional <textarea id="secretPublicText" class="gm-small-textarea"></textarea></label><label class="ctrl wide">Segredo GM <textarea id="secretGmText" class="gm-small-textarea"></textarea></label><button id="applySecrets" class="btn primary" type="button">Aplicar segredos aos locais</button><textarea id="pinSecretsJson" class="gm-console-textarea"></textarea><button id="savePinSecrets" class="btn primary" type="button">Salvar JSON de segredos</button></div>
+        </section>
+
+        <section class="gm-console-tab" data-tab="hooks">
+          <div class="gm-console-section"><h2>Ganchos de Campanha</h2><p>Aplique rumores, missões, ameaças e situações aos pins escolhidos.</p><div id="hookSelector" class="gm-selector"></div><label class="ctrl wide">Título <input id="hookTitle" type="text" placeholder="Ex: Caravanas desaparecidas"></label><label class="ctrl wide">Gancho / situação <textarea id="hookText" class="gm-small-textarea"></textarea></label><label class="ctrl wide">Status <input id="hookStatus" type="text" placeholder="ativo, rumor, resolvido, oculto..."></label><button id="applyHooks" class="btn primary" type="button">Aplicar ganchos aos locais</button><textarea id="hooksJson" class="gm-console-textarea"></textarea><button id="saveHooks" class="btn primary" type="button">Salvar JSON de ganchos</button></div>
+        </section>
+
+        <section class="gm-console-tab" data-tab="npcs">
+          <div class="gm-console-section"><h2>NPCs Importantes</h2><p>Registre NPCs importantes vinculados a locais específicos ou a grupos de locais.</p><div id="npcSelector" class="gm-selector"></div><div class="gm-console-row"><label class="ctrl">Nome <input id="npcName" type="text"></label><label class="ctrl">Função <input id="npcRole" type="text"></label><label class="ctrl">Status <input id="npcStatus" type="text" placeholder="ativo, desaparecido..."></label></div><label class="ctrl wide">Segredo / observação <textarea id="npcSecret" class="gm-small-textarea"></textarea></label><button id="applyNpcs" class="btn primary" type="button">Adicionar NPC aos locais</button><textarea id="importantNpcsJson" class="gm-console-textarea"></textarea><button id="saveImportantNpcs" class="btn primary" type="button">Salvar JSON de NPCs</button></div>
+        </section>
+
+        <section class="gm-console-tab" data-tab="export">
+          <div class="gm-console-section"><h2>Exportar Estado da Campanha</h2><p>Este é o JSON único que você pode enviar aos jogadores. Ele inclui data, visão, rotas, economia, linha do tempo, segredos, ganchos, NPCs e dados GM/campanha.</p><div class="modal-actions"><button id="gmRefreshExport" class="btn" type="button">Atualizar prévia</button><button id="gmExportDownload" class="btn primary" type="button">Baixar JSON</button></div><textarea id="campaignExportJson" class="gm-console-textarea"></textarea></div>
+          <div class="gm-console-section"><h2>Importar Estado</h2><p>Cole aqui um JSON exportado anteriormente.</p><textarea id="campaignImportJson" class="gm-console-textarea"></textarea><button id="gmImportApply" class="btn warn" type="button">Importar no navegador do GM</button></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="src/core.js"></script>
+  <script src="src/campaignState.js"></script>
+  <script src="src/map.js"></script>
+  <script src="src/groupReputation.js"></script>
+  <script src="src/worldVision.js"></script>
+  <script src="src/climate.js"></script>
+  <script src="src/gmConsole.js"></script>
+</body>
+</html>

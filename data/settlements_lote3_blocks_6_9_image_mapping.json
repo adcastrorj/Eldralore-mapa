@@ -1,0 +1,658 @@
+{
+  "baseZip": "atlas_eldralore_patch_assentamentos_lote3_blocos2_5_integrados_QA(2).zip",
+  "outputZip": "atlas_eldralore_patch_assentamentos_lote3_blocos2_9_integrados_QA.zip",
+  "createdAt": "2026-05-09T23:29:24",
+  "scope": "Lote 3 — integração dos blocos 6 a 9",
+  "rules": [
+    "Cada bloco integrado tem exatamente 10 imagens individuais.",
+    "Cada pin recebe exatamente 2 imagens.",
+    "Nenhum grid, montagem, colagem, poster, painel, texto, legenda, numeração, borda ou interface foi integrado.",
+    "Bloco 6: somente centauros em planícies abertas.",
+    "Bloco 7: somente assentamentos dracônicos dragons_world_set_001 a dragons_world_set_005.",
+    "Bloco 8: dragons_world_set_006 a dragons_world_set_009 + fae_world_set_001.",
+    "Bloco 9: somente feéricos fae_world_set_002 a fae_world_set_006.",
+    "Integração feita apenas após validação de cityId, culture, pasta, path e existência do arquivo."
+  ],
+  "entries": [
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_005",
+      "pin_id": "centaurs_world_set_005",
+      "img_no": 1,
+      "src": "bustling_plains_encampment_of_centaur_like_figures.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_005_1.webp",
+      "race_folder": "centaurs",
+      "note": "Povoado dos Ventos Passo da Aurora — visão ampla de povoado centauro em planície aberta.",
+      "sha256": "2e671c83af838728376d8ce9995289096a46990eadceace1d7ec3f136bcf6bc4",
+      "webp_size_bytes": 315188,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_005",
+      "pin_id": "centaurs_world_set_005",
+      "img_no": 2,
+      "src": "tribal_centaur_village_in_daylight.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_005_2.webp",
+      "race_folder": "centaurs",
+      "note": "Povoado dos Ventos Passo da Aurora — interior comunitário com tendas baixas e vida de clã.",
+      "sha256": "cb9db2c88c0ce181a1712258cf2c86aac12809a3a4b0b2db3b9467d8d6be0bb7",
+      "webp_size_bytes": 307916,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_006",
+      "pin_id": "centaurs_world_set_006",
+      "img_no": 1,
+      "src": "bustling_horse_based_village_in_harmony.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_006_1.webp",
+      "race_folder": "centaurs",
+      "note": "Estância Passo da Aurora — rotina agrícola/pastoral com currais e suprimentos.",
+      "sha256": "64d98ad77d3d374791cea524270ec0bb3398a0d28379d3eb3f1c2c03389c1602",
+      "webp_size_bytes": 292094,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_006",
+      "pin_id": "centaurs_world_set_006",
+      "img_no": 2,
+      "src": "tribal_ranch_at_golden_hour_sunset.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_006_2.webp",
+      "race_folder": "centaurs",
+      "note": "Estância Passo da Aurora — rancho pastoral em luz dourada.",
+      "sha256": "a249655fb341d2da9cc36f87c8e8763bf4869dd2d6c4f8dbf1ee9f4927571faa",
+      "webp_size_bytes": 293820,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_007",
+      "pin_id": "centaurs_world_set_007",
+      "img_no": 1,
+      "src": "tribal_encampment_under_a_stormy_sky.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_007_1.webp",
+      "race_folder": "centaurs",
+      "note": "Estância Círculo do Trovão — círculo ritual sob céu de tempestade.",
+      "sha256": "31ccb9b1065bef3fde04650dc8d79aa2508e59c3f59e94eeb65c985a688274ee",
+      "webp_size_bytes": 339508,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_007",
+      "pin_id": "centaurs_world_set_007",
+      "img_no": 2,
+      "src": "tribal_encampment_in_the_wilderness.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_007_2.webp",
+      "race_folder": "centaurs",
+      "note": "Estância Círculo do Trovão — interior de acampamento ritual com totens e tendas.",
+      "sha256": "ab90f8456d69e4919f78cbfd805a6592850115965e8e765cc10b5ce7fe368358",
+      "webp_size_bytes": 323958,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_008",
+      "pin_id": "centaurs_world_set_008",
+      "img_no": 1,
+      "src": "nomadic_tribal_encampment_in_the_plains.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_008_1.webp",
+      "race_folder": "centaurs",
+      "note": "Acampamento Circular Hoofreach — anel nômade de carroças e tendas.",
+      "sha256": "99319227e12e5079547e552c79141905414cdcbae14f8eb1090d8e199c107458",
+      "webp_size_bytes": 344630,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_008",
+      "pin_id": "centaurs_world_set_008",
+      "img_no": 2,
+      "src": "nomadic_encampment_in_a_grassy_plain.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_008_2.webp",
+      "race_folder": "centaurs",
+      "note": "Acampamento Circular Hoofreach — caminhos largos e acampamento em planície.",
+      "sha256": "bdda21f0d5e34f65b81fb5d24164fe78a969b007862cce1949ecbfc7c07eb0fc",
+      "webp_size_bytes": 329124,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_009",
+      "pin_id": "centaurs_world_set_009",
+      "img_no": 1,
+      "src": "nomadic_camp_on_the_steppe.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_009_1.webp",
+      "race_folder": "centaurs",
+      "note": "Acampamento Circular Windreach — acampamento ventoso de estepe.",
+      "sha256": "e382a91914150240cb62eb43e67f9688ce9103e4be88cd938beaa6d5f70c20e0",
+      "webp_size_bytes": 372080,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 6 — Centauros II",
+      "city_id": "settlement_centaurs_world_set_009",
+      "pin_id": "centaurs_world_set_009",
+      "img_no": 2,
+      "src": "nomadic_cavalry_camp_in_vast_plains.png",
+      "dest": "assets/settlements/centaurs/centaurs_world_set_009_2.webp",
+      "race_folder": "centaurs",
+      "note": "Acampamento Circular Windreach — visão ampla com sentinelas e horizonte aberto.",
+      "sha256": "964b9d7cd8d036dcd542481b78bbbd6d71b11f92033174a2862ff02b4013ca7b",
+      "webp_size_bytes": 326362,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_001",
+      "pin_id": "dragons_world_set_001",
+      "img_no": 1,
+      "src": "stormy_dragon_guarded_cliffside_fortress.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_001_1.webp",
+      "race_folder": "dragons",
+      "note": "Covil Menor Vigia da Tempestade — fortaleza costeira/cliffside vigiada por dragão.",
+      "sha256": "1861379ddcce5cba0e25eeaab5462d71e7881b400e3228655f3f655e0dfea008",
+      "webp_size_bytes": 229754,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_001",
+      "pin_id": "dragons_world_set_001",
+      "img_no": 2,
+      "src": "stormy_coastal_fortress_with_dragon_guard.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_001_2.webp",
+      "race_folder": "dragons",
+      "note": "Covil Menor Vigia da Tempestade — pátios e terraços sob tempestade.",
+      "sha256": "badab9a0354f69e9b51f6fc44db423d5cefdd48b29de6c507f9e125976df92dd",
+      "webp_size_bytes": 255452,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_002",
+      "pin_id": "dragons_world_set_002",
+      "img_no": 1,
+      "src": "dragon_guarded_fortress_on_a_cliffside.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_002_1.webp",
+      "race_folder": "dragons",
+      "note": "Terraço Dracônico Frost-Spur — terraços frios de pedra em penhasco.",
+      "sha256": "1813dbcc4ed9501fbca34444e48c1c68ff4728878393070c4964e5a85e829009",
+      "webp_size_bytes": 234320,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_002",
+      "pin_id": "dragons_world_set_002",
+      "img_no": 2,
+      "src": "dragon_s_fortress_in_a_stormy_pass.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_002_2.webp",
+      "race_folder": "dragons",
+      "note": "Terraço Dracônico Frost-Spur — passagem montanhosa e vigia dracônica.",
+      "sha256": "1cdf43b66cc017325fc912124824f4b04508e1bfd19bd2363bca3ca1898aa76e",
+      "webp_size_bytes": 233614,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_003",
+      "pin_id": "dragons_world_set_003",
+      "img_no": 1,
+      "src": "volcanic_fortress_and_dragon_stronghold.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_003_1.webp",
+      "race_folder": "dragons",
+      "note": "Entreposto Vulcânico Cinder-Spur — fortaleza vulcânica em pedra e lava.",
+      "sha256": "8767c533ea033e09d9a0d4ce5901bd1cce85a243987057a065e46836ece6c52d",
+      "webp_size_bytes": 255098,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_003",
+      "pin_id": "dragons_world_set_003",
+      "img_no": 2,
+      "src": "volcanic_fortress_under_fiery_skies.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_003_2.webp",
+      "race_folder": "dragons",
+      "note": "Entreposto Vulcânico Cinder-Spur — interior de entreposto sob céu ígneo.",
+      "sha256": "5766a9e36be97fffcdcf3621019256bfd556e68d16572202c41d4e53c969cb6f",
+      "webp_size_bytes": 204544,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_004",
+      "pin_id": "dragons_world_set_004",
+      "img_no": 1,
+      "src": "dragon_s_watch_over_a_volcanic_stronghold.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_004_1.webp",
+      "race_folder": "dragons",
+      "note": "Posto de Cinzas Repouso Obsidiano — posto de cinzas em rocha vulcânica.",
+      "sha256": "e169c70f7d97b37c60a66eb4be5de8ca060a0af1d0515fbb4b53721093ced280",
+      "webp_size_bytes": 186400,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_004",
+      "pin_id": "dragons_world_set_004",
+      "img_no": 2,
+      "src": "stormy_draconic_fortress_with_shadowy_guards.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_004_2.webp",
+      "race_folder": "dragons",
+      "note": "Posto de Cinzas Repouso Obsidiano — pátio sombrio com guardas e brasões dracônicos.",
+      "sha256": "4e823c2c47f14b3037476eb6e2281077de178cec56a8eb30266fc84c5221f222",
+      "webp_size_bytes": 246264,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_005",
+      "pin_id": "dragons_world_set_005",
+      "img_no": 1,
+      "src": "dragon_s_perch_over_stone_stronghold.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_005_1.webp",
+      "race_folder": "dragons",
+      "note": "Terraço Dracônico Frost-Spur — plataforma de pouso e fortalezas de pedra.",
+      "sha256": "66b51c3a3363b4f27fda7f4556c940c500f13324952a8bd0951e568e19eb366d",
+      "webp_size_bytes": 235210,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 7 — Dragões I",
+      "city_id": "settlement_dragons_world_set_005",
+      "pin_id": "dragons_world_set_005",
+      "img_no": 2,
+      "src": "fortress_of_the_dragon_s_watch.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_005_2.webp",
+      "race_folder": "dragons",
+      "note": "Terraço Dracônico Frost-Spur — vigia, arcos e caminhos de penhasco.",
+      "sha256": "d02ed66b64eb9d4416a0dc653dc8a81ec5dbf7e309ff3364ff6fd47c9c6a9bab",
+      "webp_size_bytes": 285394,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_dragons_world_set_006",
+      "pin_id": "dragons_world_set_006",
+      "img_no": 1,
+      "src": "dragon_citadel_in_a_volcanic_cliff.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_006_1.webp",
+      "race_folder": "dragons",
+      "note": "Terraço Dracônico Crista de Cinzas — cidadela em penhasco vulcânico.",
+      "sha256": "8e01b0d84da4a4bb3f90e69198a73a74690ae7db85cca90977af966296272857",
+      "webp_size_bytes": 182724,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_dragons_world_set_006",
+      "pin_id": "dragons_world_set_006",
+      "img_no": 2,
+      "src": "dragon_s_lair_in_a_fiery_mountain_stronghold.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_006_2.webp",
+      "race_folder": "dragons",
+      "note": "Terraço Dracônico Crista de Cinzas — covil/terraço em montanha ígnea.",
+      "sha256": "b332fce52f084e8fa8c4925ce277218cb9c7e38dc2f33a43688eea249cb5abe3",
+      "webp_size_bytes": 191544,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_dragons_world_set_007",
+      "pin_id": "dragons_world_set_007",
+      "img_no": 1,
+      "src": "dragons_ritual_in_an_ancient_lair.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_007_1.webp",
+      "race_folder": "dragons",
+      "note": "Covil Menor Crista de Cinzas — ritual em covil ancestral.",
+      "sha256": "253d13d4a547ef24c78b4894720edaf4290df7cc30a66a87408f104705119afd",
+      "webp_size_bytes": 240210,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_dragons_world_set_007",
+      "pin_id": "dragons_world_set_007",
+      "img_no": 2,
+      "src": "lair_of_the_molten_guardian.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_007_2.webp",
+      "race_folder": "dragons",
+      "note": "Covil Menor Crista de Cinzas — guardião derretido e plataformas de lava.",
+      "sha256": "1777ffc7e8225fa0d7d4bd31e3e0c3adc282c2e446e1cc1a3864666a288a13b2",
+      "webp_size_bytes": 288756,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_dragons_world_set_008",
+      "pin_id": "dragons_world_set_008",
+      "img_no": 1,
+      "src": "dragon_s_watch_over_volcanic_stronghold.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_008_1.webp",
+      "race_folder": "dragons",
+      "note": "Covil Menor Repouso Obsidiano — vigia sobre reduto vulcânico.",
+      "sha256": "89c0be68b608fa34bd01650a51a93af8bd0a548973a31543ea3393aaa6266a74",
+      "webp_size_bytes": 163120,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_dragons_world_set_008",
+      "pin_id": "dragons_world_set_008",
+      "img_no": 2,
+      "src": "draconic_stronghold_in_fiery_ruins.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_008_2.webp",
+      "race_folder": "dragons",
+      "note": "Covil Menor Repouso Obsidiano — ruínas ígneas e obsidiana.",
+      "sha256": "a4bae332618c6e275b1c2392879365e6a63a4e624723e1ad7fe539f6589c4d9b",
+      "webp_size_bytes": 218190,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_dragons_world_set_009",
+      "pin_id": "dragons_world_set_009",
+      "img_no": 1,
+      "src": "guardian_of_the_mountain_fortress.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_009_1.webp",
+      "race_folder": "dragons",
+      "note": "Vila Escamada Coroa Sable — fortaleza de montanha com guardião dracônico.",
+      "sha256": "80ddf4b0b1b06540a73d69ea4b44dd375e4fcf2c7d44b3c8a3fc36f08575fc15",
+      "webp_size_bytes": 236646,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_dragons_world_set_009",
+      "pin_id": "dragons_world_set_009",
+      "img_no": 2,
+      "src": "dragon_stronghold_in_a_rocky_cliff.png",
+      "dest": "assets/settlements/dragons/dragons_world_set_009_2.webp",
+      "race_folder": "dragons",
+      "note": "Vila Escamada Coroa Sable — vila escamada em penhascos rochosos.",
+      "sha256": "872042dd74df6f910c6cc413dbec7b76df9b13b75ec204d8918b7ade3d544b46",
+      "webp_size_bytes": 320344,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_fae_world_set_001",
+      "pin_id": "fae_world_set_001",
+      "img_no": 1,
+      "src": "moonlit_enchanted_fairy_village_garden.png",
+      "dest": "assets/settlements/fae/fae_world_set_001_1.webp",
+      "race_folder": "fae",
+      "note": "Jardim Vivo Corte Lunar — jardim feérico vivo sob luar.",
+      "sha256": "1e9ed28c364a5a572c630b7ac53c53b2e5b6f2aa75db4c4ebcf32d39869badb3",
+      "webp_size_bytes": 388508,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 8 — Dragões II + Feéricos I",
+      "city_id": "settlement_fae_world_set_001",
+      "pin_id": "fae_world_set_001",
+      "img_no": 2,
+      "src": "moonlit_enchanted_forest_gathering.png",
+      "dest": "assets/settlements/fae/fae_world_set_001_2.webp",
+      "race_folder": "fae",
+      "note": "Jardim Vivo Corte Lunar — reunião feérica em floresta encantada.",
+      "sha256": "359030cabfc8e16ead654e0d730f8e4d65d33bf9dc6f656bf2f66d04c5186544",
+      "webp_size_bytes": 300660,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_002",
+      "pin_id": "fae_world_set_002",
+      "img_no": 1,
+      "src": "moonlit_forest_village_of_wonders.png",
+      "dest": "assets/settlements/fae/fae_world_set_002_1.webp",
+      "race_folder": "fae",
+      "note": "Jardim Vivo Whisperbloom — vila-jardim viva em floresta ao luar.",
+      "sha256": "74784522e0372250bf25eb9b25a3c1ed5b0a0771b8c756bf699f51573bd97496",
+      "webp_size_bytes": 348906,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_002",
+      "pin_id": "fae_world_set_002",
+      "img_no": 2,
+      "src": "enchanting_bioluminescent_forest_village_at_night.png",
+      "dest": "assets/settlements/fae/fae_world_set_002_2.webp",
+      "race_folder": "fae",
+      "note": "Jardim Vivo Whisperbloom — moradias orgânicas e bioluminescência.",
+      "sha256": "fab26f1f56f5da6193cc9f6027fec0e74d0c39a697713f81f520a6af1d2627a8",
+      "webp_size_bytes": 347956,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_003",
+      "pin_id": "fae_world_set_003",
+      "img_no": 1,
+      "src": "enchanted_forest_ritual_under_starlit_skies.png",
+      "dest": "assets/settlements/fae/fae_world_set_003_1.webp",
+      "race_folder": "fae",
+      "note": "Círculo Feérico Whisperbloom — círculo ritual sob estrelas.",
+      "sha256": "f7ba554f8eb752afe9ef9965380bd96b46f4a7491dd9d83d0ac831753fb9df99",
+      "webp_size_bytes": 331472,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_003",
+      "pin_id": "fae_world_set_003",
+      "img_no": 2,
+      "src": "enchanted_moonlit_village_in_a_forest.png",
+      "dest": "assets/settlements/fae/fae_world_set_003_2.webp",
+      "race_folder": "fae",
+      "note": "Círculo Feérico Whisperbloom — aldeia feérica ligada ao círculo.",
+      "sha256": "d513d275ccfa96d74e5b8d28b2bd7805970470cf70fb7b2d8e4effbcb0c286b8",
+      "webp_size_bytes": 331188,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_004",
+      "pin_id": "fae_world_set_004",
+      "img_no": 1,
+      "src": "enchanted_garden_village_at_twilight.png",
+      "dest": "assets/settlements/fae/fae_world_set_004_1.webp",
+      "race_folder": "fae",
+      "note": "Círculo Feérico Anel de Flores — jardim circular em crepúsculo.",
+      "sha256": "1a897c54db49f056420053f7e834a2187f5d72c716fc6542e02d937b399be4f0",
+      "webp_size_bytes": 394704,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_004",
+      "pin_id": "fae_world_set_004",
+      "img_no": 2,
+      "src": "enchanted_village_under_starry_skies.png",
+      "dest": "assets/settlements/fae/fae_world_set_004_2.webp",
+      "race_folder": "fae",
+      "note": "Círculo Feérico Anel de Flores — vila sob céu estrelado e flores luminosas.",
+      "sha256": "aef5be8c8f8f55bf2a778063701e0554f8c14c8126718536de3934715fe4cbe1",
+      "webp_size_bytes": 383520,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_005",
+      "pin_id": "fae_world_set_005",
+      "img_no": 1,
+      "src": "enchanted_luminous_forest_village_at_night.png",
+      "dest": "assets/settlements/fae/fae_world_set_005_1.webp",
+      "race_folder": "fae",
+      "note": "Círculo Feérico Lumenring — vila luminosa no bosque noturno.",
+      "sha256": "7cd00c9782fb8ba0cbbe3b947b830c0778f7694e0b67cbb1fd6ad15e488aafd0",
+      "webp_size_bytes": 431810,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_005",
+      "pin_id": "fae_world_set_005",
+      "img_no": 2,
+      "src": "enchanted_woodland_village_under_the_stars.png",
+      "dest": "assets/settlements/fae/fae_world_set_005_2.webp",
+      "race_folder": "fae",
+      "note": "Círculo Feérico Lumenring — clareiras e passarelas sob estrelas.",
+      "sha256": "618c37abab4c65fcc9bdf0a56a8ae9b63caac97f8ada378e8ab390954e311e16",
+      "webp_size_bytes": 316972,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_006",
+      "pin_id": "fae_world_set_006",
+      "img_no": 1,
+      "src": "enchanted_forest_village_at_twilight.png",
+      "dest": "assets/settlements/fae/fae_world_set_006_1.webp",
+      "race_folder": "fae",
+      "note": "Jardim Vivo Whisperbloom — vila florestal em crepúsculo.",
+      "sha256": "acb9f4380179db4f94be5025abf7963f61fe66b09fe82f14196c028eff70fdc2",
+      "webp_size_bytes": 354752,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "block": "Bloco 9 — Feéricos II",
+      "city_id": "settlement_fae_world_set_006",
+      "pin_id": "fae_world_set_006",
+      "img_no": 2,
+      "src": "enchanted_woodland_village_at_twilight.png",
+      "dest": "assets/settlements/fae/fae_world_set_006_2.webp",
+      "race_folder": "fae",
+      "note": "Jardim Vivo Whisperbloom — interior de bosque encantado.",
+      "sha256": "e815e75c2c3bed4d9d8d395c899bd57f568bb6d72b68e679030570f412eeb1d3",
+      "webp_size_bytes": 395806,
+      "dimensions": [
+        1448,
+        1086
+      ]
+    }
+  ]
+}

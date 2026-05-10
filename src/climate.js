@@ -226,8 +226,19 @@ function drawClimateOverlay() {
 }
 
 function updateTimeUI() {
+  if (typeof normalizeWorldTime === 'function') normalizeWorldTime();
   const season = seasonFromMonth(state.worldTime.month);
-  els.worldTimeLabel.textContent = `Dia ${state.worldTime.day} • Mês ${state.worldTime.month} • Ano ${state.worldTime.year} • ${season}`;
+  const eraText = (typeof eraLabelFromValue === 'function') ? eraLabelFromValue(state.worldTime.era) : (state.worldTime.era || '4ª Era');
+  const label = `${eraText} • Dia ${state.worldTime.day} • Mês ${state.worldTime.month} • Ano ${state.worldTime.year} • ${season}`;
+  if (els.worldTimeLabel) els.worldTimeLabel.textContent = label;
+  const hud = document.getElementById('mapCalendarHud');
+  const hudValue = document.getElementById('mapCalendarHudValue');
+  const hudSeason = document.getElementById('mapCalendarHudSeason');
+  const visible = !(state.ui && state.ui.calendarHudVisible === false);
+  if (hud) hud.classList.toggle('hidden', !visible);
+  if (els.calendarHudToggle) els.calendarHudToggle.checked = visible;
+  if (hudValue) hudValue.textContent = `${eraText} — Ano ${state.worldTime.year}`;
+  if (hudSeason) hudSeason.textContent = `Dia ${state.worldTime.day} • Mês ${state.worldTime.month} • ${season}`;
 
   // sincroniza campos de edição (mesmo se travados)
   if (els.dayInput) els.dayInput.value = String(state.worldTime.day);
@@ -244,6 +255,7 @@ function updateTimeUI() {
 
   if (els.gmLogoutBtn) els.gmLogoutBtn.disabled = !state.gm.unlocked;
   if (els.gmEditorBtn) els.gmEditorBtn.disabled = !state.gm.unlocked;
+  if (els.gmPanelBtn) els.gmPanelBtn.disabled = !state.gm.unlocked;
   if (els.importantNpcToggle) els.importantNpcToggle.disabled = !state.gm.unlocked;
   if (els.importantNpcToggle) els.importantNpcToggle.checked = !!state.gm.showImportantNpcs;
   if (els.expandAllInfoToggle) els.expandAllInfoToggle.disabled = !state.gm.unlocked;
@@ -252,6 +264,7 @@ function updateTimeUI() {
 }
 
 function advanceDay() {
+  if (typeof normalizeWorldTime === 'function') normalizeWorldTime();
   state.worldTime.day += 1;
   if (state.worldTime.day > 30) {
     state.worldTime.day = 1;
@@ -264,6 +277,7 @@ function advanceDay() {
   persistState();
   updateTimeUI();
   drawClimateOverlay();
+  try { if (typeof renderRoutes === 'function') renderRoutes(); } catch (_) {}
   // SYNC (opcional): publica tempo global para todos
   try { if (state.gm.unlocked) WorldSync.pushWorldState('advance_day'); } catch (_) { }
 
@@ -343,10 +357,11 @@ function applyDateFromInputs() {
     return;
   }
 
-  state.worldTime = { day, month, year };
+  state.worldTime = { era: state.worldTime?.era || 'fourth_age', day, month, year };
   persistState();
   updateTimeUI();
   drawClimateOverlay();
+  try { if (typeof renderRoutes === 'function') renderRoutes(); } catch (_) {}
   // SYNC (opcional): publica tempo global para todos
   try { if (state.gm.unlocked) WorldSync.pushWorldState('advance_day'); } catch (_) { }
   if (state.ui.cityOpenId) openCity(state.ui.cityOpenId);
@@ -455,11 +470,18 @@ async function main() {
   try { applyGmUiState(); } catch (_) {}
 
   if (typeof bindUIClimateExtras === "function") bindUIClimateExtras();
+  if (typeof bindWorldVisionPanel === "function") bindWorldVisionPanel();
   applyUiCollapsed();
   applyBordersOverlay();
 
 
   // refletir UI inicial
+  if (els.layerSelect) els.layerSelect.value = state.layer || 'world';
+  if (els.raceSelect) els.raceSelect.value = state.race || 'all';
+  if (els.typeSelect) els.typeSelect.value = state.type || 'all';
+  if (els.searchInput) els.searchInput.value = state.q || '';
+  if (els.presetSelect) els.presetSelect.value = state.preset || 'default';
+  if (els.eraSelect) els.eraSelect.value = state.era || 'current';
   els.climateToggle.checked = state.climateOn;
   els.hideNoImageToggle.checked = state.hideNoImage;
 

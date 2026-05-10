@@ -46,8 +46,7 @@
     </div>
 
     <div id="controlsPanel" class="controls">
-      <label data-present-hide="1" data-present-hide="1" data-present-hide="1" data-present-hide="1"
-        data-present-hide="1" class="ctrl">
+      <label data-present-hide="1" class="ctrl">
         Camada
         <select id="layerSelect">
           <option value="world">Superfície</option>
@@ -105,6 +104,7 @@
           <option value="religion">Religião</option>
           <option value="danger">Perigo</option>
           <option value="commerce">Comércio</option>
+          <option value="war">Bélico</option>
         </select>
       </label>
 
@@ -125,13 +125,11 @@
       <button id="economyBtn" class="btn btn-sm" type="button" title="Modificadores de Economia">Econ</button>
       <button id="routeFiltersBtn" class="btn btn-sm" type="button" title="Filtros avançados de rotas">Filtros
         Rotas</button>
-      <button id="advancedFiltersBtn" class="btn btn-sm" type="button" title="Abrir filtros avançados"
-        data-present-hide="1">Avançado</button>
 
-      <label data-present-hide="1" data-present-hide="1" data-present-hide="1" data-present-hide="1"
-        data-present-hide="1" data-present-hide="1" data-present-hide="1" class="toggle">
+
+      <label data-present-hide="1" class="toggle">
         <input id="debugToggle" type="checkbox" />
-        Debug (x,y)
+        Coordenadas mapa
       </label>
 
       <label class="toggle">
@@ -156,47 +154,28 @@
         Ocultar sem imagem
       </label>
 
-      <div class="timebox">
-        <div class="time-label">Calendário</div>
-        <div class="time-row">
-          <div id="worldTimeLabel" class="time-value">Dia 1 • Mês 1 • Ano 1</div>
-          <button id="advanceDayBtn" class="btn btn-sm" type="button" title="Avança 1 dia (GM)" data-present-hide="1">+1
-            dia</button>
-        </div>
-        <div class="time-row time-edit">
-          <label class="time-field">D <input id="dayInput" type="number" min="1" max="40" value="1" /></label>
-          <label class="time-field">M <input id="monthInput" type="number" min="1" max="12" value="1" /></label>
-          <label class="time-field">A <input id="yearInput" type="number" min="1" max="9999" value="1" /></label>
-          <button id="applyDateBtn" class="btn btn-sm" type="button" title="Aplicar data (GM)"
-            data-present-hide="1">Aplicar</button>
-          <label class="toggle lock">
-            <input id="dateLockToggle" type="checkbox" checked />
-            Lock
-          </label>
-        </div>
-        <div class="time-row gm-row">
-          <button id="gmLoginBtn" class="btn btn-sm" type="button" data-present-hide="1">Modo GM</button>
-          <button id="gmLogoutBtn" class="btn btn-sm" type="button" disabled data-present-hide="1">Sair</button>
-          <button id="gmEditorBtn" class="btn btn-sm" type="button" disabled data-present-hide="1">Editor</button>
-          <label class="toggle" title="Mostra NPCs importantes (somente GM)">
-            <input id="importantNpcToggle" type="checkbox" disabled />
-            NPCs importantes
-          </label>
+      <label class="toggle" title="Mostra ou oculta o calendário sobre o mapa">
+        <input id="calendarHudToggle" type="checkbox" checked />
+        Calendário
+      </label>
 
-          <label class="toggle" title="Mostra informações secretas (somente GM)">
-            <input id="expandAllInfoToggle" type="checkbox" disabled />
-            Expandir toda info
-          </label>
-        </div>
-        <div id="gmHint" class="gm-hint">Controles de calendário e NPCs importantes exigem Modo GM.</div>
-      </div>
+      <button id="timelineOpenBtn" class="btn btn-sm" type="button" title="Abrir linha do tempo pública e notas do jogador">Linha do tempo</button>
+
+
+      <button id="gmLoginBtn" class="btn btn-sm" type="button" title="Desbloqueia o acesso ao Painel GM">Modo GM</button>
+      <button id="gmPanelBtn" class="btn btn-sm" type="button" disabled title="Abre o Painel GM em janela separada">Painel GM</button>
+      <button id="gmLogoutBtn" class="btn btn-sm" type="button" disabled title="Bloqueia novamente o acesso GM">Sair GM</button>
+
+      <button id="campaignImportBtn" class="btn btn-sm" type="button" title="Importa um JSON de estado da campanha gerado pelo GM">Importar Estado</button>
+      <input id="campaignImportFile" type="file" accept="application/json" hidden />
+      <span id="gmHint" class="gm-hint inline">Modo GM bloqueado.</span>
     </div>
   </header>
   <div id="mobileBackdrop" class="mobile-backdrop" hidden></div>
 
   <main class="layout">
     <aside id="sidebarPanel" class="sidebar">
-      <div class="sidebar-title">Locais</div>
+      <div class="sidebar-title sidebar-title-row"><span>Locais</span><button id="advancedFiltersBtn" class="btn btn-sm" type="button" title="Filtros avançados de locais e história">Filtros avançados</button></div>
       <div id="list" class="list">
         <div id="advancedPanel" class="advanced-panel hidden">
           <div class="adv-head">
@@ -249,13 +228,19 @@
         </div>
       </div>
       <div class="hint">
-        Dica: use o Debug (x,y) para obter coordenadas precisas clicando no mapa.
+        Dica: use o Coordenadas mapa para obter coordenadas precisas clicando no mapa.
       </div>
     </aside>
 
     <section class="map-wrap">
       <div id="mapContainer" class="map-container">
         <div id="mapStage" class="map-stage">
+          <div id="mapCalendarHud" class="map-calendar-hud">
+            <button id="calendarHudCloseBtn" class="hud-close" type="button" title="Ocultar calendário">×</button>
+            <div class="hud-kicker">Calendário</div>
+            <div id="mapCalendarHudValue" class="hud-date">Dia 1 • Mês 1 • Ano 1</div>
+            <div id="mapCalendarHudSeason" class="hud-season">Estação</div>
+          </div>
           <div id="mapZoomLayer" class="map-zoom">
             <img id="worldMap" src="assets/map/world-map.jpg" alt="Mapa-múndi" />
             <img id="bordersOverlay" src="assets/map/world-borders.png" alt="Overlay" />
@@ -270,15 +255,33 @@
 
             <div id="pins" class="pins-layer"></div>
             <div id="tooltip" class="tooltip hidden"></div>
-            <div id="routeLegend" class="route-legend hidden"></div>
-            <div id="routeTooltip" class="route-tooltip hidden"></div>
-            <div id="routeInfo" class="route-info hidden"></div>
 
           </div>
+          <div id="routeLegend" class="route-legend hidden"></div>
+          <div id="routeTooltip" class="route-tooltip hidden"></div>
+          <div id="routeInfo" class="route-info hidden"></div>
+          <div id="travelBox" class="measure-box hidden"></div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Painel Linha do Tempo / Notas do Jogador -->
+  <div id="timelineBackdrop" class="backdrop hidden">
+    <div class="modal modal-timeline" role="dialog" aria-modal="true">
+      <button type="button" id="closeTimeline" class="close" aria-label="Fechar">✕</button>
+      <div class="modal-title">Linha do Tempo</div>
+      <div class="modal-meta">Eventos públicos importados do estado da campanha e notas locais do jogador.</div>
+      <div id="timelineBody" class="modal-body timeline-body"></div>
+      <div class="timeline-notes-box">
+        <div class="city-section-title">Notas do jogador</div>
+        <textarea id="timelinePlayerNotes" spellcheck="false" placeholder="Escreva aqui observações, hipóteses e lembretes da campanha..."></textarea>
+        <div class="modal-actions">
+          <button id="savePlayerNotesBtn" class="btn primary" type="button">Salvar notas</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal Local -->
   <div id="locBackdrop" class="backdrop hidden">
@@ -322,7 +325,7 @@
   <div id="debugBackdrop" class="backdrop hidden">
     <div class="modal" role="dialog" aria-modal="true">
       <button type="button" id="closeDebug" class="close" aria-label="Fechar">✕</button>
-      <div class="modal-title">Debug</div>
+      <div class="modal-title">Coordenadas do mapa</div>
       <div class="modal-meta">Coordenadas percentuais (x,y) no mapa</div>
       <div id="debugBody" class="modal-body"></div>
     </div>
@@ -375,6 +378,66 @@
     </div>
   </div>
 
+  <!-- Modal GM legado: Visão do Mundo (mantido para compatibilidade; uso principal em gm.html) -->
+  <div id="worldVisionBackdrop" class="backdrop hidden">
+    <div class="modal modal-world-vision" role="dialog" aria-modal="true">
+      <button type="button" id="closeWorldVision" class="close" aria-label="Fechar">✕</button>
+      <div class="modal-title">GM — Visão do Mundo</div>
+      <div class="modal-meta">Aplique estados políticos, religiosos, comerciais, bélicos e de perigo aos pins selecionados.</div>
+      <div class="modal-body world-vision-body">
+        <div class="wv-flow">
+          <label class="ctrl">1. Tipo de local
+            <select id="worldVisionTypeSelect"></select>
+          </label>
+          <label class="ctrl">2. Raça
+            <select id="worldVisionRaceSelect" disabled></select>
+          </label>
+          <label class="ctrl">4. Visão
+            <select id="worldVisionVisionSelect" disabled>
+              <option value="">— escolha a visão —</option>
+              <option value="political">Política</option>
+              <option value="religion">Religião</option>
+              <option value="danger">Perigo</option>
+              <option value="commerce">Comércio</option>
+              <option value="war">Bélica / Guerras</option>
+                <option value="expanded">Info expandida</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="wv-section">
+          <div class="wv-section-title">3. Locais afetados</div>
+          <div class="wv-hint">Escolha “Todos” para aplicar em todos os locais listados, ou marque locais específicos.</div>
+          <div id="worldVisionLocations" class="wv-location-list disabled"></div>
+        </div>
+
+        <div class="wv-section">
+          <div class="wv-section-title">5. Estados aplicáveis</div>
+          <div class="wv-hint">Você pode marcar várias opções ao mesmo tempo. Elas serão acumuladas no pin, sem apagar estados antigos.</div>
+          <div id="worldVisionStates" class="wv-states disabled"></div>
+        </div>
+
+        <div id="worldVisionSummary" class="wv-summary">Selecione um tipo de local para começar.</div>
+
+        <div class="modal-actions wv-actions">
+          <button id="worldVisionApplyBtn" class="btn primary" type="button">Aplicar estados</button>
+          <button id="worldVisionRemoveBtn" class="btn" type="button">Remover estados marcados</button>
+          <button id="worldVisionClearBtn" class="btn danger" type="button">Limpar visão dos locais</button>
+        </div>
+
+        <details class="wv-export-box">
+          <summary>Exportar / Importar estado do mundo</summary>
+          <div class="wv-hint">Use para salvar ou transportar os estados GM. O JSON exportado não altera pins canônicos.</div>
+          <textarea id="worldVisionJsonBox" spellcheck="false" placeholder="JSON de world_state"></textarea>
+          <div class="modal-actions">
+            <button id="worldVisionExportBtn" class="btn" type="button">Gerar exportação</button>
+            <button id="worldVisionImportBtn" class="btn warn" type="button">Importar do campo</button>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal Filtros de Rotas -->
   <div id="routeFiltersBackdrop" class="backdrop hidden">
     <div class="modal" role="dialog" aria-modal="true">
@@ -383,17 +446,36 @@
       <div class="modal-meta">Selecione quais rotas devem ser exibidas no mapa.</div>
       <div class="modal-body">
         <div class="econ-section">
+          <div class="econ-title">Modo de Visualização</div>
+          <div class="econ-grid">
+            <label><input id="routeViewStrict" type="radio" name="routeViewMode" value="strict" checked> Restrito — só mostra rotas quando todas as raças participantes estiverem marcadas</label>
+            <label><input id="routeViewUniversal" type="radio" name="routeViewMode" value="universal"> Universal por raça — mostra tudo ligado à raça escolhida</label>
+            <label><input id="routeExternalOnly" type="checkbox"> Mostrar apenas comércio externo da raça escolhida</label>
+          </div>
+          <label class="ctrl" style="margin-top:8px;display:block;">
+            Raça do ponto de vista universal
+            <select id="routeFocusRaceSelect" class="small-select" style="width:100%;margin-top:4px;"></select>
+          </label>
+        </div>
+
+        <div class="econ-section">
           <div class="econ-title">Tipo de Conexão</div>
           <div id="routeTypeFilters" class="econ-grid">
-            <label><input type="radio" name="routeConnType" value="all" checked> Todas</label>
-            <label><input type="radio" name="routeConnType" value="internal"> Internas (Assentamento ↔ Assentamento, mesma raça)</label>
-            <label><input type="radio" name="routeConnType" value="settlement-interracial"> Assentamento ↔ Assentamento (Inter-racial)</label>
+            <label><input type="radio" name="routeConnType" value="main-main" checked> Cidade Principal ↔ Cidade Principal</label>
+            <label><input type="radio" name="routeConnType" value="main-fortress"> Cidade Principal ↔ Fortaleza</label>
             <label><input type="radio" name="routeConnType" value="main-settlement"> Cidade Principal ↔ Assentamento</label>
-            <label><input type="radio" name="routeConnType" value="main-main"> Cidade Principal ↔ Cidade Principal</label>
-</div>
+            <label><input type="radio" name="routeConnType" value="fortress-settlement"> Fortaleza ↔ Assentamento</label>
+            <label><input type="radio" name="routeConnType" value="settlement-settlement"> Assentamento ↔ Assentamento</label>
+            <label><input type="radio" name="routeConnType" value="settlement-interracial"> Assentamento ↔ Assentamento Inter-racial</label>
+            <label><input type="radio" name="routeConnType" value="external-trade"> Comércio Externo entre Raças</label>
+            <label><input type="radio" name="routeConnType" value="dungeon-supply"> Masmorras / Suprimento Obscuro</label>
+            <label><input type="radio" name="routeConnType" value="cross-layer"> Rotas Intercamada</label>
+            <label><input type="radio" name="routeConnType" value="temple-guild"> Templos / Guildas</label>
+            <label><input type="radio" name="routeConnType" value="all"> Todas</label>
+          </div>
         </div>
         <div class="econ-section">
-          <div class="econ-title">Raças (Participantes)</div>
+          <div class="econ-title">Raças Participantes</div>
           <div class="gm-row" style="margin-bottom:8px;">
             <button id="routeFilterAllBtn" class="btn btn-sm" type="button">Marcar Todas</button>
             <button id="routeFilterNoneBtn" class="btn btn-sm" type="button">Desmarcar Todas</button>
@@ -410,7 +492,7 @@
     </div>
   </div>
 
-  <!-- Modal Editor GM -->
+  <!-- Modal Editor GM legado (mantido para compatibilidade; uso principal em gm.html) -->
   <div id="gmEditorBackdrop" class="backdrop hidden">
     <div class="modal modal-xl" role="dialog" aria-modal="true">
       <button type="button" id="closeGmEditor" class="close" aria-label="Fechar">✕</button>
@@ -557,26 +639,26 @@
 
             <div class="gm-row">
               <label class="ctrl">Tabernas
-                <input id="gmCountTavern" type="number" min="0" max="50" value="1" />
+                <input id="gmCountTavern" type="number" min="0" max="50" value="4" />
               </label>
               <label class="ctrl">Pousadas
-                <input id="gmCountInn" type="number" min="0" max="50" value="1" />
+                <input id="gmCountInn" type="number" min="0" max="50" value="4" />
               </label>
             </div>
             <div class="gm-row">
               <label class="ctrl">Ferreiros
-                <input id="gmCountBlacksmith" type="number" min="0" max="50" value="1" />
+                <input id="gmCountBlacksmith" type="number" min="0" max="50" value="2" />
               </label>
               <label class="ctrl">Alfaiatarias
-                <input id="gmCountTailor" type="number" min="0" max="50" value="0" />
+                <input id="gmCountTailor" type="number" min="0" max="50" value="2" />
               </label>
             </div>
             <div class="gm-row">
               <label class="ctrl">Alquimias
-                <input id="gmCountAlchemy" type="number" min="0" max="50" value="1" />
+                <input id="gmCountAlchemy" type="number" min="0" max="50" value="2" />
               </label>
               <label class="ctrl">Materiais diversos
-                <input id="gmCountGeneral" type="number" min="0" max="50" value="1" />
+                <input id="gmCountGeneral" type="number" min="0" max="50" value="2" />
               </label>
             </div>
 
@@ -590,6 +672,51 @@
             </div>
             <div class="gm-hint">Isso cria/atualiza a entrada da cidade (City View) e salva no navegador (GM). Depois
               use Exportar JSON para me enviar.</div>
+          </div>
+
+          <div class="city-section-title">Clima regional GM (opcional)</div>
+          <div class="gm-form">
+            <label class="ctrl">Região climática
+              <select id="gmClimateZoneSelect"></select>
+            </label>
+            <div class="gm-row">
+              <label class="ctrl">Temperatura ± °C
+                <input id="gmTempDeltaC" type="number" min="-50" max="50" step="1" value="0" />
+              </label>
+              <label class="ctrl">Clima
+                <select id="gmWeatherType">
+                  <option value="">Automático</option>
+                  <option value="clear">Céu limpo</option>
+                  <option value="clouds">Nublado</option>
+                  <option value="rain">Chuva</option>
+                  <option value="storm">Tempestade</option>
+                  <option value="snow">Neve</option>
+                  <option value="fog">Névoa</option>
+                  <option value="ash">Cinzas</option>
+                  <option value="arcane">Anomalia mágica</option>
+                </select>
+              </label>
+            </div>
+            <div class="gm-row">
+              <label class="ctrl">Intensidade
+                <select id="gmWeatherIntensity">
+                  <option value="">Normal</option>
+                  <option value="light">Leve</option>
+                  <option value="moderate">Moderada</option>
+                  <option value="heavy">Forte</option>
+                  <option value="extreme">Extrema</option>
+                </select>
+              </label>
+              <label class="ctrl">Nota GM
+                <input id="gmWeatherNote" type="text" placeholder="ex.: névoa necromântica até o próximo amanhecer" />
+              </label>
+            </div>
+            <div class="gm-row">
+              <button id="gmApplyClimateBtn" class="btn primary" type="button">Aplicar clima</button>
+              <button id="gmClearClimateBtn" class="btn" type="button">Limpar região</button>
+              <button id="gmClearAllClimateBtn" class="btn danger" type="button">Limpar todos</button>
+            </div>
+            <div class="gm-hint">Override opcional: altera o clima visual de uma região sem mudar os dados canônicos.</div>
           </div>
 
           <div class="city-section-title">Conversões por zona (opcional)</div>
@@ -624,11 +751,14 @@
 
   <script src="src/core.js"></script>
   <script src="src/worldSync.js"></script>
+  <script src="src/campaignState.js"></script>
   <script src="src/map.js"></script>
+  <script src="src/groupReputation.js"></script>
   <script src="src/gm.js"></script>
   <script src="src/items.js"></script>
   <script src="src/cityView.js"></script>
   <script src="src/climate.js"></script>
+  <script src="src/worldVision.js"></script>
   <script src="src/app.js"></script>
 
   <script src="src/combatViewer.js"></script>

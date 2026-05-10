@@ -1,0 +1,68 @@
+{
+  "baseZip": "atlas_eldralore_patch_assentamentos_lote3_bloco1_validado(3).zip",
+  "outputZip": "atlas_eldralore_patch_assentamentos_lote3_blocos2_5_integrados_QA.zip",
+  "checkedAt": "2026-05-09T21:59:08",
+  "plannedPins": [
+    "settlement_orcs_world_set_002",
+    "settlement_orcs_world_set_003",
+    "settlement_orcs_world_set_004",
+    "settlement_orcs_world_set_006",
+    "settlement_orcs_world_set_007",
+    "settlement_orcs_world_set_008",
+    "settlement_orcs_world_set_009",
+    "settlement_nagas_subaquatica_set_001",
+    "settlement_nagas_subaquatica_set_002",
+    "settlement_nagas_subaquatica_set_003",
+    "settlement_nagas_subaquatica_set_004",
+    "settlement_nagas_subaquatica_set_005",
+    "settlement_nagas_subaquatica_set_006",
+    "settlement_nagas_subaquatica_set_007",
+    "settlement_nagas_subaquatica_set_008",
+    "settlement_nagas_subaquatica_set_009",
+    "settlement_centaurs_world_set_001",
+    "settlement_centaurs_world_set_002",
+    "settlement_centaurs_world_set_003",
+    "settlement_centaurs_world_set_004"
+  ],
+  "integratedPins": [
+    "settlement_centaurs_world_set_001",
+    "settlement_centaurs_world_set_002",
+    "settlement_centaurs_world_set_003",
+    "settlement_centaurs_world_set_004",
+    "settlement_nagas_subaquatica_set_001",
+    "settlement_nagas_subaquatica_set_002",
+    "settlement_nagas_subaquatica_set_003",
+    "settlement_nagas_subaquatica_set_004",
+    "settlement_nagas_subaquatica_set_005",
+    "settlement_nagas_subaquatica_set_006",
+    "settlement_nagas_subaquatica_set_007",
+    "settlement_nagas_subaquatica_set_008",
+    "settlement_nagas_subaquatica_set_009",
+    "settlement_orcs_world_set_002",
+    "settlement_orcs_world_set_003",
+    "settlement_orcs_world_set_004",
+    "settlement_orcs_world_set_006",
+    "settlement_orcs_world_set_007",
+    "settlement_orcs_world_set_008",
+    "settlement_orcs_world_set_009"
+  ],
+  "integratedImageCount": 39,
+  "expectedImageCountIfComplete": 40,
+  "missingExpectedSlots": [
+    {
+      "city_id": "settlement_nagas_subaquatica_set_003",
+      "expected_dest": "assets/settlements/nagas/nagas_subaquatica_set_003_2.webp",
+      "reason": "fonte original sobrescrita/indisponível; não substituída por imagem descartada"
+    }
+  ],
+  "duplicateWebpHashes": {},
+  "existingIntegratedBlock1Preserved": true,
+  "allDestFilesExist": true,
+  "allUpdatedCityRefsExist": true,
+  "allUpdatedPinRefsExist": true,
+  "notes": [
+    "Foi preferido deixar 1 slot sem imagem a inserir imagem descartada ou ambígua no path errado.",
+    "O pin settlement_nagas_subaquatica_set_003 recebeu 1 imagem válida; a segunda deve ser gerada novamente se o bloco precisar ficar 100% completo.",
+    "Nenhum arquivo fora de assets/settlements/orcs, assets/settlements/nagas ou assets/settlements/centaurs foi adicionado para os blocos 2-5."
+  ]
+}
